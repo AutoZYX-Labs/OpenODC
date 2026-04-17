@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>厂家直填 — OpenODC</title>
+  <meta name="description" content="OEM / Tier 1 内部统一管理在研 / 预发布 / 已上市 ADS 功能的 ODC 要素，SOP 后一键推送到 OpenODC 公开样例库。" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/"><span class="brand-mark">OpenODC</span></a>
+      <div class="nav-links">
+        <a href="/gallery.html">样例库</a>
+        <a href="/editor.html">编辑器</a>
+        <a href="/compare.html">对比</a>
+        <a href="/workbench.html" class="active">厂家直填</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a href="/#standard">标准对照</a>
+        <a class="lang-toggle" href="/en/">EN</a>
+        <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">VENDOR WORKBENCH · 厂家直填</p>
+        <h1 class="page-title">厂家 ODC 内部管理工作台</h1>
+        <p class="page-subtitle">OEM / Tier 1 在内部统一维护所有 ADS 功能的 ODC 要素——在研 / 预发布 / 已上市全周期。SOP 达成后，一键推送到 OpenODC 公开样例库。</p>
+        <div class="workbench-phase-banner">
+          <strong>Phase 4 · MVP 演示</strong> — 本页面为前端演示（数据存于浏览器 localStorage，切换设备 / 清缓存会丢失）。正式版将接入账号体系 + 后端存储 + Git 集成。<a href="https://github.com/AutoZYX/OpenODC/issues" target="_blank" rel="noopener">提产品反馈 →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="workbench-vendor-row">
+          <label class="workbench-label">当前厂家身份</label>
+          <select id="vendor-select" class="workbench-select">
+            <option value="">— 请选择厂家 —</option>
+            <option value="tesla">特斯拉（Tesla）</option>
+            <option value="huawei">华为（HUAWEI / AITO / Luxeed / Stelato）</option>
+            <option value="baidu">百度 Apollo（萝卜快跑）</option>
+            <option value="byd">比亚迪（BYD）</option>
+            <option value="nio">蔚来（NIO）</option>
+            <option value="xpeng">小鹏（XPENG）</option>
+            <option value="li">理想（Li Auto）</option>
+            <option value="zhuoyu">卓驭科技（DJI Automotive）</option>
+            <option value="horizon">地平线（Horizon Robotics）</option>
+            <option value="momenta">Momenta</option>
+            <option value="other">其他 / Tier 1</option>
+          </select>
+          <span class="workbench-hint">演示模式：任意选择即可查看该厂家的 ODC 管理界面。</span>
+        </div>
+
+        <div id="workbench-body" class="workbench-body">
+          <div class="workbench-empty">请先选择厂家身份。</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">为什么需要「厂家直填」</h2>
+        <div class="two-col">
+          <div>
+            <h3>现状痛点</h3>
+            <ul class="problem-list">
+              <li>每家 OEM / Tier 1 同时开发 5–30+ 个 ADS 功能（不同车型、不同等级、不同市场）</li>
+              <li>ODC 散落在 Confluence / 飞书 / Excel 里，每个项目组格式各异</li>
+              <li>上市前法规审查、媒体测评、事故追溯，都需要翻回"当时的"ODC 声明</li>
+              <li>对外发布的 ODC 文本无法机器读取，监管 / 第三方做横向对比成本高</li>
+            </ul>
+          </div>
+          <div>
+            <h3>厂家直填的价值</h3>
+            <ul class="problem-list">
+              <li><strong>统一格式</strong>：国标 GB/T 45312—2025 提供的标准化结构，自然成为内部所有项目的通用语言</li>
+              <li><strong>版本管理</strong>：从 SOP 开始，每次 OTA 都带一份 ODC 版本号；事后追溯直接定位</li>
+              <li><strong>协作编辑</strong>：架构 / 功能安全 / 法规 / 产品多角色共编，字段级权限</li>
+              <li><strong>一键公开</strong>：SOP 达成后，对外版本（脱敏后）自动推送 OpenODC；既解决"对外披露"又贡献行业标准化</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">正式版路线图</h2>
+        <ul class="status-list">
+          <li class="done">Phase 4.0（当前）：前端 localStorage 演示 — 验证工作流</li>
+          <li class="todo">Phase 4.1：账号体系（OEM 管理员 / 项目成员 / 只读观察员）+ Supabase 后端</li>
+          <li class="todo">Phase 4.2：功能组织结构（按车型 / 按等级 / 按市场筛选 + 标签）</li>
+          <li class="todo">Phase 4.3：版本历史 + diff（看每次 OTA 改了哪些要素）+ 字段级注释</li>
+          <li class="todo">Phase 4.4：签名发布 + 一键 PR 至公开样例库</li>
+          <li class="todo">Phase 4.5：OEM SaaS 订阅 — 让项目长期可持续</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">OpenODC</p>
+      <p class="footer-note">自动驾驶系统运行设计条件开源平台 · 对齐 GB/T 45312—2025 · Apache 2.0（代码）+ CC BY 4.0（数据）</p>
+      <p class="footer-maintainer">维护：张玉新 · 吉林大学</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/workbench.js"></script>
+</body>
+</html>
