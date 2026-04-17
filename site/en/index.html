@@ -39,9 +39,10 @@
         <p class="hero-subtitle">Open Platform for Automated Driving<br/>Operational Design Conditions</p>
         <p class="hero-tagline">An open registry that makes ADS operational design conditions transparent, comparable, and machine-readable.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">View Repository</a>
-          <a class="btn btn-ghost" href="#what">Learn More</a>
+          <a class="btn btn-primary" href="/gallery.html">Browse Gallery →</a>
+          <a class="btn btn-ghost" href="/editor.html">Open Editor →</a>
         </div>
+        <p class="hero-tertiary"><a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></p>
       </div>
     </section>
 
@@ -53,24 +54,35 @@
         </p>
 
         <div class="card-grid">
-          <article class="card">
+          <a class="card card-action" href="https://github.com/AutoZYX/OpenODC/tree/main/schema" target="_blank" rel="noopener">
             <h3>① ODC Schema</h3>
-            <p>The full GB/T 45312—2025 hierarchy as a machine-readable JSON Schema and TypeScript types — about 80 fifth-level atomic elements and all quantitative scales (12 wind levels, 4 rain levels, visibility tiers, etc.).</p>
-          </article>
-          <article class="card">
+            <p>The full GB/T 45312—2025 hierarchy as a machine-readable JSON Schema and TypeScript types — 144 atomic elements across 7 categories, plus every quantitative scale (12 wind levels, 4 rain levels, 4 visibility tiers, etc.).</p>
+            <p class="card-cta">View on GitHub →</p>
+          </a>
+          <a class="card card-action" href="/editor.html">
             <h3>② ODC Editor</h3>
-            <p>OEMs or community contributors author standardized ODC declarations through a hierarchical web form, with live preview of the generated table and one-click export to JSON / Markdown / Excel / PDF.</p>
-            <p class="card-meta">Phase 1</p>
-          </article>
-          <article class="card">
+            <p>Hierarchical tree picker + parameter inputs + live JSON preview. Export to JSON / Markdown / clipboard / browser local storage. Browser-based, no login required.</p>
+            <p class="card-cta">Open Editor →</p>
+          </a>
+          <a class="card card-action" href="/gallery.html">
             <h3>③ ODC Gallery</h3>
-            <p>A public sample library — browse, filter, and compare ODCs by vehicle, function, automation level, and vendor. Each record carries transparent provenance: official, community-extracted, or media-tested.</p>
-            <p class="card-meta">Phase 1–2</p>
-          </article>
-          <article class="card">
+            <p>Public sample library — filter by automation level, source, or keyword. Each record carries transparent provenance (vendor-confirmed / community-extracted / demo-only).</p>
+            <p class="card-cta">Browse Samples →</p>
+          </a>
+          <a class="card card-action" href="/view.html?id=gb45312-appendix-a-l3-highway">
             <h3>④ Multi-View Renderer</h3>
             <p>One ODC document, four lenses: developer (full hierarchy + JSON), tester (scenario sampling grid), regulator (compliance gap matrix), consumer (plain-language permission cards).</p>
-            <p class="card-meta">Phase 2</p>
+            <p class="card-cta">View Example →</p>
+          </a>
+          <a class="card card-action" href="/compare.html">
+            <h3>⑤ Compare</h3>
+            <p>Side-by-side diff of 2–4 ODC declarations. Green = both permit; red = both deny; amber = disagreement. Spot capability boundary differences at a glance.</p>
+            <p class="card-cta">Start Comparing →</p>
+          </a>
+          <article class="card card-disabled">
+            <h3>⑥ Vendor Self-Service</h3>
+            <p>Authenticated OEM / supplier accounts for online editing, versioning, signed publishing. Supabase backend; vendor records do not overwrite community ones.</p>
+            <p class="card-meta">Phase 4 · Planned</p>
           </article>
         </div>
       </div>
@@ -100,17 +112,20 @@
 
     <section id="status" class="section">
       <div class="container">
-        <h2 class="section-title">Current status (v0.1.0 · Phase 0)</h2>
+        <h2 class="section-title">Current status (v0.2.0 · Phase 0–3 shipped)</h2>
         <ul class="status-list">
-          <li class="done">Full transcription of the GB/T 45312—2025 ODC hierarchy (~80 fifth-level elements)</li>
-          <li class="done">JSON Schema (Draft 2020-12) and TypeScript type definitions</li>
-          <li class="done">All quantitative scales captured as reusable enums (wind, rain, snow, visibility for fog/haze/dust/smoke, natural and artificial lighting)</li>
-          <li class="done">Standard Appendix A L3 expressway example fully transcribed to JSON</li>
+          <li class="done">Phase 0: Full transcription of GB/T 45312—2025 (144 elements / 7 categories) + JSON Schema + TypeScript types</li>
+          <li class="done">Phase 0: Quantitative scales captured as reusable enums (wind, rain, snow, visibility tiers, lighting)</li>
+          <li class="done">Phase 0: Standard Appendix A L3 expressway example fully transcribed to JSON</li>
+          <li class="done">Phase 1: <a href="/gallery.html">Public sample gallery</a> with filtering by level / source / keyword</li>
+          <li class="done">Phase 1: <a href="/editor.html">Web editor</a> — hierarchical tree, live JSON, multi-format export</li>
+          <li class="done">Phase 2: <a href="/view.html?id=gb45312-appendix-a-l3-highway">Four-view renderer</a> (developer / tester / regulator / consumer)</li>
+          <li class="done">Phase 2: <a href="/compare.html">Multi-document Compare</a> (diff view, 2–4 documents)</li>
+          <li class="done">Phase 3: GitHub PR template + CI auto-validation (ajv-cli + element_id reference check)</li>
           <li class="done">Apache 2.0 (code) + CC BY 4.0 (data) licenses</li>
-          <li class="todo">Web editor (Phase 1)</li>
-          <li class="todo">Public sample gallery (Phase 1)</li>
-          <li class="todo">Four-view renderer (Phase 2)</li>
-          <li class="todo">Vendor self-service authoring + Supabase backend (Phase 4)</li>
+          <li class="todo">Phase 4: Vendor self-service authoring + Supabase backend (planned)</li>
+          <li class="todo">Phase 4: ROAM linkage (link incidents to involved vehicle's declared ODC)</li>
+          <li class="todo">Phase 4: ISO 34503 / BSI PAS 1883 international mapping</li>
         </ul>
       </div>
     </section>
@@ -192,7 +207,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.1.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p><strong>OpenODC v0.2.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
         <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">

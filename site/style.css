@@ -150,6 +150,18 @@ code {
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero-tertiary {
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+}
+.hero-tertiary a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.hero-tertiary a:hover {
+  color: var(--accent);
+}
 .btn {
   display: inline-block;
   padding: 0.85rem 1.8rem;
@@ -246,6 +258,34 @@ code {
   padding: 0.2rem 0.6rem;
   border-radius: 3px;
   margin-top: 0.5rem;
+}
+.card-action {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card-action:hover {
+  text-decoration: none;
+}
+.card-action:hover .card-cta {
+  color: var(--accent-deep);
+}
+.card-cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+.card-disabled {
+  opacity: 0.55;
+  background: var(--bg-alt);
+  border-style: dashed;
+}
+.card-disabled:hover {
+  transform: none;
+  border-color: var(--line);
 }
 .card-tag {
   font-size: 0.78rem;

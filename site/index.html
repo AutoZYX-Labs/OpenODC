@@ -39,9 +39,10 @@
         <p class="hero-subtitle">自动驾驶系统运行设计条件开源平台</p>
         <p class="hero-tagline">让自动驾驶系统的运行设计条件透明、可对比、机器可读。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">查看仓库</a>
-          <a class="btn btn-ghost" href="#what">了解项目</a>
+          <a class="btn btn-primary" href="/gallery.html">浏览样例库 →</a>
+          <a class="btn btn-ghost" href="/editor.html">用编辑器创建 →</a>
         </div>
+        <p class="hero-tertiary"><a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a></p>
       </div>
     </section>
 
@@ -53,24 +54,35 @@
         </p>
 
         <div class="card-grid">
-          <article class="card">
+          <a class="card card-action" href="https://github.com/AutoZYX/OpenODC/tree/main/schema" target="_blank" rel="noopener">
             <h3>① ODC Schema</h3>
-            <p>把 GB/T 45312—2025 的 5 层级元素结构、约 80 个第 5 层原子元素、所有量化分级表（风力 12 级、雨量 4 级、能见度 4 级等）转录为机器可读的 JSON Schema 与 TypeScript 类型。</p>
-          </article>
-          <article class="card">
+            <p>把 GB/T 45312—2025 的 5 层级、144 个原子元素、所有量化分级表（风力 12 级、雨量 4 级、能见度 4 级等）转录为机器可读的 JSON Schema 与 TypeScript 类型。</p>
+            <p class="card-cta">查看 GitHub →</p>
+          </a>
+          <a class="card card-action" href="/editor.html">
             <h3>② ODC Editor</h3>
-            <p>厂家或社区可以通过 Web 表单层级化勾选、输入参数范围，实时预览生成的标准化 ODC 表格。一键导出 JSON / Markdown / Excel / PDF，对接监管申报或仿真平台。</p>
-            <p class="card-meta">Phase 1</p>
-          </article>
-          <article class="card">
+            <p>层级树勾选 + 参数范围输入 + 实时 JSON 预览。导出 JSON / Markdown / 复制到剪贴板 / 浏览器本地保存。基于浏览器，不需登录。</p>
+            <p class="card-cta">打开编辑器 →</p>
+          </a>
+          <a class="card card-action" href="/gallery.html">
             <h3>③ ODC Gallery</h3>
-            <p>公开的 ODC 样例库 —— 按车型、功能、自动化等级、厂家筛选浏览。多车型并排对比（diff 视图）。每条数据透明标注来源（厂家声明 / 社区反推 / 官方公告）。</p>
-            <p class="card-meta">Phase 1–2</p>
-          </article>
-          <article class="card">
+            <p>公开 ODC 样例库 —— 按车型、功能、自动化等级筛选浏览。每条数据透明标注来源（厂家声明 / 社区反推 / 演示数据）。</p>
+            <p class="card-cta">浏览样例 →</p>
+          </a>
+          <a class="card card-action" href="/view.html?id=gb45312-appendix-a-l3-highway">
             <h3>④ Multi-View Renderer</h3>
-            <p>同一份 ODC 数据，四种视图：开发者（完整 5 层级 + JSON）、测试（场景生成清单）、监管（合规对照表）、消费者（一句话能/不能用 + 风险卡片）。</p>
-            <p class="card-meta">Phase 2</p>
+            <p>同一份 ODC 数据，四种视图：开发者（完整 5 层级 + JSON）、测试（场景采样建议）、监管（合规对照与 gap）、消费者（能 / 不能用 + 风险卡片）。</p>
+            <p class="card-cta">查看示例 →</p>
+          </a>
+          <a class="card card-action" href="/compare.html">
+            <h3>⑤ Compare</h3>
+            <p>多车型 ODC 并排对比（2–4 个）。绿色 = 双方都允许，红色 = 双方都不允许，橙色 = 不一致。一眼看出能力边界差异。</p>
+            <p class="card-cta">开始对比 →</p>
+          </a>
+          <article class="card card-disabled">
+            <h3>⑥ 厂家直填</h3>
+            <p>OEM / AD 供应商账号注册后直接在线编辑、版本管理、签名发布。Supabase 后端，与社区版本互不覆盖。</p>
+            <p class="card-meta">Phase 4 · 规划中</p>
           </article>
         </div>
       </div>
@@ -100,17 +112,20 @@
 
     <section id="status" class="section">
       <div class="container">
-        <h2 class="section-title">当前进展（v0.1.0 · Phase 0）</h2>
+        <h2 class="section-title">当前进展（v0.2.0 · Phase 0–3 完成）</h2>
         <ul class="status-list">
-          <li class="done">完整转录 GB/T 45312—2025 的 ODC 元素层级（约 80 个第 5 层级元素）</li>
-          <li class="done">JSON Schema 主文件 + TypeScript 类型定义</li>
-          <li class="done">量化分级表全部机器可读化（风力、雨量、降雪、积雪、4 类能见度、自然/人工光照）</li>
-          <li class="done">标准附录 A 的 L3 高速 ODC 示例完整转录为 JSON</li>
+          <li class="done">Phase 0：完整转录 GB/T 45312—2025（144 个元素 / 7 类）+ JSON Schema + TypeScript 类型</li>
+          <li class="done">Phase 0：量化分级表机器可读化（风力、雨量、降雪、积雪、4 类能见度、光照）</li>
+          <li class="done">Phase 0：标准附录 A 的 L3 高速 ODC 示例完整转录为 JSON</li>
+          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（按等级 / 来源 / 关键词筛选）</li>
+          <li class="done">Phase 1：<a href="/editor.html">Web 编辑器</a>（层级树勾选 + 实时 JSON + 多格式导出）</li>
+          <li class="done">Phase 2：<a href="/view.html?id=gb45312-appendix-a-l3-highway">四视图渲染</a>（开发者 / 测试 / 监管 / 消费者）</li>
+          <li class="done">Phase 2：<a href="/compare.html">多车型对比 Compare</a>（diff 视图，2–4 个并排）</li>
+          <li class="done">Phase 3：GitHub PR 模板 + CI 自动校验（ajv-cli + element_id 引用检查）</li>
           <li class="done">Apache 2.0 代码许可 + CC BY 4.0 数据许可</li>
-          <li class="todo">Web 编辑器（Phase 1）</li>
-          <li class="todo">公开样例库 Gallery（Phase 1）</li>
-          <li class="todo">四视图渲染（Phase 2）</li>
-          <li class="todo">厂家直填能力 + Supabase 后端（Phase 4）</li>
+          <li class="todo">Phase 4：厂家直填能力 + Supabase 后端（规划中）</li>
+          <li class="todo">Phase 4：与 ROAM 联动（事件 ↔ 涉事车型 ODC 自动关联）</li>
+          <li class="todo">Phase 4：ISO 34503 / BSI PAS 1883 国际化映射</li>
         </ul>
       </div>
     </section>
@@ -192,7 +207,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.1.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.2.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">
