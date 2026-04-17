@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenODC — Open Platform for Automated Driving Operational Design Conditions</title>
+  <meta name="description" content="OpenODC is an open registry that makes Automated Driving System operational design conditions transparent, comparable, and machine-readable. Aligned with GB/T 45312-2025." />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/en/">
+        <span class="brand-mark">OpenODC</span>
+      </a>
+      <div class="nav-links">
+        <a href="#what">What</a>
+        <a href="#why">Why</a>
+        <a href="#status">Status</a>
+        <a href="#standard">Standard</a>
+        <a href="#related">Related</a>
+        <a class="lang-toggle" href="/">中</a>
+        <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Aligned with GB/T 45312—2025</p>
+        <h1 class="hero-title">OpenODC</h1>
+        <p class="hero-subtitle">Open Platform for Automated Driving<br/>Operational Design Conditions</p>
+        <p class="hero-tagline">An open registry that makes ADS operational design conditions transparent, comparable, and machine-readable.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">View Repository</a>
+          <a class="btn btn-ghost" href="#what">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="what" class="section">
+      <div class="container">
+        <h2 class="section-title">What is OpenODC</h2>
+        <p class="lead">
+          OpenODC is an open-source platform for defining, comparing, and browsing ODC (Operational Design Condition) declarations for Automated Driving Systems. It is rigorously aligned with the Chinese national standard GB/T 45312—2025 <em>Intelligent and connected vehicles — Operational design condition for automated driving system</em>.
+        </p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>① ODC Schema</h3>
+            <p>The full GB/T 45312—2025 hierarchy as a machine-readable JSON Schema and TypeScript types — about 80 fifth-level atomic elements and all quantitative scales (12 wind levels, 4 rain levels, visibility tiers, etc.).</p>
+          </article>
+          <article class="card">
+            <h3>② ODC Editor</h3>
+            <p>OEMs or community contributors author standardized ODC declarations through a hierarchical web form, with live preview of the generated table and one-click export to JSON / Markdown / Excel / PDF.</p>
+            <p class="card-meta">Phase 1</p>
+          </article>
+          <article class="card">
+            <h3>③ ODC Gallery</h3>
+            <p>A public sample library — browse, filter, and compare ODCs by vehicle, function, automation level, and vendor. Each record carries transparent provenance: official, community-extracted, or media-tested.</p>
+            <p class="card-meta">Phase 1–2</p>
+          </article>
+          <article class="card">
+            <h3>④ Multi-View Renderer</h3>
+            <p>One ODC document, four lenses: developer (full hierarchy + JSON), tester (scenario sampling grid), regulator (compliance gap matrix), consumer (plain-language permission cards).</p>
+            <p class="card-meta">Phase 2</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Why this exists</h2>
+        <div class="two-col">
+          <div>
+            <h3>Three industry realities</h3>
+            <ul class="problem-list">
+              <li>Each OEM declares ODCs in its own format — regulators and third-party labs cannot make like-for-like comparisons</li>
+              <li>Consumers can't see the actual operating boundary — sales pitches stop at "L2" or "L3"; the limits surface only after an incident</li>
+              <li>GB/T 45312—2025 defines the full hierarchy, but the standard itself ships no machine-readable counterpart</li>
+            </ul>
+          </div>
+          <div>
+            <h3>OpenODC's position</h3>
+            <p>Not a replacement for an OEM's internal ODC tooling — a public-facing standardized format and a public sample library.</p>
+            <p>Analogy: caniuse.com for browser features, applied to operational design conditions. Make ODCs queryable, comparable, and reusable.</p>
+            <p>Open data first; expect OEMs to follow once the format becomes the industry default.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="container">
+        <h2 class="section-title">Current status (v0.1.0 · Phase 0)</h2>
+        <ul class="status-list">
+          <li class="done">Full transcription of the GB/T 45312—2025 ODC hierarchy (~80 fifth-level elements)</li>
+          <li class="done">JSON Schema (Draft 2020-12) and TypeScript type definitions</li>
+          <li class="done">All quantitative scales captured as reusable enums (wind, rain, snow, visibility for fog/haze/dust/smoke, natural and artificial lighting)</li>
+          <li class="done">Standard Appendix A L3 expressway example fully transcribed to JSON</li>
+          <li class="done">Apache 2.0 (code) + CC BY 4.0 (data) licenses</li>
+          <li class="todo">Web editor (Phase 1)</li>
+          <li class="todo">Public sample gallery (Phase 1)</li>
+          <li class="todo">Four-view renderer (Phase 2)</li>
+          <li class="todo">Vendor self-service authoring + Supabase backend (Phase 4)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="standard" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Mapping to the standard</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>GB/T 45312—2025 clause</th><th>OpenODC counterpart</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>§5 General requirements</td><td><code>ODCElement</code> definition in <code>schema/odc.schema.json</code></td></tr>
+              <tr><td>§6.1 ODC base element hierarchy</td><td>Tree under <code>schema/categories/*.json</code></td></tr>
+              <tr><td>§6.2 ODD (road / infra / targets / weather / digital)</td><td>Five <code>odd_*.json</code> category files</td></tr>
+              <tr><td>§6.3 Driver and passenger state</td><td><code>personnel_state.json</code></td></tr>
+              <tr><td>§6.4 Vehicle state</td><td><code>vehicle_state.json</code></td></tr>
+              <tr><td>§5.4.b Permitted / not permitted</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
+              <tr><td>§5.4.c Element associations</td><td><code>associations[]</code> field</td></tr>
+              <tr><td>§5.5 Exit behavior for not-permitted elements</td><td><code>exit_behavior</code> field</td></tr>
+              <tr><td>Appendix A example</td><td><code>data/examples/gb45312-appendix-a-l3-highway.json</code></td></tr>
+              <tr><td>Tables 5–14 quantitative scales</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="related" class="section">
+      <div class="container">
+        <h2 class="section-title">An open AD safety toolkit</h2>
+        <p class="lead">OpenODC sits alongside two sibling open-source projects, forming an end-to-end transparency stack:</p>
+        <div class="card-grid">
+          <article class="card card-related">
+            <h3>ROAM</h3>
+            <p class="card-tag">Outcome side</p>
+            <p>L4 Robotaxi Operations Anomaly Management — incident database, scenario taxonomy, reference architecture. Answers "what went wrong".</p>
+            <a href="https://github.com/AutoZYX/ROAM" target="_blank" rel="noopener">GitHub →</a>
+          </article>
+          <article class="card card-related card-current">
+            <h3>OpenODC</h3>
+            <p class="card-tag">Boundary side</p>
+            <p>Standardized definition, comparison, and browsing of operational design conditions. Answers "what is the system declared to do".</p>
+            <span class="here-pill">You are here</span>
+          </article>
+          <article class="card card-related">
+            <h3>DRIVEResearch</h3>
+            <p class="card-tag">Empirical side</p>
+            <p>Aerial naturalistic driving dataset — 750h+ flight time, 10.5M+ trajectories. Answers "what does reality actually cover".</p>
+            <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">Website →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta">
+      <div class="container">
+        <h2 class="section-title">How to participate</h2>
+        <div class="two-col">
+          <div>
+            <h3>For OEMs and AD suppliers</h3>
+            <p>Submit an officially-endorsed ODC declaration for one of your vehicles or functions. We mark it <code>vendor_confirmed</code> and rank it as the authoritative entry for that record.</p>
+          </div>
+          <div>
+            <h3>For third parties, researchers, journalists</h3>
+            <p>Extract ODCs from public materials (owner manuals, regulatory filings, third-party tests). Mark provenance honestly. Submit via PR to enter the <code>community_reviewed</code> tier.</p>
+          </div>
+        </div>
+        <div class="hero-actions" style="margin-top:2rem;">
+          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">Visit GitHub Repository</a>
+          <a class="btn btn-ghost" href="https://github.com/AutoZYX/OpenODC/issues" target="_blank" rel="noopener">Open an Issue</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.1.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/">中文</a>
+        <a href="https://github.com/AutoZYX/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

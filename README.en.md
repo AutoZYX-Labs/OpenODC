@@ -1,7 +1,7 @@
 # OpenODC
 
 > Open Platform for Automated Driving Operational Design Conditions
-> 自动驾驶系统运行设计条件公共平台
+> 自动驾驶系统运行设计条件开源平台
 
 An open registry that makes ADS operational design conditions transparent, comparable, and machine-readable — aligned with the Chinese national standard GB/T 45312—2025.
 

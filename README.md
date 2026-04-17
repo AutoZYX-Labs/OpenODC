@@ -1,6 +1,6 @@
 # OpenODC
 
-> 自动驾驶系统运行设计条件公共平台
+> 自动驾驶系统运行设计条件开源平台
 > Open Platform for Automated Driving Operational Design Conditions
 
 让自动驾驶系统的运行设计条件透明、可对比、机器可读，对齐 GB/T 45312—2025。
