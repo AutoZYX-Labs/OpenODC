@@ -1,0 +1,181 @@
+{
+  "category_id": "odd.weather",
+  "name_zh": "天气环境",
+  "name_en": "Weather Environment",
+  "level": 2,
+  "parent_id": "odd",
+  "spec_section": "6.2.4",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "odd.weather.atmospheric",
+      "name_zh": "天气",
+      "name_en": "Atmospheric Weather",
+      "level": 3,
+      "parent_id": "odd.weather",
+      "spec_section": "6.2.4.1"
+    },
+    {
+      "id": "odd.weather.atmospheric.wind",
+      "name_zh": "风",
+      "name_en": "Wind",
+      "level": 4,
+      "parent_id": "odd.weather.atmospheric",
+      "spec_section": "6.2.4.1.1",
+      "spec_reference": "GB/T 35663",
+      "enum_id": "wind_levels",
+      "requirement_template": "应说明 ADS 允许或不允许的风力等级或风速范围。"
+    },
+    {
+      "id": "odd.weather.atmospheric.rain",
+      "name_zh": "雨",
+      "name_en": "Rain",
+      "level": 4,
+      "parent_id": "odd.weather.atmospheric",
+      "spec_section": "6.2.4.1.2",
+      "spec_reference": "QX/T 111",
+      "enum_id": "rain_levels",
+      "requirement_template": "应说明 ADS 允许或不允许的雨量等级或雨量范围。"
+    },
+    {
+      "id": "odd.weather.atmospheric.snow.snowfall",
+      "name_zh": "降雪",
+      "name_en": "Snowfall",
+      "level": 5,
+      "parent_id": "odd.weather.atmospheric.snow",
+      "spec_section": "6.2.4.1.3.a",
+      "spec_reference": "ISO 34503",
+      "enum_id": "snowfall_levels",
+      "requirement_template": "应说明 ADS 允许或不允许的降雪等级或降雪范围。"
+    },
+    {
+      "id": "odd.weather.atmospheric.snow.accumulation",
+      "name_zh": "积雪",
+      "name_en": "Snow Accumulation",
+      "level": 5,
+      "parent_id": "odd.weather.atmospheric.snow",
+      "spec_section": "6.2.4.1.3.b",
+      "spec_reference": "QX/T 111",
+      "enum_id": "snow_accumulation_levels",
+      "requirement_template": "应说明 ADS 允许或不允许的积雪等级或积雪范围。"
+    },
+    {
+      "id": "odd.weather.atmospheric.special",
+      "name_zh": "特殊天气",
+      "name_en": "Special Weather",
+      "level": 4,
+      "parent_id": "odd.weather.atmospheric",
+      "spec_section": "6.2.4.1.4",
+      "spec_reference": "GB/T 35663",
+      "description_zh": "除风、雨、雪及 6.2.4.2 定义的颗粒物外的特殊天气。"
+    },
+
+    {
+      "id": "odd.weather.particles",
+      "name_zh": "颗粒物",
+      "name_en": "Particulates",
+      "level": 3,
+      "parent_id": "odd.weather",
+      "spec_section": "6.2.4.2"
+    },
+    {
+      "id": "odd.weather.particles.fog",
+      "name_zh": "雾",
+      "name_en": "Fog",
+      "level": 4,
+      "parent_id": "odd.weather.particles",
+      "spec_section": "6.2.4.2.1",
+      "spec_reference": "QX/T 111",
+      "enum_id": "visibility_levels",
+      "requirement_template": "应说明 ADS 允许或不允许的因雾引起的影响 ADS 能见度等级或能见度范围。"
+    },
+    {
+      "id": "odd.weather.particles.haze",
+      "name_zh": "霾",
+      "name_en": "Haze",
+      "level": 4,
+      "parent_id": "odd.weather.particles",
+      "spec_section": "6.2.4.2.2",
+      "spec_reference": "QX/T 111",
+      "enum_id": "visibility_levels"
+    },
+    {
+      "id": "odd.weather.particles.dust",
+      "name_zh": "沙尘",
+      "name_en": "Dust",
+      "level": 4,
+      "parent_id": "odd.weather.particles",
+      "spec_section": "6.2.4.2.3",
+      "spec_reference": "QX/T 111",
+      "enum_id": "visibility_levels"
+    },
+    {
+      "id": "odd.weather.particles.smoke",
+      "name_zh": "烟幕",
+      "name_en": "Smoke",
+      "level": 4,
+      "parent_id": "odd.weather.particles",
+      "spec_section": "6.2.4.2.4",
+      "spec_reference": "QX/T 111",
+      "enum_id": "visibility_levels"
+    },
+
+    {
+      "id": "odd.weather.lighting",
+      "name_zh": "光照",
+      "name_en": "Lighting",
+      "level": 3,
+      "parent_id": "odd.weather",
+      "spec_section": "6.2.4.3"
+    },
+    {
+      "id": "odd.weather.lighting.natural",
+      "name_zh": "自然光源",
+      "name_en": "Natural Lighting",
+      "level": 4,
+      "parent_id": "odd.weather.lighting",
+      "spec_section": "6.2.4.3.1",
+      "enum_id": "natural_lighting_levels",
+      "description_zh": "一般指太阳光。",
+      "requirement_template": "应说明 ADS 允许或不允许的自然光源照度类别或范围。可根据需要补充描述太阳光角度、太阳相对车辆的方位。"
+    },
+    {
+      "id": "odd.weather.lighting.streetlight",
+      "name_zh": "路灯",
+      "name_en": "Streetlight (Lighting)",
+      "level": 5,
+      "parent_id": "odd.weather.lighting.artificial",
+      "spec_section": "6.2.4.3.2.a",
+      "enum_id": "artificial_lighting_levels",
+      "description_zh": "指光源来自于为道路交通提供照明的灯光。"
+    },
+    {
+      "id": "odd.weather.lighting.headlight",
+      "name_zh": "车灯",
+      "name_en": "Vehicle Headlight",
+      "level": 5,
+      "parent_id": "odd.weather.lighting.artificial",
+      "spec_section": "6.2.4.3.2.b",
+      "description_zh": "光源来自于其他车辆的灯光。"
+    },
+    {
+      "id": "odd.weather.lighting.indoor",
+      "name_zh": "室内灯光",
+      "name_en": "Indoor Lighting",
+      "level": 5,
+      "parent_id": "odd.weather.lighting.artificial",
+      "spec_section": "6.2.4.3.2.c",
+      "description_zh": "光源来自于室内停车场提供照明的灯光。"
+    },
+    {
+      "id": "odd.weather.temperature",
+      "name_zh": "气温",
+      "name_en": "Temperature",
+      "level": 3,
+      "parent_id": "odd.weather",
+      "spec_section": "6.2.4.4",
+      "description_zh": "表示空气冷热程度的物理量。",
+      "requirement_template": "应说明 ADS 允许或不允许的温度范围（单位：°C）。"
+    }
+  ]
+}

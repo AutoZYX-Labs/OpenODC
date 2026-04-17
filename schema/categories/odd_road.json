@@ -1,0 +1,673 @@
+{
+  "category_id": "odd.road",
+  "name_zh": "道路",
+  "name_en": "Road",
+  "level": 2,
+  "parent_id": "odd",
+  "spec_section": "6.2.1",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "odd.road.type",
+      "name_zh": "道路类型",
+      "name_en": "Road Type",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.1"
+    },
+    {
+      "id": "odd.road.type.area",
+      "name_zh": "区域",
+      "name_en": "Area",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.1",
+      "description_zh": "包括具备特殊道路配置的、或具有特定驾驶法规管理的、或特殊环境条件的驾驶区域。典型的区域包括学校园区、交通管制区域、地理围栏等。",
+      "requirement_template": "应说明 ADS 允许/不允许的具体区域类型和范围。"
+    },
+    {
+      "id": "odd.road.type.urban_road",
+      "name_zh": "城市道路",
+      "name_en": "Urban Road",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.2",
+      "spec_reference": "CJJ 37"
+    },
+    {
+      "id": "odd.road.type.urban_road.expressway",
+      "name_zh": "快速路",
+      "name_en": "Expressway (Urban)",
+      "level": 5,
+      "parent_id": "odd.road.type.urban_road",
+      "spec_section": "6.2.1.1.2.a",
+      "description_zh": "具备中央分隔、全部控制出入、控制出入口间距及形式，实现交通连续通行，单向设置不应少于两条车道的道路，一般设有配套的交通安全与管理设施，且两侧不应设置吸引大量车流、人流的公共建筑物的出入口。"
+    },
+    {
+      "id": "odd.road.type.urban_road.arterial",
+      "name_zh": "主干路",
+      "name_en": "Arterial Road",
+      "level": 5,
+      "parent_id": "odd.road.type.urban_road",
+      "spec_section": "6.2.1.1.2.b",
+      "description_zh": "用于连接城市各主要分区，以交通功能为主的道路，两侧不宜设置吸引大量车流、人流的公共建筑物的出入口。"
+    },
+    {
+      "id": "odd.road.type.urban_road.sub_arterial",
+      "name_zh": "次干路",
+      "name_en": "Sub-Arterial Road",
+      "level": 5,
+      "parent_id": "odd.road.type.urban_road",
+      "spec_section": "6.2.1.1.2.c",
+      "description_zh": "与主干路结合组成干路网，以集散交通功能为主的道路，兼有服务功能。"
+    },
+    {
+      "id": "odd.road.type.urban_road.branch",
+      "name_zh": "支路",
+      "name_en": "Branch Road",
+      "level": 5,
+      "parent_id": "odd.road.type.urban_road",
+      "spec_section": "6.2.1.1.2.d",
+      "description_zh": "与次干路和居住区、工业区、交通设施等内部道路相连接，解决局部地区交通，以服务功能为主的道路。"
+    },
+    {
+      "id": "odd.road.type.highway",
+      "name_zh": "公路",
+      "name_en": "Highway",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.3",
+      "spec_reference": "JTG D20"
+    },
+    {
+      "id": "odd.road.type.highway.expressway",
+      "name_zh": "高速公路",
+      "name_en": "Expressway (Highway)",
+      "level": 5,
+      "parent_id": "odd.road.type.highway",
+      "spec_section": "6.2.1.1.3.a",
+      "description_zh": "专供汽车分方向、分车道行驶，全部控制出入的多车道公路。"
+    },
+    {
+      "id": "odd.road.type.highway.class_1",
+      "name_zh": "一级公路",
+      "name_en": "Class-1 Highway",
+      "level": 5,
+      "parent_id": "odd.road.type.highway",
+      "spec_section": "6.2.1.1.3.b",
+      "description_zh": "供汽车分方向、分车道行驶，可根据需要控制出入的多车道公路。"
+    },
+    {
+      "id": "odd.road.type.highway.class_2",
+      "name_zh": "二级公路",
+      "name_en": "Class-2 Highway",
+      "level": 5,
+      "parent_id": "odd.road.type.highway",
+      "spec_section": "6.2.1.1.3.c",
+      "description_zh": "供汽车行驶的双车道公路。"
+    },
+    {
+      "id": "odd.road.type.highway.class_3",
+      "name_zh": "三级公路",
+      "name_en": "Class-3 Highway",
+      "level": 5,
+      "parent_id": "odd.road.type.highway",
+      "spec_section": "6.2.1.1.3.d",
+      "description_zh": "供汽车、非汽车交通混合行驶的双车道公路。"
+    },
+    {
+      "id": "odd.road.type.highway.class_4",
+      "name_zh": "四级公路",
+      "name_en": "Class-4 Highway",
+      "level": 5,
+      "parent_id": "odd.road.type.highway",
+      "spec_section": "6.2.1.1.3.e",
+      "description_zh": "供汽车、非汽车交通混合行驶的双车道或单车道公路，四级公路的设计交通量小于三级公路。"
+    },
+    {
+      "id": "odd.road.type.rural",
+      "name_zh": "乡村道路",
+      "name_en": "Rural Road",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.4",
+      "description_zh": "村庄以及规模和形态接近于村庄的乡村内部道路。"
+    },
+    {
+      "id": "odd.road.type.other",
+      "name_zh": "其他道路",
+      "name_en": "Other Roads",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.5",
+      "description_zh": "可包括厂矿道路、林区道路、油田、广场、旅游区、内部道路等非公共道路。"
+    },
+    {
+      "id": "odd.road.type.parking_indoor",
+      "name_zh": "室内停车区域",
+      "name_en": "Indoor Parking Area",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.6.a",
+      "description_zh": "供机动车停放的室内停车区域。",
+      "requirement_template": "应说明 ADS 允许或不允许的车位类型（例如空间平行车位、空间垂直车位、空间倾斜车位、车位线平行车位、车位线垂直车位、车位线倾斜车位等）或其他要求（例如车位空间尺寸、周边空间尺寸等）。"
+    },
+    {
+      "id": "odd.road.type.parking_outdoor",
+      "name_zh": "室外停车区域",
+      "name_en": "Outdoor Parking Area",
+      "level": 4,
+      "parent_id": "odd.road.type",
+      "spec_section": "6.2.1.1.6.b",
+      "description_zh": "供机动车停放的室外停车区域。",
+      "requirement_template": "同 6.2.1.1.6.a 室内停车区域。"
+    },
+
+    {
+      "id": "odd.road.surface",
+      "name_zh": "道路表面",
+      "name_en": "Road Surface",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.2"
+    },
+    {
+      "id": "odd.road.surface.type.paved",
+      "name_zh": "铺装状态",
+      "name_en": "Paved Surface",
+      "level": 5,
+      "parent_id": "odd.road.surface.type",
+      "spec_section": "6.2.1.2.1.a",
+      "description_zh": "包含沥青混凝土路面状态、水泥混凝土路面状态。"
+    },
+    {
+      "id": "odd.road.surface.type.unpaved",
+      "name_zh": "非铺装状态",
+      "name_en": "Unpaved Surface",
+      "level": 5,
+      "parent_id": "odd.road.surface.type",
+      "spec_section": "6.2.1.2.1.b",
+      "description_zh": "路面存在碎石、石块、泥土等的状态。"
+    },
+    {
+      "id": "odd.road.surface.quality.cracking",
+      "name_zh": "开裂",
+      "name_en": "Cracking",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.a",
+      "description_zh": "路面出现裂缝的现象。",
+      "requirement_template": "应说明 ADS 允许或不允许的裂缝严重程度，如裂缝尺寸等。"
+    },
+    {
+      "id": "odd.road.surface.quality.rutting",
+      "name_zh": "车辙",
+      "name_en": "Rutting",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.b",
+      "description_zh": "路面在车轮荷载重复作用下，沿车轮纵向产生的带状凹陷。"
+    },
+    {
+      "id": "odd.road.surface.quality.subsidence",
+      "name_zh": "沉陷",
+      "name_en": "Subsidence",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.c",
+      "description_zh": "路面局部下沉。"
+    },
+    {
+      "id": "odd.road.surface.quality.pothole",
+      "name_zh": "坑槽",
+      "name_en": "Pothole",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.d",
+      "description_zh": "在行车作用下，路面骨料局部脱落而产生的坑洼。"
+    },
+    {
+      "id": "odd.road.surface.quality.shoving",
+      "name_zh": "拥包",
+      "name_en": "Shoving",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.e",
+      "description_zh": "路面材料沿行车推挤而形成局部隆起的现象。"
+    },
+    {
+      "id": "odd.road.surface.quality.raveling",
+      "name_zh": "表面松散",
+      "name_en": "Raveling",
+      "level": 5,
+      "parent_id": "odd.road.surface.quality",
+      "spec_section": "6.2.1.2.2.f",
+      "description_zh": "由于结合料黏性降低或消失，路面在行车作用下集料从表面脱落的现象。"
+    },
+    {
+      "id": "odd.road.surface.coverage",
+      "name_zh": "道路表面覆盖物",
+      "name_en": "Road Surface Coverage",
+      "level": 4,
+      "parent_id": "odd.road.surface",
+      "spec_section": "6.2.1.2.3",
+      "description_zh": "道路表面上的其他物质，如泥土、冰、树叶、油污、积水、水痕等覆盖物。"
+    },
+
+    {
+      "id": "odd.road.geometry",
+      "name_zh": "道路几何",
+      "name_en": "Road Geometry",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.3"
+    },
+    {
+      "id": "odd.road.geometry.plane.straight",
+      "name_zh": "直道",
+      "name_en": "Straight",
+      "level": 5,
+      "parent_id": "odd.road.geometry.plane",
+      "spec_section": "6.2.1.3.1.a",
+      "description_zh": "具有平面直线特征的道路。"
+    },
+    {
+      "id": "odd.road.geometry.plane.curve",
+      "name_zh": "弯道",
+      "name_en": "Curve",
+      "level": 5,
+      "parent_id": "odd.road.geometry.plane",
+      "spec_section": "6.2.1.3.1.b",
+      "description_zh": "具有平面圆曲线特征的道路。",
+      "requirement_template": "应说明 ADS 允许或不允许的弯道半径范围，例如曲率半径 ≥ 150 m。"
+    },
+    {
+      "id": "odd.road.geometry.plane.widening",
+      "name_zh": "加宽",
+      "name_en": "Widening",
+      "level": 5,
+      "parent_id": "odd.road.geometry.plane",
+      "spec_section": "6.2.1.3.1.c",
+      "description_zh": "当平面圆曲线半径较小时，为了更好的车辆通过性，可在平面圆曲线范围内设置路面加宽。"
+    },
+    {
+      "id": "odd.road.geometry.profile.level",
+      "name_zh": "水平",
+      "name_en": "Level",
+      "level": 5,
+      "parent_id": "odd.road.geometry.profile",
+      "spec_section": "6.2.1.3.2.a",
+      "description_zh": "沿车辆行驶方向具有水平特征的路面。"
+    },
+    {
+      "id": "odd.road.geometry.profile.uphill",
+      "name_zh": "上坡",
+      "name_en": "Uphill",
+      "level": 5,
+      "parent_id": "odd.road.geometry.profile",
+      "spec_section": "6.2.1.3.2.b",
+      "description_zh": "沿车辆行驶方向具有向上特征的纵坡。",
+      "requirement_template": "如有必要，可说明 ADS 允许或不允许的坡度和/或坡长。"
+    },
+    {
+      "id": "odd.road.geometry.profile.downhill",
+      "name_zh": "下坡",
+      "name_en": "Downhill",
+      "level": 5,
+      "parent_id": "odd.road.geometry.profile",
+      "spec_section": "6.2.1.3.2.c",
+      "description_zh": "沿车辆行驶方向具有向下特征的纵坡。"
+    },
+    {
+      "id": "odd.road.geometry.cross.divider",
+      "name_zh": "分离",
+      "name_en": "Separation",
+      "level": 5,
+      "parent_id": "odd.road.geometry.cross",
+      "spec_section": "6.2.1.3.3.a",
+      "description_zh": "道路采用分隔设施分隔同向或双向交通、机动车和非机动车、车辆和行人。"
+    },
+    {
+      "id": "odd.road.geometry.cross.cross_slope",
+      "name_zh": "横坡",
+      "name_en": "Cross Slope",
+      "level": 5,
+      "parent_id": "odd.road.geometry.cross",
+      "spec_section": "6.2.1.3.3.b",
+      "description_zh": "路幅和路侧带各组成部分的横向坡度，包括路面、分隔带、人行道、绿化带等的横向倾斜度。"
+    },
+    {
+      "id": "odd.road.geometry.cross.superelevation",
+      "name_zh": "超高",
+      "name_en": "Superelevation",
+      "level": 5,
+      "parent_id": "odd.road.geometry.cross",
+      "spec_section": "6.2.1.3.3.c",
+      "description_zh": "为抵消车辆在平曲线路段上行驶时所产生的离心力，在该路段横断面上设置的外侧高于内侧的单向横坡。"
+    },
+    {
+      "id": "odd.road.geometry.cross.sidewalk",
+      "name_zh": "人行道",
+      "name_en": "Sidewalk",
+      "level": 5,
+      "parent_id": "odd.road.geometry.cross",
+      "spec_section": "6.2.1.3.3.d",
+      "description_zh": "道路中用路缘石或护栏及其他类似设施加以分隔的专供人通行的部分。"
+    },
+
+    {
+      "id": "odd.road.lane",
+      "name_zh": "车道特征",
+      "name_en": "Lane Characteristics",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.4"
+    },
+    {
+      "id": "odd.road.lane.marking.quality",
+      "name_zh": "标线质量",
+      "name_en": "Marking Quality",
+      "level": 5,
+      "parent_id": "odd.road.lane.marking",
+      "spec_section": "6.2.1.4.1.a"
+    },
+    {
+      "id": "odd.road.lane.marking.absent",
+      "name_zh": "无道路交通标线",
+      "name_en": "Absent Marking",
+      "level": 5,
+      "parent_id": "odd.road.lane.marking",
+      "spec_section": "6.2.1.4.1.b"
+    },
+    {
+      "id": "odd.road.lane.marking.color",
+      "name_zh": "标线颜色",
+      "name_en": "Marking Color",
+      "level": 5,
+      "parent_id": "odd.road.lane.marking",
+      "spec_section": "6.2.1.4.1.c",
+      "spec_reference": "GB 5768.3"
+    },
+    {
+      "id": "odd.road.lane.marking.type",
+      "name_zh": "标线类型",
+      "name_en": "Marking Type",
+      "level": 5,
+      "parent_id": "odd.road.lane.marking",
+      "spec_section": "6.2.1.4.1.d",
+      "spec_reference": "GB 5768.3"
+    },
+    {
+      "id": "odd.road.lane.marking.width",
+      "name_zh": "标线宽度",
+      "name_en": "Marking Width",
+      "level": 5,
+      "parent_id": "odd.road.lane.marking",
+      "spec_section": "6.2.1.4.1.e",
+      "spec_reference": "GB 5768.3"
+    },
+    {
+      "id": "odd.road.lane.type.non_motor",
+      "name_zh": "非机动车道",
+      "name_en": "Non-Motor Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.a"
+    },
+    {
+      "id": "odd.road.lane.type.motor",
+      "name_zh": "机动车道",
+      "name_en": "Motor Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.b"
+    },
+    {
+      "id": "odd.road.lane.type.mixed",
+      "name_zh": "机非混行车道",
+      "name_en": "Mixed Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.c"
+    },
+    {
+      "id": "odd.road.lane.type.bus",
+      "name_zh": "公交专用车道",
+      "name_en": "Bus Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.d"
+    },
+    {
+      "id": "odd.road.lane.type.dedicated",
+      "name_zh": "其他专用车道",
+      "name_en": "Other Dedicated Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.e",
+      "description_zh": "包括小型车专用车道、大型车专用车道、多乘员车辆专用车道。"
+    },
+    {
+      "id": "odd.road.lane.type.tidal",
+      "name_zh": "潮汐车道",
+      "name_en": "Tidal Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.f",
+      "description_zh": "车辆行驶方向可随交通管理需要进行变化的车道。"
+    },
+    {
+      "id": "odd.road.lane.type.escape",
+      "name_zh": "避险车道",
+      "name_en": "Escape Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.g"
+    },
+    {
+      "id": "odd.road.lane.type.emergency",
+      "name_zh": "应急车道",
+      "name_en": "Emergency Lane",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.h"
+    },
+    {
+      "id": "odd.road.lane.type.exit",
+      "name_zh": "道路出口",
+      "name_en": "Road Exit",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.i"
+    },
+    {
+      "id": "odd.road.lane.type.entrance",
+      "name_zh": "道路入口",
+      "name_en": "Road Entrance",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.j"
+    },
+    {
+      "id": "odd.road.lane.type.total_count",
+      "name_zh": "车道类型总数",
+      "name_en": "Lane Type Count",
+      "level": 5,
+      "parent_id": "odd.road.lane.type",
+      "spec_section": "6.2.1.4.2.k"
+    },
+    {
+      "id": "odd.road.lane.count",
+      "name_zh": "车道数",
+      "name_en": "Lane Count",
+      "level": 4,
+      "parent_id": "odd.road.lane",
+      "spec_section": "6.2.1.4.3"
+    },
+    {
+      "id": "odd.road.lane.width",
+      "name_zh": "车道宽度",
+      "name_en": "Lane Width",
+      "level": 4,
+      "parent_id": "odd.road.lane",
+      "spec_section": "6.2.1.4.4",
+      "requirement_template": "应说明 ADS 运行允许或不允许的车道宽度范围，单位 m。"
+    },
+
+    {
+      "id": "odd.road.edge",
+      "name_zh": "道路边缘",
+      "name_en": "Road Edge",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.5"
+    },
+    {
+      "id": "odd.road.edge.guardrail",
+      "name_zh": "护栏",
+      "name_en": "Guardrail",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.1"
+    },
+    {
+      "id": "odd.road.edge.curb",
+      "name_zh": "路缘石",
+      "name_en": "Curb",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.2"
+    },
+    {
+      "id": "odd.road.edge.temporary",
+      "name_zh": "临时道路边缘",
+      "name_en": "Temporary Edge",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.3"
+    },
+    {
+      "id": "odd.road.edge.hard_shoulder",
+      "name_zh": "硬路肩",
+      "name_en": "Hard Shoulder",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.4"
+    },
+    {
+      "id": "odd.road.edge.soil_shoulder",
+      "name_zh": "土路肩",
+      "name_en": "Soil Shoulder",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.5"
+    },
+    {
+      "id": "odd.road.edge.lawn",
+      "name_zh": "草坪",
+      "name_en": "Lawn",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.6"
+    },
+    {
+      "id": "odd.road.edge.gravel",
+      "name_zh": "碎石子",
+      "name_en": "Gravel",
+      "level": 4,
+      "parent_id": "odd.road.edge",
+      "spec_section": "6.2.1.5.7"
+    },
+
+    {
+      "id": "odd.road.intersection",
+      "name_zh": "道路交叉",
+      "name_en": "Road Intersection",
+      "level": 3,
+      "parent_id": "odd.road",
+      "spec_section": "6.2.1.6"
+    },
+    {
+      "id": "odd.road.intersection.at_grade",
+      "name_zh": "平面交叉",
+      "name_en": "At-Grade Intersection",
+      "level": 4,
+      "parent_id": "odd.road.intersection",
+      "spec_section": "6.2.1.6.1",
+      "spec_reference": "CJJ 152",
+      "description_zh": "按照几何形状，分为十字形、T 形、Y 形、X 形、多叉形、错位交叉口等类型。"
+    },
+    {
+      "id": "odd.road.intersection.roundabout.mini",
+      "name_zh": "小型环岛",
+      "name_en": "Mini Roundabout",
+      "level": 5,
+      "parent_id": "odd.road.intersection.roundabout",
+      "spec_section": "6.2.1.6.2.a"
+    },
+    {
+      "id": "odd.road.intersection.roundabout.compact",
+      "name_zh": "紧凑环岛",
+      "name_en": "Compact Roundabout",
+      "level": 5,
+      "parent_id": "odd.road.intersection.roundabout",
+      "spec_section": "6.2.1.6.2.b"
+    },
+    {
+      "id": "odd.road.intersection.roundabout.normal",
+      "name_zh": "常规环岛",
+      "name_en": "Normal Roundabout",
+      "level": 5,
+      "parent_id": "odd.road.intersection.roundabout",
+      "spec_section": "6.2.1.6.2.c"
+    },
+    {
+      "id": "odd.road.intersection.roundabout.large",
+      "name_zh": "大环岛",
+      "name_en": "Large Roundabout",
+      "level": 5,
+      "parent_id": "odd.road.intersection.roundabout",
+      "spec_section": "6.2.1.6.2.d"
+    },
+    {
+      "id": "odd.road.intersection.roundabout.double",
+      "name_zh": "双环岛",
+      "name_en": "Double Roundabout",
+      "level": 5,
+      "parent_id": "odd.road.intersection.roundabout",
+      "spec_section": "6.2.1.6.2.e"
+    },
+    {
+      "id": "odd.road.intersection.grade_separated",
+      "name_zh": "立体交叉",
+      "name_en": "Grade-Separated Intersection",
+      "level": 4,
+      "parent_id": "odd.road.intersection",
+      "spec_section": "6.2.1.6.3"
+    },
+    {
+      "id": "odd.road.intersection.interchange.general",
+      "name_zh": "一般立交",
+      "name_en": "General Interchange",
+      "level": 5,
+      "parent_id": "odd.road.intersection.interchange",
+      "spec_section": "6.2.1.6.4.a"
+    },
+    {
+      "id": "odd.road.intersection.interchange.hub",
+      "name_zh": "枢纽立交",
+      "name_en": "Hub Interchange",
+      "level": 5,
+      "parent_id": "odd.road.intersection.interchange",
+      "spec_section": "6.2.1.6.4.b"
+    },
+    {
+      "id": "odd.road.intersection.ramp",
+      "name_zh": "匝道",
+      "name_en": "Ramp",
+      "level": 4,
+      "parent_id": "odd.road.intersection",
+      "spec_section": "6.2.1.6.5"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category_id": "odd.digital",
+  "name_zh": "数字信息",
+  "name_en": "Digital Information",
+  "level": 2,
+  "parent_id": "odd",
+  "spec_section": "6.2.5",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "odd.digital.wireless",
+      "name_zh": "无线通信",
+      "name_en": "Wireless Communication",
+      "level": 3,
+      "parent_id": "odd.digital",
+      "spec_section": "6.2.5.1"
+    },
+    {
+      "id": "odd.digital.wireless.v2v",
+      "name_zh": "V2V",
+      "name_en": "V2V",
+      "level": 4,
+      "parent_id": "odd.digital.wireless",
+      "spec_section": "6.2.5.1.1",
+      "description_zh": "车辆与车辆之间的通信。"
+    },
+    {
+      "id": "odd.digital.wireless.v2i",
+      "name_zh": "V2I",
+      "name_en": "V2I",
+      "level": 4,
+      "parent_id": "odd.digital.wireless",
+      "spec_section": "6.2.5.1.2",
+      "description_zh": "车辆与路侧设施之间的通信。"
+    },
+    {
+      "id": "odd.digital.wireless.v2p",
+      "name_zh": "V2P",
+      "name_en": "V2P",
+      "level": 4,
+      "parent_id": "odd.digital.wireless",
+      "spec_section": "6.2.5.1.3",
+      "description_zh": "车辆与行人通信设备之间的通信。"
+    },
+    {
+      "id": "odd.digital.wireless.v2n",
+      "name_zh": "V2N",
+      "name_en": "V2N",
+      "level": 4,
+      "parent_id": "odd.digital.wireless",
+      "spec_section": "6.2.5.1.4",
+      "description_zh": "车辆与网络之间的通信。"
+    },
+
+    {
+      "id": "odd.digital.position",
+      "name_zh": "位置信号",
+      "name_en": "Positioning Signal",
+      "level": 3,
+      "parent_id": "odd.digital",
+      "spec_section": "6.2.5.2"
+    },
+    {
+      "id": "odd.digital.position.gnss",
+      "name_zh": "全球卫星导航系统",
+      "name_en": "GNSS",
+      "level": 4,
+      "parent_id": "odd.digital.position",
+      "spec_section": "6.2.5.2.1",
+      "description_zh": "类型主要包括 BDS、GPS、GLONASS 和 GALILEO。",
+      "requirement_template": "应采用「允许」说明 ADS 所支持的全球卫星导航系统类型。",
+      "options": ["BDS", "GPS", "GLONASS", "GALILEO"]
+    },
+    {
+      "id": "odd.digital.position.rtk",
+      "name_zh": "RTK",
+      "name_en": "RTK",
+      "level": 4,
+      "parent_id": "odd.digital.position",
+      "spec_section": "6.2.5.2.2",
+      "description_zh": "RTK 数据。"
+    }
+  ]
+}

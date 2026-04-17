@@ -1,0 +1,78 @@
+{
+  "category_id": "odd.targets",
+  "name_zh": "目标物",
+  "name_en": "Targets",
+  "level": 2,
+  "parent_id": "odd",
+  "spec_section": "6.2.3",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "odd.targets.motor_vehicle",
+      "name_zh": "机动车",
+      "name_en": "Motor Vehicle",
+      "level": 3,
+      "parent_id": "odd.targets",
+      "spec_section": "6.2.3.1",
+      "spec_reference": "GA 802",
+      "description_zh": "以动力装置驱动或者牵引、上道路行驶的供人员乘用或者用于运送物品以及进行工程专项作业的轮式车辆。",
+      "classification": {
+        "common": ["乘用车", "客车", "货车", "摩托车"],
+        "special": ["工程作业车", "无轨电车", "警车", "消防车", "救护车"]
+      },
+      "requirement_template": "应说明 ADS 允许或不允许的机动车类型。"
+    },
+    {
+      "id": "odd.targets.non_motor_vehicle",
+      "name_zh": "非机动车",
+      "name_en": "Non-Motor Vehicle",
+      "level": 3,
+      "parent_id": "odd.targets",
+      "spec_section": "6.2.3.2",
+      "description_zh": "以人力或者畜力驱动，上道路行驶的交通工具，以及虽有动力装置驱动但设计最高时速、空车质量、外形尺寸符合有关国家标准的残疾人机动轮椅车、电动自行车等交通工具。",
+      "classification": {
+        "human_powered": ["自行车", "三轮车", "手推（拉）车", "轮椅"]
+      },
+      "requirement_template": "应说明 ADS 允许或不允许的非机动车类型。"
+    },
+    {
+      "id": "odd.targets.pedestrian",
+      "name_zh": "行人",
+      "name_en": "Pedestrian",
+      "level": 3,
+      "parent_id": "odd.targets",
+      "spec_section": "6.2.3.3",
+      "description_zh": "在道路上或附近通行或静止的人。",
+      "requirement_template": "说明 ADS 允许或不允许的行人类型、尺寸或状态等。"
+    },
+    {
+      "id": "odd.targets.animal",
+      "name_zh": "动物",
+      "name_en": "Animal",
+      "level": 3,
+      "parent_id": "odd.targets",
+      "spec_section": "6.2.3.4",
+      "description_zh": "对车辆通行可能产生影响的、有可能出现在道路表面或上方的非人类动物。",
+      "classification": {
+        "large_ground": "通常高度大于 0.5 m 的大型地表动物，如牛、马、羊、鹿、猪等",
+        "small_ground": "通常高度小于 0.5 m 的小型地表动物，如猫、狗、鸡、鸭、鹅、兔子等",
+        "flying": "飞行动物，如鸟类、蝙蝠、昆虫等"
+      },
+      "requirement_template": "应说明 ADS 允许或不允许的动物类型、尺寸或状态等。"
+    },
+    {
+      "id": "odd.targets.obstacle",
+      "name_zh": "障碍物",
+      "name_en": "Obstacle",
+      "level": 3,
+      "parent_id": "odd.targets",
+      "spec_section": "6.2.3.5",
+      "description_zh": "对车辆通行可能产生影响的、道路表面或上方的静态或动态物体。",
+      "classification": {
+        "ground": "如掉落的货物、车辆碰撞后残骸、石头、沙土、垃圾及其他散落在地面上的物体",
+        "airborne": "如空中漂浮的塑料袋、树叶、侵入车道的树枝、正在坠落的落石或货物等可能影响正常驾驶的空中飘浮的物体"
+      },
+      "requirement_template": "应说明 ADS 允许或不允许的障碍物类型和/或尺寸。"
+    }
+  ]
+}

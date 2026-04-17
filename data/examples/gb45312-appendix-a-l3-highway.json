@@ -1,0 +1,114 @@
+{
+  "id": "gb45312-appendix-a-l3-highway",
+  "spec_version": "0.1.0",
+  "spec_source": "GB/T 45312-2025",
+  "vendor": "中华人民共和国国家标准（示例）",
+  "vendor_en": "PRC National Standard (Example)",
+  "model": "—",
+  "function_name": "高速公路及快速路的 3 级驾驶自动化系统 ODC 示例",
+  "function_name_en": "Example ODC for L3 ADS on Expressways",
+  "ads_level": 3,
+  "software_version": null,
+  "hardware_config": null,
+  "effective_date": "2025-02-28",
+
+  "elements": [
+    {"element_id": "odd.road.type.area", "requirement": "not_permitted", "description": "地理围栏之外的区域", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.road.type.urban_road.expressway", "requirement": "permitted", "description": "快速路"},
+    {"element_id": "odd.road.type.urban_road.arterial", "requirement": "not_permitted", "description": "主干路", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.type.urban_road.sub_arterial", "requirement": "not_permitted", "description": "次干路", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.type.urban_road.branch", "requirement": "not_permitted", "description": "支路", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.road.type.highway.expressway", "requirement": "permitted", "description": "高速公路"},
+    {"element_id": "odd.road.type.highway.class_1", "requirement": "not_permitted", "description": "一级公路", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.type.highway.class_2", "requirement": "not_permitted", "description": "二级公路", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.type.highway.class_3", "requirement": "not_permitted", "description": "三级公路", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.type.highway.class_4", "requirement": "not_permitted", "description": "四级公路", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.road.type.rural", "requirement": "not_permitted", "description": "乡村道路", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.road.surface.coverage", "requirement": "permitted", "description": "树叶、油污等小范围覆盖路面，但不影响车道线检测"},
+
+    {"element_id": "odd.road.geometry.plane.straight", "requirement": "permitted", "description": "直道"},
+    {"element_id": "odd.road.geometry.plane.curve", "requirement": "permitted", "description": "曲率半径 ≥ 150 m", "parameter_range": "曲率半径 ≥ 150 m"},
+
+    {"element_id": "odd.road.geometry.profile.level", "requirement": "permitted", "description": "水平"},
+    {"element_id": "odd.road.geometry.profile.uphill", "requirement": "permitted", "description": "坡度 ≤ 6%", "parameter_range": "坡度 ≤ 6%"},
+    {"element_id": "odd.road.geometry.profile.downhill", "requirement": "permitted", "description": "坡度 ≤ 6%", "parameter_range": "坡度 ≤ 6%"},
+
+    {"element_id": "odd.road.geometry.cross.cross_slope", "requirement": "permitted", "description": "坡度 ≤ 2%", "parameter_range": "坡度 ≤ 2%"},
+    {"element_id": "odd.road.geometry.cross.superelevation", "requirement": "permitted", "description": "坡度 ≤ 2%", "parameter_range": "坡度 ≤ 2%"},
+
+    {"element_id": "odd.road.lane.marking.quality", "requirement": "permitted", "description": "清晰"},
+    {"element_id": "odd.road.lane.marking.absent", "requirement": "not_permitted", "description": "无道路交通标线", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.marking.color", "requirement": "permitted", "description": "颜色符合 GB 5768.3"},
+    {"element_id": "odd.road.lane.marking.type", "requirement": "permitted", "description": "类型符合 GB 5768.3"},
+
+    {"element_id": "odd.road.lane.type.non_motor", "requirement": "not_permitted", "description": "非机动车道", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.motor", "requirement": "permitted", "description": "机动车道"},
+    {"element_id": "odd.road.lane.type.dedicated", "requirement": "not_permitted", "description": "其他专用车道", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.tidal", "requirement": "not_permitted", "description": "潮汐车道", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.escape", "requirement": "not_permitted", "description": "避险车道", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.emergency", "requirement": "not_permitted", "description": "应急车道", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.exit", "requirement": "not_permitted", "description": "道路出口", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.type.entrance", "requirement": "not_permitted", "description": "道路入口", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.road.lane.width", "requirement": "permitted", "description": "3 m < 车道宽度 < 4.5 m", "parameter_range": "3 m < width < 4.5 m"},
+
+    {"element_id": "odd.road.intersection.grade_separated", "requirement": "permitted", "description": "立体交叉"},
+    {"element_id": "odd.road.intersection.ramp", "requirement": "not_permitted", "description": "匝道", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.infrastructure.traffic_control.sign", "requirement": "permitted", "description": "永久性标志"},
+    {"element_id": "odd.infrastructure.traffic_control.signal", "requirement": "not_permitted", "description": "交通信号灯", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.infrastructure.special.gate", "requirement": "not_permitted", "description": "道闸系统", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.infrastructure.special.bridge", "requirement": "permitted", "description": "桥梁"},
+    {"element_id": "odd.infrastructure.special.height_width_limit", "requirement": "permitted", "description": "限高/限宽设施"},
+    {"element_id": "odd.infrastructure.special.speed_bump", "requirement": "permitted", "description": "减速带"},
+    {"element_id": "odd.infrastructure.special.railway_crossing", "requirement": "not_permitted", "description": "铁路交叉", "exit_behavior": "suppress_and_exit"},
+    {"element_id": "odd.infrastructure.special.tunnel", "requirement": "permitted", "description": "隧道"},
+    {"element_id": "odd.infrastructure.special.toll_station", "requirement": "not_permitted", "description": "收费站", "exit_behavior": "suppress_and_exit"},
+
+    {"element_id": "odd.targets.motor_vehicle", "requirement": "permitted", "description": "常见车辆"},
+    {"element_id": "odd.targets.non_motor_vehicle", "requirement": "permitted", "description": "自行车"},
+    {"element_id": "odd.targets.pedestrian", "requirement": "permitted", "description": "无车辆遮挡横穿道路的行人"},
+    {"element_id": "odd.targets.obstacle", "requirement": "permitted", "description": "掉落的货物"},
+
+    {"element_id": "odd.weather.particles.fog", "requirement": "permitted", "description": "1 级（200 m < 能见度 ≤ 500 m）", "parameter_range": "200m < visibility <= 500m"},
+    {"element_id": "odd.weather.lighting.natural", "requirement": "permitted", "description": "强环境照明条件"},
+    {"element_id": "odd.weather.lighting.streetlight", "requirement": "permitted", "description": "夜晚有路灯的光照度"},
+    {"element_id": "odd.weather.lighting.headlight", "requirement": "permitted", "description": "车灯"},
+    {"element_id": "odd.weather.temperature", "requirement": "permitted", "description": "−20 °C ~ 45 °C", "parameter_range": "-20°C to 45°C"},
+
+    {"element_id": "odd.digital.wireless.v2v", "requirement": "permitted", "description": "V2V"},
+    {"element_id": "odd.digital.wireless.v2i", "requirement": "permitted", "description": "V2I"},
+    {"element_id": "odd.digital.wireless.v2p", "requirement": "permitted", "description": "V2P"},
+    {"element_id": "odd.digital.wireless.v2n", "requirement": "permitted", "description": "V2N"},
+    {"element_id": "odd.digital.position.gnss", "requirement": "permitted", "description": "BDS, GPS, GLONASS, GALILEO"}
+  ],
+
+  "associations": [
+    {
+      "primary_id": "odd.road.geometry.profile.uphill",
+      "dependent_id": "odd.weather.atmospheric.rain",
+      "relation": "limits_range",
+      "description": "允许「雨」的雨量等级为「1 级」"
+    },
+    {
+      "primary_id": "odd.road.geometry.profile.downhill",
+      "dependent_id": "odd.weather.atmospheric.rain",
+      "relation": "limits_range",
+      "description": "允许「雨」的雨量等级为「1 级」"
+    }
+  ],
+
+  "metadata": {
+    "submitted_by": "openodc-bot",
+    "submitted_at": "2026-04-17T00:00:00Z",
+    "review_status": "vendor_confirmed",
+    "sources": [
+      "GB/T 45312-2025 附录 A 表 A.1 (高速公路及快速路的 3 级驾驶自动化系统 ODC 示例 — ODD)"
+    ],
+    "notes": "本示例直接转录自 GB/T 45312-2025 附录 A 表 A.1，作为 OpenODC 数据格式的标准对照样例。表 A.2（驾乘人员状态）和表 A.3（车辆状态）可在后续版本中补充。"
+  }
+}

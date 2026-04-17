@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenODC — 自动驾驶系统运行设计条件公共平台</title>
+  <meta name="description" content="OpenODC 是一个开源的 ODC 标准化定义、对比、查阅平台，对齐 GB/T 45312—2025，让自动驾驶系统的运行设计条件透明、可对比、机器可读。" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">OpenODC</span>
+      </a>
+      <div class="nav-links">
+        <a href="#what">是什么</a>
+        <a href="#why">为什么</a>
+        <a href="#status">进展</a>
+        <a href="#standard">标准对照</a>
+        <a href="#related">相关项目</a>
+        <a class="lang-toggle" href="README.en.md">EN</a>
+        <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">基于 GB/T 45312—2025</p>
+        <h1 class="hero-title">OpenODC</h1>
+        <p class="hero-subtitle">自动驾驶系统运行设计条件公共平台</p>
+        <p class="hero-tagline">让自动驾驶系统的运行设计条件透明、可对比、机器可读。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">查看仓库</a>
+          <a class="btn btn-ghost" href="#what">了解项目</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="what" class="section">
+      <div class="container">
+        <h2 class="section-title">这是什么</h2>
+        <p class="lead">
+          OpenODC 是一个开源的 ODC（Operational Design Condition，设计运行条件）标准化定义、对比、查阅平台。它基于国家标准 GB/T 45312—2025《智能网联汽车 自动驾驶系统设计运行条件》。
+        </p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>① ODC Schema</h3>
+            <p>把 GB/T 45312—2025 的 5 层级元素结构、约 80 个第 5 层原子元素、所有量化分级表（风力 12 级、雨量 4 级、能见度 4 级等）转录为机器可读的 JSON Schema 与 TypeScript 类型。</p>
+          </article>
+          <article class="card">
+            <h3>② ODC Editor</h3>
+            <p>厂家或社区可以通过 Web 表单层级化勾选、输入参数范围，实时预览生成的标准化 ODC 表格。一键导出 JSON / Markdown / Excel / PDF，对接监管申报或仿真平台。</p>
+            <p class="card-meta">Phase 1</p>
+          </article>
+          <article class="card">
+            <h3>③ ODC Gallery</h3>
+            <p>公开的 ODC 样例库 —— 按车型、功能、自动化等级、厂家筛选浏览。多车型并排对比（diff 视图）。每条数据透明标注来源（厂家声明 / 社区反推 / 官方公告）。</p>
+            <p class="card-meta">Phase 1–2</p>
+          </article>
+          <article class="card">
+            <h3>④ Multi-View Renderer</h3>
+            <p>同一份 ODC 数据，四种视图：开发者（完整 5 层级 + JSON）、测试（场景生成清单）、监管（合规对照表）、消费者（一句话能/不能用 + 风险卡片）。</p>
+            <p class="card-meta">Phase 2</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">为什么要有这个</h2>
+        <div class="two-col">
+          <div>
+            <h3>三个行业现状</h3>
+            <ul class="problem-list">
+              <li>OEM 各自定义 ODC，没有统一格式 —— 监管和第三方机构难以横向对比</li>
+              <li>消费者完全看不到具体边界 —— 销售只说"L2/L3"，事故发生时才发现"原来不能用"</li>
+              <li>国家标准 GB/T 45312—2025 给了完整层级结构，但缺少机器可读的对应物</li>
+            </ul>
+          </div>
+          <div>
+            <h3>OpenODC 的定位</h3>
+            <p>不是要取代厂家自己的 ODC 文档系统，而是建立一个面向对外发布的标准化格式 + 公开样例库。</p>
+            <p>类比：caniuse.com 之于 web 浏览器特性。让设计运行条件变得可查、可比、可复用。</p>
+            <p>开放数据先行，等待 OEM 跟进。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="container">
+        <h2 class="section-title">当前进展（v0.1.0 · Phase 0）</h2>
+        <ul class="status-list">
+          <li class="done">完整转录 GB/T 45312—2025 的 ODC 元素层级（约 80 个第 5 层级元素）</li>
+          <li class="done">JSON Schema 主文件 + TypeScript 类型定义</li>
+          <li class="done">量化分级表全部机器可读化（风力、雨量、降雪、积雪、4 类能见度、自然/人工光照）</li>
+          <li class="done">标准附录 A 的 L3 高速 ODC 示例完整转录为 JSON</li>
+          <li class="done">Apache 2.0 代码许可 + CC BY 4.0 数据许可</li>
+          <li class="todo">Web 编辑器（Phase 1）</li>
+          <li class="todo">公开样例库 Gallery（Phase 1）</li>
+          <li class="todo">四视图渲染（Phase 2）</li>
+          <li class="todo">厂家直填能力 + Supabase 后端（Phase 4）</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="standard" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">与标准的对应关系</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>GB/T 45312—2025 章节</th><th>OpenODC 对应</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>§5 一般要求</td><td><code>schema/odc.schema.json</code> 的 ODCElement 定义</td></tr>
+              <tr><td>§6.1 ODC 基础元素层级</td><td><code>schema/categories/*.json</code> 树形结构</td></tr>
+              <tr><td>§6.2 ODD（道路 / 设施 / 目标物 / 天气 / 数字信息）</td><td><code>odd_*.json</code> 5 个分类文件</td></tr>
+              <tr><td>§6.3 驾乘人员状态</td><td><code>personnel_state.json</code></td></tr>
+              <tr><td>§6.4 车辆状态</td><td><code>vehicle_state.json</code></td></tr>
+              <tr><td>§5.4.b 允许 / 不允许</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
+              <tr><td>§5.4.c 元素关联关系</td><td><code>associations[]</code> 字段</td></tr>
+              <tr><td>§5.5 不允许的退出行为</td><td><code>exit_behavior</code> 字段</td></tr>
+              <tr><td>附录 A 示例</td><td><code>data/examples/gb45312-appendix-a-l3-highway.json</code></td></tr>
+              <tr><td>量化分级表 5–14</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="related" class="section">
+      <div class="container">
+        <h2 class="section-title">AD 安全开源工具栈</h2>
+        <p class="lead">OpenODC 与 ROAM、DRIVEResearch 构成 AD 安全的"三部曲"：</p>
+        <div class="card-grid">
+          <article class="card card-related">
+            <h3>ROAM</h3>
+            <p class="card-tag">事故出口端</p>
+            <p>L4 Robotaxi 远程运营事故数据库 + 场景分类 + 参考架构。回答"出了什么问题"。</p>
+            <a href="https://github.com/AutoZYX/ROAM" target="_blank" rel="noopener">GitHub →</a>
+          </article>
+          <article class="card card-related card-current">
+            <h3>OpenODC</h3>
+            <p class="card-tag">设计边界端</p>
+            <p>设计运行条件标准化定义、对比、查阅。回答"声明能干什么"。</p>
+            <span class="here-pill">当前页面</span>
+          </article>
+          <article class="card card-related">
+            <h3>DRIVEResearch</h3>
+            <p class="card-tag">实测分布端</p>
+            <p>航测自然驾驶数据集，750h+ 飞行 / 10.5M+ 轨迹。回答"实际覆盖什么"。</p>
+            <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">官网 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta">
+      <div class="container">
+        <h2 class="section-title">参与方式</h2>
+        <div class="two-col">
+          <div>
+            <h3>对 OEM / AD 供应商</h3>
+            <p>提交贵方某个车型 / 功能的官方 ODC 声明。我们会标记为 vendor_confirmed，作为该条目的权威版本。</p>
+          </div>
+          <div>
+            <h3>对第三方机构 / 学术界 / 媒体</h3>
+            <p>从公开材料（车主手册、媒体测评、申报公告）反推 ODC 数据，标注来源置信度。提交 PR 后进入 community_reviewed 状态。</p>
+          </div>
+        </div>
+        <div class="hero-actions" style="margin-top:2rem;">
+          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">访问 GitHub 仓库</a>
+          <a class="btn btn-ghost" href="https://github.com/AutoZYX/OpenODC/issues" target="_blank" rel="noopener">提交 Issue</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.1.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p>维护者：<a href="https://www.linkedin.com/in/zhangyuxin312/" target="_blank" rel="noopener">Zhang Yuxin</a> · 吉林大学 / 卓驭科技 / 驭研科技</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="README.en.md">English</a>
+        <a href="ARCHITECTURE.md">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

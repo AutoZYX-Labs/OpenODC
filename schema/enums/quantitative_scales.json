@@ -1,0 +1,142 @@
+{
+  "spec_source": "GB/T 45312-2025",
+  "description": "量化分级表 / Quantitative Level Tables - 标准中所有量化分级表的机器可读版本",
+  "enums": {
+    "wind_levels": {
+      "name_zh": "风力等级",
+      "name_en": "Wind Levels",
+      "spec_section": "6.2.4.1.1",
+      "spec_table": "表 5",
+      "spec_reference": "GB/T 35663",
+      "unit": "m/s",
+      "unit_description": "相当于空旷平地上标准高度 10 m 处的风速",
+      "levels": [
+        {"id": "wind.0_5", "label_zh": "0 级~5 级", "label_en": "Level 0–5", "min": 0, "max": 10.7, "max_inclusive": true},
+        {"id": "wind.6", "label_zh": "6 级", "label_en": "Level 6", "min": 10.8, "max": 13.8, "max_inclusive": true},
+        {"id": "wind.7", "label_zh": "7 级", "label_en": "Level 7", "min": 13.9, "max": 17.1, "max_inclusive": true},
+        {"id": "wind.8", "label_zh": "8 级", "label_en": "Level 8", "min": 17.2, "max": 20.7, "max_inclusive": true},
+        {"id": "wind.9", "label_zh": "9 级", "label_en": "Level 9", "min": 20.8, "max": 24.4, "max_inclusive": true},
+        {"id": "wind.10", "label_zh": "10 级", "label_en": "Level 10", "min": 24.5, "max": 28.4, "max_inclusive": true},
+        {"id": "wind.11", "label_zh": "11 级", "label_en": "Level 11", "min": 28.5, "max": 32.6, "max_inclusive": true},
+        {"id": "wind.12", "label_zh": "12 级", "label_en": "Level 12", "min": 32.7, "max": 36.9, "max_inclusive": true}
+      ]
+    },
+
+    "rain_levels": {
+      "name_zh": "雨量等级",
+      "name_en": "Rain Levels",
+      "spec_section": "6.2.4.1.2",
+      "spec_table": "表 6",
+      "spec_reference": "QX/T 111",
+      "levels": [
+        {"id": "rain.1", "label_zh": "1 级", "label_en": "Level 1", "criteria_zh": "1h 降雨量 10.0 mm/h~14.9 mm/h，或者 1 min 降雨量 0.8 mm/min~1.2 mm/min 且能见度降到 500 m 左右"},
+        {"id": "rain.2", "label_zh": "2 级", "label_en": "Level 2", "criteria_zh": "1h 降雨量 15.0 mm/h~29.9 mm/h，或者 1 min 降雨量 1.3 mm/min~2.0 mm/min 且能见度降到 200 m 左右"},
+        {"id": "rain.3", "label_zh": "3 级", "label_en": "Level 3", "criteria_zh": "1h 降雨量 30.0 mm/h~49.9 mm/h，或者 1 min 降雨量 2.1 mm/min~3.0 mm/min 且能见度降到 100 m~150 m"},
+        {"id": "rain.4", "label_zh": "4 级", "label_en": "Level 4", "criteria_zh": "1h 降雨量 ≥50 mm/h，或者 1 min 降雨量 >3 mm/min 且能见度降到 <100 m"}
+      ]
+    },
+
+    "snowfall_levels": {
+      "name_zh": "降雪等级",
+      "name_en": "Snowfall Levels",
+      "spec_section": "6.2.4.1.3.a",
+      "spec_table": "表 7",
+      "spec_reference": "ISO 34503",
+      "unit": "km",
+      "unit_description": "能见度（单位：千米）",
+      "levels": [
+        {"id": "snowfall.none", "label_zh": "无雪", "label_en": "No Snow", "visibility_km": null},
+        {"id": "snowfall.light", "label_zh": "小雪", "label_en": "Light Snow", "visibility_km_min": 1, "visibility_min_inclusive": false},
+        {"id": "snowfall.medium", "label_zh": "中雪", "label_en": "Medium Snow", "visibility_km_min": 0.5, "visibility_km_max": 1, "min_inclusive": true, "max_inclusive": true},
+        {"id": "snowfall.heavy", "label_zh": "大雪", "label_en": "Heavy Snow", "visibility_km_max": 0.5, "max_inclusive": false}
+      ]
+    },
+
+    "snow_accumulation_levels": {
+      "name_zh": "积雪等级",
+      "name_en": "Snow Accumulation Levels",
+      "spec_section": "6.2.4.1.3.b",
+      "spec_table": "表 8",
+      "spec_reference": "QX/T 111",
+      "unit": "cm",
+      "unit_description": "积雪厚度（单位：厘米）",
+      "levels": [
+        {"id": "snow_acc.1", "label_zh": "1 级", "label_en": "Level 1", "thickness_cm_max": 1.0, "max_inclusive": false},
+        {"id": "snow_acc.2", "label_zh": "2 级", "label_en": "Level 2", "thickness_cm_min": 1.0, "thickness_cm_max": 2.9, "min_inclusive": true, "max_inclusive": true},
+        {"id": "snow_acc.3", "label_zh": "3 级", "label_en": "Level 3", "thickness_cm_min": 3.0, "thickness_cm_max": 4.9, "min_inclusive": true, "max_inclusive": true},
+        {"id": "snow_acc.4", "label_zh": "4 级", "label_en": "Level 4", "thickness_cm_min": 5.0, "min_inclusive": true}
+      ]
+    },
+
+    "visibility_levels": {
+      "name_zh": "颗粒物影响 ADS 能见度等级",
+      "name_en": "Particulate-Induced Visibility Levels",
+      "spec_section": "6.2.4.2 (fog/haze/dust/smoke)",
+      "spec_tables": ["表 9", "表 10", "表 11", "表 12"],
+      "spec_reference": "QX/T 111",
+      "unit": "m",
+      "unit_description": "能见度（单位：米）",
+      "applies_to": ["fog", "haze", "dust", "smoke"],
+      "levels": [
+        {"id": "vis.1", "label_zh": "1 级", "label_en": "Level 1", "visibility_m_min": 200, "visibility_m_max": 500, "min_inclusive": false, "max_inclusive": true},
+        {"id": "vis.2", "label_zh": "2 级", "label_en": "Level 2", "visibility_m_min": 100, "visibility_m_max": 200, "min_inclusive": false, "max_inclusive": true},
+        {"id": "vis.3", "label_zh": "3 级", "label_en": "Level 3", "visibility_m_min": 50, "visibility_m_max": 100, "min_inclusive": false, "max_inclusive": true},
+        {"id": "vis.4", "label_zh": "4 级", "label_en": "Level 4", "visibility_m_max": 50, "max_inclusive": true}
+      ]
+    },
+
+    "natural_lighting_levels": {
+      "name_zh": "自然光源照度分类",
+      "name_en": "Natural Lighting Illuminance",
+      "spec_section": "6.2.4.3.1",
+      "spec_table": "表 13",
+      "unit": "lx",
+      "unit_description": "勒克斯",
+      "levels": [
+        {"id": "nat_light.strong", "label_zh": "强环境照明条件", "label_en": "Strong Ambient Lighting", "lux_min": 1000, "min_inclusive": true},
+        {"id": "nat_light.weak", "label_zh": "弱环境照明条件", "label_en": "Weak Ambient Lighting", "lux_min": 50, "lux_max": 1000, "min_inclusive": false, "max_inclusive": false}
+      ]
+    },
+
+    "artificial_lighting_levels": {
+      "name_zh": "人工光源照度分类",
+      "name_en": "Artificial Lighting Illuminance",
+      "spec_section": "6.2.4.3.2.a",
+      "spec_table": "表 14",
+      "unit": "lx",
+      "unit_description": "勒克斯",
+      "levels": [
+        {"id": "art_light.with_streetlight", "label_zh": "夜晚有路灯的光照度", "label_en": "Night with Streetlight", "lux_min": 5, "lux_max": 50, "min_inclusive": false, "max_inclusive": true},
+        {"id": "art_light.without_streetlight", "label_zh": "夜晚无路灯的光照度", "label_en": "Night without Streetlight", "lux_min": 0, "lux_max": 5, "min_inclusive": false, "max_inclusive": true}
+      ]
+    },
+
+    "traffic_sign_dimensions": {
+      "name_zh": "道路交通标志分类维度",
+      "name_en": "Traffic Sign Classification",
+      "spec_section": "6.2.2.1.1",
+      "spec_table": "表 2",
+      "spec_reference": "GB 5768.2",
+      "dimensions": {
+        "function": ["主标志-警告标志", "主标志-禁令标志", "主标志-指示标志", "主标志-指路标志", "主标志-旅游区标志", "主标志-告示标志", "辅助标志"],
+        "position": ["路侧", "路上方"],
+        "optical": ["逆反射式", "照明式", "发光式"],
+        "display": ["静态标志", "可变信息标志"],
+        "duration": ["永久性标志", "临时性标志"],
+        "compulsion": ["必须遵守标志", "非必须遵守标志"]
+      }
+    },
+
+    "traffic_signal_dimensions": {
+      "name_zh": "交通信号灯分类维度",
+      "name_en": "Traffic Signal Classification",
+      "spec_section": "6.2.2.1.2",
+      "spec_table": "表 3",
+      "spec_reference": "GB 14887",
+      "dimensions": {
+        "function": ["机动车信号灯", "非机动车信号灯", "左转非机动车信号灯", "人行横道信号灯", "车道信号灯", "方向指示信号灯", "闪光警告信号灯", "道口信号灯", "掉头信号灯"],
+        "duration": ["永久性标志", "临时性标志"]
+      }
+    }
+  }
+}

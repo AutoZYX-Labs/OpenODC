@@ -1,0 +1,211 @@
+{
+  "category_id": "odd.infrastructure",
+  "name_zh": "道路设施",
+  "name_en": "Road Infrastructure",
+  "level": 2,
+  "parent_id": "odd",
+  "spec_section": "6.2.2",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "odd.infrastructure.traffic_control",
+      "name_zh": "交通控制设施",
+      "name_en": "Traffic Control Facility",
+      "level": 3,
+      "parent_id": "odd.infrastructure",
+      "spec_section": "6.2.2.1"
+    },
+    {
+      "id": "odd.infrastructure.traffic_control.sign",
+      "name_zh": "道路交通标志",
+      "name_en": "Traffic Sign",
+      "level": 4,
+      "parent_id": "odd.infrastructure.traffic_control",
+      "spec_section": "6.2.2.1.1",
+      "spec_reference": "GB 5768.2",
+      "description_zh": "以颜色、形状、字符、图形等向道路使用者传递信息，用于管理交通的设施。",
+      "classification_dimensions": [
+        {"dimension": "作用", "values": ["主标志（警告/禁令/指示/指路/旅游区/告示）", "辅助标志"]},
+        {"dimension": "显示位置", "values": ["路侧", "路上方"]},
+        {"dimension": "光学特性", "values": ["逆反射式", "照明式", "发光式"]},
+        {"dimension": "版面内容显示方式", "values": ["静态标志", "可变信息标志"]},
+        {"dimension": "时效", "values": ["永久性标志", "临时性标志"]},
+        {"dimension": "强制性程度", "values": ["必须遵守标志", "非必须遵守标志"]}
+      ]
+    },
+    {
+      "id": "odd.infrastructure.traffic_control.signal",
+      "name_zh": "交通信号灯",
+      "name_en": "Traffic Signal",
+      "level": 4,
+      "parent_id": "odd.infrastructure.traffic_control",
+      "spec_section": "6.2.2.1.2",
+      "spec_reference": "GB/T 31418, GB 14887",
+      "classification_dimensions": [
+        {"dimension": "功能", "values": ["机动车信号灯", "非机动车信号灯", "左转非机动车信号灯", "人行横道信号灯", "车道信号灯", "方向指示信号灯", "闪光警告信号灯", "道口信号灯", "掉头信号灯"]},
+        {"dimension": "时效", "values": ["永久性标志", "临时性标志"]}
+      ]
+    },
+
+    {
+      "id": "odd.infrastructure.roadside",
+      "name_zh": "路侧建筑与基础设施",
+      "name_en": "Roadside Buildings and Infrastructure",
+      "level": 3,
+      "parent_id": "odd.infrastructure",
+      "spec_section": "6.2.2.2"
+    },
+    {
+      "id": "odd.infrastructure.roadside.building",
+      "name_zh": "建筑",
+      "name_en": "Building",
+      "level": 4,
+      "parent_id": "odd.infrastructure.roadside",
+      "spec_section": "6.2.2.2.1",
+      "description_zh": "建在道路两旁的建筑物。"
+    },
+    {
+      "id": "odd.infrastructure.roadside.tree",
+      "name_zh": "树木",
+      "name_en": "Tree",
+      "level": 4,
+      "parent_id": "odd.infrastructure.roadside",
+      "spec_section": "6.2.2.2.2",
+      "description_zh": "道路两侧或隔离带的树木，属于道路绿化的一部分。"
+    },
+    {
+      "id": "odd.infrastructure.roadside.streetlight",
+      "name_zh": "路灯",
+      "name_en": "Streetlight",
+      "level": 4,
+      "parent_id": "odd.infrastructure.roadside",
+      "spec_section": "6.2.2.2.3",
+      "description_zh": "在道路上设置为在夜间给车辆和行人等提供必要能见度的照明设施。"
+    },
+
+    {
+      "id": "odd.infrastructure.special",
+      "name_zh": "特殊设施",
+      "name_en": "Special Facility",
+      "level": 3,
+      "parent_id": "odd.infrastructure",
+      "spec_section": "6.2.2.3"
+    },
+    {
+      "id": "odd.infrastructure.special.gate",
+      "name_zh": "道闸系统",
+      "name_en": "Gate System",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.1"
+    },
+    {
+      "id": "odd.infrastructure.special.bridge",
+      "name_zh": "桥梁",
+      "name_en": "Bridge",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.2"
+    },
+    {
+      "id": "odd.infrastructure.special.crosswalk",
+      "name_zh": "人行横道",
+      "name_en": "Crosswalk",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.3"
+    },
+    {
+      "id": "odd.infrastructure.special.height_width_limit",
+      "name_zh": "限高/限宽设施",
+      "name_en": "Height/Width Limit Facility",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.4"
+    },
+    {
+      "id": "odd.infrastructure.special.manhole",
+      "name_zh": "井盖",
+      "name_en": "Manhole Cover",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.5"
+    },
+    {
+      "id": "odd.infrastructure.special.speed_bump",
+      "name_zh": "减速带",
+      "name_en": "Speed Bump",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.6"
+    },
+    {
+      "id": "odd.infrastructure.special.railway_crossing",
+      "name_zh": "铁路交叉",
+      "name_en": "Railway Crossing",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.7"
+    },
+    {
+      "id": "odd.infrastructure.special.tunnel",
+      "name_zh": "隧道",
+      "name_en": "Tunnel",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.8"
+    },
+    {
+      "id": "odd.infrastructure.special.toll_station",
+      "name_zh": "收费站",
+      "name_en": "Toll Station",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.9"
+    },
+    {
+      "id": "odd.infrastructure.special.warning_post",
+      "name_zh": "交通警示柱",
+      "name_en": "Traffic Warning Post",
+      "level": 4,
+      "parent_id": "odd.infrastructure.special",
+      "spec_section": "6.2.2.3.10"
+    },
+
+    {
+      "id": "odd.infrastructure.temporary",
+      "name_zh": "道路临时设施",
+      "name_en": "Temporary Road Facility",
+      "level": 3,
+      "parent_id": "odd.infrastructure",
+      "spec_section": "6.2.2.4"
+    },
+    {
+      "id": "odd.infrastructure.temporary.construction",
+      "name_zh": "道路施工",
+      "name_en": "Road Construction",
+      "level": 4,
+      "parent_id": "odd.infrastructure.temporary",
+      "spec_section": "6.2.2.4.1",
+      "description_zh": "需要占用道路施工的作业活动。可包括具体的现场道路设施，如临时铺路钢板、锥桶等。"
+    },
+    {
+      "id": "odd.infrastructure.temporary.accident_site",
+      "name_zh": "事故现场",
+      "name_en": "Accident Site",
+      "level": 4,
+      "parent_id": "odd.infrastructure.temporary",
+      "spec_section": "6.2.2.4.2",
+      "description_zh": "发生道路交通事故的车辆、行人等以及与事故有关的痕迹、物证等所在的空间。"
+    },
+    {
+      "id": "odd.infrastructure.temporary.traffic_control",
+      "name_zh": "交通管制",
+      "name_en": "Traffic Control",
+      "level": 4,
+      "parent_id": "odd.infrastructure.temporary",
+      "spec_section": "6.2.2.4.3",
+      "description_zh": "出于某种安全方面的原因对于部分或者全部交通路段的车辆和人员通行进行的控制措施。"
+    }
+  ]
+}

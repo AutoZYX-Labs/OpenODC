@@ -1,0 +1,92 @@
+{
+  "category_id": "personnel",
+  "name_zh": "驾乘人员状态",
+  "name_en": "Personnel State",
+  "level": 1,
+  "parent_id": "odc",
+  "spec_section": "6.3",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "personnel.driver",
+      "name_zh": "驾驶员/DDT 后援用户状态",
+      "name_en": "Driver / DDT Fallback User State",
+      "level": 2,
+      "parent_id": "personnel",
+      "spec_section": "6.3.1"
+    },
+    {
+      "id": "personnel.driver.takeover.attention",
+      "name_zh": "注意力状态",
+      "name_en": "Attention State",
+      "level": 5,
+      "parent_id": "personnel.driver.takeover",
+      "spec_section": "6.3.1.1.1",
+      "description_zh": "可被 ADS 识别的驾驶员/DDT 后援用户的注意力状态（如闭眼、哈欠、头部姿态异常、接打手持电话或抽烟等有意识的头部或身体运动等），以此来判断其是否具备接管能力。",
+      "requirement_template": "应说明 ADS 允许或不允许的驾驶员/DDT 后援用户注意力状态。应说明注意力状态的监测方式和指标情况。"
+    },
+    {
+      "id": "personnel.driver.takeover.other",
+      "name_zh": "其他状态",
+      "name_en": "Other Takeover-Affecting State",
+      "level": 5,
+      "parent_id": "personnel.driver.takeover",
+      "spec_section": "6.3.1.1.2",
+      "description_zh": "其他影响驾驶员/DDT 后援用户接管汽车的状态（如无意识的头部或身体动作、健康状况异常、有意识的人机交互动作等）。"
+    },
+    {
+      "id": "personnel.driver.seatbelt",
+      "name_zh": "安全带状态",
+      "name_en": "Seatbelt State (Driver)",
+      "level": 4,
+      "parent_id": "personnel.driver",
+      "spec_section": "6.3.1.2",
+      "description_zh": "驾驶员/DDT 后援用户是否已系安全带。"
+    },
+    {
+      "id": "personnel.driver.posture",
+      "name_zh": "位姿状态",
+      "name_en": "Posture State",
+      "level": 4,
+      "parent_id": "personnel.driver",
+      "spec_section": "6.3.1.3",
+      "description_zh": "驾驶员/DDT 后援用户的位置和/或姿态。"
+    },
+
+    {
+      "id": "personnel.passenger",
+      "name_zh": "乘客状态",
+      "name_en": "Passenger State",
+      "level": 2,
+      "parent_id": "personnel",
+      "spec_section": "6.3.2"
+    },
+    {
+      "id": "personnel.passenger.interference",
+      "name_zh": "干扰状态",
+      "name_en": "Interference State",
+      "level": 4,
+      "parent_id": "personnel.passenger",
+      "spec_section": "6.3.2.1",
+      "description_zh": "干扰到驾驶员/DDT 后援用户接管能力的状态。"
+    },
+    {
+      "id": "personnel.passenger.seatbelt",
+      "name_zh": "安全带状态",
+      "name_en": "Seatbelt State (Passenger)",
+      "level": 4,
+      "parent_id": "personnel.passenger",
+      "spec_section": "6.3.2.2",
+      "description_zh": "乘客是否已系安全带。可具体指明对应的座位。"
+    },
+    {
+      "id": "personnel.passenger.other",
+      "name_zh": "其他状态",
+      "name_en": "Other State (Passenger)",
+      "level": 4,
+      "parent_id": "personnel.passenger",
+      "spec_section": "6.3.2.3",
+      "description_zh": "乘客其他能影响 ADS 激活或运行的状态。"
+    }
+  ]
+}

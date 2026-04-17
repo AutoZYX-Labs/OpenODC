@@ -1,0 +1,85 @@
+{
+  "category_id": "vehicle",
+  "name_zh": "车辆状态",
+  "name_en": "Vehicle State",
+  "level": 1,
+  "parent_id": "odc",
+  "spec_section": "6.4",
+  "spec_source": "GB/T 45312-2025",
+  "elements": [
+    {
+      "id": "vehicle.motion",
+      "name_zh": "车辆运动状态",
+      "name_en": "Vehicle Motion State",
+      "level": 2,
+      "parent_id": "vehicle",
+      "spec_section": "6.4.1"
+    },
+    {
+      "id": "vehicle.motion.speed.operating",
+      "name_zh": "运行速度",
+      "name_en": "Operating Speed",
+      "level": 5,
+      "parent_id": "vehicle.motion.speed",
+      "spec_section": "6.4.1.1.1",
+      "description_zh": "ADS 激活状态下，车辆在道路行驶过程中的实际运行速度。",
+      "unit": "km/h",
+      "requirement_template": "应说明 ADS 运行时允许或不允许的车辆速度范围（km/h）。"
+    },
+    {
+      "id": "vehicle.motion.speed.activation",
+      "name_zh": "激活速度",
+      "name_en": "Activation Speed",
+      "level": 5,
+      "parent_id": "vehicle.motion.speed",
+      "spec_section": "6.4.1.1.2",
+      "description_zh": "允许 ADS 激活的车辆速度。",
+      "unit": "km/h",
+      "requirement_template": "应说明 ADS 激活时允许或不允许的车辆速度范围（km/h）。"
+    },
+    {
+      "id": "vehicle.motion.acceleration.operating",
+      "name_zh": "运行加速度",
+      "name_en": "Operating Acceleration",
+      "level": 5,
+      "parent_id": "vehicle.motion.acceleration",
+      "spec_section": "6.4.1.2.1",
+      "description_zh": "ADS 激活状态下，车辆在道路行驶过程中的实际加速度，包括横向加速度和纵向加速度。",
+      "unit": "m/s²",
+      "requirement_template": "应说明 ADS 运行时允许或不允许的车辆加速度范围（m/s²）。可描述加速度方向。"
+    },
+    {
+      "id": "vehicle.motion.acceleration.activation",
+      "name_zh": "激活加速度",
+      "name_en": "Activation Acceleration",
+      "level": 5,
+      "parent_id": "vehicle.motion.acceleration",
+      "spec_section": "6.4.1.2.2",
+      "description_zh": "允许 ADS 激活的车辆加速度，包括横向加速度和纵向加速度。",
+      "unit": "m/s²",
+      "requirement_template": "应说明 ADS 激活时允许或不允许的车辆加速度范围（m/s²）。"
+    },
+
+    {
+      "id": "vehicle.ads_state",
+      "name_zh": "自动驾驶系统状态",
+      "name_en": "ADS State",
+      "level": 2,
+      "parent_id": "vehicle",
+      "spec_section": "6.4.2",
+      "description_zh": "ADS 自检和运行过程中所需监测的 ADS 自身状态，如高精地图、传感器等子系统或部件的状态等。",
+      "requirement_template": "应说明 ADS 允许或不允许的自动驾驶系统状态。"
+    },
+
+    {
+      "id": "vehicle.other_systems",
+      "name_zh": "车辆其他系统状态",
+      "name_en": "Other Vehicle Systems State",
+      "level": 2,
+      "parent_id": "vehicle",
+      "spec_section": "6.4.3",
+      "description_zh": "ADS 自检过程中所需监测的车辆其他系统的状态，如底盘系统、车身系统、电池管理系统、自动驾驶数据记录系统（DSSAD）等其他系统的状态。",
+      "requirement_template": "应说明 ADS 允许或不允许的车辆其他系统状态。"
+    }
+  ]
+}

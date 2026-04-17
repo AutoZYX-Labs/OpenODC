@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openodc.autozyx.com/schema/odc.schema.json",
+  "title": "OpenODC Document Schema",
+  "description": "JSON Schema for OpenODC documents. Aligned with GB/T 45312-2025 «Intelligent and connected vehicles — Operational design condition for automated driving system».",
+  "version": "0.1.0",
+  "type": "object",
+  "required": ["id", "vendor", "model", "function_name", "ads_level", "elements", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique slug identifier, lowercase, hyphenated. e.g. byd-han-2026-dipilot-highway",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "spec_version": {
+      "type": "string",
+      "description": "OpenODC schema version this document conforms to.",
+      "default": "0.1.0"
+    },
+    "spec_source": {
+      "type": "string",
+      "description": "Reference standard.",
+      "default": "GB/T 45312-2025"
+    },
+    "vendor": {
+      "type": "string",
+      "description": "Vendor name in Chinese, e.g. 比亚迪"
+    },
+    "vendor_en": {
+      "type": "string",
+      "description": "Vendor name in English, e.g. BYD"
+    },
+    "model": {
+      "type": "string",
+      "description": "Vehicle model designation, e.g. 汉 EV 2026 款"
+    },
+    "model_en": {
+      "type": "string"
+    },
+    "function_name": {
+      "type": "string",
+      "description": "ADS function name, e.g. DiPilot Highway, NGP, Autopilot"
+    },
+    "function_name_en": {
+      "type": "string"
+    },
+    "ads_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "ADS automation level per GB/T 40429-2021 (SAE J3016 equivalent)."
+    },
+    "software_version": {
+      "type": ["string", "null"],
+      "description": "Software/firmware version this ODC declaration applies to."
+    },
+    "hardware_config": {
+      "type": ["string", "null"],
+      "description": "Hardware configuration this ODC declaration applies to."
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date when this ODC declaration takes effect."
+    },
+
+    "elements": {
+      "type": "array",
+      "description": "List of ODC elements as defined per GB/T 45312-2025.",
+      "items": { "$ref": "#/$defs/ODCElement" },
+      "minItems": 1
+    },
+
+    "associations": {
+      "type": "array",
+      "description": "Cross-element association rules (clause 5.4.c).",
+      "items": { "$ref": "#/$defs/ODCAssociation" }
+    },
+
+    "metadata": {
+      "type": "object",
+      "required": ["submitted_by", "submitted_at", "review_status"],
+      "properties": {
+        "submitted_by": {
+          "type": "string",
+          "description": "GitHub username or vendor account that submitted this record."
+        },
+        "submitted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "review_status": {
+          "type": "string",
+          "enum": ["draft", "community_reviewed", "vendor_confirmed"],
+          "description": "draft = unreviewed; community_reviewed = peer reviewed via PR; vendor_confirmed = officially endorsed by the vendor."
+        },
+        "sources": {
+          "type": "array",
+          "description": "URLs or document references that back the data in this record.",
+          "items": { "type": "string" }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "ODCElement": {
+      "type": "object",
+      "required": ["element_id", "requirement"],
+      "properties": {
+        "element_id": {
+          "type": "string",
+          "description": "Element id from the schema/categories/*.json registry. e.g. odd.road.type.highway.expressway",
+          "pattern": "^(odd|personnel|vehicle)\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+        },
+        "requirement": {
+          "type": "string",
+          "enum": ["permitted", "not_permitted"],
+          "description": "Per clause 5.4.b: 允许=permitted, 不允许=not_permitted."
+        },
+        "description": {
+          "type": "string",
+          "description": "Free-form description of the requirement. Equivalent to the «元素要求» column in the standard's example tables."
+        },
+        "parameter_range": {
+          "type": ["string", "null"],
+          "description": "Quantitative limits, e.g. '曲率半径 ≥ 150 m', '速度 0–120 km/h'."
+        },
+        "exit_behavior": {
+          "type": ["string", "null"],
+          "enum": [null, "suppress_activation", "trigger_exit", "suppress_and_exit"],
+          "description": "Per clause 5.5: when requirement is not_permitted, must specify whether the element will suppress activation, trigger exit, or both."
+        },
+        "source": {
+          "type": "object",
+          "description": "Provenance metadata for this specific element entry.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["official", "owner_manual", "media_test", "third_party_test", "regulatory_filing", "academic", "community_extracted"]
+            },
+            "url": { "type": "string" },
+            "confidence": {
+              "type": "string",
+              "enum": ["high", "medium", "low"]
+            },
+            "extracted_date": { "type": "string", "format": "date" }
+          }
+        }
+      }
+    },
+
+    "ODCAssociation": {
+      "type": "object",
+      "required": ["primary_id", "dependent_id", "relation", "description"],
+      "properties": {
+        "primary_id": {
+          "type": "string",
+          "description": "The 'primary' element (主 ODC 元素) per clause 5.4.c."
+        },
+        "dependent_id": {
+          "type": "string",
+          "description": "The 'dependent' element (从 ODC 元素) per clause 5.4.c."
+        },
+        "relation": {
+          "type": "string",
+          "enum": ["requires_permitted", "requires_not_permitted", "limits_range"],
+          "description": "Type of cross-element constraint."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable explanation of the constraint."
+        }
+      }
+    }
+  }
+}
