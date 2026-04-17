@@ -12,127 +12,713 @@
   "software_version": "ADS 4.x（2025-04-22 首发；对应手册版本 2026-03-17 发布）",
   "hardware_config": "192 线 D3 主激光雷达 + 3× 固态激光雷达 + 5× 4D 毫米波雷达（含分布式）+ 12× 超声波 + 11× 摄像头 + 舱内 Limera 视觉传感",
   "effective_date": "2025-04-22",
-
   "elements": [
-    {"element_id": "odd.road.type.urban_road.expressway", "requirement": "permitted", "description": "城市快速路（城区 NCA 覆盖）"},
-    {"element_id": "odd.road.type.urban_road.arterial", "requirement": "permitted", "description": "城市主干路"},
-    {"element_id": "odd.road.type.urban_road.sub_arterial", "requirement": "permitted"},
-    {"element_id": "odd.road.type.urban_road.branch", "requirement": "permitted", "description": "支路（含小区内部道路，P2P 车位到车位）"},
-    {"element_id": "odd.road.type.highway.expressway", "requirement": "permitted", "description": "高速公路（高速 NCA）"},
-    {"element_id": "odd.road.type.highway.class_1", "requirement": "permitted"},
-    {"element_id": "odd.road.type.highway.class_2", "requirement": "permitted", "description": "国道、省道（ADS 4.1 宣称全国可开）"},
-    {"element_id": "odd.road.type.highway.class_3", "requirement": "permitted", "description": "县道、乡道，谨慎使用"},
-    {"element_id": "odd.road.type.highway.class_4", "requirement": "permitted", "description": "乡村双车道，谨慎使用"},
-    {"element_id": "odd.road.type.rural", "requirement": "permitted", "description": "村庄内部道路，谨慎使用"},
-    {"element_id": "odd.road.type.other", "requirement": "not_permitted", "description": "厂矿 / 林区 / 油田等非公共道路不在设计范围", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.road.type.parking_indoor", "requirement": "permitted", "description": "VPD 2.0 支持地下多层停车场（已演示地下 5 层代客泊车）"},
-    {"element_id": "odd.road.type.parking_outdoor", "requirement": "permitted", "description": "全场景泊车：窄车位、斜列、临时锁车位绕行"},
-
-    {"element_id": "odd.road.surface.type.paved", "requirement": "permitted"},
-    {"element_id": "odd.road.surface.type.unpaved", "requirement": "not_permitted", "description": "非铺装路面不在设计范围；手册提示「烂泥路、砂石路谨慎使用」", "exit_behavior": "trigger_exit"},
-    {"element_id": "odd.road.surface.quality.cracking", "requirement": "permitted", "description": "路面开裂可正常通过（非声明性 ODD，推断）"},
-    {"element_id": "odd.road.surface.quality.rutting", "requirement": "permitted", "description": "车辙可通过；深车辙影响循迹"},
-    {"element_id": "odd.road.surface.quality.pothole", "requirement": "permitted", "description": "可识别坑槽并减速；深坑推断触发退出"},
-    {"element_id": "odd.road.surface.coverage", "requirement": "permitted", "description": "手册提示：积水 / 湿滑 / 冰雪等路面覆盖物谨慎使用；参数量化未公开 — 行业推定深度 > 3 cm 积水将降级"},
-
-    {"element_id": "odd.road.geometry.plane.straight", "requirement": "permitted"},
-    {"element_id": "odd.road.geometry.plane.curve", "requirement": "permitted", "parameter_range": "[推定] 曲率半径 ≥ 30 m（手册无量化；高速工况典型 ≥ 250 m，城区 ≥ 30 m）"},
-    {"element_id": "odd.road.geometry.plane.widening", "requirement": "permitted"},
-    {"element_id": "odd.road.geometry.profile.level", "requirement": "permitted"},
-    {"element_id": "odd.road.geometry.profile.uphill", "requirement": "permitted", "parameter_range": "[推定] 坡度 ≤ 15%（手册无量化；超过推断退出到人驾）"},
-    {"element_id": "odd.road.geometry.profile.downhill", "requirement": "permitted", "parameter_range": "[推定] 坡度 ≤ 15%"},
-    {"element_id": "odd.road.geometry.cross.divider", "requirement": "permitted", "description": "支持中央分隔或双黄线分隔道路"},
-    {"element_id": "odd.road.geometry.cross.cross_slope", "requirement": "permitted"},
-    {"element_id": "odd.road.geometry.cross.superelevation", "requirement": "permitted"},
-    {"element_id": "odd.road.geometry.cross.sidewalk", "requirement": "permitted", "description": "可识别人行道边缘"},
-
-    {"element_id": "odd.road.lane.marking.quality", "requirement": "permitted", "description": "标线质量中等以上可用；模糊 / 褪色时依赖无图 NCA + 激光雷达"},
-    {"element_id": "odd.road.lane.marking.absent", "requirement": "permitted", "description": "支持无标线路段（ADS 4 无图能力 + lidar 道路边缘识别）"},
-    {"element_id": "odd.road.lane.marking.color", "requirement": "permitted"},
-    {"element_id": "odd.road.lane.marking.type", "requirement": "permitted", "description": "支持实线 / 虚线 / 双黄线等标准类型"},
-    {"element_id": "odd.road.lane.type.motor", "requirement": "permitted"},
-    {"element_id": "odd.road.lane.type.non_motor", "requirement": "not_permitted", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.road.lane.type.bus", "requirement": "not_permitted", "description": "公交专用车道不可占用", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.road.lane.type.emergency", "requirement": "not_permitted", "description": "应急车道禁止行驶", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.road.lane.type.exit", "requirement": "permitted", "description": "高速 NCA 自动出口"},
-    {"element_id": "odd.road.lane.type.entrance", "requirement": "permitted", "description": "高速 NCA 自动入口"},
-    {"element_id": "odd.road.lane.width", "requirement": "permitted", "parameter_range": "[推定] 2.8 m ≤ 车道宽度 ≤ 4.5 m（手册无量化）"},
-
-    {"element_id": "odd.road.edge.guardrail", "requirement": "permitted", "description": "激光雷达识别护栏作为道路边缘"},
-    {"element_id": "odd.road.edge.curb", "requirement": "permitted", "description": "路缘石识别（泊车避让）"},
-    {"element_id": "odd.road.edge.hard_shoulder", "requirement": "permitted", "description": "硬路肩识别，触发脱手靠边时使用"},
-    {"element_id": "odd.road.edge.temporary", "requirement": "permitted", "description": "临时锥桶 / 水马识别"},
-
-    {"element_id": "odd.road.intersection.at_grade", "requirement": "permitted", "description": "信号灯与停车让行十字路口，城区 NCA 支持左右转 / 调头"},
-    {"element_id": "odd.road.intersection.roundabout.normal", "requirement": "permitted", "description": "2024-10 OTA 起 NCA 支持常规环岛"},
-    {"element_id": "odd.road.intersection.roundabout.compact", "requirement": "permitted"},
-    {"element_id": "odd.road.intersection.roundabout.mini", "requirement": "permitted"},
-    {"element_id": "odd.road.intersection.grade_separated", "requirement": "permitted"},
-    {"element_id": "odd.road.intersection.interchange.general", "requirement": "permitted", "description": "一般立交"},
-    {"element_id": "odd.road.intersection.interchange.hub", "requirement": "permitted", "description": "枢纽立交"},
-    {"element_id": "odd.road.intersection.ramp", "requirement": "permitted", "parameter_range": "经验限速 ≤ 60 km/h（手册提及）"},
-
-    {"element_id": "odd.infrastructure.special.tunnel", "requirement": "permitted", "description": "隧道可用；GNSS 失锁场景手册未单独量化"},
-    {"element_id": "odd.infrastructure.special.bridge", "requirement": "permitted"},
-    {"element_id": "odd.infrastructure.special.toll_station", "requirement": "permitted", "description": "P2P 2.0 自动 ETC 通过；500 m–1 km 前自动减速"},
-    {"element_id": "odd.infrastructure.special.crosswalk", "requirement": "permitted", "description": "识别人行横道主动让行"},
-    {"element_id": "odd.infrastructure.special.speed_bump", "requirement": "permitted"},
-    {"element_id": "odd.infrastructure.special.railway_crossing", "requirement": "permitted"},
-    {"element_id": "odd.infrastructure.special.gate", "requirement": "permitted", "description": "道闸识别（停车场进出）"},
-    {"element_id": "odd.infrastructure.special.height_width_limit", "requirement": "permitted", "description": "限高限宽标识识别"},
-    {"element_id": "odd.infrastructure.special.manhole", "requirement": "permitted", "description": "井盖识别（小障碍物避让）"},
-    {"element_id": "odd.infrastructure.special.warning_post", "requirement": "permitted", "description": "警示桩识别"},
-    {"element_id": "odd.infrastructure.traffic_control.signal", "requirement": "permitted", "description": "信号灯识别（含三色灯 / 箭头灯 / 读秒）"},
-    {"element_id": "odd.infrastructure.traffic_control.sign", "requirement": "permitted", "description": "限速、让行、禁止标志识别"},
-    {"element_id": "odd.infrastructure.temporary.construction", "requirement": "permitted", "description": "施工区可识别并绕行（ADS 4 发布会 demo 演示）"},
-    {"element_id": "odd.infrastructure.temporary.accident_site", "requirement": "permitted", "description": "事故现场识别减速"},
-    {"element_id": "odd.infrastructure.temporary.traffic_control", "requirement": "permitted", "description": "交警手势 / 临时交通管制识别（有限支持）"},
-    {"element_id": "odd.infrastructure.roadside.streetlight", "requirement": "permitted"},
-    {"element_id": "odd.infrastructure.roadside.tree", "requirement": "permitted"},
-    {"element_id": "odd.infrastructure.roadside.building", "requirement": "permitted"},
-
-    {"element_id": "odd.targets.motor_vehicle", "requirement": "permitted", "description": "前 AEB 激活 4–150 km/h（手册明确），刹停上限 130 km/h"},
-    {"element_id": "odd.targets.non_motor_vehicle", "requirement": "permitted", "description": "自行车 / 电动车 / 摩托车识别"},
-    {"element_id": "odd.targets.pedestrian", "requirement": "permitted", "description": "行人识别与主动让行"},
-    {"element_id": "odd.targets.animal", "requirement": "permitted", "description": "通用障碍物识别；动物单列未声明 — INFERRED"},
-    {"element_id": "odd.targets.obstacle", "requirement": "permitted", "parameter_range": "激光雷达 3 cm 精度；可识别 ≥ 14–30 cm 小障碍物（手册 + 官方 demo：雪糕筒 / 倒伏树 / 水马 / 下沉台阶 / 水管）"},
-
-    {"element_id": "odd.weather.particles.fog", "requirement": "permitted", "parameter_range": "[推定] 能见度 ≥ 200 m 正常；100–200 m 降级；< 100 m 建议退出（手册仅定性提示「能见度较差谨慎使用」）"},
-    {"element_id": "odd.weather.particles.haze", "requirement": "permitted", "description": "雾霾天气可用；重度需降级"},
-    {"element_id": "odd.weather.particles.dust", "requirement": "not_permitted", "description": "沙尘暴感知严重退化", "exit_behavior": "trigger_exit"},
-    {"element_id": "odd.weather.atmospheric.rain", "requirement": "permitted", "parameter_range": "[推定三档] 正常 ≤ 14.9 mm/h（小雨-中雨）；降级 15–29.9 mm/h（大雨）；退出 > 30 mm/h（暴雨）。手册仅定性提示「雨雪谨慎使用」；分布式毫米波雷达在降雨下维持约 98% 目标识别率（华为 PR）"},
-    {"element_id": "odd.weather.atmospheric.snow.snowfall", "requirement": "permitted", "parameter_range": "[推定] 小到中雪可用；暴雪退出。手册无量化"},
-    {"element_id": "odd.weather.atmospheric.snow.accumulation", "requirement": "not_permitted", "description": "道路积雪覆盖标线，摄像头 + lidar 降级", "exit_behavior": "suppress_and_exit"},
-    {"element_id": "odd.weather.atmospheric.wind", "requirement": "permitted", "description": "2026-01-30 OTA 新增横向风稳定控制；强风场景主动介入。无公开 m/s 阈值"},
-    {"element_id": "odd.weather.atmospheric.special", "requirement": "not_permitted", "description": "冰雹 / 龙卷风等极端天气", "exit_behavior": "suppress_and_exit"},
-    {"element_id": "odd.weather.lighting.natural", "requirement": "permitted"},
-    {"element_id": "odd.weather.lighting.streetlight", "requirement": "permitted"},
-    {"element_id": "odd.weather.lighting.headlight", "requirement": "permitted", "description": "夜间依赖车辆灯光 + lidar"},
-    {"element_id": "odd.weather.lighting.indoor", "requirement": "permitted", "description": "室内停车场低光照（VPD 2.0）"},
-    {"element_id": "odd.weather.temperature", "requirement": "permitted", "parameter_range": "[推定] −30 ℃ ~ 50 ℃ 整车工作温度（车规级常见范围；手册未明确 ADS 边界）"},
-
-    {"element_id": "odd.digital.wireless.v2i", "requirement": "not_permitted", "description": "ADS 4 不依赖 V2I 信号灯通信（纯车端感知）", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.digital.wireless.v2v", "requirement": "not_permitted", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.digital.wireless.v2p", "requirement": "not_permitted", "exit_behavior": "suppress_activation"},
-    {"element_id": "odd.digital.wireless.v2n", "requirement": "permitted", "description": "车云连接用于 OTA、地图更新、远程辅助"},
-    {"element_id": "odd.digital.position.gnss", "requirement": "permitted", "description": "BDS + GPS 组合定位（标配）"},
-    {"element_id": "odd.digital.position.rtk", "requirement": "permitted", "description": "高精定位支持（Max 档含）"},
-
-    {"element_id": "personnel.driver.takeover.attention", "requirement": "permitted", "description": "DMS 监视注视方向；视线脱离触发两段式提醒（HMI + 声音 → 脱手靠边）。具体秒数未公开，行业经验首次提醒约 15 s"},
-    {"element_id": "personnel.driver.takeover.other", "requirement": "permitted", "description": "ADS 4.1 起脱手检测间隔延长；但仍属 L2，驾驶员须保持监督"},
-    {"element_id": "personnel.driver.seatbelt", "requirement": "permitted", "description": "未系安全带 → 系统不激活"},
-    {"element_id": "personnel.driver.posture", "requirement": "permitted", "description": "要求驾驶员面部可见"},
-    {"element_id": "personnel.passenger.seatbelt", "requirement": "permitted"},
-    {"element_id": "personnel.passenger.interference", "requirement": "permitted", "description": "乘客未干扰方向盘 / 踏板"},
-
-    {"element_id": "vehicle.motion.speed.activation", "requirement": "permitted", "parameter_range": "[手册明确] NCA / ACC / LCC 激活 0–200 km/h；各子功能：AEB 4–150 km/h、eAES 50–135 km/h、LOCP 30–130 km/h、后 AEB 1–60 km/h、ELKA 40–120 km/h"},
-    {"element_id": "vehicle.motion.speed.operating", "requirement": "permitted", "parameter_range": "[手册明确] 0–200 km/h；实际自适应识别道路限速"},
-    {"element_id": "vehicle.motion.acceleration.activation", "requirement": "permitted", "description": "[推定] ± 3 m/s² 以内正常"},
-    {"element_id": "vehicle.motion.acceleration.operating", "requirement": "permitted"},
-    {"element_id": "vehicle.ads_state", "requirement": "permitted", "description": "全传感器健康 + 车辆电量 ≥ 20% + 软件版本正常；任一异常则降级或退出"},
-    {"element_id": "vehicle.other_systems", "requirement": "permitted", "description": "制动、转向、电驱、底盘等正常无故障；冗余系统可用"}
+    {
+      "element_id": "odd.road.type",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.type.area",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.type.urban_road",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.type.urban_road.expressway",
+      "requirement": "permitted",
+      "description": "城市快速路（城区 NCA 覆盖）"
+    },
+    {
+      "element_id": "odd.road.type.urban_road.arterial",
+      "requirement": "permitted",
+      "description": "城市主干路"
+    },
+    {
+      "element_id": "odd.road.type.urban_road.sub_arterial",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.type.urban_road.branch",
+      "requirement": "permitted",
+      "description": "支路（含小区内部道路，P2P 车位到车位）"
+    },
+    {
+      "element_id": "odd.road.type.highway",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.type.highway.expressway",
+      "requirement": "permitted",
+      "description": "高速公路（高速 NCA）"
+    },
+    {
+      "element_id": "odd.road.type.highway.class_1",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.type.highway.class_2",
+      "requirement": "permitted",
+      "description": "国道、省道（ADS 4.1 宣称全国可开）"
+    },
+    {
+      "element_id": "odd.road.type.highway.class_3",
+      "requirement": "permitted",
+      "description": "县道、乡道，谨慎使用"
+    },
+    {
+      "element_id": "odd.road.type.highway.class_4",
+      "requirement": "permitted",
+      "description": "乡村双车道，谨慎使用"
+    },
+    {
+      "element_id": "odd.road.type.rural",
+      "requirement": "permitted",
+      "description": "村庄内部道路，谨慎使用"
+    },
+    {
+      "element_id": "odd.road.type.other",
+      "requirement": "not_permitted",
+      "description": "厂矿 / 林区 / 油田等非公共道路不在设计范围",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.road.type.parking_indoor",
+      "requirement": "permitted",
+      "description": "VPD 2.0 支持地下多层停车场（已演示地下 5 层代客泊车）"
+    },
+    {
+      "element_id": "odd.road.type.parking_outdoor",
+      "requirement": "permitted",
+      "description": "全场景泊车：窄车位、斜列、临时锁车位绕行"
+    },
+    {
+      "element_id": "odd.road.surface",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.surface.type.paved",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.surface.type.unpaved",
+      "requirement": "not_permitted",
+      "description": "非铺装路面不在设计范围；手册提示「烂泥路、砂石路谨慎使用」",
+      "exit_behavior": "trigger_exit"
+    },
+    {
+      "element_id": "odd.road.surface.quality.cracking",
+      "requirement": "permitted",
+      "description": "路面开裂可正常通过（非声明性 ODD，推断）"
+    },
+    {
+      "element_id": "odd.road.surface.quality.rutting",
+      "requirement": "permitted",
+      "description": "车辙可通过；深车辙影响循迹"
+    },
+    {
+      "element_id": "odd.road.surface.quality.subsidence",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.surface.quality.pothole",
+      "requirement": "permitted",
+      "description": "可识别坑槽并减速；深坑推断触发退出"
+    },
+    {
+      "element_id": "odd.road.surface.quality.shoving",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.surface.quality.raveling",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.surface.coverage",
+      "requirement": "permitted",
+      "description": "手册提示：积水 / 湿滑 / 冰雪等路面覆盖物谨慎使用；参数量化未公开 — 行业推定深度 > 3 cm 积水将降级"
+    },
+    {
+      "element_id": "odd.road.geometry",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.geometry.plane.straight",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.geometry.plane.curve",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 曲率半径 ≥ 30 m（手册无量化；高速工况典型 ≥ 250 m，城区 ≥ 30 m）"
+    },
+    {
+      "element_id": "odd.road.geometry.plane.widening",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.geometry.profile.level",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.geometry.profile.uphill",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 坡度 ≤ 15%（手册无量化；超过推断退出到人驾）"
+    },
+    {
+      "element_id": "odd.road.geometry.profile.downhill",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 坡度 ≤ 15%"
+    },
+    {
+      "element_id": "odd.road.geometry.cross.divider",
+      "requirement": "permitted",
+      "description": "支持中央分隔或双黄线分隔道路"
+    },
+    {
+      "element_id": "odd.road.geometry.cross.cross_slope",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.geometry.cross.superelevation",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.geometry.cross.sidewalk",
+      "requirement": "permitted",
+      "description": "可识别人行道边缘"
+    },
+    {
+      "element_id": "odd.road.lane",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.lane.marking.quality",
+      "requirement": "permitted",
+      "description": "标线质量中等以上可用；模糊 / 褪色时依赖无图 NCA + 激光雷达"
+    },
+    {
+      "element_id": "odd.road.lane.marking.absent",
+      "requirement": "permitted",
+      "description": "支持无标线路段（ADS 4 无图能力 + lidar 道路边缘识别）"
+    },
+    {
+      "element_id": "odd.road.lane.marking.color",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.lane.marking.type",
+      "requirement": "permitted",
+      "description": "支持实线 / 虚线 / 双黄线等标准类型"
+    },
+    {
+      "element_id": "odd.road.lane.marking.width",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.type.non_motor",
+      "requirement": "not_permitted",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.road.lane.type.motor",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.lane.type.mixed",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.type.bus",
+      "requirement": "not_permitted",
+      "description": "公交专用车道不可占用",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.road.lane.type.dedicated",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.type.tidal",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.type.escape",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.type.emergency",
+      "requirement": "not_permitted",
+      "description": "应急车道禁止行驶",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.road.lane.type.exit",
+      "requirement": "permitted",
+      "description": "高速 NCA 自动出口"
+    },
+    {
+      "element_id": "odd.road.lane.type.entrance",
+      "requirement": "permitted",
+      "description": "高速 NCA 自动入口"
+    },
+    {
+      "element_id": "odd.road.lane.type.total_count",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.count",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.lane.width",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 2.8 m ≤ 车道宽度 ≤ 4.5 m（手册无量化）"
+    },
+    {
+      "element_id": "odd.road.edge",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.edge.guardrail",
+      "requirement": "permitted",
+      "description": "激光雷达识别护栏作为道路边缘"
+    },
+    {
+      "element_id": "odd.road.edge.curb",
+      "requirement": "permitted",
+      "description": "路缘石识别（泊车避让）"
+    },
+    {
+      "element_id": "odd.road.edge.temporary",
+      "requirement": "permitted",
+      "description": "临时锥桶 / 水马识别"
+    },
+    {
+      "element_id": "odd.road.edge.hard_shoulder",
+      "requirement": "permitted",
+      "description": "硬路肩识别，触发脱手靠边时使用"
+    },
+    {
+      "element_id": "odd.road.edge.soil_shoulder",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.edge.lawn",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.edge.gravel",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.intersection",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.road.intersection.at_grade",
+      "requirement": "permitted",
+      "description": "信号灯与停车让行十字路口，城区 NCA 支持左右转 / 调头"
+    },
+    {
+      "element_id": "odd.road.intersection.roundabout.mini",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.intersection.roundabout.compact",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.intersection.roundabout.normal",
+      "requirement": "permitted",
+      "description": "2024-10 OTA 起 NCA 支持常规环岛"
+    },
+    {
+      "element_id": "odd.road.intersection.roundabout.large",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.intersection.roundabout.double",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.road.intersection.grade_separated",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.road.intersection.interchange.general",
+      "requirement": "permitted",
+      "description": "一般立交"
+    },
+    {
+      "element_id": "odd.road.intersection.interchange.hub",
+      "requirement": "permitted",
+      "description": "枢纽立交"
+    },
+    {
+      "element_id": "odd.road.intersection.ramp",
+      "requirement": "permitted",
+      "parameter_range": "经验限速 ≤ 60 km/h（手册提及）"
+    },
+    {
+      "element_id": "odd.infrastructure.traffic_control",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.infrastructure.traffic_control.sign",
+      "requirement": "permitted",
+      "description": "限速、让行、禁止标志识别"
+    },
+    {
+      "element_id": "odd.infrastructure.traffic_control.signal",
+      "requirement": "permitted",
+      "description": "信号灯识别（含三色灯 / 箭头灯 / 读秒）"
+    },
+    {
+      "element_id": "odd.infrastructure.roadside",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.infrastructure.roadside.building",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.roadside.tree",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.roadside.streetlight",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.special",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.infrastructure.special.gate",
+      "requirement": "permitted",
+      "description": "道闸识别（停车场进出）"
+    },
+    {
+      "element_id": "odd.infrastructure.special.bridge",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.special.crosswalk",
+      "requirement": "permitted",
+      "description": "识别人行横道主动让行"
+    },
+    {
+      "element_id": "odd.infrastructure.special.height_width_limit",
+      "requirement": "permitted",
+      "description": "限高限宽标识识别"
+    },
+    {
+      "element_id": "odd.infrastructure.special.manhole",
+      "requirement": "permitted",
+      "description": "井盖识别（小障碍物避让）"
+    },
+    {
+      "element_id": "odd.infrastructure.special.speed_bump",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.special.railway_crossing",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.infrastructure.special.tunnel",
+      "requirement": "permitted",
+      "description": "隧道可用；GNSS 失锁场景手册未单独量化"
+    },
+    {
+      "element_id": "odd.infrastructure.special.toll_station",
+      "requirement": "permitted",
+      "description": "P2P 2.0 自动 ETC 通过；500 m–1 km 前自动减速"
+    },
+    {
+      "element_id": "odd.infrastructure.special.warning_post",
+      "requirement": "permitted",
+      "description": "警示桩识别"
+    },
+    {
+      "element_id": "odd.infrastructure.temporary",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.infrastructure.temporary.construction",
+      "requirement": "permitted",
+      "description": "施工区可识别并绕行（ADS 4 发布会 demo 演示）"
+    },
+    {
+      "element_id": "odd.infrastructure.temporary.accident_site",
+      "requirement": "permitted",
+      "description": "事故现场识别减速"
+    },
+    {
+      "element_id": "odd.infrastructure.temporary.traffic_control",
+      "requirement": "permitted",
+      "description": "交警手势 / 临时交通管制识别（有限支持）"
+    },
+    {
+      "element_id": "odd.targets.motor_vehicle",
+      "requirement": "permitted",
+      "description": "前 AEB 激活 4–150 km/h（手册明确），刹停上限 130 km/h"
+    },
+    {
+      "element_id": "odd.targets.non_motor_vehicle",
+      "requirement": "permitted",
+      "description": "自行车 / 电动车 / 摩托车识别"
+    },
+    {
+      "element_id": "odd.targets.pedestrian",
+      "requirement": "permitted",
+      "description": "行人识别与主动让行"
+    },
+    {
+      "element_id": "odd.targets.animal",
+      "requirement": "permitted",
+      "description": "通用障碍物识别；动物单列未声明 — INFERRED"
+    },
+    {
+      "element_id": "odd.targets.obstacle",
+      "requirement": "permitted",
+      "parameter_range": "激光雷达 3 cm 精度；可识别 ≥ 14–30 cm 小障碍物（手册 + 官方 demo：雪糕筒 / 倒伏树 / 水马 / 下沉台阶 / 水管）"
+    },
+    {
+      "element_id": "odd.weather.atmospheric",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.weather.atmospheric.wind",
+      "requirement": "permitted",
+      "description": "2026-01-30 OTA 新增横向风稳定控制；强风场景主动介入。无公开 m/s 阈值"
+    },
+    {
+      "element_id": "odd.weather.atmospheric.rain",
+      "requirement": "permitted",
+      "parameter_range": "[推定三档] 正常 ≤ 14.9 mm/h（小雨-中雨）；降级 15–29.9 mm/h（大雨）；退出 > 30 mm/h（暴雨）。手册仅定性提示「雨雪谨慎使用」；分布式毫米波雷达在降雨下维持约 98% 目标识别率（华为 PR）"
+    },
+    {
+      "element_id": "odd.weather.atmospheric.snow.snowfall",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 小到中雪可用；暴雪退出。手册无量化"
+    },
+    {
+      "element_id": "odd.weather.atmospheric.snow.accumulation",
+      "requirement": "not_permitted",
+      "description": "道路积雪覆盖标线，摄像头 + lidar 降级",
+      "exit_behavior": "suppress_and_exit"
+    },
+    {
+      "element_id": "odd.weather.atmospheric.special",
+      "requirement": "not_permitted",
+      "description": "冰雹 / 龙卷风等极端天气",
+      "exit_behavior": "suppress_and_exit"
+    },
+    {
+      "element_id": "odd.weather.particles",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.weather.particles.fog",
+      "requirement": "permitted",
+      "parameter_range": "[推定] 能见度 ≥ 200 m 正常；100–200 m 降级；< 100 m 建议退出（手册仅定性提示「能见度较差谨慎使用」）"
+    },
+    {
+      "element_id": "odd.weather.particles.haze",
+      "requirement": "permitted",
+      "description": "雾霾天气可用；重度需降级"
+    },
+    {
+      "element_id": "odd.weather.particles.dust",
+      "requirement": "not_permitted",
+      "description": "沙尘暴感知严重退化",
+      "exit_behavior": "trigger_exit"
+    },
+    {
+      "element_id": "odd.weather.particles.smoke",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "odd.weather.lighting",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.weather.lighting.natural",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.weather.lighting.streetlight",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "odd.weather.lighting.headlight",
+      "requirement": "permitted",
+      "description": "夜间依赖车辆灯光 + lidar"
+    },
+    {
+      "element_id": "odd.weather.lighting.indoor",
+      "requirement": "permitted",
+      "description": "室内停车场低光照（VPD 2.0）"
+    },
+    {
+      "element_id": "odd.weather.temperature",
+      "requirement": "permitted",
+      "parameter_range": "[推定] −30 ℃ ~ 50 ℃ 整车工作温度（车规级常见范围；手册未明确 ADS 边界）"
+    },
+    {
+      "element_id": "odd.digital.wireless",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.digital.wireless.v2v",
+      "requirement": "not_permitted",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.digital.wireless.v2i",
+      "requirement": "not_permitted",
+      "description": "ADS 4 不依赖 V2I 信号灯通信（纯车端感知）",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.digital.wireless.v2p",
+      "requirement": "not_permitted",
+      "exit_behavior": "suppress_activation"
+    },
+    {
+      "element_id": "odd.digital.wireless.v2n",
+      "requirement": "permitted",
+      "description": "车云连接用于 OTA、地图更新、远程辅助"
+    },
+    {
+      "element_id": "odd.digital.position",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "odd.digital.position.gnss",
+      "requirement": "permitted",
+      "description": "BDS + GPS 组合定位（标配）"
+    },
+    {
+      "element_id": "odd.digital.position.rtk",
+      "requirement": "permitted",
+      "description": "高精定位支持（Max 档含）"
+    },
+    {
+      "element_id": "personnel.driver",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "personnel.driver.takeover.attention",
+      "requirement": "permitted",
+      "description": "DMS 监视注视方向；视线脱离触发两段式提醒（HMI + 声音 → 脱手靠边）。具体秒数未公开，行业经验首次提醒约 15 s"
+    },
+    {
+      "element_id": "personnel.driver.takeover.other",
+      "requirement": "permitted",
+      "description": "ADS 4.1 起脱手检测间隔延长；但仍属 L2，驾驶员须保持监督"
+    },
+    {
+      "element_id": "personnel.driver.seatbelt",
+      "requirement": "permitted",
+      "description": "未系安全带 → 系统不激活"
+    },
+    {
+      "element_id": "personnel.driver.posture",
+      "requirement": "permitted",
+      "description": "要求驾驶员面部可见"
+    },
+    {
+      "element_id": "personnel.passenger",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "personnel.passenger.interference",
+      "requirement": "permitted",
+      "description": "乘客未干扰方向盘 / 踏板"
+    },
+    {
+      "element_id": "personnel.passenger.seatbelt",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "personnel.passenger.other",
+      "requirement": "permitted",
+      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+    },
+    {
+      "element_id": "vehicle.motion",
+      "requirement": "permitted",
+      "description": "[结构性类别] 详见下级元素"
+    },
+    {
+      "element_id": "vehicle.motion.speed.operating",
+      "requirement": "permitted",
+      "parameter_range": "[手册明确] 0–200 km/h；实际自适应识别道路限速"
+    },
+    {
+      "element_id": "vehicle.motion.speed.activation",
+      "requirement": "permitted",
+      "parameter_range": "[手册明确] NCA / ACC / LCC 激活 0–200 km/h；各子功能：AEB 4–150 km/h、eAES 50–135 km/h、LOCP 30–130 km/h、后 AEB 1–60 km/h、ELKA 40–120 km/h"
+    },
+    {
+      "element_id": "vehicle.motion.acceleration.operating",
+      "requirement": "permitted"
+    },
+    {
+      "element_id": "vehicle.motion.acceleration.activation",
+      "requirement": "permitted",
+      "description": "[推定] ± 3 m/s² 以内正常"
+    },
+    {
+      "element_id": "vehicle.ads_state",
+      "requirement": "permitted",
+      "description": "全传感器健康 + 车辆电量 ≥ 20% + 软件版本正常；任一异常则降级或退出"
+    },
+    {
+      "element_id": "vehicle.other_systems",
+      "requirement": "permitted",
+      "description": "制动、转向、电驱、底盘等正常无故障；冗余系统可用"
+    }
   ],
-
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T12:00:00Z",

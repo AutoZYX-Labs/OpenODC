@@ -111,6 +111,19 @@ function renderConsumer() {
 
   wrap.appendChild(el('div', { class: 'consumer-summary' }, generateOneLineSummary(currentDoc, buckets)))
 
+  const stats = coverageStats(currentDoc)
+  const coverageStrip = el('div', { class: 'coverage-strip' })
+  coverageStrip.appendChild(el('div', { class: 'coverage-strip-head' }, '该 ODC 对 GB/T 45312—2025 全部 ' + stats.total + ' 个国标要素的覆盖情况：'))
+  const bar = el('div', { class: 'coverage-bar' })
+  const manual = stats.manual + stats.curated, inferred = stats.inferred, gap = stats.gap, structural = stats.structural
+  if (manual) bar.appendChild(el('span', { class: 'seg seg-manual', style: `flex:${manual}` }, '手册/明确 ' + manual))
+  if (inferred) bar.appendChild(el('span', { class: 'seg seg-inferred', style: `flex:${inferred}` }, '推定 ' + inferred))
+  if (gap) bar.appendChild(el('span', { class: 'seg seg-gap', style: `flex:${gap}` }, '手册未涉及 ' + gap))
+  if (structural) bar.appendChild(el('span', { class: 'seg seg-structural', style: `flex:${structural}` }, '结构 ' + structural))
+  coverageStrip.appendChild(bar)
+  coverageStrip.appendChild(el('p', { class: 'coverage-strip-note' }, '「手册未涉及」的数量本身就是数据：它直接显示了该厂家文档相对国标的披露缺口。'))
+  wrap.appendChild(coverageStrip)
+
   if (buckets.exits.length) {
     const exits = el('div', { class: 'consumer-exits' })
     exits.appendChild(el('h3', {}, `⚠ 这 ${buckets.exits.length} 种情况会让系统突然退出，需要驾驶员立即接管`))
@@ -128,11 +141,21 @@ function renderConsumer() {
   containerEl.appendChild(wrap)
 }
 
+function classifyCoverage(description) {
+  if (!description) return 'curated'
+  if (description.includes('[手册未涉及]')) return 'gap'
+  if (description.includes('[结构性类别]')) return 'structural'
+  if (description.includes('[手册明确]')) return 'manual'
+  if (description.includes('[推定]')) return 'inferred'
+  return 'curated'
+}
+
 function bucketizeForConsumer(doc) {
   const useable = [], limited = [], unusable = [], exits = []
   for (const e of doc.elements) {
     const meta = currentIndex.get(e.element_id)
     if (!meta) continue
+    const coverage = classifyCoverage(e.description)
     const item = {
       element_id: e.element_id,
       name_zh: meta.name_zh,
@@ -141,6 +164,7 @@ function bucketizeForConsumer(doc) {
       parameter_range: e.parameter_range || null,
       description: e.description || null,
       exit_behavior: e.exit_behavior || null,
+      coverage,
       label: meta.name_zh + (e.parameter_range ? ` (${e.parameter_range})` : '')
     }
     if (e.requirement === 'permitted') {
@@ -191,18 +215,30 @@ function renderBucket(color, heading, items, hint) {
 }
 
 function renderConsumerItem(it) {
-  const li = el('li', { class: 'consumer-item' })
+  const li = el('li', { class: 'consumer-item coverage-' + it.coverage })
   const head = el('div', { class: 'item-head' })
   head.appendChild(el('span', { class: 'item-name' }, it.name_zh))
   if (it.parameter_range) head.appendChild(el('span', { class: 'item-range' }, ' — ' + it.parameter_range))
+  if (it.coverage === 'gap') head.appendChild(el('span', { class: 'coverage-tag tag-gap' }, '手册未涉及'))
+  else if (it.coverage === 'structural') head.appendChild(el('span', { class: 'coverage-tag tag-structural' }, '结构性'))
+  else if (it.coverage === 'manual') head.appendChild(el('span', { class: 'coverage-tag tag-manual' }, '手册明确'))
+  else if (it.coverage === 'inferred') head.appendChild(el('span', { class: 'coverage-tag tag-inferred' }, '推定'))
   li.appendChild(head)
-  if (it.description) li.appendChild(el('div', { class: 'item-desc' }, it.description))
+  if (it.description && it.coverage !== 'gap' && it.coverage !== 'structural') {
+    li.appendChild(el('div', { class: 'item-desc' }, it.description))
+  }
   if (it.exit_behavior) li.appendChild(el('div', { class: 'item-exit' }, '退出行为：' + exitBehaviorLabel(it.exit_behavior)))
   li.appendChild(el('div', { class: 'item-meta' }, [
     el('code', { class: 'item-id' }, it.element_id),
     el('span', { class: 'item-section' }, ' · 标准 §' + it.spec_section)
   ]))
   return li
+}
+
+function coverageStats(doc) {
+  const stats = { total: doc.elements.length, manual: 0, inferred: 0, curated: 0, gap: 0, structural: 0 }
+  for (const e of doc.elements) stats[classifyCoverage(e.description)]++
+  return stats
 }
 
 function renderSourcesFooter(doc) {
