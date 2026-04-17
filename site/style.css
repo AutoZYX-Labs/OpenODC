@@ -80,8 +80,29 @@ code {
   align-items: center;
   font-size: 0.92rem;
 }
-.nav-links a { color: var(--ink-soft); }
+.nav-links a { color: var(--ink-soft); transition: color 0.12s ease; }
 .nav-links a:hover { color: var(--accent); }
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 500;
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+.nav-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--line);
+  margin: 0 0.2rem;
+}
 .nav-links .github-link {
   color: var(--accent);
   font-weight: 500;
@@ -917,6 +938,127 @@ code {
 }
 .consumer-exits ul { margin: 0; padding-left: 1.2rem; color: var(--ink-soft); }
 .consumer-exits li { margin-bottom: 0.4rem; }
+
+/* Consumer view — new grouped layout */
+.consumer-bucket {
+  margin: 1.8rem 0;
+  padding: 1.4rem 1.6rem 1rem;
+  background: var(--bg-card);
+  border-radius: 6px;
+  border-left: 4px solid var(--line);
+}
+.consumer-bucket-green { border-left-color: #6b8e6b; }
+.consumer-bucket-amber { border-left-color: #c8a13a; }
+.consumer-bucket-red { border-left-color: #c85a3a; }
+
+.bucket-heading {
+  font-family: var(--serif);
+  margin: 0 0 0.25rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+.consumer-bucket-green .bucket-heading { color: #2d6a3a; }
+.consumer-bucket-amber .bucket-heading { color: #8a6e1d; }
+.consumer-bucket-red .bucket-heading { color: #c85a3a; }
+.bucket-count { font-size: 0.95rem; color: var(--ink-mute); font-family: var(--sans); font-weight: 400; }
+.bucket-hint { color: var(--ink-mute); font-size: 0.9rem; margin: 0 0 1rem; }
+.empty-note { color: var(--ink-mute); font-style: italic; margin: 0.5rem 0; }
+
+.consumer-group {
+  border-top: 1px solid var(--line-soft);
+  padding: 0.6rem 0;
+}
+.consumer-group:first-of-type { border-top: none; }
+.group-summary {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  user-select: none;
+  list-style: none;
+  color: var(--ink);
+}
+.group-summary::-webkit-details-marker { display: none; }
+.group-summary::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.15s ease;
+  color: var(--ink-mute);
+  font-size: 0.85em;
+}
+details[open] > .group-summary::before { transform: rotate(90deg); }
+.group-count { color: var(--ink-mute); font-size: 0.9rem; font-weight: 400; }
+
+.consumer-item-list {
+  list-style: none;
+  padding: 0 0 0.4rem 1.4rem;
+  margin: 0.4rem 0 0;
+}
+.consumer-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--line-soft);
+  color: var(--ink-soft);
+}
+.consumer-item:last-child { border-bottom: none; }
+.item-head { font-size: 0.98rem; color: var(--ink); }
+.item-name { font-weight: 500; }
+.item-range { color: var(--accent-deep); font-weight: 500; }
+.item-desc { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.2rem; }
+.item-exit {
+  font-size: 0.85rem;
+  color: #c85a3a;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+.item-meta {
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  margin-top: 0.3rem;
+  font-family: var(--sans);
+}
+.item-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--bg-alt);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+.item-section { color: var(--ink-mute); }
+
+.consumer-sources {
+  margin-top: 2.5rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border: 1px solid var(--line-soft);
+}
+.consumer-sources h3 {
+  font-family: var(--serif);
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.source-status { color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.6; }
+.source-list-intro { margin: 0 0 0.4rem; font-weight: 500; color: var(--ink); }
+.source-list {
+  padding-left: 1.2rem;
+  margin: 0 0 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.source-list a { word-break: break-all; }
+.source-notes {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  font-style: italic;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 0.8rem;
+  margin: 0.8rem 0 0;
+  line-height: 1.6;
+}
 
 /* Editor */
 .editor-section { padding: 2.5rem 1.5rem; }

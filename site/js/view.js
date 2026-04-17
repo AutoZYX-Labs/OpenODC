@@ -97,10 +97,10 @@ function renderDev() {
   containerEl.appendChild(wrap)
 }
 
-// ---- Consumer view: plain-language cards ----
+// ---- Consumer view: plain-language, grouped, verifiable ----
 function renderConsumer() {
   const wrap = el('div', { class: 'consumer-view' })
-  wrap.appendChild(el('p', { class: 'view-intro' }, '面向普通用户：这台车的智驾在什么情况下能用、什么情况下不能用？'))
+  wrap.appendChild(el('p', { class: 'view-intro' }, '面向普通用户：这台车的智驾在什么情况下能用、什么情况下不能用？每条都标注标准章节号，可对照 GB/T 45312—2025 核验。'))
 
   const buckets = bucketizeForConsumer(currentDoc)
   if (buckets.useable.length === 0 && buckets.unusable.length === 0) {
@@ -109,74 +109,139 @@ function renderConsumer() {
     return
   }
 
-  const summaryText = generateOneLineSummary(currentDoc, buckets)
-  wrap.appendChild(el('div', { class: 'consumer-summary' }, summaryText))
-
-  const cardGrid = el('div', { class: 'consumer-cards' })
-  if (buckets.useable.length) {
-    cardGrid.appendChild(consumerCard('green', '能用', buckets.useable))
-  }
-  if (buckets.limited.length) {
-    cardGrid.appendChild(consumerCard('amber', '有限制', buckets.limited))
-  }
-  if (buckets.unusable.length) {
-    cardGrid.appendChild(consumerCard('red', '不能用', buckets.unusable))
-  }
-  wrap.appendChild(cardGrid)
+  wrap.appendChild(el('div', { class: 'consumer-summary' }, generateOneLineSummary(currentDoc, buckets)))
 
   if (buckets.exits.length) {
     const exits = el('div', { class: 'consumer-exits' })
-    exits.appendChild(el('h3', {}, '注意：这些情况会让系统突然退出，需要驾驶员立即接管'))
+    exits.appendChild(el('h3', {}, `⚠ 这 ${buckets.exits.length} 种情况会让系统突然退出，需要驾驶员立即接管`))
     const list = el('ul')
-    for (const e of buckets.exits) list.appendChild(el('li', {}, e))
+    for (const e of buckets.exits) list.appendChild(el('li', {}, e.label))
     exits.appendChild(list)
     wrap.appendChild(exits)
   }
 
+  wrap.appendChild(renderBucket('green', '✓ 能用', buckets.useable, '无条件允许的场景'))
+  wrap.appendChild(renderBucket('amber', '△ 有限制', buckets.limited, '在参数范围内允许；超出范围会降级或退出'))
+  wrap.appendChild(renderBucket('red', '✗ 不能用', buckets.unusable, '系统明确声明不能处理；实际行为见「退出行为」'))
+
+  wrap.appendChild(renderSourcesFooter(currentDoc))
   containerEl.appendChild(wrap)
 }
 
 function bucketizeForConsumer(doc) {
-  const useable = []
-  const limited = []
-  const unusable = []
-  const exits = []
-
+  const useable = [], limited = [], unusable = [], exits = []
   for (const e of doc.elements) {
     const meta = currentIndex.get(e.element_id)
     if (!meta) continue
-    const human = humanizeElement(meta, e)
+    const item = {
+      element_id: e.element_id,
+      name_zh: meta.name_zh,
+      category_name_zh: meta.category_name_zh,
+      spec_section: meta.spec_section,
+      parameter_range: e.parameter_range || null,
+      description: e.description || null,
+      exit_behavior: e.exit_behavior || null,
+      label: meta.name_zh + (e.parameter_range ? ` (${e.parameter_range})` : '')
+    }
     if (e.requirement === 'permitted') {
-      if (e.parameter_range) limited.push(human)
-      else useable.push(human)
+      if (e.parameter_range) limited.push(item)
+      else useable.push(item)
     } else {
-      unusable.push(human)
-      if (e.exit_behavior === 'trigger_exit' || e.exit_behavior === 'suppress_and_exit') {
-        exits.push(human)
-      }
+      unusable.push(item)
+      if (e.exit_behavior === 'trigger_exit' || e.exit_behavior === 'suppress_and_exit') exits.push(item)
     }
   }
   return { useable, limited, unusable, exits }
 }
 
-function humanizeElement(meta, e) {
-  let label = meta.name_zh
-  if (e.parameter_range) label += ` (${e.parameter_range})`
-  return label
-}
-
 function generateOneLineSummary(doc, buckets) {
-  return `${doc.vendor} ${doc.model} 的「${doc.function_name}」是 ${adsLevelLabel(doc.ads_level)} 自动驾驶系统。声明可用范围包括 ${buckets.useable.length} 项允许、${buckets.limited.length} 项有限制条件，明确不允许 ${buckets.unusable.length} 项场景。`
+  return `${doc.vendor} ${doc.model} 的「${doc.function_name}」是 ${adsLevelLabel(doc.ads_level)} 自动驾驶系统。声明可用范围包括 ${buckets.useable.length} 项无条件允许、${buckets.limited.length} 项有限制条件，明确不允许 ${buckets.unusable.length} 项场景。`
 }
 
-function consumerCard(color, title, items) {
-  const card = el('div', { class: 'consumer-card consumer-card-' + color })
-  card.appendChild(el('h3', {}, title))
-  const list = el('ul')
-  for (const it of items.slice(0, 12)) list.appendChild(el('li', {}, it))
-  if (items.length > 12) list.appendChild(el('li', { class: 'more' }, `… 另有 ${items.length - 12} 项`))
-  card.appendChild(list)
-  return card
+function renderBucket(color, heading, items, hint) {
+  const section = el('div', { class: 'consumer-bucket consumer-bucket-' + color })
+  section.appendChild(el('h3', { class: 'bucket-heading' }, [
+    el('span', { class: 'bucket-title' }, heading),
+    el('span', { class: 'bucket-count' }, ` · ${items.length} 项`)
+  ]))
+  section.appendChild(el('p', { class: 'bucket-hint' }, hint))
+  if (!items.length) {
+    section.appendChild(el('p', { class: 'empty-note' }, '（无）'))
+    return section
+  }
+  const byCategory = new Map()
+  for (const it of items) {
+    const key = it.category_name_zh || '其他'
+    if (!byCategory.has(key)) byCategory.set(key, [])
+    byCategory.get(key).push(it)
+  }
+  for (const [catName, catItems] of byCategory) {
+    const details = el('details', { class: 'consumer-group' })
+    details.setAttribute('open', '')
+    details.appendChild(el('summary', { class: 'group-summary' }, [
+      el('span', { class: 'group-name' }, catName),
+      el('span', { class: 'group-count' }, ` · ${catItems.length} 项`)
+    ]))
+    const list = el('ul', { class: 'consumer-item-list' })
+    for (const it of catItems) list.appendChild(renderConsumerItem(it))
+    details.appendChild(list)
+    section.appendChild(details)
+  }
+  return section
+}
+
+function renderConsumerItem(it) {
+  const li = el('li', { class: 'consumer-item' })
+  const head = el('div', { class: 'item-head' })
+  head.appendChild(el('span', { class: 'item-name' }, it.name_zh))
+  if (it.parameter_range) head.appendChild(el('span', { class: 'item-range' }, ' — ' + it.parameter_range))
+  li.appendChild(head)
+  if (it.description) li.appendChild(el('div', { class: 'item-desc' }, it.description))
+  if (it.exit_behavior) li.appendChild(el('div', { class: 'item-exit' }, '退出行为：' + exitBehaviorLabel(it.exit_behavior)))
+  li.appendChild(el('div', { class: 'item-meta' }, [
+    el('code', { class: 'item-id' }, it.element_id),
+    el('span', { class: 'item-section' }, ' · 标准 §' + it.spec_section)
+  ]))
+  return li
+}
+
+function renderSourcesFooter(doc) {
+  const footer = el('div', { class: 'consumer-sources' })
+  footer.appendChild(el('h3', {}, '数据来源与核验指引'))
+  const statusText = {
+    draft: '本 ODC 为社区基于公开资料（用户手册、官方发布会、第三方测评）反推，不代表厂家官方声明。请以厂家官方手册为准。',
+    community_reviewed: '本 ODC 已经过社区同行评审。',
+    vendor_confirmed: '本 ODC 已由厂家官方确认。'
+  }[doc.metadata.review_status] || ''
+  footer.appendChild(el('p', { class: 'source-status' }, statusText))
+  if (doc.metadata.sources && doc.metadata.sources.length) {
+    footer.appendChild(el('p', { class: 'source-list-intro' }, '引用资料：'))
+    const list = el('ul', { class: 'source-list' })
+    for (const src of doc.metadata.sources) list.appendChild(renderSourceLi(src))
+    footer.appendChild(list)
+  }
+  if (doc.metadata.notes) footer.appendChild(el('p', { class: 'source-notes' }, doc.metadata.notes))
+  return footer
+}
+
+function renderSourceLi(src) {
+  const li = el('li')
+  const urlMatch = src.match(/(https?:\/\/\S+)/)
+  if (urlMatch) {
+    const before = src.substring(0, urlMatch.index).replace(/[:：]?\s*$/, '').trim()
+    if (before) li.appendChild(el('span', {}, before + '：'))
+    const a = document.createElement('a')
+    a.href = urlMatch[0]
+    a.target = '_blank'
+    a.rel = 'noopener'
+    a.textContent = urlMatch[0]
+    li.appendChild(a)
+    const after = src.substring(urlMatch.index + urlMatch[0].length).trim()
+    if (after) li.appendChild(el('span', {}, ' ' + after))
+  } else {
+    li.textContent = src
+  }
+  return li
 }
 
 // ---- Header rendering ----
