@@ -692,12 +692,12 @@
     {
       "element_id": "vehicle.motion.speed.operating",
       "requirement": "permitted",
-      "parameter_range": "[手册明确] 0 – 140 km/h；速度牌无法识别时系统限速 70 km/h (45 mph)（手册 Speed Assist 章节原文）"
+      "parameter_range": "[手册明确] 最大巡航速度 150 km/h（90 mph，Autosteer 上限）；超过 80 km/h 时 TACC 不能可靠识别静止车辆；速度牌无法识别时系统限速 70 km/h（45 mph）。"
     },
     {
       "element_id": "vehicle.motion.speed.activation",
       "requirement": "permitted",
-      "parameter_range": "[手册明确] 0 km/h – 140 km/h (85 mph，手册原文：FSD Supervised can be activated at any speed less than 85 mph)"
+      "parameter_range": "[手册明确] Autosteer 最低激活 30 km/h（18 mph，无前车时）；有前车时可在低于 150 km/h（90 mph）任意速度激活（手册 Autosteer 章节）"
     },
     {
       "element_id": "vehicle.motion.acceleration.operating",

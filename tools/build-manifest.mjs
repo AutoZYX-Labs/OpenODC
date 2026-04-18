@@ -16,20 +16,21 @@ const siteExamplesDir = join(repoRoot, 'site', 'data', 'examples')
 // 1. Build manifest of example documents
 const files = readdirSync(examplesDir).filter(f => f.endsWith('.json'))
 
-function classifyCoverage(description) {
-  if (!description) return 'curated'
-  if (description.includes('[手册未涉及]')) return 'gap'
-  if (description.includes('[结构性类别]')) return 'structural'
-  if (description.includes('[手册明确]')) return 'manual'
-  if (description.includes('[官方声明]')) return 'official'
-  if (description.includes('[推定]')) return 'inferred'
+function classifyCoverage(elem) {
+  const text = (elem && (typeof elem === 'string' ? elem : ((elem.description || '') + ' ' + (elem.parameter_range || '')))) || ''
+  if (!text.trim()) return 'curated'
+  if (text.includes('[手册未涉及]')) return 'gap'
+  if (text.includes('[结构性类别]')) return 'structural'
+  if (text.includes('[手册明确]')) return 'manual'
+  if (text.includes('[官方声明]')) return 'official'
+  if (text.includes('[推定]')) return 'inferred'
   return 'curated'
 }
 
 const documents = files.map(f => {
   const doc = JSON.parse(readFileSync(join(examplesDir, f), 'utf8'))
   const coverage = { manual: 0, official: 0, inferred: 0, curated: 0, gap: 0, structural: 0 }
-  for (const e of doc.elements || []) coverage[classifyCoverage(e.description)]++
+  for (const e of doc.elements || []) coverage[classifyCoverage(e)]++
   const substantive = coverage.manual + coverage.official + coverage.curated + coverage.inferred
   return {
     id: doc.id,

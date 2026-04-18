@@ -35,19 +35,18 @@
     },
     {
       "element_id": "odd.road.type.urban_road.arterial",
-      "requirement": "not_permitted",
-      "description": "主干路需驾驶员手动操作，基础 AP 不支持城市道路自主驾驶",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[手册明确] TACC + Autosteer 在清晰车道线上均可激活；但基础 AP 不识别信号灯 / 路口，驾驶员须全程接管转向意图以外的场景（Tesla 手册原文「Autosteer 最低激活 30 km/h，有前车时可任意速度低于 150 km/h 激活」）。"
     },
     {
       "element_id": "odd.road.type.urban_road.sub_arterial",
-      "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 同主干路，有清晰车道线时 Autosteer 可激活；路口与信号灯由驾驶员处理。"
     },
     {
       "element_id": "odd.road.type.urban_road.branch",
-      "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 有清晰车道线可激活，但支路车道窄、路口密、交叉情况多，实用性有限；手册未单独声明禁止。"
     },
     {
       "element_id": "odd.road.type.highway",
@@ -64,9 +63,8 @@
     },
     {
       "element_id": "odd.road.type.highway.class_2",
-      "requirement": "not_permitted",
-      "description": "二级公路不在设计范围",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 二级公路（双车道）在清晰车道线下 Autosteer 可激活；实际行车较少见"
     },
     {
       "element_id": "odd.road.type.highway.class_3",
@@ -80,8 +78,8 @@
     },
     {
       "element_id": "odd.road.type.rural",
-      "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 乡村道路有清晰标线时 Autosteer 可激活；路况复杂时手册建议驾驶员谨慎使用。"
     },
     {
       "element_id": "odd.road.type.other",
@@ -213,7 +211,7 @@
     {
       "element_id": "odd.road.lane.marking.absent",
       "requirement": "not_permitted",
-      "description": "必须有清晰车道标线；标线缺失时降级为跟车",
+      "description": "[手册明确] 车道标线是 Autosteer 的前提；手册原文「车道线过度磨损、能看到以前的标线、因道路施工而变化、或者变化过于迅速时，Autosteer 无法准确判断车道线」。",
       "exit_behavior": "suppress_and_exit"
     },
     {
@@ -272,14 +270,13 @@
     },
     {
       "element_id": "odd.road.lane.type.exit",
-      "requirement": "not_permitted",
-      "description": "基础 AP 不含 Navigate on Autopilot，不自动识别出入口",
-      "exit_behavior": "suppress_activation"
+      "requirement": "permitted",
+      "description": "[推定] 基础 AP 不含 NoA 不会自动变道驶离，但在出口车道上 Autosteer 可继续运行；驾驶员主动切入。"
     },
     {
       "element_id": "odd.road.lane.type.entrance",
-      "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "requirement": "permitted",
+      "description": "[推定] 基础 AP 不含 NoA 不会自动上高速，但上高速后 Autosteer 可激活。"
     },
     {
       "element_id": "odd.road.lane.type.total_count",
@@ -343,9 +340,8 @@
     },
     {
       "element_id": "odd.road.intersection.at_grade",
-      "requirement": "not_permitted",
-      "description": "平面交叉口超出设计范围",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 系统可以在有平面交叉的道路上持续运行，但基础 AP 不识别信号灯 / 不自动让行；路口通行完全由驾驶员负责。"
     },
     {
       "element_id": "odd.road.intersection.roundabout.mini",
@@ -389,9 +385,8 @@
     },
     {
       "element_id": "odd.road.intersection.ramp",
-      "requirement": "not_permitted",
-      "description": "匝道需驾驶员手动",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 基础 AP 不含 Navigate on Autopilot 不会自动出入匝道，但已在匝道上时 TACC + Autosteer 可继续运行；驾驶员须主动切入 / 切出匝道。"
     },
     {
       "element_id": "odd.infrastructure.traffic_control",
@@ -405,9 +400,8 @@
     },
     {
       "element_id": "odd.infrastructure.traffic_control.signal",
-      "requirement": "not_permitted",
-      "description": "基础 AP 不识别信号灯",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[推定] 系统可以在有信号灯的道路运行，但基础 AP 不识别信号灯（不像 FSD 有 Stop Sign and Traffic Light Control），信号灯通行完全由驾驶员负责。"
     },
     {
       "element_id": "odd.infrastructure.roadside",
@@ -476,9 +470,8 @@
     },
     {
       "element_id": "odd.infrastructure.special.toll_station",
-      "requirement": "not_permitted",
-      "description": "收费站需驾驶员接管",
-      "exit_behavior": "suppress_and_exit"
+      "requirement": "permitted",
+      "description": "[手册明确] 手册原文「接近收费站」列为 TACC/Autosteer 运行不可靠情形。系统不主动禁用，但驾驶员须主动接管通过。"
     },
     {
       "element_id": "odd.infrastructure.special.warning_post",
@@ -512,15 +505,13 @@
     },
     {
       "element_id": "odd.targets.non_motor_vehicle",
-      "requirement": "not_permitted",
-      "description": "基础 AEB 可识别，但非 AP 主设计目标",
-      "exit_behavior": "trigger_exit"
+      "requirement": "permitted",
+      "description": "[推定] AEB 可识别（自行车 / 电动车），但 AP 不主动让行——手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。"
     },
     {
       "element_id": "odd.targets.pedestrian",
-      "requirement": "not_permitted",
-      "description": "AEB 可识别，AP 不主动让行",
-      "exit_behavior": "trigger_exit"
+      "requirement": "permitted",
+      "description": "[推定] AEB 可识别行人，但 AP 不主动让行——手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。"
     },
     {
       "element_id": "odd.targets.animal",
@@ -707,12 +698,12 @@
     {
       "element_id": "vehicle.motion.speed.operating",
       "requirement": "permitted",
-      "parameter_range": "0 km/h ~ 150 km/h"
+      "parameter_range": "[手册明确] 最大巡航速度 150 km/h（90 mph）；超过 80 km/h 时 TACC 不能可靠识别静止车辆（手册原文）。"
     },
     {
       "element_id": "vehicle.motion.speed.activation",
       "requirement": "permitted",
-      "parameter_range": "0 km/h ~ 150 km/h（TACC 跟停再起步）"
+      "parameter_range": "[手册明确] Autosteer 最低激活 30 km/h（无前车时）；有前车时可在低于 150 km/h 任意速度激活。"
     },
     {
       "element_id": "vehicle.motion.acceleration.operating",

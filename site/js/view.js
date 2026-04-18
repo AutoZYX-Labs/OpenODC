@@ -142,13 +142,14 @@ function renderConsumer() {
   containerEl.appendChild(wrap)
 }
 
-function classifyCoverage(description) {
-  if (!description) return 'curated'
-  if (description.includes('[手册未涉及]')) return 'gap'
-  if (description.includes('[结构性类别]')) return 'structural'
-  if (description.includes('[手册明确]')) return 'manual'
-  if (description.includes('[官方声明]')) return 'official'
-  if (description.includes('[推定]')) return 'inferred'
+function classifyCoverage(description, parameterRange) {
+  const text = (description || '') + ' ' + (parameterRange || '')
+  if (!text.trim()) return 'curated'
+  if (text.includes('[手册未涉及]')) return 'gap'
+  if (text.includes('[结构性类别]')) return 'structural'
+  if (text.includes('[手册明确]')) return 'manual'
+  if (text.includes('[官方声明]')) return 'official'
+  if (text.includes('[推定]')) return 'inferred'
   return 'curated'
 }
 
@@ -157,7 +158,7 @@ function bucketizeForConsumer(doc) {
   for (const e of doc.elements) {
     const meta = currentIndex.get(e.element_id)
     if (!meta) continue
-    const coverage = classifyCoverage(e.description)
+    const coverage = classifyCoverage(e.description, e.parameter_range)
     const item = {
       element_id: e.element_id,
       name_zh: meta.name_zh,
@@ -239,8 +240,8 @@ function renderConsumerItem(it) {
 }
 
 function coverageStats(doc) {
-  const stats = { total: doc.elements.length, manual: 0, inferred: 0, curated: 0, gap: 0, structural: 0 }
-  for (const e of doc.elements) stats[classifyCoverage(e.description)]++
+  const stats = { total: doc.elements.length, manual: 0, official: 0, inferred: 0, curated: 0, gap: 0, structural: 0 }
+  for (const e of doc.elements) stats[classifyCoverage(e.description, e.parameter_range)]++
   return stats
 }
 

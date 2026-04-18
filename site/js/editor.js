@@ -288,7 +288,62 @@ function bindToolbar() {
     await navigator.clipboard.writeText(JSON.stringify(doc, null, 2))
     alert('已复制到剪贴板')
   })
+  document.getElementById('t-save-workbench').addEventListener('click', saveToWorkbench)
+  document.getElementById('t-open-pr').addEventListener('click', openPR)
   treeSearch.addEventListener('input', () => renderTree(treeSearch.value))
+}
+
+const WORKBENCH_KEY = 'openodc.workbench.v1'
+
+function saveToWorkbench() {
+  const wbVendor = getQueryParam('workbench_vendor')
+  const wbFn = getQueryParam('workbench_fn')
+  if (!wbVendor || !wbFn) { alert('非工作台会话'); return }
+  const raw = localStorage.getItem(WORKBENCH_KEY)
+  const state = raw ? JSON.parse(raw) : {}
+  if (!state[wbVendor]) state[wbVendor] = { functions: [] }
+  const doc = buildDocument()
+  const fnIndex = state[wbVendor].functions.findIndex(f => f.id === wbFn)
+  if (fnIndex < 0) {
+    state[wbVendor].functions.push({
+      id: wbFn,
+      name: doc.function_name || '（未命名）',
+      model: doc.model || '',
+      ads_level: doc.ads_level || 2,
+      status: 'in_development',
+      updated_at: new Date().toISOString(),
+      manual_url: '',
+      notes: '',
+      odc_draft: doc
+    })
+  } else {
+    state[wbVendor].functions[fnIndex] = {
+      ...state[wbVendor].functions[fnIndex],
+      name: doc.function_name || state[wbVendor].functions[fnIndex].name,
+      model: doc.model || state[wbVendor].functions[fnIndex].model,
+      ads_level: doc.ads_level || state[wbVendor].functions[fnIndex].ads_level,
+      updated_at: new Date().toISOString(),
+      odc_draft: doc
+    }
+  }
+  localStorage.setItem(WORKBENCH_KEY, JSON.stringify(state))
+  window.location.href = '/workbench.html'
+}
+
+function openPR() {
+  const doc = buildDocument()
+  const json = JSON.stringify(doc, null, 2)
+  const filename = doc.id + '.json'
+  // GitHub's new-file URL supports ?filename= but ?value= is limited in URL length.
+  // Strategy: copy JSON to clipboard + open the new-file page; user pastes.
+  navigator.clipboard.writeText(json).then(() => {
+    const url = `https://github.com/AutoZYX/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}`
+    const banner = `JSON 已复制到剪贴板。即将打开 GitHub 新建文件页（文件名已预填 ${filename}）。\n\n步骤：\n1. 粘贴内容（Ctrl/Cmd + V）\n2. 底部 Commit 消息填 "Add ${doc.vendor} ${doc.function_name} ODC"\n3. 选 "Create new branch for this commit and start a pull request"\n4. 点击 Commit changes`
+    alert(banner)
+    window.open(url, '_blank', 'noopener')
+  }).catch(() => {
+    alert('复制失败；请使用"下载 JSON"然后手动上传')
+  })
 }
 
 function importFromDoc(doc) {
@@ -368,6 +423,11 @@ function showWorkbenchBanner(msg, vendor, fn) {
   ])
   const main = document.querySelector('main')
   if (main) main.insertBefore(banner, main.firstChild)
+  // Reveal workbench-scoped toolbar buttons
+  for (const id of ['t-save-workbench', 't-open-pr', 't-workbench-spacer']) {
+    const btn = document.getElementById(id)
+    if (btn) btn.hidden = false
+  }
 }
 
 ;(async () => {

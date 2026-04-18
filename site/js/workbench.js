@@ -231,31 +231,42 @@ function openEditor(vendorId, fn) {
   window.location.href = '/editor.html?' + params.toString()
 }
 
-function publishFunction(vendorId, fn) {
+async function publishFunction(vendorId, fn) {
   if (fn.status !== 'shipped') {
     if (!confirm(`当前状态为「${STATUS_META[fn.status]?.label}」，不是「已上市」。\n\n真正的 SOP 流程会要求：已上市 + 版本冻结 + 内部审批。\n\n继续演示发布吗？`)) return
   }
-  const template = `# 请求将 ${VENDOR_LABELS[vendorId]} · ${fn.name} 公开到 OpenODC
 
-**厂家**：${VENDOR_LABELS[vendorId]}
-**功能**：${fn.name}
-**车型**：${fn.model}
-**ADS 等级**：L${fn.ads_level}
-**官方手册**：${fn.manual_url || '（未设置）'}
-**备注**：${fn.notes || '（无）'}
-
-此 ODC 已达到 SOP 要求，脱敏后提交至公开样例库。
-
----
-由 OpenODC 厂家直填工作台生成 · ${new Date().toISOString()}
-`
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(template).then(() => {
-      alert('[演示] PR 模板已复制到剪贴板\n\n正式版本将直接：\n• 生成脱敏后的 ODC JSON\n• 自动创建 GitHub PR 到 AutoZYX/OpenODC\n• 邮件通知维护者审核\n\n现在可以手动粘贴到 GitHub 新建 PR 页面。')
-    })
-  } else {
-    prompt('复制以下内容到 GitHub PR 描述：', template)
+  let odcJson = null
+  if (fn.odc_draft) {
+    odcJson = JSON.stringify(fn.odc_draft, null, 2)
+  } else if (fn.public_id) {
+    // Already has a public counterpart — fetch it as the starting content
+    try {
+      const res = await fetch('/data/examples/' + fn.public_id + '.json')
+      if (res.ok) odcJson = await res.text()
+    } catch {}
   }
+
+  if (!odcJson) {
+    // No ODC data yet → route to editor first
+    if (confirm(`${fn.name} 还没有 ODC 数据。\n\n先到编辑器填写 ODC 要素，然后再回来发布。\n\n现在打开编辑器？`)) {
+      openEditor(vendorId, fn)
+    }
+    return
+  }
+
+  const filename = (fn.public_id || fn.id) + '.json'
+  const prBody = `## 请求将 ${VENDOR_LABELS[vendorId]} · ${fn.name} 公开到 OpenODC\n\n- 厂家：${VENDOR_LABELS[vendorId]}\n- 功能：${fn.name}\n- 车型：${fn.model}\n- ADS 等级：L${fn.ads_level}\n- 官方手册：${fn.manual_url || '（未设置）'}\n- 备注：${fn.notes || '（无）'}\n\n由 OpenODC 厂家直填工作台生成 · ${new Date().toISOString()}`
+
+  try {
+    await navigator.clipboard.writeText(odcJson)
+    const ghUrl = `https://github.com/AutoZYX/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
+    alert(`JSON 已复制到剪贴板（${filename}）\n\n即将打开 GitHub 新建文件页。步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\nPR 描述已作为 commit description 预填。`)
+    window.open(ghUrl, '_blank', 'noopener')
+  } catch (e) {
+    prompt('复制以下 ODC JSON 到 GitHub 新文件：', odcJson)
+  }
+
   const state = loadState()
   const vendor = ensureVendor(state, vendorId)
   const rec = vendor.functions.find(x => x.id === fn.id)

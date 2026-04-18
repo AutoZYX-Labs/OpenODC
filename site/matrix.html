@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>横向矩阵 — OpenODC</title>
+  <meta name="description" content="多家 ADS 系统的 ODC 要素横向对比矩阵：一眼看出每个国标要素，每家厂家的声明差异。" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/"><span class="brand-mark">OpenODC</span></a>
+      <div class="nav-links">
+        <a href="/gallery.html">样例库</a>
+        <a href="/editor.html">编辑器</a>
+        <a href="/compare.html">对比</a>
+        <a href="/matrix.html" class="active">矩阵</a>
+        <a href="/workbench.html">厂家直填</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a href="/#standard">标准对照</a>
+        <a class="lang-toggle" href="/en/">EN</a>
+        <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">CROSS-VENDOR MATRIX · 横向矩阵</p>
+        <h1 class="page-title">多家 ODC 横向对比矩阵</h1>
+        <p class="page-subtitle">国标 144 要素 × 所有厂家样例 — 一眼看出每家声明了什么、没声明什么、边界在哪里差异。图例：<span class="legend-dot req-permitted"></span> 允许 · <span class="legend-dot req-not_permitted"></span> 不允许 · <span class="legend-dot req-gap"></span> 手册未涉及 · <span class="legend-dot req-structural"></span> 结构性</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-wide">
+
+        <div class="matrix-filters">
+          <label>类别
+            <select id="f-category">
+              <option value="">全部类别</option>
+            </select>
+          </label>
+          <label>覆盖层级
+            <select id="f-coverage">
+              <option value="all">显示全部</option>
+              <option value="substantive">仅显示有数据的要素（过滤掉全部未涉及行）</option>
+              <option value="divergent">仅显示有分歧的要素（各家声明不一致）</option>
+            </select>
+          </label>
+          <label>搜索要素
+            <input type="text" id="f-search" placeholder="如：雨、环岛、速度" />
+          </label>
+          <span class="matrix-count" id="matrix-count"></span>
+        </div>
+
+        <div class="matrix-wrap">
+          <table class="matrix-table" id="matrix-table">
+            <thead id="matrix-head"></thead>
+            <tbody id="matrix-body"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">OpenODC</p>
+      <p class="footer-note">自动驾驶系统运行设计条件开源平台 · 对齐 GB/T 45312—2025 · Apache 2.0（代码）+ CC BY 4.0（数据）</p>
+      <p class="footer-maintainer">维护：张玉新 · 吉林大学</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/matrix.js"></script>
+</body>
+</html>
