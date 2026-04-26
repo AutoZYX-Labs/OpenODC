@@ -13,7 +13,7 @@
   --serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
   --sans: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --serif-sc: 'Noto Serif SC', 'Source Han Serif SC', serif;
-  --max: 1280px;
+  --max: 1320px;
 }
 
 * { box-sizing: border-box; }
@@ -24,7 +24,7 @@ html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -245,7 +245,7 @@ code {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto 2.2rem;
   padding: 0 2rem;
 }
@@ -1819,3 +1819,12 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .compare-cell-missing { color: var(--ink-mute); font-style: italic; }
 .compare-cell.req-permitted .compare-req { color: #2d6a3a; font-weight: 500; }
 .compare-cell.req-not_permitted .compare-req { color: #c85a3a; font-weight: 500; }
+
+/* AutoZYX brand strip — 跨站统一 */
+.autozyx-brand{position:fixed;top:16px;left:20px;display:flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;background:rgba(250,249,245,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(224,222,214,0.7);border-radius:28px;text-decoration:none;color:var(--ink,#1a1a18);font:500 13px/1 'Inter',-apple-system,sans-serif;z-index:100;transition:border-color .15s,transform .15s}
+.autozyx-brand:hover{border-color:#8a8a80;text-decoration:none;transform:translateY(-1px)}
+.autozyx-brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;display:block}
+@media (max-width: 768px) {
+  .autozyx-brand { left:14px; }
+  .autozyx-brand span { display:none; }
+}
