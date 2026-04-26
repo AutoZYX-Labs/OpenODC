@@ -201,10 +201,13 @@ code {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
   border-bottom: 1px solid var(--line);
 }
-.hero-inner {
+.hero-inner,
+.hero-text {
   max-width: 760px;
   margin: 0 auto;
 }
+.hero-text + .hero-stats { margin-top: 0.5rem; }
+.hero-stats + .hero-text { margin-top: 0; }
 .eyebrow {
   font-size: 0.82rem;
   text-transform: uppercase;
