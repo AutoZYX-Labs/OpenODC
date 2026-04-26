@@ -13,7 +13,7 @@
   --serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
   --sans: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --serif-sc: 'Noto Serif SC', 'Source Han Serif SC', serif;
-  --max: 1080px;
+  --max: 1280px;
 }
 
 * { box-sizing: border-box; }
@@ -24,7 +24,7 @@ html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -203,7 +203,7 @@ code {
 }
 .hero-inner,
 .hero-text {
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto;
 }
 .hero-text + .hero-stats { margin-top: 0.5rem; }
@@ -244,9 +244,10 @@ code {
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  max-width: 1120px;
+  gap: 1.2rem;
+  max-width: 1280px;
   margin: 0 auto 2.2rem;
+  padding: 0 2rem;
 }
 @media (max-width: 860px) {
   .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 520px; }
