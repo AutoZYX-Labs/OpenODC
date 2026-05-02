@@ -20,7 +20,7 @@ OpenODC 上线了。
 
 如果你是 OEM、AD 供应商、测评机构，欢迎以任何方式参与 —— 提交一份官方 ODC、反推一份社区版本、或者只是给个 star 都行。
 
-仓库：https://github.com/AutoZYX/OpenODC
+仓库：https://github.com/AutoZYX-Labs/OpenODC
 站点：https://openodc.autozyx.com
 
 —— 张玉新
@@ -54,7 +54,7 @@ OpenODC 上线了。
 
 完整的承接篇文章会在 Phase 1 MVP 完成后发出。今天先把仓库公开、把 Schema 钉在那里。
 
-仓库：https://github.com/AutoZYX/OpenODC
+仓库：https://github.com/AutoZYX-Labs/OpenODC
 站点：https://openodc.autozyx.com
 许可：Apache 2.0（代码） · CC BY 4.0（数据）
 

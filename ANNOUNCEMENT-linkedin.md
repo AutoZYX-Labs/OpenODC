@@ -38,7 +38,7 @@ The model is the same as ROAM (https://github.com/AutoZYX/ROAM): open, community
 
 If you work on ADS safety, type approval, simulation pipelines, or consumer transparency — your contributions are welcome. Submit a PR, open an issue, or just star the repo.
 
-→ https://github.com/AutoZYX/OpenODC
+→ https://github.com/AutoZYX-Labs/OpenODC
 → https://openodc.autozyx.com
 
 #AutomatedDriving #ADSafety #ODD #SOTIF #ISO34503 #OpenSource
@@ -59,7 +59,7 @@ If you build, test, regulate, or report on automated driving — this might matt
 
 Apache 2.0 (code) + CC BY 4.0 (data).
 
-→ https://github.com/AutoZYX/OpenODC
+→ https://github.com/AutoZYX-Labs/OpenODC
 
 #AutomatedDriving #SOTIF #OpenSource #ADSafety
 

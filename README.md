@@ -23,28 +23,35 @@ OpenODC 提供：
 
 - 与 GB/T 45312—2025 严格对齐的 JSON Schema
 - 一个 Web 编辑器，让厂家或社区填写一份标准化 ODC 表格
-- 一个公开样例库（Gallery），按车型/功能/等级浏览和对比
-- 同一份数据的四种视图：开发者 / 测试 / 监管 / 消费者
+- 一个公开样例库（Gallery），目前包含 6 个基于公开资料反推的典型 ADS / Robotaxi 样例
+- 一个横向矩阵视图，把 144 个国标要素逐项对齐到不同系统
+- 同一份数据的两种视图：开发者 / 消费者
+- 厂家直填工作台 MVP，用于演示 OEM / Tier 1 内部管理 ODC 并在 SOP 阶段公开发布的流程
 
 ## 为什么要有这个
 
 辅助驾驶和自动驾驶的"能用"和"不能用"边界，目前是行业内最不透明、最容易引发误解的一块。OEM 各自用自己的格式声明 ODC，监管难以穿透，消费者看不到。
 
-OpenODC 的目标不是"取代厂家自己的 ODC 文档"，而是建立一个面向对外发布的标准化格式 + 公开样例库，类似 caniuse.com 之于浏览器特性 —— 让设计运行条件变得可查、可比、可复用。
+OpenODC 的目标不是"取代厂家自己的 ODC 文档系统"。实际上，OEM 已经会在使用手册和车机教学里告诉用户"智驾什么时候能用、什么时候不能用"。问题是每家都用自己的写法、自己的分类、自己的术语，没有统一规范。
+
+OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设计运行条件可查、可比、可复用。公开样例先行，再推动 OEM 按统一格式发布官方版本。
 
 ## 当前状态
 
-`v0.1.0 (Phase 0)`
+`v0.4.0 (Phase 0–4 MVP)`
 
-- ✅ 完整转录 GB/T 45312—2025 的 ODC 元素层级（约 80 个第 5 层级元素）
+- ✅ 完整转录 GB/T 45312—2025 的 ODC 元素层级（144 个元素 / 7 类）
 - ✅ JSON Schema + TypeScript 类型定义
 - ✅ 量化分级表机器可读化（风力 12 级、雨量 4 级、降雪/积雪/能见度等）
-- ✅ 标准附录 A L3 高速 ODC 示例完整转录为 JSON
-- ⏳ Web 编辑器（Phase 1）
-- ⏳ 公开样例库 Gallery（Phase 1）
-- ⏳ 多视图渲染（Phase 2）
+- ✅ Web 编辑器：层级树勾选、实时 JSON、导出 / 复制 / 本地保存
+- ✅ 公开样例库：Tesla FSD US、Tesla Autopilot 中国、华为 ADS 4、百度萝卜快跑、小鹏 XNGP、小马智行 Gen-7 Robotaxi
+- ✅ 144 要素覆盖率统计：例如华为 ADS 4 为 119/144，Tesla 中国基础 AP 为 46/144
+- ✅ 双视图渲染：开发者视图 / 消费者视图
+- ✅ 横向矩阵：144 个国标要素 × 6 个样例逐项对比
+- ✅ 厂家直填 Workbench MVP：内部状态管理、编辑器联动、生成 PR 提交流程
+- ⏳ Phase 4 后端：账号体系、Supabase 存储、签名发布、自动 PR
 
-完整路线图见 [PLAN.md](../PLAN.md)。
+完整路线图见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
 
 ## 仓库结构
 
@@ -65,9 +72,14 @@ OpenODC/
 │       └── quantitative_scales.json  # 量化分级表（风力/雨量/能见度等）
 ├── data/
 │   └── examples/
-│       └── gb45312-appendix-a-l3-highway.json  # 标准附录 A 示例
-├── site/                             # Landing Page（Phase 0 静态版）
-└── docs/                             # 文档（计划中）
+│       ├── huawei-ads4-aito-m9.json
+│       ├── tesla-fsd-us-v13.json
+│       ├── tesla-autopilot-china-basic.json
+│       ├── baidu-apollogo-wuhan.json
+│       ├── xpeng-xngp-p7plus-2026.json
+│       └── pony-ai-gen7-robotaxi.json
+├── site/                             # 静态网站：Gallery / Editor / Matrix / Workbench
+└── tools/                            # manifest 构建、覆盖率补齐、元素引用检查
 ```
 
 ## 快速使用
@@ -75,7 +87,9 @@ OpenODC/
 校验一份 ODC 文档（需先安装 [ajv-cli](https://github.com/ajv-validator/ajv-cli)）：
 
 ```bash
-npx ajv-cli validate -s schema/odc.schema.json -d data/examples/gb45312-appendix-a-l3-highway.json
+npx ajv-cli validate -s schema/odc.schema.json -d data/examples/huawei-ads4-aito-m9.json
+node tools/check-references.mjs
+node tools/build-manifest.mjs
 ```
 
 在 TypeScript 项目中使用：
@@ -83,7 +97,7 @@ npx ajv-cli validate -s schema/odc.schema.json -d data/examples/gb45312-appendix
 ```typescript
 import type { ODCDocument } from './schema/odc.types'
 
-const doc: ODCDocument = require('./data/examples/gb45312-appendix-a-l3-highway.json')
+const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 ```
 
 ## 与标准的对应关系
@@ -98,7 +112,7 @@ const doc: ODCDocument = require('./data/examples/gb45312-appendix-a-l3-highway.
 | §5.4.b 允许/不允许 | `requirement: 'permitted' \| 'not_permitted'` |
 | §5.4.c 元素关联关系 | `associations[]` 字段 |
 | §5.5 不允许的退出行为 | `exit_behavior` 字段 |
-| 附录 A 示例 | `data/examples/gb45312-appendix-a-l3-highway.json` |
+| 公开样例库 | `data/examples/*.json` |
 | 量化分级表 5–14 | `schema/enums/quantitative_scales.json` |
 
 ## 贡献
@@ -134,5 +148,5 @@ for automated driving systems. https://openodc.autozyx.com
 
 ## 联系
 
-- Issues: https://github.com/AutoZYX/OpenODC/issues
+- Issues: https://github.com/AutoZYX-Labs/OpenODC/issues
 - 维护者: [Zhang Yuxin](https://www.linkedin.com/in/zhangyuxin312/) (吉林大学 / 卓驭科技 / 驭研科技)

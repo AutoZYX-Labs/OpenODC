@@ -40,14 +40,14 @@
           <span class="stat-sub">119 / 144 国标要素有数据</span>
         </a>
         <a class="hero-stat" href="/gallery.html">
-          <span class="stat-num stat-num-alt">27%</span>
+          <span class="stat-num stat-num-alt">32%</span>
           <span class="stat-lbl">特斯拉中国 AP 披露率</span>
-          <span class="stat-sub">39 / 144 — 其余 87 项手册未涉及</span>
+          <span class="stat-sub">46 / 144 — 其余 80 项手册未涉及</span>
         </a>
         <a class="hero-stat" href="/compare.html">
-          <span class="stat-num">4</span>
+          <span class="stat-num">6</span>
           <span class="stat-lbl">个已反推样例</span>
-          <span class="stat-sub">FSD US / AP 中国 / 萝卜快跑 / ADS 4</span>
+          <span class="stat-sub">Tesla / 华为 / 百度 / 小鹏 / 小马智行</span>
         </a>
         <a class="hero-stat" href="/workbench.html">
           <span class="stat-num">11</span>
@@ -61,7 +61,7 @@
           <a class="btn btn-primary" href="/gallery.html">浏览样例库 →</a>
           <a class="btn btn-ghost" href="/editor.html">用编辑器创建 →</a>
         </div>
-        <p class="hero-tertiary"><a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a></p>
+        <p class="hero-tertiary"><a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a></p>
       </div>
     </section>
 
@@ -83,7 +83,7 @@
             <p>层级树勾选 + 参数范围输入 + 实时 JSON 预览。导出 JSON / Markdown / 复制到剪贴板 / 浏览器本地保存。基于浏览器，不需登录。</p>
             <p class="card-cta">打开编辑器 →</p>
           </a>
-          <a class="card card-action" href="/view.html?id=gb45312-appendix-a-l3-highway">
+          <a class="card card-action" href="/view.html?id=huawei-ads4-aito-m9">
             <h3>③ 多视图查看</h3>
             <p>同一份 ODC 数据，两种视图：开发者（完整 5 层级 + JSON）、消费者（能 / 不能用 + 风险卡片）。</p>
             <p class="card-cta">查看示例 →</p>
@@ -93,7 +93,7 @@
             <p>多车型 ODC 并排对比（2–4 个）。绿色 = 双方都允许，红色 = 双方都不允许，橙色 = 不一致。一眼看出能力边界差异。</p>
             <p class="card-cta">开始对比 →</p>
           </a>
-          <a class="card card-action" href="https://github.com/AutoZYX/OpenODC/tree/main/schema" target="_blank" rel="noopener">
+          <a class="card card-action" href="https://github.com/AutoZYX-Labs/OpenODC/tree/main/schema" target="_blank" rel="noopener">
             <h3>⑤ ODC 数据规范</h3>
             <p>整个平台的数据底座：把 GB/T 45312—2025 的 5 层级、144 个原子元素、所有量化分级表（风力 12 级、雨量 4 级、能见度 4 级等）转录为机器可读的 JSON Schema 与 TypeScript 类型。</p>
             <p class="card-cta">查看 GitHub →</p>
@@ -131,20 +131,21 @@
 
     <section id="status" class="section">
       <div class="container">
-        <h2 class="section-title">当前进展（v0.2.0 · Phase 0–3 完成）</h2>
+        <h2 class="section-title">当前进展（v0.4.0 · Phase 0–4 MVP）</h2>
         <ul class="status-list">
           <li class="done">Phase 0：完整转录 GB/T 45312—2025（144 个元素 / 7 类）+ JSON Schema + TypeScript 类型</li>
           <li class="done">Phase 0：量化分级表机器可读化（风力、雨量、降雪、积雪、4 类能见度、光照）</li>
-          <li class="done">Phase 0：标准附录 A 的 L3 高速 ODC 示例完整转录为 JSON</li>
-          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（按等级 / 来源 / 关键词筛选）</li>
+          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（6 个典型样例，全部覆盖 144 个国标要素）</li>
           <li class="done">Phase 1：<a href="/editor.html">Web 编辑器</a>（层级树勾选 + 实时 JSON + 多格式导出）</li>
-          <li class="done">Phase 2：<a href="/view.html?id=gb45312-appendix-a-l3-highway">双视图渲染</a>（开发者 / 消费者）</li>
+          <li class="done">Phase 2：<a href="/view.html?id=huawei-ads4-aito-m9">双视图渲染</a>（开发者 / 消费者，含来源和覆盖率标签）</li>
           <li class="done">Phase 2：<a href="/compare.html">多车型对比 Compare</a>（diff 视图，2–4 个并排）</li>
+          <li class="done">Phase 3：<a href="/matrix.html">横向矩阵 Matrix</a>（144 个国标要素 × 6 个样例）</li>
           <li class="done">Phase 3：GitHub PR 模板 + CI 自动校验（ajv-cli + element_id 引用检查）</li>
+          <li class="done">Phase 4：<a href="/workbench.html">厂家直填 Workbench MVP</a>（内部管理、编辑器联动、生成 PR）</li>
           <li class="done">Apache 2.0 代码许可 + CC BY 4.0 数据许可</li>
-          <li class="todo">Phase 4：厂家直填能力 + Supabase 后端（规划中）</li>
-          <li class="todo">Phase 4：与 ROAM 联动（事件 ↔ 涉事车型 ODC 自动关联）</li>
-          <li class="todo">Phase 4：ISO 34503 / BSI PAS 1883 国际化映射</li>
+          <li class="todo">Phase 5：账号体系 + Supabase 后端 + 签名发布</li>
+          <li class="todo">Phase 5：与 ROAM 联动（事件 ↔ 涉事车型 ODC 自动关联）</li>
+          <li class="todo">Phase 5：ISO 34503 / BSI PAS 1883 国际化映射</li>
         </ul>
       </div>
     </section>
@@ -166,7 +167,7 @@
               <tr><td>§5.4.b 允许 / 不允许</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
               <tr><td>§5.4.c 元素关联关系</td><td><code>associations[]</code> 字段</td></tr>
               <tr><td>§5.5 不允许的退出行为</td><td><code>exit_behavior</code> 字段</td></tr>
-              <tr><td>附录 A 示例</td><td><code>data/examples/gb45312-appendix-a-l3-highway.json</code></td></tr>
+              <tr><td>公开样例库</td><td><code>data/examples/*.json</code>（6 个样例，全部 144 要素覆盖）</td></tr>
               <tr><td>量化分级表 5–14</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
             </tbody>
           </table>
@@ -215,8 +216,8 @@
           </div>
         </div>
         <div class="hero-actions" style="margin-top:2rem;">
-          <a class="btn btn-primary" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">访问 GitHub 仓库</a>
-          <a class="btn btn-ghost" href="https://github.com/AutoZYX/OpenODC/issues" target="_blank" rel="noopener">提交 Issue</a>
+          <a class="btn btn-primary" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">访问 GitHub 仓库</a>
+          <a class="btn btn-ghost" href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">提交 Issue</a>
         </div>
       </div>
     </section>
@@ -226,13 +227,13 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.2.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
         <a href="/en/">English</a>
-        <a href="https://github.com/AutoZYX/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
+        <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
       </div>
     </div>
   </footer>

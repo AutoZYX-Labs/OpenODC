@@ -16,7 +16,7 @@ For the product roadmap, see [PLAN.md](../PLAN.md).
 
 4. **No hidden hierarchy.** The catalog mirrors the standard's clause numbering exactly (`spec_section: "6.2.1.1.3.a"`). Anyone reading the standard can find the corresponding JSON, and vice versa.
 
-5. **One document, many views.** Same JSON renders as: developer view (full hierarchy), tester view (scenario generation list), regulator view (compliance gap), consumer view (plain language cards).
+5. **One document, many views.** Same JSON renders as: developer view (full hierarchy), consumer view (plain-language cards), compare view (document-to-document diff), and matrix view (catalog × document coverage).
 
 ## 2. Data model
 
@@ -136,16 +136,16 @@ At the document level, `metadata.review_status` summarizes the whole document:
 
 In the UI, vendor-confirmed records rank above community-extracted ones for the same vehicle, and unconfirmed records carry a visible "⚠ community-sourced" badge.
 
-## 7. How rendering works (planned for Phase 2)
+## 7. How rendering works
 
-The four views all read the same `ODCDocument`. Differences:
+The current renderers all read the same `ODCDocument` plus the merged catalog in `site/data/catalog.json`.
 
 | View | What it shows | What it hides |
 |---|---|---|
 | **Developer** | Full 5-level tree, raw JSON, spec section labels | Nothing |
-| **Tester** | Permitted elements with parameter ranges, generates a discrete sampling grid (P5/P25/P50/P75/P95) | Internal source/confidence metadata |
-| **Regulator** | Compliance matrix: catalog × document with gap highlighting | Implementation detail |
-| **Consumer** | Plain-language cards: "✅ Works on highways, ❌ Not in rain above level 2" | Spec sections, raw IDs |
+| **Consumer** | Plain-language buckets ("能用 / 有限制 / 不能用"), coverage tags, sources | Raw JSON unless expanded through developer view |
+| **Compare** | 2–4 documents aligned by element_id | Deep source prose |
+| **Matrix** | 144 GB/T elements × all sample documents, with coverage and requirement classes | Raw JSON |
 
 Rendering is fully client-side: the document JSON plus the catalog JSON are enough to produce any view.
 
@@ -170,13 +170,13 @@ A nested view is generated from the flat data at render time.
 
 ### Why store everything in git instead of a database?
 
-For Phase 0–1, all data lives as JSON files in the repo:
+For Phase 0–4 MVP, all public data lives as JSON files in the repo:
 - Zero infrastructure cost
 - Every change is reviewable as a PR diff
 - History is git-native
 - Anyone can fork and run their own copy
 
-For Phase 4 (when scale demands), we will add a Supabase backend for OEM direct authoring, with the git repo as the canonical export.
+The current Vendor Workbench is a static frontend MVP backed by browser localStorage. For Phase 5, we will add a Supabase backend for OEM direct authoring, with the git repo as the canonical public export.
 
 ## 9. What's NOT in scope
 
@@ -194,4 +194,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-04-17 (v0.1.0 / Phase 0).*
+*Last updated 2026-05-02 (v0.4.0 / Phase 0–4 MVP).*

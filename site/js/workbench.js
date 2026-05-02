@@ -260,7 +260,7 @@ async function publishFunction(vendorId, fn) {
 
   try {
     await navigator.clipboard.writeText(odcJson)
-    const ghUrl = `https://github.com/AutoZYX/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
+    const ghUrl = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
     alert(`JSON 已复制到剪贴板（${filename}）\n\n即将打开 GitHub 新建文件页。步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\nPR 描述已作为 commit description 预填。`)
     window.open(ghUrl, '_blank', 'noopener')
   } catch (e) {

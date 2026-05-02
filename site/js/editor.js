@@ -245,7 +245,7 @@ function renderPreview() {
 
 function bindToolbar() {
   document.getElementById('t-load-example').addEventListener('click', async () => {
-    const doc = await loadDocument('data/examples/gb45312-appendix-a-l3-highway.json')
+    const doc = await loadDocument('data/examples/huawei-ads4-aito-m9.json')
     importFromDoc(doc)
   })
   document.getElementById('t-clear').addEventListener('click', () => {
@@ -337,7 +337,7 @@ function openPR() {
   // GitHub's new-file URL supports ?filename= but ?value= is limited in URL length.
   // Strategy: copy JSON to clipboard + open the new-file page; user pastes.
   navigator.clipboard.writeText(json).then(() => {
-    const url = `https://github.com/AutoZYX/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}`
+    const url = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}`
     const banner = `JSON 已复制到剪贴板。即将打开 GitHub 新建文件页（文件名已预填 ${filename}）。\n\n步骤：\n1. 粘贴内容（Ctrl/Cmd + V）\n2. 底部 Commit 消息填 "Add ${doc.vendor} ${doc.function_name} ODC"\n3. 选 "Create new branch for this commit and start a pull request"\n4. 点击 Commit changes`
     alert(banner)
     window.open(url, '_blank', 'noopener')

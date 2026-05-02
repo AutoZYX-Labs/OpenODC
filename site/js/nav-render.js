@@ -23,7 +23,7 @@ const NAV_HTML_ZH = `
     <a href="/#standard">标准对照</a>
     <span class="nav-divider" aria-hidden="true"></span>
     <a class="lang-toggle" href="/en/">EN</a>
-    <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+    <a class="github-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
   </div>
 `
 
@@ -48,7 +48,7 @@ const NAV_HTML_EN = `
     <a href="/en/#standard">Standard</a>
     <span class="nav-divider" aria-hidden="true"></span>
     <a class="lang-toggle" href="/">中</a>
-    <a class="github-link" href="https://github.com/AutoZYX/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+    <a class="github-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
   </div>
 `
 

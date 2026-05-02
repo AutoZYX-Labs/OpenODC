@@ -23,28 +23,35 @@ OpenODC delivers:
 
 - A **JSON Schema** strictly aligned with GB/T 45312—2025
 - A **web editor** for OEMs or the community to fill in a standardized ODC table
-- A public **gallery** of sample ODCs, browsable by model / function / level
-- Four **views** of the same data: developer / tester / regulator / consumer
+- A public **gallery** with six reverse-engineered ADS / Robotaxi samples from public sources
+- A **matrix view** that aligns 144 GB/T elements across multiple systems
+- Two **views** of the same data: developer / consumer
+- A **Vendor Workbench MVP** that demonstrates how OEMs and Tier-1s could manage internal ODC records and publish at SOP
 
 ## Why this exists
 
 The boundary between "supported" and "unsupported" for assisted and automated driving is one of the least transparent and most misunderstood pieces of the AD industry. Each OEM declares their ODC in their own format. Regulators struggle to compare. Consumers can't see it at all.
 
-The goal of OpenODC is not to replace any vendor's internal ODC tooling — it is to establish a standardized, public-facing format and a public sample library, in the spirit of caniuse.com. ODCs become queryable, comparable, and reusable.
+OpenODC is not a replacement for an OEM's internal ODC tooling. OEMs already disclose parts of the boundary through owner manuals and in-vehicle tutorials. The problem is that every OEM uses its own categories, wording, and granularity.
+
+OpenODC provides a unified, machine-readable public format and a sample library so ODCs become queryable, comparable, and reusable. Community-extracted samples come first; vendor-confirmed records can follow once the format becomes useful.
 
 ## Current status
 
-`v0.1.0 (Phase 0)`
+`v0.4.0 (Phase 0–4 MVP)`
 
-- ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (~80 fifth-level elements)
+- ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (144 elements / 7 categories)
 - ✅ JSON Schema + TypeScript type definitions
 - ✅ Machine-readable quantitative scales (12 wind levels, 4 rain levels, snow / accumulation / visibility, etc.)
-- ✅ Appendix A example (L3 ADS on expressway) fully transcribed to JSON
-- ⏳ Web editor (Phase 1)
-- ⏳ Public gallery (Phase 1)
-- ⏳ Multi-view renderer (Phase 2)
+- ✅ Web editor with tree selection, live JSON, export / copy / local save
+- ✅ Public gallery with Tesla FSD US, Tesla Autopilot China, Huawei ADS 4, Apollo Go, XPeng XNGP, and Pony.ai Gen-7 Robotaxi
+- ✅ 144-element coverage metrics, e.g. Huawei ADS 4 at 119/144 and Tesla Autopilot China at 46/144
+- ✅ Dual renderer: developer view and consumer view
+- ✅ Matrix view: 144 GB/T elements × 6 sample systems
+- ✅ Vendor Workbench MVP: internal status tracking, editor handoff, PR-generation flow
+- ⏳ Phase 4 backend: accounts, Supabase storage, signed publishing, automated PRs
 
-Full roadmap: [PLAN.md](../PLAN.md).
+Full roadmap: [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## Repository layout
 
@@ -56,8 +63,8 @@ OpenODC/
 │   ├── categories/                   # ODC element catalog
 │   └── enums/                        # Quantitative scale tables
 ├── data/examples/                    # Reference ODC documents
-├── site/                             # Landing page (Phase 0 static)
-└── docs/                             # Documentation
+├── site/                             # Static site: Gallery / Editor / Matrix / Workbench
+└── tools/                            # manifest build, coverage fill, reference checks
 ```
 
 ## Quick start
@@ -65,7 +72,9 @@ OpenODC/
 Validate an ODC document:
 
 ```bash
-npx ajv-cli validate -s schema/odc.schema.json -d data/examples/gb45312-appendix-a-l3-highway.json
+npx ajv-cli validate -s schema/odc.schema.json -d data/examples/huawei-ads4-aito-m9.json
+node tools/check-references.mjs
+node tools/build-manifest.mjs
 ```
 
 Use in TypeScript:
@@ -73,7 +82,7 @@ Use in TypeScript:
 ```typescript
 import type { ODCDocument } from './schema/odc.types'
 
-const doc: ODCDocument = require('./data/examples/gb45312-appendix-a-l3-highway.json')
+const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 ```
 
 ## Mapping to the standard
@@ -88,7 +97,7 @@ const doc: ODCDocument = require('./data/examples/gb45312-appendix-a-l3-highway.
 | §5.4.b Permitted / not permitted | `requirement: 'permitted' \| 'not_permitted'` |
 | §5.4.c Element associations | `associations[]` field |
 | §5.5 Exit behavior for not-permitted elements | `exit_behavior` field |
-| Appendix A example | `data/examples/gb45312-appendix-a-l3-highway.json` |
+| Public sample library | `data/examples/*.json` |
 | Tables 5–14 quantitative scales | `schema/enums/quantitative_scales.json` |
 
 ## Contributing
@@ -122,5 +131,5 @@ Together they form an open AD safety toolkit: ROAM (incident outcomes) + OpenODC
 
 ## Contact
 
-- Issues: https://github.com/AutoZYX/OpenODC/issues
+- Issues: https://github.com/AutoZYX-Labs/OpenODC/issues
 - Maintainer: [Zhang Yuxin](https://www.linkedin.com/in/zhangyuxin312/), Jilin University · Zhuoyu Tech · DRIVEResearch
