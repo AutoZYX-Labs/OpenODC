@@ -12,6 +12,8 @@ const strict = process.argv.includes('--strict')
 const examplesDir = join(process.cwd(), 'data', 'examples')
 const sourceUrlRe = /(https?:\/\/\S+)/g
 const botSensitiveHosts = new Set([
+  'aito.auto',
+  'qh.sz.gov.cn',
   'www.apollogo.com',
   'ir.pony.ai',
   'www.tesla.com',

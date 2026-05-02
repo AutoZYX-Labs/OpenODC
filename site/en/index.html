@@ -19,200 +19,111 @@
 
   <main>
 
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Aligned with GB/T 45312—2025</p>
-        <h1 class="hero-title">OpenODC</h1>
-        <p class="hero-subtitle">Open Platform for Automated Driving<br/>Operational Design Conditions</p>
-        <p class="hero-tagline">An open registry that turns public AD boundary evidence into structured, comparable data while separating vendor statements from community inference.</p>
-      </div>
-
-      <div class="hero-stats">
-        <a class="hero-stat" href="/gallery.html">
-          <span class="stat-num">83%</span>
-          <span class="stat-lbl">Huawei ADS 4 sample coverage</span>
-          <span class="stat-sub">119 / 144 public-source elements; not vendor-confirmed</span>
-        </a>
-        <a class="hero-stat" href="/gallery.html">
-          <span class="stat-num stat-num-alt">32%</span>
-          <span class="stat-lbl">Tesla China AP sample coverage</span>
-          <span class="stat-sub">46 / 144; 80 not clearly stated in public sources</span>
-        </a>
-        <a class="hero-stat" href="/compare.html">
-          <span class="stat-num">6</span>
-          <span class="stat-lbl">Community-extracted samples</span>
-          <span class="stat-sub">Tesla / Huawei / Baidu / XPeng / Pony.ai; all draft</span>
-        </a>
-        <a class="hero-stat" href="/workbench.html">
-          <span class="stat-num">11</span>
-          <span class="stat-lbl">Vendor workbench demos</span>
-          <span class="stat-sub">Internal boundary management + selective SOP publishing</span>
-        </a>
-      </div>
-
-      <div class="hero-text">
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/gallery.html">Browse Gallery →</a>
-          <a class="btn btn-ghost" href="/editor.html">Open Editor →</a>
-        </div>
-        <p class="hero-tertiary"><a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></p>
-      </div>
-    </section>
-
-    <section id="what" class="section">
-      <div class="container">
-        <h2 class="section-title">What is OpenODC</h2>
-        <p class="lead">
-          OpenODC is an open-source platform for defining, comparing, and browsing ODC (Operational Design Condition) declarations for automated driving and driver assistance systems. It is aligned with GB/T 45312—2025, and it measures how clearly public sources describe operational boundaries rather than which system is “best”.
-        </p>
-
-        <div class="card-grid">
-          <a class="card card-action" href="/gallery.html">
-            <h3>① ODC Gallery</h3>
-            <p>Public sample library — filter by automation level, source, or keyword. Each record separates official evidence, owner-manual evidence, community extraction, inference, and public-source gaps.</p>
-            <p class="card-cta">Browse Samples →</p>
-          </a>
-          <a class="card card-action" href="/editor.html">
-            <h3>② ODC Editor</h3>
-            <p>Hierarchical tree picker + parameter inputs + live JSON preview. Export to JSON / Markdown / clipboard / browser local storage. Browser-based, no login required.</p>
-            <p class="card-cta">Open Editor →</p>
-          </a>
-          <a class="card card-action" href="/view.html?id=huawei-ads4-aito-m9">
-            <h3>③ Multi-View Renderer</h3>
-            <p>One ODC document, two lenses: developer (full hierarchy + JSON) and consumer (plain-language operating-boundary cards). L2 samples explicitly retain driver responsibility.</p>
-            <p class="card-cta">View Example →</p>
-          </a>
-          <a class="card card-action" href="/compare.html">
-            <h3>④ ODC Compare</h3>
-            <p>Side-by-side diff of 2–4 ODC declarations. Green = both declare permitted; red = both declare not permitted; amber = disagreement. Spot public boundary differences at a glance.</p>
-            <p class="card-cta">Start Comparing →</p>
-          </a>
-          <a class="card card-action" href="https://github.com/AutoZYX-Labs/OpenODC/tree/main/schema" target="_blank" rel="noopener">
-            <h3>⑤ ODC Schema</h3>
-            <p>The data foundation of the whole platform: the full GB/T 45312—2025 hierarchy as a machine-readable JSON Schema and TypeScript types — 144 atomic elements across 7 categories, plus every quantitative scale (12 wind levels, 4 rain levels, 4 visibility tiers, etc.).</p>
-            <p class="card-cta">View on GitHub →</p>
-          </a>
-          <a class="card card-action" href="/workbench.html">
-            <h3>⑥ Vendor Workbench</h3>
-            <p>OEMs and Tier-1s manage ODCs across in-development, pre-release, and shipped functions in one workspace. When a function reaches SOP, its ODC can be published to the OpenODC public gallery with one click — supporting internal R&D collaboration while contributing to industry standardization.</p>
-            <p class="card-cta">Try the demo → <span class="card-phase-tag">Phase 4 · MVP</span></p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="why" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Why this exists</h2>
-        <div class="two-col">
-          <div>
-            <h3>Three industry realities</h3>
-            <ul class="problem-list">
-              <li>Each OEM declares ODCs in its own format — regulators and third-party labs cannot make like-for-like comparisons</li>
-              <li>Consumers see feature names and marketing claims, but rarely see a comparable boundary statement — especially where L2 assistance is confused with L3/L4 automation</li>
-              <li>GB/T 45312—2025 defines the full hierarchy, but the standard itself ships no machine-readable counterpart</li>
-            </ul>
-          </div>
-          <div>
-            <h3>OpenODC's position</h3>
-            <p>Not a replacement for an OEM's internal ODC tooling. In fact, OEMs already tell drivers "when the system can be used and when it can't" — in owner manuals and in-vehicle tutorials, sometimes in considerable detail.</p>
-            <p>The problem: every OEM uses its own format, its own categories, its own terminology. There is no shared convention — consumers switching brands must relearn the boundaries from scratch, and regulators or third-party labs have no common handle for side-by-side evaluation.</p>
-            <p>OpenODC provides a unified, machine-readable format and a public sample library, making ODCs queryable, comparable, and reusable. Current samples are community extractions from public sources, not vendor-confirmed declarations; only records marked <code>vendor_confirmed</code> are official vendor versions.</p>
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div class="home-hero-copy">
+          <p class="eyebrow">GB/T 45312—2025 · Evidence-first registry</p>
+          <h1 class="home-title">OpenODC</h1>
+          <p class="home-subtitle">A public, machine-readable registry for AD operating boundaries.</p>
+          <p class="home-tagline">OpenODC does not rank AD systems. It asks a narrower question: how much of a system's operational boundary is actually backed by public manuals, official pages, government rules, or clearly marked community extraction?</p>
+          <div class="hero-actions hero-actions-left">
+            <a class="btn btn-primary" href="/gallery.html">Browse Gallery →</a>
+            <a class="btn btn-ghost" href="/en/methodology.html">Read Method →</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="status" class="section">
-      <div class="container">
-        <h2 class="section-title">Current status (v0.4.0 · Phase 0–4 MVP)</h2>
-        <ul class="status-list">
-          <li class="done">Phase 0: Full transcription of GB/T 45312—2025 (144 elements / 7 categories) + JSON Schema + TypeScript types</li>
-          <li class="done">Phase 0: Quantitative scales captured as reusable enums (wind, rain, snow, visibility tiers, lighting)</li>
-          <li class="done">Phase 1: <a href="/gallery.html">Public sample gallery</a> with 6 typical records, each showing public-source coverage and gaps</li>
-          <li class="done">Phase 1: <a href="/editor.html">Web editor</a> — hierarchical tree, live JSON, multi-format export</li>
-          <li class="done">Phase 2: <a href="/view.html?id=huawei-ads4-aito-m9">Dual-view renderer</a> (developer / consumer, with provenance, responsibility boundaries, and coverage tags)</li>
-          <li class="done">Phase 2: <a href="/compare.html">Multi-document Compare</a> (diff view, 2–4 documents)</li>
-          <li class="done">Phase 3: <a href="/matrix.html">Matrix view</a> (144 GB/T elements × 6 samples)</li>
-          <li class="done">Phase 3: GitHub PR template + CI auto-validation (ajv-cli + element_id reference check)</li>
-          <li class="done">Phase 4: <a href="/workbench.html">Vendor Workbench MVP</a> (internal tracking, editor handoff, PR generation)</li>
-          <li class="done">Apache 2.0 (code) + CC BY 4.0 (data) licenses</li>
-          <li class="todo">Phase 5: Accounts + Supabase backend + signed publishing</li>
-          <li class="todo">Phase 5: ROAM linkage (link incidents to involved vehicle's declared ODC)</li>
-          <li class="todo">Phase 5: ISO 34503 / BSI PAS 1883 / ASAM OpenODD international mapping</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="standard" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Mapping to the standard</h2>
-        <div class="table-wrap">
-          <table class="mapping-table">
-            <thead>
-              <tr><th>GB/T 45312—2025 clause</th><th>OpenODC counterpart</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>§5 General requirements</td><td><code>ODCElement</code> definition in <code>schema/odc.schema.json</code></td></tr>
-              <tr><td>§6.1 ODC base element hierarchy</td><td>Tree under <code>schema/categories/*.json</code></td></tr>
-              <tr><td>§6.2 ODD (road / infra / targets / weather / digital)</td><td>Five <code>odd_*.json</code> category files</td></tr>
-              <tr><td>§6.3 Driver and passenger state</td><td><code>personnel_state.json</code></td></tr>
-              <tr><td>§6.4 Vehicle state</td><td><code>vehicle_state.json</code></td></tr>
-              <tr><td>§5.4.b Permitted / not permitted</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
-              <tr><td>§5.4.c Element associations</td><td><code>associations[]</code> field</td></tr>
-              <tr><td>§5.5 Exit behavior for not-permitted elements</td><td><code>exit_behavior</code> field</td></tr>
-              <tr><td>Public sample library</td><td><code>data/examples/*.json</code> (6 community-extracted samples with per-element public-source coverage and gaps)</td></tr>
-              <tr><td>L2 / L3 / L4 semantics</td><td><a href="/en/methodology.html">Methodology</a>: distinguishes feature availability boundaries, ADS operational boundaries, and robotaxi service boundaries</td></tr>
-              <tr><td>Tables 5–14 quantitative scales</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
-            </tbody>
-          </table>
+        <div class="evidence-panel">
+          <div class="panel-kicker">Current public sample status</div>
+          <div class="evidence-grid">
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">6</span>
+              <span class="evidence-label">high-confidence samples</span>
+            </a>
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">346</span>
+              <span class="evidence-label">element-level references</span>
+            </a>
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">97</span>
+              <span class="evidence-label">official / manual / government-backed items</span>
+            </a>
+            <a href="/en/tools.html" class="evidence-stat">
+              <span class="evidence-num">0</span>
+              <span class="evidence-label">vendor-confirmed records</span>
+            </a>
+          </div>
+          <p class="panel-note">All current samples are community extractions from public sources, not vendor-confirmed ODC declarations.</p>
         </div>
       </div>
     </section>
 
-    <section id="related" class="section">
+    <section class="section section-tight">
       <div class="container">
-        <h2 class="section-title">An open AD safety toolkit</h2>
-        <p class="lead">OpenODC sits alongside two sibling open-source projects, forming an end-to-end transparency stack:</p>
-        <div class="card-grid">
-          <article class="card card-related">
-            <h3>ROAM</h3>
-            <p class="card-tag">Outcome side</p>
-            <p>L4 Robotaxi Operations Anomaly Management — incident database, scenario taxonomy, reference architecture. Answers "what went wrong".</p>
-            <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">Website →</a>
+        <div class="section-head-row">
+          <div>
+            <p class="eyebrow">PUBLIC SAMPLE LIBRARY</p>
+            <h2 class="section-title">Six public-reference sample directions</h2>
+          </div>
+          <a class="section-link" href="/gallery.html">Open Gallery →</a>
+        </div>
+        <div class="sample-strip">
+          <a class="sample-tile" href="/view.html?id=tesla-fsd-us-v13"><span>L2</span><strong>Tesla FSD Supervised · US</strong><small>Owner manual + official support page</small></a>
+          <a class="sample-tile" href="/view.html?id=tesla-autopilot-china-basic"><span>L2</span><strong>Tesla Autopilot · China</strong><small>Chinese owner manual + warnings</small></a>
+          <a class="sample-tile" href="/view.html?id=huawei-ads4-aito-m9"><span>L2</span><strong>AITO M9 · ADS 4</strong><small>AITO official manual dated 2026-03-17</small></a>
+          <a class="sample-tile" href="/view.html?id=xpeng-xngp-p7plus-2026"><span>L2</span><strong>XPeng P7+ · XNGP</strong><small>Official product page + configuration table</small></a>
+          <a class="sample-tile" href="/view.html?id=baidu-apollogo-wuhan"><span>L4</span><strong>Apollo Go · Wuhan</strong><small>Wuhan government operating rules</small></a>
+          <a class="sample-tile" href="/view.html?id=pony-ai-gen7-robotaxi"><span>L4</span><strong>Pony.ai Gen-7</strong><small>Official IR release + Qianhai government page</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-tight">
+      <div class="container">
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Public value</h3>
+            <p>Turn “when can this feature be used, when should it exit, and what is not publicly stated” into a verifiable list, reducing the risk of confusing L2 assistance with automation.</p>
           </article>
-          <article class="card card-related card-current">
-            <h3>OpenODC</h3>
-            <p class="card-tag">Boundary side</p>
-            <p>Standardized definition, comparison, and browsing of operational design conditions. Answers "how much of the boundary is publicly evidenced".</p>
-            <span class="here-pill">You are here</span>
+          <article class="value-card">
+            <h3>Industry value</h3>
+            <p>Use one 144-element national-standard vocabulary to compare public boundaries across OEMs, automation levels, and robotaxi operating domains.</p>
           </article>
-          <article class="card card-related">
-            <h3>DRIVEResearch</h3>
-            <p class="card-tag">Empirical side</p>
-            <p>Aerial naturalistic driving dataset — 750h+ flight time, 10.5M+ trajectories. Answers "what does reality actually cover".</p>
-            <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">Website →</a>
+          <article class="value-card">
+            <h3>Engineering value</h3>
+            <p>Provide JSON Schema, an editor, compare views, a matrix view, and a vendor workbench so ODC moves from PDF prose into versioned, reviewable data.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-cta">
+    <section class="section section-tight">
       <div class="container">
-        <h2 class="section-title">How to participate</h2>
-        <div class="two-col">
+        <div class="section-head-row">
           <div>
-            <h3>For OEMs and AD suppliers</h3>
-            <p>Submit an officially endorsed ODC declaration for one of your vehicles or functions. We mark it <code>vendor_confirmed</code> as the vendor-confirmed version; internal-only details can remain private.</p>
+            <p class="eyebrow">WORKFLOW</p>
+            <h2 class="section-title">Four clear entry points</h2>
           </div>
-          <div>
-            <h3>For third parties, researchers, journalists</h3>
-            <p>Extract ODCs from public materials (owner manuals, operating rules, government notices, third-party tests). Mark provenance honestly. Submit via PR to enter the <code>community_reviewed</code> tier.</p>
-          </div>
+          <a class="section-link" href="/en/tools.html">View all tools →</a>
         </div>
-        <div class="hero-actions" style="margin-top:2rem;">
-          <a class="btn btn-primary" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">Visit GitHub Repository</a>
-          <a class="btn btn-ghost" href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">Open an Issue</a>
+        <div class="tool-entry-grid">
+          <a class="tool-entry" href="/gallery.html"><span>01</span><strong>Gallery</strong><small>Browse ODC samples by vehicle, feature, and level</small></a>
+          <a class="tool-entry" href="/view.html?id=huawei-ads4-aito-m9"><span>02</span><strong>Detail View</strong><small>Developer view, consumer view, and evidence links</small></a>
+          <a class="tool-entry" href="/compare.html"><span>03</span><strong>Comparison</strong><small>Compare and matrix views grouped as verification tools</small></a>
+          <a class="tool-entry" href="/workbench.html"><span>04</span><strong>Vendor Workbench</strong><small>Maintain internal ODC drafts and publish selectively after SOP</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-tight">
+      <div class="container stack-row">
+        <div>
+          <p class="eyebrow">OPEN AD SAFETY STACK</p>
+          <h2 class="section-title">Connected with ROAM and DRIVEResearch</h2>
+          <p class="lead">ROAM tracks incidents and anomalies. OpenODC tracks declared operating boundaries. DRIVEResearch tracks real traffic exposure. Together they connect design intent, real exposure, and failure outcomes.</p>
+        </div>
+        <div class="stack-links">
+          <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">ROAM website →</a>
+          <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">DRIVEResearch website →</a>
+          <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">OpenODC GitHub →</a>
         </div>
       </div>
     </section>

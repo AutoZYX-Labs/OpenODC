@@ -21,7 +21,23 @@
     {
       "element_id": "odd.road.type.area",
       "requirement": "permitted",
-      "description": "[官方声明] 武汉经开区+硚口+汉阳+武昌+洪山+东西湖+蔡甸+江夏共 8 区示范运营，覆盖 3000 km²、服务人口约 770 万。实际电子围栏以 Apollo Go APP 内显示为准。"
+      "description": "[官方声明] 武汉经开区+硚口+汉阳+武昌+洪山+东西湖+蔡甸+江夏共 8 区示范运营，覆盖 3000 km²、服务人口约 770 万。实际电子围栏以 Apollo Go APP 内显示为准。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road",
@@ -31,21 +47,85 @@
     {
       "element_id": "odd.road.type.urban_road.expressway",
       "requirement": "permitted",
-      "description": "围栏内城市快速路（含过江通道）"
+      "description": "围栏内城市快速路（含过江通道）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.arterial",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.sub_arterial",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.branch",
       "requirement": "not_permitted",
       "description": "支路与居住小区内部未开放",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway",
@@ -55,7 +135,24 @@
     {
       "element_id": "odd.road.type.highway.expressway",
       "requirement": "permitted",
-      "description": "[官方声明] 围栏内部分高速路段，限速 70–80 km/h（第三方公开披露）。"
+      "description": "[政府公告] 武汉跨区城市出行服务自动驾驶先导应用试点涉及城市出行和跨区服务；具体高速/快速路服务边界、可运营时段和电子围栏需以政府备案与 App 实时显示为准。",
+      "parameter_range": "[公开资料未量化] 公开网页未给出统一高速/快速路速度阈值。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_1",
@@ -80,7 +177,23 @@
     {
       "element_id": "odd.road.type.rural",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.other",
@@ -104,12 +217,44 @@
     },
     {
       "element_id": "odd.road.surface.type.paved",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.type.unpaved",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.cracking",
@@ -153,12 +298,28 @@
     },
     {
       "element_id": "odd.road.geometry.plane.straight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.plane.curve",
       "requirement": "permitted",
-      "parameter_range": "曲率半径 ≥ 30 m（HD 地图 + 多模态感知支持小弯道）"
+      "description": "[公开资料未明确] 武汉政府文件要求申请材料说明设计运行条件和道路交通要素对应关系，但公开网页未披露萝卜快跑武汉的曲率半径阈值。"
     },
     {
       "element_id": "odd.road.geometry.plane.widening",
@@ -173,12 +334,12 @@
     {
       "element_id": "odd.road.geometry.profile.uphill",
       "requirement": "permitted",
-      "parameter_range": "坡度 ≤ 10%"
+      "description": "[公开资料未明确] 公开政府文件和 Apollo Go 门户未披露武汉服务坡度阈值。"
     },
     {
       "element_id": "odd.road.geometry.profile.downhill",
       "requirement": "permitted",
-      "parameter_range": "坡度 ≤ 10%"
+      "description": "[公开资料未明确] 公开政府文件和 Apollo Go 门户未披露武汉服务坡度阈值。"
     },
     {
       "element_id": "odd.road.geometry.cross.divider",
@@ -213,7 +374,23 @@
     {
       "element_id": "odd.road.lane.marking.absent",
       "requirement": "permitted",
-      "description": "依赖 HD 地图，支持无标线路段"
+      "description": "依赖 HD 地图，支持无标线路段",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.color",
@@ -237,7 +414,23 @@
     },
     {
       "element_id": "odd.road.lane.type.motor",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.mixed",
@@ -247,7 +440,23 @@
     {
       "element_id": "odd.road.lane.type.bus",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.dedicated",
@@ -267,7 +476,23 @@
     {
       "element_id": "odd.road.lane.type.emergency",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.exit",
@@ -342,7 +567,23 @@
     {
       "element_id": "odd.road.intersection.at_grade",
       "requirement": "permitted",
-      "description": "信号灯十字路口（含无保护左转），依赖 V2I 增强"
+      "description": "信号灯十字路口（含无保护左转），依赖 V2I 增强",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.mini",
@@ -356,7 +597,23 @@
     },
     {
       "element_id": "odd.road.intersection.roundabout.normal",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.large",
@@ -386,7 +643,23 @@
     {
       "element_id": "odd.road.intersection.ramp",
       "requirement": "permitted",
-      "description": "围栏内匝道"
+      "description": "围栏内匝道",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.traffic_control",
@@ -395,12 +668,44 @@
     },
     {
       "element_id": "odd.infrastructure.traffic_control.sign",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.traffic_control.signal",
       "requirement": "permitted",
-      "description": "V2I 信号灯通信增强"
+      "description": "V2I 信号灯通信增强",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.roadside",
@@ -435,12 +740,44 @@
     {
       "element_id": "odd.infrastructure.special.bridge",
       "requirement": "permitted",
-      "description": "支持过江大桥"
+      "description": "支持过江大桥",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.crosswalk",
       "requirement": "permitted",
-      "description": "识别人行横道并让行"
+      "description": "识别人行横道并让行",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.height_width_limit",
@@ -454,17 +791,65 @@
     },
     {
       "element_id": "odd.infrastructure.special.speed_bump",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.railway_crossing",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.tunnel",
       "requirement": "permitted",
-      "description": "支持过江隧道（武汉长江隧道等）"
+      "description": "支持过江隧道（武汉长江隧道等）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.toll_station",
@@ -484,7 +869,23 @@
     {
       "element_id": "odd.infrastructure.temporary.construction",
       "requirement": "permitted",
-      "description": "施工区绕行（有限支持，异常时远程接管）"
+      "description": "施工区绕行（有限支持，异常时远程接管）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary.accident_site",
@@ -498,25 +899,105 @@
     },
     {
       "element_id": "odd.targets.motor_vehicle",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.non_motor_vehicle",
       "requirement": "permitted",
-      "description": "自行车、电动车（中国城市混合交通必需）"
+      "description": "自行车、电动车（中国城市混合交通必需）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.pedestrian",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.animal",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.obstacle",
       "requirement": "permitted",
-      "description": "锥桶、路障识别"
+      "description": "锥桶、路障识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric",
@@ -531,14 +1012,29 @@
     {
       "element_id": "odd.weather.atmospheric.rain",
       "requirement": "permitted",
-      "description": "[官方声明] Apollo Go APP 公示原文「根据法律法规要求，极端天气（大雨、冰雹等）自动驾驶不允许提供服务」。具体 mm/h 阈值未公开。",
-      "parameter_range": "[官方声明] 大雨触发停运；具体阈值未公开"
+      "description": "[公开资料未明确] 公开资料可确认 Robotaxi 服务受运营规则、监管许可和实时调度约束，但未披露统一降雨量停运阈值。"
     },
     {
       "element_id": "odd.weather.atmospheric.snow.snowfall",
       "requirement": "not_permitted",
       "description": "[推定] 武汉冬季少雪，但纳入「极端天气」范畴；暴雪等同停运。",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "inferred",
+        "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
+          "title": "OpenODC inference from Wuhan pilot information",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.snow.accumulation",
@@ -549,7 +1045,23 @@
       "element_id": "odd.weather.atmospheric.special",
       "requirement": "permitted",
       "description": "[官方声明] Apollo Go APP 原文「冰雹等极端天气不允许提供服务」。",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles",
@@ -559,8 +1071,7 @@
     {
       "element_id": "odd.weather.particles.fog",
       "requirement": "permitted",
-      "description": "一般雾可用；黄色预警级浓雾触发暂停服务",
-      "parameter_range": "visibility > 200 m"
+      "description": "[公开资料未明确] 公开资料未披露武汉服务能见度阈值；雾、低能见度等天气边界应以运营方实时停运规则和监管备案为准。"
     },
     {
       "element_id": "odd.weather.particles.haze",
@@ -584,16 +1095,64 @@
     },
     {
       "element_id": "odd.weather.lighting.natural",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.streetlight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.headlight",
       "requirement": "permitted",
-      "description": "[官方声明] 2024-03 起武汉部分区域 7×24 小时运营，夜间可叫车（Apollo Go APP 公告）。"
+      "description": "[官方声明] 2024-03 起武汉部分区域 7×24 小时运营，夜间可叫车（Apollo Go APP 公告）。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.indoor",
@@ -612,12 +1171,44 @@
     },
     {
       "element_id": "odd.digital.wireless.v2v",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://www.apollogo.com/ch/",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "OpenODC extraction from Apollo Go public portal and government notices",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2i",
       "requirement": "permitted",
-      "description": "[官方声明] 武汉公开资料披露已建设车路协同测试道路，示范区具备 5G OBU、北斗 RTK 等车路协同基础设施；具体覆盖路段和接入车辆应以监管公告和运营资料为准。"
+      "description": "[官方声明] 武汉公开资料披露已建设车路协同测试道路，示范区具备 5G OBU、北斗 RTK 等车路协同基础设施；具体覆盖路段和接入车辆应以监管公告和运营资料为准。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2p",
@@ -637,12 +1228,44 @@
     {
       "element_id": "odd.digital.position.gnss",
       "requirement": "permitted",
-      "description": "[官方声明] 北斗 + GPS 多模组融合（Apollo Day 2024）。"
+      "description": "[官方声明] 北斗 + GPS 多模组融合（Apollo Day 2024）。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.position.rtk",
       "requirement": "permitted",
-      "description": "[官方声明] 北斗 RTK 高精度定位为基础设施必需；是运营区域 V2X 基础能力的一部分。"
+      "description": "[官方声明] 北斗 RTK 高精度定位为基础设施必需；是运营区域 V2X 基础能力的一部分。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver",
@@ -652,12 +1275,44 @@
     {
       "element_id": "personnel.driver.takeover.attention",
       "requirement": "permitted",
-      "description": "[官方声明] WEDA 管理规则「应配备现场随行安全员或远程安全员；安全员负责监控车辆运行状态和周围环境，能够直接接管或从云端接管车辆」。武汉无人车「驾驶员」为远程安全员角色。"
+      "description": "[官方声明] WEDA 管理规则「应配备现场随行安全员或远程安全员；安全员负责监控车辆运行状态和周围环境，能够直接接管或从云端接管车辆」。武汉无人车「驾驶员」为远程安全员角色。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.takeover.other",
       "requirement": "permitted",
-      "description": "[官方声明] 武汉市智能网联汽车发展促进条例「车辆故障或影响道路交通安全时，远程安全员应开启危险警示灯、降低车速、行驶至不妨碍交通的地方停放」（MRM 机制）。"
+      "description": "[官方声明] 武汉市智能网联汽车发展促进条例「车辆故障或影响道路交通安全时，远程安全员应开启危险警示灯、降低车速、行驶至不妨碍交通的地方停放」（MRM 机制）。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.seatbelt",
@@ -687,7 +1342,7 @@
     {
       "element_id": "personnel.passenger.other",
       "requirement": "permitted",
-      "description": "[官方声明] Apollo Go APP 公示「未满 18 周岁需监护人陪同；14 周岁以下及 70 周岁以上暂不支持叫车；乘车前需完成实名认证」。"
+      "description": "[公开资料未明确] 乘客年龄、实名认证、监护人陪同等细则主要体现在 Apollo Go App 实时规则或本地服务说明中，目前缺少可公开下载、可长期引用的官方规则文件。"
     },
     {
       "element_id": "vehicle.motion",
@@ -697,12 +1352,12 @@
     {
       "element_id": "vehicle.motion.speed.operating",
       "requirement": "permitted",
-      "parameter_range": "0 km/h ~ 80 km/h"
+      "description": "[公开资料未明确] 武汉政府与 Apollo Go 公开网页未披露萝卜快跑武汉服务的统一运营速度上限；不得用道路限速、车辆最高车速或媒体体验速度替代 ODC 阈值。"
     },
     {
       "element_id": "vehicle.motion.speed.activation",
       "requirement": "permitted",
-      "parameter_range": "0 km/h ~ 80 km/h"
+      "description": "[公开资料未明确] 武汉政府文件和 Apollo Go 公开门户未披露萝卜快跑武汉服务的统一启用/运行速度阈值。"
     },
     {
       "element_id": "vehicle.motion.acceleration.operating",
@@ -717,27 +1372,58 @@
     {
       "element_id": "vehicle.ads_state",
       "requirement": "permitted",
-      "description": "[官方声明] WEDA 规则「具备冗余系统，确保系统故障时立即转为最小风险运行模式；具备状态记录、存储及在线监控功能」。"
+      "description": "[官方声明] WEDA 规则「具备冗余系统，确保系统故障时立即转为最小风险运行模式；具备状态记录、存储及在线监控功能」。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.other_systems",
       "requirement": "permitted",
-      "description": "[官方声明] WEDA 要求运营方具备不低于 300 万元人民币一般责任保险；通行路线、时间须向政府主管部门报备。"
+      "description": "[官方声明] WEDA 要求运营方具备不低于 300 万元人民币一般责任保险；通行路线、时间须向政府主管部门报备。",
+      "source": {
+        "type": "government_notice",
+        "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
+          "section": "商业化试点管理办法",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     }
   ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T10:00:00Z",
-    "review_status": "draft",
+    "review_status": "community_reviewed",
     "sources": [
       "萝卜快跑 Apollo Go 官方门户: https://www.apollogo.com/ch/",
-      "武汉市政府 · 萝卜快跑示范运营公告（2023-12）: https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+      "武汉经开区 · 自动驾驶装备商业化试点管理办法发布说明: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
       "武汉经开区 · 智能网联汽车道路测试与示范应用管理办法（2024-09）: https://www.whkfq.gov.cn/xxgk/zc/gfxwj/202409/t20240920_2457091.html",
-      "武汉市政府 · 智能网联汽车试点管理办法修订版（2025-04）: https://www.wuhan.gov.cn/gwfbpt/xzq/jjjskfq/gwh/202504/t20250408_2563767.shtml",
-      "武汉市政府 · 智驾第一城 2026-01 回顾: https://www.wuhan.gov.cn/sy/whyw/202601/t20260130_2721780.shtml",
-      "武汉本地宝 · 萝卜快跑乘车规则与运营区域: http://wh.bendibao.com/traffic/2024716/181276.shtm",
+      "武汉经开区 · 交通部智能交通先导应用试点: https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
+      "武汉经开区 · 3000 平方公里城市实验室报道: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202504/t20250422_2570742.html",
       "Baidu Apollo RT6 官方发布稿（PR Newswire 镜像）: https://www.prnewswire.com/news-releases/baidu-unveils-next-gen-autonomous-vehicle-ready-to-provide-driverless-robotaxi-half-of-taxi-fares-301590644.html"
     ],
-    "notes": "本条以武汉经开区（车谷）示范运营为主，基于政府公告 + Apollo 官方发布 + 本地生活服务信息整理。公开资料可支撑：①武汉多区示范运营及 3000 km² 级别覆盖表述；②Apollo Go 对极端天气不提供服务的提示；③部分乘车年龄 / 监护规则；④RT6 车辆技术参数。未公开或仅能通过 App 实时核验：具体雨量 / 能见度阈值、按行政区分的 24/7 vs 限时运营地图、运营速度上限。Robotaxi 无车主手册，权威资料应优先使用监管备案、政府公告与 Apollo 官方运营规则。"
+    "notes": "OpenODC 社区已按 2026-05-02 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。"
   }
 }

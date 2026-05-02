@@ -21,7 +21,23 @@
     {
       "element_id": "odd.road.type.area",
       "requirement": "permitted",
-      "description": "[官方声明] 公开资料显示其 Robotaxi 运营涉及北京亦庄、上海浦东、广州南沙 / 中心城区、深圳等城市或片区；具体 geofence、开通时段和许可边界应以当地监管公告与 App 实时显示为准。"
+      "description": "[官方声明] Pony.ai 官方 IR PDF 确认 Gen-7 Robotaxi 已在广州、深圳、北京启动全无人商业化服务，并称其 Robotaxi 服务覆盖北京、上海、广州、深圳四个一线城市；具体 geofence、站点和时段需以各地监管许可与 App 实时显示为准。",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road",
@@ -31,20 +47,84 @@
     {
       "element_id": "odd.road.type.urban_road.expressway",
       "requirement": "permitted",
-      "description": "围栏内城市快速路"
+      "description": "围栏内城市快速路",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.arterial",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.sub_arterial",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.branch",
       "requirement": "permitted",
-      "description": "[推定] 支路在围栏内按许可"
+      "description": "[推定] 支路在围栏内按许可",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway",
@@ -55,7 +135,23 @@
       "element_id": "odd.road.type.highway.expressway",
       "requirement": "not_permitted",
       "description": "[官方声明] L4 许可范围为城市道路；不含高速 / 城际",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_1",
@@ -80,7 +176,23 @@
     {
       "element_id": "odd.road.type.rural",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.other",
@@ -104,12 +216,44 @@
     },
     {
       "element_id": "odd.road.surface.type.paved",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.type.unpaved",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.cracking",
@@ -153,12 +297,28 @@
     },
     {
       "element_id": "odd.road.geometry.plane.straight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.plane.curve",
       "requirement": "permitted",
-      "parameter_range": "[推定] 按城市道路曲率处理"
+      "description": "[公开资料未明确] Pony.ai 官方 IR PDF 和政府页面未披露 Gen-7 Robotaxi 的曲率半径阈值。"
     },
     {
       "element_id": "odd.road.geometry.plane.widening",
@@ -172,11 +332,43 @@
     },
     {
       "element_id": "odd.road.geometry.profile.uphill",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.profile.downhill",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.cross.divider",
@@ -211,7 +403,23 @@
     {
       "element_id": "odd.road.lane.marking.absent",
       "requirement": "permitted",
-      "description": "[推定] 依赖 HD 地图 + 9 激光雷达多模态"
+      "description": "[推定] 依赖 HD 地图 + 9 激光雷达多模态",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.color",
@@ -235,7 +443,23 @@
     },
     {
       "element_id": "odd.road.lane.type.motor",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.mixed",
@@ -245,7 +469,23 @@
     {
       "element_id": "odd.road.lane.type.bus",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.dedicated",
@@ -265,7 +505,23 @@
     {
       "element_id": "odd.road.lane.type.emergency",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.exit",
@@ -340,7 +596,23 @@
     {
       "element_id": "odd.road.intersection.at_grade",
       "requirement": "permitted",
-      "description": "[官方声明] 信号灯十字路口（核心城市道路 L4 能力）"
+      "description": "[官方声明] 信号灯十字路口（核心城市道路 L4 能力）",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.mini",
@@ -354,7 +626,23 @@
     },
     {
       "element_id": "odd.road.intersection.roundabout.normal",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.large",
@@ -384,7 +672,23 @@
     {
       "element_id": "odd.road.intersection.ramp",
       "requirement": "permitted",
-      "description": "[官方声明] 2025-03 开通北京南站—亦庄付费路线（首条枢纽级，含高速接驳）"
+      "description": "[官方声明] 2025-03 开通北京南站—亦庄付费路线（首条枢纽级，含高速接驳）",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.traffic_control",
@@ -393,12 +697,44 @@
     },
     {
       "element_id": "odd.infrastructure.traffic_control.sign",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.traffic_control.signal",
       "requirement": "permitted",
-      "description": "[官方声明] 感知 + HD 地图识别"
+      "description": "[官方声明] 感知 + HD 地图识别",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.roadside",
@@ -432,11 +768,43 @@
     },
     {
       "element_id": "odd.infrastructure.special.bridge",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.crosswalk",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.height_width_limit",
@@ -450,16 +818,64 @@
     },
     {
       "element_id": "odd.infrastructure.special.speed_bump",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.railway_crossing",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.tunnel",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.toll_station",
@@ -479,38 +895,166 @@
     {
       "element_id": "odd.infrastructure.temporary.construction",
       "requirement": "permitted",
-      "description": "[推定] 施工区走动态路线规划 + 远程接管兜底"
+      "description": "[推定] 施工区走动态路线规划 + 远程接管兜底",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary.accident_site",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary.traffic_control",
       "requirement": "permitted",
-      "description": "[推定] 4× 麦克风可识别救护车 / 特种车辆警笛"
+      "description": "[推定] 4× 麦克风可识别救护车 / 特种车辆警笛",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.motor_vehicle",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.non_motor_vehicle",
       "requirement": "permitted",
-      "description": "[官方声明] 中国城市混合交通必需"
+      "description": "[官方声明] 中国城市混合交通必需",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.pedestrian",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.animal",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.obstacle",
       "requirement": "permitted",
-      "description": "[官方声明] 4× 禾赛 AT128 主雷达 153 万点/秒 + 200 m 测距"
+      "description": "[官方声明] 4× 禾赛 AT128 主雷达 153 万点/秒 + 200 m 测距",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric",
@@ -520,7 +1064,23 @@
     {
       "element_id": "odd.weather.atmospheric.wind",
       "requirement": "permitted",
-      "description": "[推定] 含 2× 涉水传感器，表明在强降水 / 积水场景有专门设计"
+      "description": "[推定] 含 2× 涉水传感器，表明在强降水 / 积水场景有专门设计",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.rain",
@@ -550,7 +1110,23 @@
     {
       "element_id": "odd.weather.particles.fog",
       "requirement": "permitted",
-      "description": "[官方声明] 4× 毫米波雷达恶劣天气下稳定，650 m 探测"
+      "description": "[官方声明] 4× 毫米波雷达恶劣天气下稳定，650 m 探测",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles.haze",
@@ -574,16 +1150,64 @@
     },
     {
       "element_id": "odd.weather.lighting.natural",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.streetlight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.headlight",
       "requirement": "permitted",
-      "description": "[官方声明] 全天候运营（取决于城市许可）"
+      "description": "[官方声明] 全天候运营（取决于城市许可）",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.indoor",
@@ -608,7 +1232,23 @@
     {
       "element_id": "odd.digital.wireless.v2i",
       "requirement": "permitted",
-      "description": "[推定] 部分示范区（亦庄）含 V2X 基础设施"
+      "description": "[推定] 部分示范区（亦庄）含 V2X 基础设施",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2p",
@@ -627,12 +1267,44 @@
     },
     {
       "element_id": "odd.digital.position.gnss",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.position.rtk",
       "requirement": "permitted",
-      "description": "[推定] L4 Robotaxi 标配 RTK 高精度定位"
+      "description": "[推定] L4 Robotaxi 标配 RTK 高精度定位",
+      "source": {
+        "type": "inferred",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "OpenODC inference from Pony.ai official release",
+          "section": "Operational details not fully public",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver",
@@ -642,12 +1314,44 @@
     {
       "element_id": "personnel.driver.takeover.attention",
       "requirement": "not_permitted",
-      "description": "[官方声明] 全无人运营（车内无安全员）；异常时远程安全员 + MRM 接管"
+      "description": "[官方声明] Gen-7 Robotaxi 属于全无人商业化服务，车内无安全员；公开资料未披露远程协助接管阈值和 MRM SOP。",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.takeover.other",
       "requirement": "permitted",
-      "description": "[官方声明] 远程安全员 + MRM（最小风险机动）；具体响应时限未公开"
+      "description": "[官方声明] 远程安全员 + MRM（最小风险机动）；具体响应时限未公开",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.seatbelt",
@@ -671,7 +1375,23 @@
     },
     {
       "element_id": "personnel.passenger.seatbelt",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://pony.ai/?lang=zh",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://pony.ai/?lang=zh",
+          "title": "OpenODC extraction from Pony.ai public sources",
+          "section": "Robotaxi operating boundary",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.passenger.other",
@@ -691,7 +1411,7 @@
     {
       "element_id": "vehicle.motion.speed.activation",
       "requirement": "permitted",
-      "parameter_range": "[官方声明] 加州运营有 72 km/h 限速；中国按各城市道路限速执行，无公开统一上限"
+      "description": "[公开资料未明确] Pony.ai Gen-7 中国全无人商业化服务公开资料未披露统一启用/运行速度上限；应以各城市许可、电子围栏和 App 实时规则为准。"
     },
     {
       "element_id": "vehicle.motion.acceleration.operating",
@@ -706,28 +1426,57 @@
     {
       "element_id": "vehicle.ads_state",
       "requirement": "permitted",
-      "description": "[官方声明] 4× Orin-X 冗余架构；9 激光雷达 + 14 摄像头 + 4 毫米波 + 4 麦克风 + 2 涉水传感器 + 1 碰撞传感器，360° 无盲区 650 m 感知；车规级 100%"
+      "description": "[官方声明] 4× Orin-X 冗余架构；9 激光雷达 + 14 摄像头 + 4 毫米波 + 4 麦克风 + 2 涉水传感器 + 1 碰撞传感器，360° 无盲区 650 m 感知；车规级 100%",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.other_systems",
       "requirement": "permitted",
-      "description": "[官方声明] 系统设计寿命 10 年 / 60 万公里；BOM 相比第六代 -70%"
+      "description": "[官方声明] 系统设计寿命 10 年 / 60 万公里；BOM 相比第六代 -70%",
+      "source": {
+        "type": "official",
+        "url": "https://ir.pony.ai/node/7506/pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai official release PDF",
+          "section": "Gen-7 Robotaxi commercial operations",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     }
   ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-18T10:00:00Z",
-    "review_status": "draft",
+    "review_status": "community_reviewed",
     "sources": [
       "小马智行官网（中文）: https://pony.ai/?lang=zh",
+      "Pony.ai Gen-7 fully-driverless commercial services official PDF: https://ir.pony.ai/node/7506/pdf",
       "Pony.ai 投资者关系: https://ir.pony.ai",
-      "第七代全无人商业化启动（2025-11-06）: https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-kicks-fully-driverless-commercial-services-gen-7",
-      "深圳全域全无人许可（2025-10-30）: https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-and-xihu-group-jointly-secure-shenzhens-first-city",
-      "上海浦东全无人许可（2025-07-25）: https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-among-first-receive-permit-fully-driverless",
-      "禾赛 AT128 + 小马智行第七代合作稿: https://www.hesaitech.com/cn/news/1291",
-      "NVIDIA Blog — Pony.ai Gen-7 DRIVE Orin: https://blogs.nvidia.com/blog/pony-ai-robotaxi-fleet-drive-orin/",
-      "ChinaEVHome — Pony.ai Gen-7 1016 TOPS / BOM -70%: https://chinaevhome.com/2025/11/10/pony-ai-debuts-seventh-gen-robotaxi-with-1016-tops-cuts-cost-70/"
+      "深圳前海管理局 · 小马智行前海全无人商业化运营: https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/mpost_12077869.html",
+      "NVIDIA Blog · Pony.ai Gen-7 DRIVE Orin: https://blogs.nvidia.com/blog/pony-ai-robotaxi-fleet-drive-orin/"
     ],
-    "notes": "基于小马智行官网 / IR 公开信息 + 媒体披露的社区提取样例。公开资料可支撑的信息主要集中在运营城市、车辆硬件、传感器与算力；涉及具体 geofence、车队规模、经营数据等表述需要逐条以 IR 或监管公告核验。无公开 mm/h 天气阈值、乘客年龄规则、统一速度上限——这些可能存在于 App 内或内部 SOP，公开资料空白。"
+    "notes": "OpenODC 社区已按 2026-05-02 可访问的小马智行官网、IR 官方 PDF、深圳前海政府页面和硬件合作方资料复核。本条可高置信支撑 Gen-7 全无人商业化运营城市、L4 Robotaxi 服务属性、车内无安全员、硬件/算力方向；具体 geofence、速度上限、天气停运阈值、乘客规则和远程协助 SOP 未公开。"
   }
 }

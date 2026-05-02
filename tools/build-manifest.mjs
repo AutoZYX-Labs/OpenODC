@@ -31,7 +31,23 @@ function classifyCoverage(elem) {
 const documents = files.map(f => {
   const doc = JSON.parse(readFileSync(join(examplesDir, f), 'utf8'))
   const coverage = { manual: 0, official: 0, inferred: 0, curated: 0, gap: 0, structural: 0 }
-  for (const e of doc.elements || []) coverage[classifyCoverage(e)]++
+  const evidence = {
+    linked: 0,
+    high_confidence: 0,
+    official_or_manual: 0,
+    medium_confidence: 0,
+    low_confidence: 0
+  }
+  for (const e of doc.elements || []) {
+    coverage[classifyCoverage(e)]++
+    if (Array.isArray(e.evidence_refs) && e.evidence_refs.length) evidence.linked++
+    if (e.source?.confidence === 'high') evidence.high_confidence++
+    if (e.source?.confidence === 'medium') evidence.medium_confidence++
+    if (e.source?.confidence === 'low') evidence.low_confidence++
+    if (['official', 'owner_manual', 'government_notice', 'operating_rule', 'regulatory_filing'].includes(e.source?.type)) {
+      evidence.official_or_manual++
+    }
+  }
   const substantive = coverage.manual + coverage.official + coverage.curated + coverage.inferred
   return {
     id: doc.id,
@@ -51,7 +67,8 @@ const documents = files.map(f => {
     not_permitted_count: (doc.elements || []).filter(e => e.requirement === 'not_permitted').length,
     coverage,
     coverage_substantive: substantive,
-    coverage_total: doc.elements?.length || 0
+    coverage_total: doc.elements?.length || 0,
+    evidence
   }
 })
 

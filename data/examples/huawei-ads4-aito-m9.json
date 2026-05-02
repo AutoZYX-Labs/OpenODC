@@ -21,81 +21,337 @@
     {
       "element_id": "odd.road.type.area",
       "requirement": "permitted",
-      "description": "[官方声明] 分档位区域限制：Max / Pro 城区 NCA 覆盖全国 337 个地级以上城市；SE 高速 NCA 覆盖全国高速约 98%。Ultra 档的高速 L3 仅在工信部首批 7 城（北京、上海、广州、深圳、合肥、武汉、重庆）试点且需法规条件满足。"
+      "description": "[官方声明] AITO 问界 M9 官方产品页明确该车型搭载华为乾崑智驾 ADS 4，并以“全国都能开、车位到车位、园区闸机、环岛、高速 ETC”等方式描述可用场景；具体城市、道路、版本开通范围应以车机/官方配置和实时提示为准。本样例不纳入 L3 试点能力。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road",
       "requirement": "permitted",
-      "description": "[官方声明] 华为乾崑 ADS 4 城区 NCA 覆盖快速路 / 主干 / 次干 / 支路；官方原文「覆盖城市通勤 90% 以上场景、乡道都能跑」。"
+      "description": "[官方声明] AITO 官方产品页将 ADS 4 描述为可覆盖城市通勤、环岛、园区闸机等复杂场景；公开资料未给出可用城市/路段的完整机器可读清单，实际边界以车机提示和版本开通范围为准。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.expressway",
       "requirement": "permitted",
-      "description": "城市快速路（城区 NCA 覆盖）"
+      "description": "城市快速路（城区 NCA 覆盖）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.arterial",
       "requirement": "permitted",
-      "description": "城市主干路"
+      "description": "城市主干路",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.sub_arterial",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.urban_road.branch",
       "requirement": "permitted",
-      "description": "支路（含小区内部道路，P2P 车位到车位）"
+      "description": "支路（含小区内部道路，P2P 车位到车位）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway",
       "requirement": "permitted",
-      "description": "[官方声明] 高速 NCA 覆盖全国高速约 98%，含高速、一级、二级；Ultra 档支持高速 L3 商用（2025 年 4 月发布）。"
+      "description": "[官方声明] AITO 官方产品页明确 ADS 4 支持高速 ETC 连贯通过等导航辅助场景；公开资料未给出全国高速覆盖率或每条高速路段清单，实际可用边界以车机提示、导航路线和道路条件为准。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.expressway",
       "requirement": "permitted",
-      "description": "高速公路（高速 NCA）"
+      "description": "高速公路（高速 NCA）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_1",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_2",
       "requirement": "permitted",
-      "description": "国道、省道（ADS 4.1 宣称全国可开）"
+      "description": "国道、省道（ADS 4.1 宣称全国可开）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_3",
       "requirement": "permitted",
-      "description": "县道、乡道，谨慎使用"
+      "description": "县道、乡道，谨慎使用",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.highway.class_4",
       "requirement": "permitted",
-      "description": "乡村双车道，谨慎使用"
+      "description": "乡村双车道，谨慎使用",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.rural",
       "requirement": "permitted",
-      "description": "村庄内部道路，谨慎使用"
+      "description": "村庄内部道路，谨慎使用",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.other",
       "requirement": "not_permitted",
       "description": "厂矿 / 林区 / 油田等非公共道路不在设计范围",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.parking_indoor",
       "requirement": "permitted",
-      "description": "VPD 2.0 支持地下多层停车场（已演示地下 5 层代客泊车）"
+      "description": "VPD 2.0 支持地下多层停车场（已演示地下 5 层代客泊车）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.type.parking_outdoor",
       "requirement": "permitted",
-      "description": "全场景泊车：窄车位、斜列、临时锁车位绕行"
+      "description": "全场景泊车：窄车位、斜列、临时锁车位绕行",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface",
@@ -104,48 +360,192 @@
     },
     {
       "element_id": "odd.road.surface.type.paved",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.type.unpaved",
       "requirement": "not_permitted",
       "description": "非铺装路面不在设计范围；手册提示「烂泥路、砂石路谨慎使用」",
-      "exit_behavior": "trigger_exit"
+      "exit_behavior": "trigger_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.cracking",
       "requirement": "permitted",
-      "description": "路面开裂可正常通过（非声明性 ODD，推断）"
+      "description": "路面开裂可正常通过（非声明性 ODD，推断）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.rutting",
       "requirement": "permitted",
-      "description": "车辙可通过；深车辙影响循迹"
+      "description": "车辙可通过；深车辙影响循迹",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.subsidence",
       "requirement": "permitted",
-      "description": "[推定] 路面沉陷未在手册 / 官方材料中单独分类。ADS 4 有路面自适应 AEB（动态调节刹车力度），但不做路面缺陷语义识别。行业默认：感知退化时降级到 AEB 兜底。"
+      "description": "[推定] 路面沉陷未在手册 / 官方材料中单独分类。ADS 4 有路面自适应 AEB（动态调节刹车力度），但不做路面缺陷语义识别。行业默认：感知退化时降级到 AEB 兜底。",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.pothole",
       "requirement": "permitted",
-      "description": "可识别坑槽并减速；深坑推断触发退出"
+      "description": "可识别坑槽并减速；深坑推断触发退出",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.shoving",
       "requirement": "permitted",
-      "description": "[推定] 路面拥包未在手册 / 官方材料中单独分类。同沉陷：ADS 感知退化时由 AEB 兜底，不做拥包语义识别。"
+      "description": "[推定] 路面拥包未在手册 / 官方材料中单独分类。同沉陷：ADS 感知退化时由 AEB 兜底，不做拥包语义识别。",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.quality.raveling",
       "requirement": "permitted",
-      "description": "[推定] 表面松散未在手册 / 官方材料中单独分类。同沉陷 / 拥包。"
+      "description": "[推定] 表面松散未在手册 / 官方材料中单独分类。同沉陷 / 拥包。",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.surface.coverage",
       "requirement": "permitted",
-      "description": "手册提示：积水 / 湿滑 / 冰雪等路面覆盖物谨慎使用；参数量化未公开 — 行业推定深度 > 3 cm 积水将降级"
+      "description": "手册提示：积水 / 湿滑 / 冰雪等路面覆盖物谨慎使用；参数量化未公开 — 行业推定深度 > 3 cm 积水将降级",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry",
@@ -154,48 +554,160 @@
     },
     {
       "element_id": "odd.road.geometry.plane.straight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.plane.curve",
       "requirement": "permitted",
-      "parameter_range": "[推定] 曲率半径 ≥ 30 m（手册无量化；高速工况典型 ≥ 250 m，城区 ≥ 30 m）"
+      "description": "[公开资料未明确] AITO 官方使用说明书未给出 NCA 可通行曲率半径阈值。不能把行业典型道路半径反推为 ADS 4 ODC。"
     },
     {
       "element_id": "odd.road.geometry.plane.widening",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.profile.level",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.profile.uphill",
       "requirement": "permitted",
-      "parameter_range": "[推定] 坡度 ≤ 15%（手册无量化；超过推断退出到人驾）"
+      "description": "[公开资料未明确] 官方手册未给出 NCA 上坡坡度阈值。"
     },
     {
       "element_id": "odd.road.geometry.profile.downhill",
       "requirement": "permitted",
-      "parameter_range": "[推定] 坡度 ≤ 15%"
+      "description": "[公开资料未明确] 官方手册未给出 NCA 下坡坡度阈值。"
     },
     {
       "element_id": "odd.road.geometry.cross.divider",
       "requirement": "permitted",
-      "description": "支持中央分隔或双黄线分隔道路"
+      "description": "支持中央分隔或双黄线分隔道路",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.cross.cross_slope",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.cross.superelevation",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.geometry.cross.sidewalk",
       "requirement": "permitted",
-      "description": "可识别人行道边缘"
+      "description": "可识别人行道边缘",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane",
@@ -205,21 +717,85 @@
     {
       "element_id": "odd.road.lane.marking.quality",
       "requirement": "permitted",
-      "description": "标线质量中等以上可用；模糊 / 褪色时依赖无图 NCA + 激光雷达"
+      "description": "标线质量中等以上可用；模糊 / 褪色时依赖无图 NCA + 激光雷达",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.absent",
       "requirement": "permitted",
-      "description": "支持无标线路段（ADS 4 无图能力 + lidar 道路边缘识别）"
+      "description": "支持无标线路段（ADS 4 无图能力 + lidar 道路边缘识别）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.color",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.type",
       "requirement": "permitted",
-      "description": "支持实线 / 虚线 / 双黄线等标准类型"
+      "description": "支持实线 / 虚线 / 双黄线等标准类型",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.marking.width",
@@ -229,28 +805,108 @@
     {
       "element_id": "odd.road.lane.type.non_motor",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.motor",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.mixed",
       "requirement": "permitted",
-      "description": "[官方声明] 城区 NCA 支持人车混行场景；官方表述「遇到路口左右转、旁车拥堵加塞、窄道通行、人车混行等复杂场景时，通行效率更高」。"
+      "description": "[官方声明] 城区 NCA 支持人车混行场景；官方表述「遇到路口左右转、旁车拥堵加塞、窄道通行、人车混行等复杂场景时，通行效率更高」。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.bus",
       "requirement": "not_permitted",
       "description": "公交专用车道不可占用",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.dedicated",
       "requirement": "not_permitted",
       "description": "[推定] 目前不识别专用车道语义。已知限制：第三方测评（42how / ADS 2.0 时代）记录过「偶尔会开进公交车道，可能导致罚单」，ADS 4 尚无专用车道语义识别的官方声明。",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.tidal",
@@ -261,23 +917,87 @@
       "element_id": "odd.road.lane.type.escape",
       "requirement": "not_permitted",
       "description": "[推定] 避险车道为货车失控逃生设施，属于明显超出 ADS 设计范围（无乘用车用例）。",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.emergency",
       "requirement": "not_permitted",
       "description": "应急车道禁止行驶",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.exit",
       "requirement": "permitted",
-      "description": "高速 NCA 自动出口"
+      "description": "高速 NCA 自动出口",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.entrance",
       "requirement": "permitted",
-      "description": "高速 NCA 自动入口"
+      "description": "高速 NCA 自动入口",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.type.total_count",
@@ -287,12 +1007,28 @@
     {
       "element_id": "odd.road.lane.count",
       "requirement": "permitted",
-      "description": "[官方声明] 支持单车道及以上。官方原文「支持单车道、多车道、红绿灯的各种环岛」—— 单车道是最低要求。"
+      "description": "[官方声明] 支持单车道及以上。官方原文「支持单车道、多车道、红绿灯的各种环岛」—— 单车道是最低要求。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.lane.width",
       "requirement": "permitted",
-      "parameter_range": "[推定] 2.8 m ≤ 车道宽度 ≤ 4.5 m（手册无量化）"
+      "description": "[公开资料未明确] 官方手册未给出 NCA 最小/最大车道宽度阈值。"
     },
     {
       "element_id": "odd.road.edge",
@@ -302,22 +1038,86 @@
     {
       "element_id": "odd.road.edge.guardrail",
       "requirement": "permitted",
-      "description": "激光雷达识别护栏作为道路边缘"
+      "description": "激光雷达识别护栏作为道路边缘",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.edge.curb",
       "requirement": "permitted",
-      "description": "路缘石识别（泊车避让）"
+      "description": "路缘石识别（泊车避让）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.edge.temporary",
       "requirement": "permitted",
-      "description": "临时锥桶 / 水马识别"
+      "description": "临时锥桶 / 水马识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.edge.hard_shoulder",
       "requirement": "permitted",
-      "description": "硬路肩识别，触发脱手靠边时使用"
+      "description": "硬路肩识别，触发脱手靠边时使用",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.edge.soil_shoulder",
@@ -342,25 +1142,105 @@
     {
       "element_id": "odd.road.intersection.at_grade",
       "requirement": "permitted",
-      "description": "信号灯与停车让行十字路口，城区 NCA 支持左右转 / 调头"
+      "description": "信号灯与停车让行十字路口，城区 NCA 支持左右转 / 调头",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.mini",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.compact",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.normal",
       "requirement": "permitted",
-      "description": "2024-10 OTA 起 NCA 支持常规环岛"
+      "description": "2024-10 OTA 起 NCA 支持常规环岛",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.large",
       "requirement": "permitted",
-      "description": "[官方声明] 官方「支持各种环岛」隐含涵盖大环岛，无尺寸阈值公开。"
+      "description": "[官方声明] 官方「支持各种环岛」隐含涵盖大环岛，无尺寸阈值公开。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.roundabout.double",
@@ -369,22 +1249,88 @@
     },
     {
       "element_id": "odd.road.intersection.grade_separated",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.interchange.general",
       "requirement": "permitted",
-      "description": "一般立交"
+      "description": "一般立交",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.interchange.hub",
       "requirement": "permitted",
-      "description": "枢纽立交"
+      "description": "枢纽立交",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.road.intersection.ramp",
       "requirement": "permitted",
-      "parameter_range": "经验限速 ≤ 60 km/h（手册提及）"
+      "parameter_range": "[公开资料未量化] 匝道速度阈值未公开。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ],
+      "description": "[手册明确] NCA 可在导航辅助驾驶场景下处理部分匝道/进出高速类动作；具体匝道速度、曲率和可用路段以车机提示、导航路线和实时道路条件为准。"
     },
     {
       "element_id": "odd.infrastructure.traffic_control",
@@ -394,12 +1340,44 @@
     {
       "element_id": "odd.infrastructure.traffic_control.sign",
       "requirement": "permitted",
-      "description": "限速、让行、禁止标志识别"
+      "description": "限速、让行、禁止标志识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.traffic_control.signal",
       "requirement": "permitted",
-      "description": "信号灯识别（含三色灯 / 箭头灯 / 读秒）"
+      "description": "信号灯识别（含三色灯 / 箭头灯 / 读秒）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.roadside",
@@ -408,15 +1386,63 @@
     },
     {
       "element_id": "odd.infrastructure.roadside.building",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.roadside.tree",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.roadside.streetlight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special",
@@ -426,49 +1452,209 @@
     {
       "element_id": "odd.infrastructure.special.gate",
       "requirement": "permitted",
-      "description": "道闸识别（停车场进出）"
+      "description": "道闸识别（停车场进出）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.bridge",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.crosswalk",
       "requirement": "permitted",
-      "description": "识别人行横道主动让行"
+      "description": "识别人行横道主动让行",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.height_width_limit",
       "requirement": "permitted",
-      "description": "限高限宽标识识别"
+      "description": "限高限宽标识识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.manhole",
       "requirement": "permitted",
-      "description": "井盖识别（小障碍物避让）"
+      "description": "井盖识别（小障碍物避让）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.speed_bump",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.railway_crossing",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.tunnel",
       "requirement": "permitted",
-      "description": "隧道可用；GNSS 失锁场景手册未单独量化"
+      "description": "隧道可用；GNSS 失锁场景手册未单独量化",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.toll_station",
       "requirement": "permitted",
-      "description": "P2P 2.0 自动 ETC 通过；500 m–1 km 前自动减速"
+      "description": "P2P 2.0 自动 ETC 通过；500 m–1 km 前自动减速",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.special.warning_post",
       "requirement": "permitted",
-      "description": "警示桩识别"
+      "description": "警示桩识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary",
@@ -478,42 +1664,172 @@
     {
       "element_id": "odd.infrastructure.temporary.construction",
       "requirement": "permitted",
-      "description": "施工区可识别并绕行（ADS 4 发布会 demo 演示）"
+      "description": "施工区可识别并绕行（ADS 4 发布会 demo 演示）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary.accident_site",
       "requirement": "permitted",
-      "description": "事故现场识别减速"
+      "description": "事故现场识别减速",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.infrastructure.temporary.traffic_control",
       "requirement": "permitted",
-      "description": "交警手势 / 临时交通管制识别（有限支持）"
+      "description": "交警手势 / 临时交通管制识别（有限支持）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.motor_vehicle",
       "requirement": "permitted",
-      "description": "前 AEB 激活 4–150 km/h（手册明确），刹停上限 130 km/h"
+      "description": "前 AEB 激活 4–150 km/h（手册明确），刹停上限 130 km/h",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.non_motor_vehicle",
       "requirement": "permitted",
-      "description": "自行车 / 电动车 / 摩托车识别"
+      "description": "自行车 / 电动车 / 摩托车识别",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.pedestrian",
       "requirement": "permitted",
-      "description": "行人识别与主动让行"
+      "description": "行人识别与主动让行",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.animal",
       "requirement": "permitted",
-      "description": "通用障碍物识别；动物单列未声明 — INFERRED"
+      "description": "通用障碍物识别；动物单列未声明 — INFERRED",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.targets.obstacle",
       "requirement": "permitted",
-      "parameter_range": "激光雷达 3 cm 精度；可识别 ≥ 14–30 cm 小障碍物（手册 + 官方 demo：雪糕筒 / 倒伏树 / 水马 / 下沉台阶 / 水管）"
+      "parameter_range": "[公开资料未量化] 小障碍物尺寸阈值未公开。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ],
+      "description": "[手册明确] AITO 使用说明书和产品页说明车辆具备多传感器感知与主动安全能力，可对车辆、行人、骑行者和部分障碍物进行提示或制动辅助；公开资料未给出 ADS 4 对小障碍物的统一尺寸阈值。"
     },
     {
       "element_id": "odd.weather.atmospheric",
@@ -523,29 +1839,113 @@
     {
       "element_id": "odd.weather.atmospheric.wind",
       "requirement": "permitted",
-      "description": "2026-01-30 OTA 新增横向风稳定控制；强风场景主动介入。无公开 m/s 阈值"
+      "description": "2026-01-30 OTA 新增横向风稳定控制；强风场景主动介入。无公开 m/s 阈值",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.rain",
       "requirement": "permitted",
-      "parameter_range": "[推定三档] 正常 ≤ 14.9 mm/h（小雨-中雨）；降级 15–29.9 mm/h（大雨）；退出 > 30 mm/h（暴雨）。手册仅定性提示「雨雪谨慎使用」；分布式毫米波雷达在降雨下维持约 98% 目标识别率（华为 PR）"
+      "parameter_range": "[公开资料未量化] 雨量阈值未公开；雨雪湿滑场景需谨慎使用并随时接管。",
+      "description": "[手册明确] 官方使用说明书和产品页均提示 ADS 不能应对所有天气，驾驶员需保持主动控制；公开资料未给出降雨 mm/h 阈值。不得把国标雨量分级反推为 ADS 4 的允许/降级/退出阈值。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.snow.snowfall",
       "requirement": "permitted",
-      "parameter_range": "[推定] 小到中雪可用；暴雪退出。手册无量化"
+      "parameter_range": "[公开资料未量化] 降雪/积雪阈值未公开。",
+      "description": "[手册明确] 官方使用说明书将雨雪、湿滑、低能见度等列为需要谨慎/人工干预的条件；未给出降雪量或积雪深度阈值。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.snow.accumulation",
       "requirement": "not_permitted",
       "description": "道路积雪覆盖标线，摄像头 + lidar 降级",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.atmospheric.special",
       "requirement": "not_permitted",
       "description": "冰雹 / 龙卷风等极端天气",
-      "exit_behavior": "suppress_and_exit"
+      "exit_behavior": "suppress_and_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles",
@@ -555,23 +1955,89 @@
     {
       "element_id": "odd.weather.particles.fog",
       "requirement": "permitted",
-      "parameter_range": "[推定] 能见度 ≥ 200 m 正常；100–200 m 降级；< 100 m 建议退出（手册仅定性提示「能见度较差谨慎使用」）"
+      "parameter_range": "[公开资料未量化] 能见度阈值未公开。",
+      "description": "[手册明确] 官方资料提示 ADS 不能应对所有天气和交通情况；浓雾/低能见度会影响感知与驾驶判断，未给出能见度米数阈值。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles.haze",
       "requirement": "permitted",
-      "description": "雾霾天气可用；重度需降级"
+      "description": "雾霾天气可用；重度需降级",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles.dust",
       "requirement": "not_permitted",
       "description": "沙尘暴感知严重退化",
-      "exit_behavior": "trigger_exit"
+      "exit_behavior": "trigger_exit",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.particles.smoke",
       "requirement": "permitted",
-      "description": "[推定] 烟幕未单独声明。手册原文「能见度较差请谨慎使用」；官方承认团雾仍是高速场景 1% 难例。等同低能见度场景处理，驾驶员接管。"
+      "description": "[推定] 烟幕未单独声明。手册原文「能见度较差请谨慎使用」；官方承认团雾仍是高速场景 1% 难例。等同低能见度场景处理，驾驶员接管。",
+      "source": {
+        "type": "inferred",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "low",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "inferred",
+          "confidence": "low",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC inference from AITO manual",
+          "section": "Manual states qualitative limitation but no quantitative threshold",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting",
@@ -580,26 +2046,90 @@
     },
     {
       "element_id": "odd.weather.lighting.natural",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.streetlight",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.headlight",
       "requirement": "permitted",
-      "description": "夜间依赖车辆灯光 + lidar"
+      "description": "夜间依赖车辆灯光 + lidar",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.lighting.indoor",
       "requirement": "permitted",
-      "description": "室内停车场低光照（VPD 2.0）"
+      "description": "室内停车场低光照（VPD 2.0）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.weather.temperature",
       "requirement": "permitted",
-      "parameter_range": "[推定] −30 ℃ ~ 50 ℃ 整车工作温度（车规级常见范围；手册未明确 ADS 边界）"
+      "description": "[公开资料未明确] AITO 官方使用说明书未给出 ADS / NCA 独立工作温度范围；整车环境适应性不能直接等同于 ADS ODC。"
     },
     {
       "element_id": "odd.digital.wireless",
@@ -609,23 +2139,87 @@
     {
       "element_id": "odd.digital.wireless.v2v",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2i",
       "requirement": "not_permitted",
       "description": "ADS 4 不依赖 V2I 信号灯通信（纯车端感知）",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2p",
       "requirement": "not_permitted",
-      "exit_behavior": "suppress_activation"
+      "exit_behavior": "suppress_activation",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.wireless.v2n",
       "requirement": "permitted",
-      "description": "车云连接用于 OTA、地图更新、远程辅助"
+      "description": "车云连接用于 OTA、地图更新、远程辅助",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.position",
@@ -635,12 +2229,44 @@
     {
       "element_id": "odd.digital.position.gnss",
       "requirement": "permitted",
-      "description": "BDS + GPS 组合定位（标配）"
+      "description": "BDS + GPS 组合定位（标配）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "odd.digital.position.rtk",
       "requirement": "permitted",
-      "description": "高精定位支持（Max 档含）"
+      "description": "高精定位支持（Max 档含）",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver",
@@ -650,22 +2276,87 @@
     {
       "element_id": "personnel.driver.takeover.attention",
       "requirement": "permitted",
-      "description": "DMS 监视注视方向；视线脱离触发两段式提醒（HMI + 声音 → 脱手靠边）。具体秒数未公开，行业经验首次提醒约 15 s"
+      "description": "[手册明确] 使用 ADS / NCA 时驾驶员应始终手握方向盘，注意仪表和声音提示，做好随时干预或控制车辆的准备；系统会进行脱手检测并触发提醒。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.takeover.other",
       "requirement": "permitted",
-      "description": "ADS 4.1 起脱手检测间隔延长；但仍属 L2，驾驶员须保持监督"
+      "description": "ADS 4.1 起脱手检测间隔延长；但仍属 L2，驾驶员须保持监督",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.seatbelt",
       "requirement": "permitted",
-      "description": "未系安全带 → 系统不激活"
+      "description": "未系安全带 → 系统不激活",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.driver.posture",
       "requirement": "permitted",
-      "description": "要求驾驶员面部可见"
+      "description": "要求驾驶员面部可见",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.passenger",
@@ -675,16 +2366,64 @@
     {
       "element_id": "personnel.passenger.interference",
       "requirement": "permitted",
-      "description": "乘客未干扰方向盘 / 踏板"
+      "description": "乘客未干扰方向盘 / 踏板",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.passenger.seatbelt",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "personnel.passenger.other",
       "requirement": "permitted",
-      "description": "[官方声明] 被动安全侧：2026 款问界 M9 新增 UWB 生命体监测（儿童 / 宠物遗留检测）+ 9 气囊 + 安全带未系提醒 + ISOFIX。ADS 激活本身不设乘客行为门槛。"
+      "description": "[官方声明] 被动安全侧：2026 款问界 M9 新增 UWB 生命体监测（儿童 / 宠物遗留检测）+ 9 气囊 + 安全带未系提醒 + ISOFIX。ADS 激活本身不设乘客行为门槛。",
+      "source": {
+        "type": "official",
+        "url": "https://aito.auto/model/m9/",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.motion",
@@ -694,46 +2433,128 @@
     {
       "element_id": "vehicle.motion.speed.operating",
       "requirement": "permitted",
-      "parameter_range": "[手册明确] 0–200 km/h；实际自适应识别道路限速"
+      "parameter_range": "[手册明确] NCA 最高目标车速 130 km/h；激活 NCA 最小初始目标车速 30 km/h。车辆最高车速 200 km/h 不是 NCA 的 ODC 上限。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.motion.speed.activation",
       "requirement": "permitted",
-      "parameter_range": "[手册明确] NCA / ACC / LCC 激活 0–200 km/h；各子功能：AEB 4–150 km/h、eAES 50–135 km/h、LOCP 30–130 km/h、后 AEB 1–60 km/h、ELKA 40–120 km/h"
+      "parameter_range": "[手册明确] NCA 激活最小初始目标车速 30 km/h，最高目标车速 130 km/h；ACC、LCC、AEB、AES 等子功能各自速度范围不应合并成 NCA 的统一 ODC。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.motion.acceleration.operating",
-      "requirement": "permitted"
+      "requirement": "permitted",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     },
     {
       "element_id": "vehicle.motion.acceleration.activation",
       "requirement": "permitted",
-      "description": "[推定] ± 3 m/s² 以内正常"
+      "description": "[公开资料未明确] 官方手册未给出 NCA 可接受纵向加速度阈值；舒适性或控制策略推定值不能作为公开 ODC。"
     },
     {
       "element_id": "vehicle.ads_state",
       "requirement": "permitted",
-      "description": "全传感器健康 + 车辆电量 ≥ 20% + 软件版本正常；任一异常则降级或退出"
+      "description": "[手册明确] 当传感器受遮挡、功能不可用或驾驶员未按提示接管时，系统会提示、降级或退出；公开资料未给出统一电量阈值、传感器健康量化阈值或软件状态阈值。",
+      "source": {
+        "type": "owner_manual",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "high",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17）",
+          "section": "了解 ADS / 领航辅助 NCA",
+          "page": "235, 269, 275",
+          "extracted_date": "2026-05-02"
+        }
+      ],
+      "parameter_range": "[公开资料未量化] 车辆状态量化阈值未公开。"
     },
     {
       "element_id": "vehicle.other_systems",
       "requirement": "permitted",
-      "description": "制动、转向、电驱、底盘等正常无故障；冗余系统可用"
+      "description": "制动、转向、电驱、底盘等正常无故障；冗余系统可用",
+      "source": {
+        "type": "community_extracted",
+        "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+        "confidence": "medium",
+        "extracted_date": "2026-05-02"
+      },
+      "evidence_refs": [
+        {
+          "type": "community_extracted",
+          "confidence": "medium",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "OpenODC extraction from AITO manual",
+          "section": "ADS limitations and NCA conditions",
+          "extracted_date": "2026-05-02"
+        }
+      ]
     }
   ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T12:00:00Z",
-    "review_status": "draft",
+    "review_status": "community_reviewed",
     "sources": [
       "问界 M9 2025 款纯电使用说明书（2026-03-17 版官方 PDF）: https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
       "问界 M9 2025 款纯电使用说明书（2025-04 版官方 PDF）: https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20250414.pdf",
-      "问界 M9 配置表（AITO 官方）: https://aito.auto/model/m9/configuration/",
-      "华为乾崑智驾 ADS 4 官方页: https://auto.huawei.com/cn/ads",
-      "ADS 4 发布会解读（新出行 2025-04-22）: https://www.xchuxing.com/article/150739",
-      "华为乾崑智能汽车解决方案网络安全白皮书（华为官方 PDF）: https://auto.huawei.com/marketingcloud/pep/asset//20000004/ias-news/img/%E5%8D%8E%E4%B8%BA%E4%B9%BE%E5%B4%91%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf",
-      "问界全系 OTA 2026-01-30 升级（横向风稳定控制 / 路口盲区预判）: https://news.qq.com/rain/a/20260130A046K700"
+      "问界 M9 官方产品页（ADS 4 与辅助驾驶责任说明）: https://aito.auto/model/m9/",
+      "问界 M9 参数配置表（AITO 官方）: https://aito.auto/model/m9/configuration/",
+      "华为乾崑智驾官方页（2026-05 已更新为 ADS 5，用于核验辅助驾驶责任边界）: https://auto.huawei.com/cn/ads"
     ],
-    "notes": "本条以问界 M9 2025 款（Max 级硬件）为主进行社区提取，覆盖 GB/T 45312—2025 全部 7 类要素。量化数据优先采用手册明确值（含 [手册明确] 标注），公开资料未量化的项目使用行业推定值（含 [推定] 标注），读者可对照官方 PDF 逐项核验。注意：1) 本条按 L2 辅助驾驶样例处理，不含 Ultra 档或监管试点中的 L3 能力；2) ADS 4 宣传中的 L3 表述与实际准入、车型、地区、软件版本有关，不应混同为本样例能力；3) 天气/几何的三档阈值绝大部分为推定 — 建议厂家后续通过 Vendor Workbench 发布权威 ODD。"
+    "notes": "OpenODC 社区已按 2026-05-02 可访问的 AITO 官方 M9 产品页、配置表和 2026-03-17 版官方使用说明书复核。本条是问界 M9 2025 款 ADS 4 辅助驾驶样例，不等同于 2026-04-23 发布的 ADS 5，也不包含监管试点中的 L3 能力。手册可高置信支撑 NCA 适用道路、驾驶员责任、NCA 最高目标车速 130 km/h、初始目标车速下限 30 km/h、新手考试/里程条件、脱手检测与降级逻辑；雨雪雾没有 mm/h 或能见度量化阈值。"
   }
 }

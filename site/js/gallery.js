@@ -72,6 +72,14 @@ function card(d) {
     node.appendChild(covWrap)
   }
 
+  if (d.evidence) {
+    node.appendChild(el('div', { class: 'doc-card-evidence' }, [
+      el('span', { class: 'evidence-metric evidence-strong' }, `${d.evidence.high_confidence || 0} 项高置信证据`),
+      el('span', { class: 'evidence-metric' }, `${d.evidence.official_or_manual || 0} 项官方/手册`),
+      el('span', { class: 'evidence-metric' }, `${d.evidence.linked || 0} 项逐项引用`)
+    ]))
+  }
+
   node.appendChild(el('div', { class: 'doc-card-stats' }, [
     el('span', { class: 'stat-item stat-permitted' }, `允许 ${d.permitted_count}`),
     el('span', { class: 'stat-item stat-not-permitted' }, `不允许 ${d.not_permitted_count}`),

@@ -63,7 +63,8 @@ function renderDev() {
       const desc = e.description || meta.description_zh || ''
       row.appendChild(el('td', {}, [
         el('div', {}, desc),
-        e.parameter_range ? el('div', { class: 'param-range' }, e.parameter_range) : null
+        e.parameter_range ? el('div', { class: 'param-range' }, e.parameter_range) : null,
+        renderEvidenceInline(e)
       ]))
       row.appendChild(el('td', { class: 'exit-cell' }, exitBehaviorLabel(e.exit_behavior)))
       tbody.appendChild(row)
@@ -227,6 +228,8 @@ function bucketizeForConsumer(doc) {
       description: e.description || null,
       exit_behavior: e.exit_behavior || null,
       coverage,
+      source: e.source || null,
+      evidence_refs: e.evidence_refs || [],
       label: meta.name_zh + (e.parameter_range ? ` (${e.parameter_range})` : '')
     }
     if (coverage === 'structural') continue
@@ -302,12 +305,56 @@ function renderConsumerItem(it) {
   if (it.description && it.coverage !== 'gap' && it.coverage !== 'structural') {
     li.appendChild(el('div', { class: 'item-desc' }, it.description))
   }
+  const evidence = renderEvidenceInline(it)
+  if (evidence) li.appendChild(evidence)
   if (it.exit_behavior) li.appendChild(el('div', { class: 'item-exit' }, '退出行为：' + exitBehaviorLabel(it.exit_behavior)))
   li.appendChild(el('div', { class: 'item-meta' }, [
     el('code', { class: 'item-id' }, it.element_id),
     el('span', { class: 'item-section' }, ' · 标准 §' + it.spec_section)
   ]))
   return li
+}
+
+function evidenceTypeLabel(type) {
+  return {
+    official: '官方',
+    owner_manual: '车主/用户手册',
+    operating_rule: '运营规则',
+    government_notice: '政府文件',
+    media_test: '媒体测评',
+    third_party_test: '第三方测试',
+    regulatory_filing: '监管备案',
+    academic: '学术资料',
+    community_extracted: '社区整理',
+    inferred: '推定'
+  }[type] || type || '来源'
+}
+
+function evidenceConfidenceLabel(confidence) {
+  return {
+    high: '高置信',
+    medium: '中置信',
+    low: '低置信'
+  }[confidence] || confidence || ''
+}
+
+function renderEvidenceInline(item) {
+  const refs = item.evidence_refs || []
+  if (!refs.length && !item.source) return null
+  const wrap = el('div', { class: 'evidence-inline' })
+  const src = refs[0] || item.source
+  const label = `${evidenceTypeLabel(src.type)} · ${evidenceConfidenceLabel(src.confidence)}`
+  if (src.url) {
+    wrap.appendChild(el('a', { class: 'evidence-chip', href: src.url, target: '_blank', rel: 'noopener' }, label))
+  } else {
+    wrap.appendChild(el('span', { class: 'evidence-chip' }, label))
+  }
+  if (src.title) wrap.appendChild(el('span', { class: 'evidence-title' }, src.title))
+  if (src.section || src.page) {
+    const bits = [src.section, src.page ? `页码/位置 ${src.page}` : null].filter(Boolean).join(' · ')
+    wrap.appendChild(el('span', { class: 'evidence-section' }, bits))
+  }
+  return wrap
 }
 
 function coverageStats(doc) {

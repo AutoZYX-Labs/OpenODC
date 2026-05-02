@@ -14,6 +14,7 @@ dist/
 
 # Misc
 .DS_Store
+.cache/
 *.pem
 .vscode/
 .idea/

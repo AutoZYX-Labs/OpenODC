@@ -13,212 +13,117 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <a href="https://autozyx.com" class="autozyx-brand" title="返回 AutoZYX 主页">
-    <img src="https://autozyx.com/assets/avatar.png" alt="AutoZYX">
-    <span>AutoZYX</span>
-  </a>
-
   <header class="site-header">
     <nav class="nav"></nav>
   </header>
 
   <main>
 
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">基于 GB/T 45312—2025 国家标准</p>
-        <h1 class="hero-title">OpenODC</h1>
-        <p class="hero-subtitle">自动驾驶系统运行设计条件开源平台</p>
-        <p class="hero-tagline">把公开资料中的智驾边界信息，结构化、机器可读、可横向对比；同时清楚标注哪些是官方说明，哪些只是社区反推。</p>
-      </div>
-
-      <div class="hero-stats">
-        <a class="hero-stat" href="/gallery.html">
-          <span class="stat-num">83%</span>
-          <span class="stat-lbl">华为 ADS 4 样例覆盖度</span>
-          <span class="stat-sub">119 / 144 公开资料可支撑；非厂家确认</span>
-        </a>
-        <a class="hero-stat" href="/gallery.html">
-          <span class="stat-num stat-num-alt">32%</span>
-          <span class="stat-lbl">特斯拉中国 AP 样例覆盖度</span>
-          <span class="stat-sub">46 / 144；其余 80 项公开资料未明确</span>
-        </a>
-        <a class="hero-stat" href="/compare.html">
-          <span class="stat-num">6</span>
-          <span class="stat-lbl">个社区提取样例</span>
-          <span class="stat-sub">Tesla / 华为 / 百度 / 小鹏 / 小马智行；均为 draft</span>
-        </a>
-        <a class="hero-stat" href="/workbench.html">
-          <span class="stat-num">11</span>
-          <span class="stat-lbl">家厂家直填演示</span>
-          <span class="stat-sub">内部维护边界；SOP 后选择性公开</span>
-        </a>
-      </div>
-
-      <div class="hero-text">
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/gallery.html">浏览样例库 →</a>
-          <a class="btn btn-ghost" href="/editor.html">用编辑器创建 →</a>
-        </div>
-        <p class="hero-tertiary"><a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub 仓库</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a> · <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a></p>
-      </div>
-    </section>
-
-    <section id="what" class="section">
-      <div class="container">
-        <h2 class="section-title">这是什么</h2>
-        <p class="lead">
-          OpenODC 是一个开源的 ODC（Operational Design Condition，设计运行条件）标准化定义、对比、查阅平台。它基于国家标准 GB/T 45312—2025《智能网联汽车 自动驾驶系统设计运行条件》，目标是衡量运行边界被公开资料说清楚了多少，而不是评价哪家智驾“更强”。
-        </p>
-
-        <div class="card-grid">
-          <a class="card card-action" href="/gallery.html">
-            <h3>① ODC 样例库</h3>
-            <p>公开 ODC 样例库 —— 按车型、功能、自动化等级筛选浏览。每条记录标注来源层级：官方 / 手册 / 社区整理 / 推定 / 公开资料未明确。</p>
-            <p class="card-cta">浏览样例 →</p>
-          </a>
-          <a class="card card-action" href="/editor.html">
-            <h3>② ODC 编辑器</h3>
-            <p>层级树勾选 + 参数范围输入 + 实时 JSON 预览。导出 JSON / Markdown / 复制到剪贴板 / 浏览器本地保存。基于浏览器，不需登录。</p>
-            <p class="card-cta">打开编辑器 →</p>
-          </a>
-          <a class="card card-action" href="/view.html?id=huawei-ads4-aito-m9">
-            <h3>③ 多视图查看</h3>
-            <p>同一份 ODC 数据，两种视图：开发者（完整 5 层级 + JSON）、消费者（功能建议使用边界 + 风险卡片）。L2 样例会明确提示驾驶员责任。</p>
-            <p class="card-cta">查看示例 →</p>
-          </a>
-          <a class="card card-action" href="/compare.html">
-            <h3>④ ODC 对比</h3>
-            <p>多车型 ODC 并排对比（2–4 个）。绿色 = 双方均声明允许，红色 = 双方均声明不允许，橙色 = 不一致。一眼看出公开边界差异。</p>
-            <p class="card-cta">开始对比 →</p>
-          </a>
-          <a class="card card-action" href="https://github.com/AutoZYX-Labs/OpenODC/tree/main/schema" target="_blank" rel="noopener">
-            <h3>⑤ ODC 数据规范</h3>
-            <p>整个平台的数据底座：把 GB/T 45312—2025 的 5 层级、144 个原子元素、所有量化分级表（风力 12 级、雨量 4 级、能见度 4 级等）转录为机器可读的 JSON Schema 与 TypeScript 类型。</p>
-            <p class="card-cta">查看 GitHub →</p>
-          </a>
-          <a class="card card-action" href="/workbench.html">
-            <h3>⑥ 厂家直填</h3>
-            <p>OEM / Tier 1 在内部统一管理在研 / 预发布 / 已上市所有功能的 ODC 要素。产品达到 SOP 阶段，该功能的 ODC 可一键推送至 OpenODC 公开样例库 —— 既满足内部研发协同，也为行业标准化做贡献。</p>
-            <p class="card-cta">体验演示 → <span class="card-phase-tag">Phase 4 · MVP</span></p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="why" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">为什么要有这个</h2>
-        <div class="two-col">
-          <div>
-            <h3>三个行业现状</h3>
-            <ul class="problem-list">
-              <li>OEM 各自定义 ODC，没有统一格式 —— 监管和第三方机构难以横向对比</li>
-              <li>消费者看到的是功能名和营销话术，很难看到具体边界 —— 尤其容易混淆 L2 辅助驾驶与 L3/L4 自动驾驶</li>
-              <li>国家标准 GB/T 45312—2025 给了完整层级结构，但缺少机器可读的对应物</li>
-            </ul>
-          </div>
-          <div>
-            <h3>OpenODC 的定位</h3>
-            <p>不是要取代厂家自己的 ODC 文档系统。实际上，OEM 会在使用手册、车机教学里告诉用户"智驾什么时候建议使用、什么时候不应使用"，不少车企写得还挺详细。</p>
-            <p>但每家都用自己的写法、自己的分类、自己的术语，没有统一规范 —— 消费者跨品牌换车要重新学一遍，监管和第三方机构想做横向对比，也找不到统一的抓手。</p>
-            <p>OpenODC 提供一个统一的、机器可读的标准化格式 + 公开样例库，让设计运行条件可查、可比、可复用。当前样例均为社区基于公开资料提取，不代表厂家官方确认；只有标记为 vendor_confirmed 的记录才是厂家确认版本。</p>
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div class="home-hero-copy">
+          <p class="eyebrow">GB/T 45312—2025 · 公开证据化</p>
+          <h1 class="home-title">OpenODC</h1>
+          <p class="home-subtitle">把辅助驾驶和自动驾驶的运行边界，说清楚、列完整、可追溯。</p>
+          <p class="home-tagline">OpenODC 不给智驾能力排名。它只回答一个更基础的问题：公开资料到底把一个功能的 ODC 讲清楚了多少，哪些来自官方手册，哪些仍然只是社区整理或公开缺口。</p>
+          <div class="hero-actions hero-actions-left">
+            <a class="btn btn-primary" href="/gallery.html">浏览样例库 →</a>
+            <a class="btn btn-ghost" href="/methodology.html">查看方法 →</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="status" class="section">
-      <div class="container">
-        <h2 class="section-title">当前进展（v0.4.0 · Phase 0–4 MVP）</h2>
-        <ul class="status-list">
-          <li class="done">Phase 0：完整转录 GB/T 45312—2025（144 个元素 / 7 类）+ JSON Schema + TypeScript 类型</li>
-          <li class="done">Phase 0：量化分级表机器可读化（风力、雨量、降雪、积雪、4 类能见度、光照）</li>
-          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（6 个典型样例，均标注公开资料覆盖与缺口）</li>
-          <li class="done">Phase 1：<a href="/editor.html">Web 编辑器</a>（层级树勾选 + 实时 JSON + 多格式导出）</li>
-          <li class="done">Phase 2：<a href="/view.html?id=huawei-ads4-aito-m9">双视图渲染</a>（开发者 / 消费者，含来源、责任边界和公开资料覆盖标签）</li>
-          <li class="done">Phase 2：<a href="/compare.html">多车型对比 Compare</a>（diff 视图，2–4 个并排）</li>
-          <li class="done">Phase 3：<a href="/matrix.html">横向矩阵 Matrix</a>（144 个国标要素 × 6 个样例）</li>
-          <li class="done">Phase 3：GitHub PR 模板 + CI 自动校验（ajv-cli + element_id 引用检查）</li>
-          <li class="done">Phase 4：<a href="/workbench.html">厂家直填 Workbench MVP</a>（内部管理、编辑器联动、生成 PR）</li>
-          <li class="done">Apache 2.0 代码许可 + CC BY 4.0 数据许可</li>
-          <li class="todo">Phase 5：账号体系 + Supabase 后端 + 签名发布</li>
-          <li class="todo">Phase 5：与 ROAM 联动（事件 ↔ 涉事车型 ODC 自动关联）</li>
-          <li class="todo">Phase 5：ISO 34503 / BSI PAS 1883 / ASAM OpenODD 国际化映射</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="standard" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">与标准的对应关系</h2>
-        <div class="table-wrap">
-          <table class="mapping-table">
-            <thead>
-              <tr><th>GB/T 45312—2025 章节</th><th>OpenODC 对应</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>§5 一般要求</td><td><code>schema/odc.schema.json</code> 的 ODCElement 定义</td></tr>
-              <tr><td>§6.1 ODC 基础元素层级</td><td><code>schema/categories/*.json</code> 树形结构</td></tr>
-              <tr><td>§6.2 ODD（道路 / 设施 / 目标物 / 天气 / 数字信息）</td><td><code>odd_*.json</code> 5 个分类文件</td></tr>
-              <tr><td>§6.3 驾乘人员状态</td><td><code>personnel_state.json</code></td></tr>
-              <tr><td>§6.4 车辆状态</td><td><code>vehicle_state.json</code></td></tr>
-              <tr><td>§5.4.b 允许 / 不允许</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
-              <tr><td>§5.4.c 元素关联关系</td><td><code>associations[]</code> 字段</td></tr>
-              <tr><td>§5.5 不允许的退出行为</td><td><code>exit_behavior</code> 字段</td></tr>
-              <tr><td>公开样例库</td><td><code>data/examples/*.json</code>（6 个社区提取样例，逐项显示公开资料覆盖与缺口）</td></tr>
-              <tr><td>L2 / L3 / L4 语义边界</td><td><a href="/methodology.html">方法与标准说明</a>：区分功能适用条件、ADS 运行边界、Robotaxi 服务边界</td></tr>
-              <tr><td>量化分级表 5–14</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
-            </tbody>
-          </table>
+        <div class="evidence-panel">
+          <div class="panel-kicker">当前公开样例状态</div>
+          <div class="evidence-grid">
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">6</span>
+              <span class="evidence-label">高置信样例</span>
+            </a>
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">346</span>
+              <span class="evidence-label">逐项证据引用</span>
+            </a>
+            <a href="/gallery.html" class="evidence-stat">
+              <span class="evidence-num">97</span>
+              <span class="evidence-label">官方/手册/政府高置信项</span>
+            </a>
+            <a href="/tools.html" class="evidence-stat">
+              <span class="evidence-num">0</span>
+              <span class="evidence-label">厂家确认版本</span>
+            </a>
+          </div>
+          <p class="panel-note">当前 6 个样例均为社区基于公开资料提取，不代表厂家官方 ODC 声明。</p>
         </div>
       </div>
     </section>
 
-    <section id="related" class="section">
+    <section class="section section-tight">
       <div class="container">
-        <h2 class="section-title">AD 安全开源工具栈</h2>
-        <p class="lead">OpenODC 与 ROAM、DRIVEResearch 构成 AD 安全的"三部曲"：</p>
-        <div class="card-grid">
-          <article class="card card-related">
-            <h3>ROAM</h3>
-            <p class="card-tag">事故出口端</p>
-            <p>L4 Robotaxi 远程运营事故数据库 + 场景分类 + 参考架构。回答"出了什么问题"。</p>
-            <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">官网 →</a>
+        <div class="section-head-row">
+          <div>
+            <p class="eyebrow">PUBLIC SAMPLE LIBRARY</p>
+            <h2 class="section-title">六个可公开引用的样例方向</h2>
+          </div>
+          <a class="section-link" href="/gallery.html">进入样例库 →</a>
+        </div>
+        <div class="sample-strip">
+          <a class="sample-tile" href="/view.html?id=tesla-fsd-us-v13"><span>L2</span><strong>Tesla FSD Supervised · 美国</strong><small>车主手册 + 官方说明</small></a>
+          <a class="sample-tile" href="/view.html?id=tesla-autopilot-china-basic"><span>L2</span><strong>Tesla Autopilot · 中国</strong><small>中文车主手册 + 使用警示</small></a>
+          <a class="sample-tile" href="/view.html?id=huawei-ads4-aito-m9"><span>L2</span><strong>问界 M9 · ADS 4</strong><small>AITO 2026-03-17 官方手册</small></a>
+          <a class="sample-tile" href="/view.html?id=xpeng-xngp-p7plus-2026"><span>L2</span><strong>小鹏 P7+ · XNGP</strong><small>官方产品页 + 配置表</small></a>
+          <a class="sample-tile" href="/view.html?id=baidu-apollogo-wuhan"><span>L4</span><strong>萝卜快跑 · 武汉</strong><small>武汉政府运营规则</small></a>
+          <a class="sample-tile" href="/view.html?id=pony-ai-gen7-robotaxi"><span>L4</span><strong>小马智行 Gen-7</strong><small>官方 IR + 前海政府页面</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-tight">
+      <div class="container">
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>公众价值</h3>
+            <p>把“这个功能什么时候能用、什么时候不能用、哪些没有公开说明”拆成可核验清单，降低消费者把 L2 辅助驾驶误读成自动驾驶的风险。</p>
           </article>
-          <article class="card card-related card-current">
-            <h3>OpenODC</h3>
-            <p class="card-tag">设计边界端</p>
-            <p>设计运行条件标准化定义、对比、查阅。回答"公开资料把边界说清楚了多少"。</p>
-            <span class="here-pill">当前页面</span>
+          <article class="value-card">
+            <h3>行业价值</h3>
+            <p>用同一套 144 个国标要素承接不同厂家、不同等级、不同运营场景的公开边界，给监管、媒体、测评和学术研究一个共同坐标系。</p>
           </article>
-          <article class="card card-related">
-            <h3>DRIVEResearch</h3>
-            <p class="card-tag">实测分布端</p>
-            <p>航测自然驾驶数据集，750h+ 飞行 / 10.5M+ 轨迹。回答"实际覆盖什么"。</p>
-            <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">官网 →</a>
+          <article class="value-card">
+            <h3>工程价值</h3>
+            <p>提供 JSON Schema、编辑器、对比、矩阵和厂家直填工作台，让 ODC 从 PDF 里的文字变成可版本管理、可审查、可发布的数据。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-cta">
+    <section class="section section-tight">
       <div class="container">
-        <h2 class="section-title">参与方式</h2>
-        <div class="two-col">
+        <div class="section-head-row">
           <div>
-            <h3>对 OEM / AD 供应商</h3>
-            <p>提交贵方某个车型 / 功能的官方 ODC 声明。我们会标记为 vendor_confirmed，作为该条目的厂家确认版本；也可选择只公开对外版本，保留内部细节。</p>
+            <p class="eyebrow">WORKFLOW</p>
+            <h2 class="section-title">只保留四个入口</h2>
           </div>
-          <div>
-            <h3>对第三方机构 / 学术界 / 媒体</h3>
-            <p>从公开材料（车主手册、运营规则、政府公告、媒体测评）提取 ODC 数据，标注来源置信度。提交 PR 后进入 community_reviewed 状态。</p>
-          </div>
+          <a class="section-link" href="/tools.html">查看全部工具 →</a>
         </div>
-        <div class="hero-actions" style="margin-top:2rem;">
-          <a class="btn btn-primary" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">访问 GitHub 仓库</a>
-          <a class="btn btn-ghost" href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">提交 Issue</a>
+        <div class="tool-entry-grid">
+          <a class="tool-entry" href="/gallery.html"><span>01</span><strong>样例库</strong><small>按车型、功能、等级查阅公开 ODC</small></a>
+          <a class="tool-entry" href="/view.html?id=huawei-ads4-aito-m9"><span>02</span><strong>详情视图</strong><small>开发者视图 + 消费者视图 + 证据链接</small></a>
+          <a class="tool-entry" href="/compare.html"><span>03</span><strong>横向比较</strong><small>Compare 与矩阵视图合并为验证工具组</small></a>
+          <a class="tool-entry" href="/workbench.html"><span>04</span><strong>厂家直填</strong><small>内部维护 ODC，SOP 后选择性公开</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-tight">
+      <div class="container stack-row">
+        <div>
+          <p class="eyebrow">OPEN AD SAFETY STACK</p>
+          <h2 class="section-title">与 ROAM 和 DRIVEResearch 形成闭环</h2>
+          <p class="lead">ROAM 看事故与异常，OpenODC 看设计运行边界，DRIVEResearch 看真实交通分布。三者放在一起，才能把“设计边界、实际暴露、失效结果”连起来。</p>
+        </div>
+        <div class="stack-links">
+          <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">ROAM 网站 →</a>
+          <a href="https://www.driveresearch.tech/" target="_blank" rel="noopener">DRIVEResearch 网站 →</a>
+          <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">OpenODC GitHub →</a>
         </div>
       </div>
     </section>
