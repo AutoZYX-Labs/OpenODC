@@ -24,29 +24,29 @@
         <p class="eyebrow">Aligned with GB/T 45312—2025</p>
         <h1 class="hero-title">OpenODC</h1>
         <p class="hero-subtitle">Open Platform for Automated Driving<br/>Operational Design Conditions</p>
-        <p class="hero-tagline">An open registry that makes ADS operational design conditions transparent, comparable, and machine-readable.</p>
+        <p class="hero-tagline">An open registry that turns public AD boundary evidence into structured, comparable data while separating vendor statements from community inference.</p>
       </div>
 
       <div class="hero-stats">
         <a class="hero-stat" href="/gallery.html">
           <span class="stat-num">83%</span>
-          <span class="stat-lbl">Huawei ADS 4 disclosure</span>
-          <span class="stat-sub">119 / 144 GB/T elements covered</span>
+          <span class="stat-lbl">Huawei ADS 4 sample coverage</span>
+          <span class="stat-sub">119 / 144 public-source elements; not vendor-confirmed</span>
         </a>
         <a class="hero-stat" href="/gallery.html">
           <span class="stat-num stat-num-alt">32%</span>
-          <span class="stat-lbl">Tesla China AP disclosure</span>
-          <span class="stat-sub">46 / 144 — 80 not covered by manual</span>
+          <span class="stat-lbl">Tesla China AP sample coverage</span>
+          <span class="stat-sub">46 / 144; 80 not clearly stated in public sources</span>
         </a>
         <a class="hero-stat" href="/compare.html">
           <span class="stat-num">6</span>
-          <span class="stat-lbl">Reverse-engineered samples</span>
-          <span class="stat-sub">Tesla / Huawei / Baidu / XPeng / Pony.ai</span>
+          <span class="stat-lbl">Community-extracted samples</span>
+          <span class="stat-sub">Tesla / Huawei / Baidu / XPeng / Pony.ai; all draft</span>
         </a>
         <a class="hero-stat" href="/workbench.html">
           <span class="stat-num">11</span>
           <span class="stat-lbl">Vendor workbench demos</span>
-          <span class="stat-sub">Internal management + SOP publishing</span>
+          <span class="stat-sub">Internal boundary management + selective SOP publishing</span>
         </a>
       </div>
 
@@ -63,13 +63,13 @@
       <div class="container">
         <h2 class="section-title">What is OpenODC</h2>
         <p class="lead">
-          OpenODC is an open-source platform for defining, comparing, and browsing ODC (Operational Design Condition) declarations for Automated Driving Systems. It is rigorously aligned with the Chinese national standard GB/T 45312—2025 <em>Intelligent and connected vehicles — Operational design condition for automated driving system</em>.
+          OpenODC is an open-source platform for defining, comparing, and browsing ODC (Operational Design Condition) declarations for automated driving and driver assistance systems. It is aligned with GB/T 45312—2025, and it measures how clearly public sources describe operational boundaries rather than which system is “best”.
         </p>
 
         <div class="card-grid">
           <a class="card card-action" href="/gallery.html">
             <h3>① ODC Gallery</h3>
-            <p>Public sample library — filter by automation level, source, or keyword. Each record carries transparent provenance (vendor-confirmed / community-extracted / demo-only).</p>
+            <p>Public sample library — filter by automation level, source, or keyword. Each record separates official evidence, owner-manual evidence, community extraction, inference, and public-source gaps.</p>
             <p class="card-cta">Browse Samples →</p>
           </a>
           <a class="card card-action" href="/editor.html">
@@ -79,12 +79,12 @@
           </a>
           <a class="card card-action" href="/view.html?id=huawei-ads4-aito-m9">
             <h3>③ Multi-View Renderer</h3>
-            <p>One ODC document, two lenses: developer (full hierarchy + JSON) and consumer (plain-language permission cards).</p>
+            <p>One ODC document, two lenses: developer (full hierarchy + JSON) and consumer (plain-language operating-boundary cards). L2 samples explicitly retain driver responsibility.</p>
             <p class="card-cta">View Example →</p>
           </a>
           <a class="card card-action" href="/compare.html">
             <h3>④ ODC Compare</h3>
-            <p>Side-by-side diff of 2–4 ODC declarations. Green = both permit; red = both deny; amber = disagreement. Spot capability boundary differences at a glance.</p>
+            <p>Side-by-side diff of 2–4 ODC declarations. Green = both declare permitted; red = both declare not permitted; amber = disagreement. Spot public boundary differences at a glance.</p>
             <p class="card-cta">Start Comparing →</p>
           </a>
           <a class="card card-action" href="https://github.com/AutoZYX-Labs/OpenODC/tree/main/schema" target="_blank" rel="noopener">
@@ -109,7 +109,7 @@
             <h3>Three industry realities</h3>
             <ul class="problem-list">
               <li>Each OEM declares ODCs in its own format — regulators and third-party labs cannot make like-for-like comparisons</li>
-              <li>Consumers can't see the actual operating boundary — sales pitches stop at "L2" or "L3"; the limits surface only after an incident</li>
+              <li>Consumers see feature names and marketing claims, but rarely see a comparable boundary statement — especially where L2 assistance is confused with L3/L4 automation</li>
               <li>GB/T 45312—2025 defines the full hierarchy, but the standard itself ships no machine-readable counterpart</li>
             </ul>
           </div>
@@ -117,7 +117,7 @@
             <h3>OpenODC's position</h3>
             <p>Not a replacement for an OEM's internal ODC tooling. In fact, OEMs already tell drivers "when the system can be used and when it can't" — in owner manuals and in-vehicle tutorials, sometimes in considerable detail.</p>
             <p>The problem: every OEM uses its own format, its own categories, its own terminology. There is no shared convention — consumers switching brands must relearn the boundaries from scratch, and regulators or third-party labs have no common handle for side-by-side evaluation.</p>
-            <p>OpenODC provides a unified, machine-readable format and a public sample library, making ODCs queryable, comparable, and reusable. Open data first; expect OEMs to follow once the format becomes the industry default.</p>
+            <p>OpenODC provides a unified, machine-readable format and a public sample library, making ODCs queryable, comparable, and reusable. Current samples are community extractions from public sources, not vendor-confirmed declarations; only records marked <code>vendor_confirmed</code> are official vendor versions.</p>
           </div>
         </div>
       </div>
@@ -129,9 +129,9 @@
         <ul class="status-list">
           <li class="done">Phase 0: Full transcription of GB/T 45312—2025 (144 elements / 7 categories) + JSON Schema + TypeScript types</li>
           <li class="done">Phase 0: Quantitative scales captured as reusable enums (wind, rain, snow, visibility tiers, lighting)</li>
-          <li class="done">Phase 1: <a href="/gallery.html">Public sample gallery</a> with 6 typical records, each covering all 144 GB/T elements</li>
+          <li class="done">Phase 1: <a href="/gallery.html">Public sample gallery</a> with 6 typical records, each showing public-source coverage and gaps</li>
           <li class="done">Phase 1: <a href="/editor.html">Web editor</a> — hierarchical tree, live JSON, multi-format export</li>
-          <li class="done">Phase 2: <a href="/view.html?id=huawei-ads4-aito-m9">Dual-view renderer</a> (developer / consumer, with source and coverage tags)</li>
+          <li class="done">Phase 2: <a href="/view.html?id=huawei-ads4-aito-m9">Dual-view renderer</a> (developer / consumer, with provenance, responsibility boundaries, and coverage tags)</li>
           <li class="done">Phase 2: <a href="/compare.html">Multi-document Compare</a> (diff view, 2–4 documents)</li>
           <li class="done">Phase 3: <a href="/matrix.html">Matrix view</a> (144 GB/T elements × 6 samples)</li>
           <li class="done">Phase 3: GitHub PR template + CI auto-validation (ajv-cli + element_id reference check)</li>
@@ -139,7 +139,7 @@
           <li class="done">Apache 2.0 (code) + CC BY 4.0 (data) licenses</li>
           <li class="todo">Phase 5: Accounts + Supabase backend + signed publishing</li>
           <li class="todo">Phase 5: ROAM linkage (link incidents to involved vehicle's declared ODC)</li>
-          <li class="todo">Phase 5: ISO 34503 / BSI PAS 1883 international mapping</li>
+          <li class="todo">Phase 5: ISO 34503 / BSI PAS 1883 / ASAM OpenODD international mapping</li>
         </ul>
       </div>
     </section>
@@ -161,7 +161,8 @@
               <tr><td>§5.4.b Permitted / not permitted</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
               <tr><td>§5.4.c Element associations</td><td><code>associations[]</code> field</td></tr>
               <tr><td>§5.5 Exit behavior for not-permitted elements</td><td><code>exit_behavior</code> field</td></tr>
-              <tr><td>Public sample library</td><td><code>data/examples/*.json</code> (6 samples, all with 144-element coverage)</td></tr>
+              <tr><td>Public sample library</td><td><code>data/examples/*.json</code> (6 community-extracted samples with per-element public-source coverage and gaps)</td></tr>
+              <tr><td>L2 / L3 / L4 semantics</td><td><a href="/en/methodology.html">Methodology</a>: distinguishes feature availability boundaries, ADS operational boundaries, and robotaxi service boundaries</td></tr>
               <tr><td>Tables 5–14 quantitative scales</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
             </tbody>
           </table>
@@ -183,7 +184,7 @@
           <article class="card card-related card-current">
             <h3>OpenODC</h3>
             <p class="card-tag">Boundary side</p>
-            <p>Standardized definition, comparison, and browsing of operational design conditions. Answers "what is the system declared to do".</p>
+            <p>Standardized definition, comparison, and browsing of operational design conditions. Answers "how much of the boundary is publicly evidenced".</p>
             <span class="here-pill">You are here</span>
           </article>
           <article class="card card-related">
@@ -202,11 +203,11 @@
         <div class="two-col">
           <div>
             <h3>For OEMs and AD suppliers</h3>
-            <p>Submit an officially-endorsed ODC declaration for one of your vehicles or functions. We mark it <code>vendor_confirmed</code> and rank it as the authoritative entry for that record.</p>
+            <p>Submit an officially endorsed ODC declaration for one of your vehicles or functions. We mark it <code>vendor_confirmed</code> as the vendor-confirmed version; internal-only details can remain private.</p>
           </div>
           <div>
             <h3>For third parties, researchers, journalists</h3>
-            <p>Extract ODCs from public materials (owner manuals, regulatory filings, third-party tests). Mark provenance honestly. Submit via PR to enter the <code>community_reviewed</code> tier.</p>
+            <p>Extract ODCs from public materials (owner manuals, operating rules, government notices, third-party tests). Mark provenance honestly. Submit via PR to enter the <code>community_reviewed</code> tier.</p>
           </div>
         </div>
         <div class="hero-actions" style="margin-top:2rem;">

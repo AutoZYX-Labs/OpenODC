@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "https://openodc.autozyx.com/schema/odc.schema.json",
   "title": "OpenODC Document Schema",
   "description": "JSON Schema for OpenODC documents. Aligned with GB/T 45312-2025 «Intelligent and connected vehicles — Operational design condition for automated driving system».",
@@ -140,7 +140,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "enum": ["official", "owner_manual", "media_test", "third_party_test", "regulatory_filing", "academic", "community_extracted"]
+              "enum": ["official", "owner_manual", "operating_rule", "government_notice", "media_test", "third_party_test", "regulatory_filing", "academic", "community_extracted", "inferred"]
             },
             "url": { "type": "string" },
             "confidence": {
@@ -149,7 +149,33 @@
             },
             "extracted_date": { "type": "string", "format": "date" }
           }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "description": "One or more concrete references backing this element. Use for page numbers, app rule screenshots, official paragraphs, or issue links when the document-level source list is too coarse.",
+          "items": { "$ref": "#/$defs/ODCEvidenceRef" }
         }
+      }
+    },
+
+    "ODCEvidenceRef": {
+      "type": "object",
+      "required": ["type", "confidence"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["official", "owner_manual", "operating_rule", "government_notice", "media_test", "third_party_test", "regulatory_filing", "academic", "community_extracted", "inferred"]
+        },
+        "url": { "type": "string" },
+        "title": { "type": "string" },
+        "section": { "type": "string" },
+        "page": { "type": ["integer", "string", "null"] },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        },
+        "extracted_date": { "type": "string", "format": "date" },
+        "notes": { "type": "string" }
       }
     },
 

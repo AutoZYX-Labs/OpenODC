@@ -21,12 +21,12 @@
     {
       "element_id": "odd.road.type.area",
       "requirement": "permitted",
-      "description": "[官方声明] 北京亦庄 150 km² 核心区 + 四环-六环扩展；上海浦东新区（2025-07-25 首批许可）；广州南沙/中心城区（2025-02 开通）；深圳全市首个全域全无人许可（2025-10-30，首批南山/前海/宝安，2025-12 运营面积 167.4 km²）。"
+      "description": "[官方声明] 公开资料显示其 Robotaxi 运营涉及北京亦庄、上海浦东、广州南沙 / 中心城区、深圳等城市或片区；具体 geofence、开通时段和许可边界应以当地监管公告与 App 实时显示为准。"
     },
     {
       "element_id": "odd.road.type.urban_road",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.urban_road.expressway",
@@ -49,7 +49,7 @@
     {
       "element_id": "odd.road.type.highway",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.highway.expressway",
@@ -60,22 +60,22 @@
     {
       "element_id": "odd.road.type.highway.class_1",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.highway.class_2",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.highway.class_3",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.highway.class_4",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.rural",
@@ -85,17 +85,17 @@
     {
       "element_id": "odd.road.type.other",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.parking_indoor",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.type.parking_outdoor",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface",
@@ -114,37 +114,37 @@
     {
       "element_id": "odd.road.surface.quality.cracking",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.quality.rutting",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.quality.subsidence",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.quality.pothole",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.quality.shoving",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.quality.raveling",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.surface.coverage",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry",
@@ -163,12 +163,12 @@
     {
       "element_id": "odd.road.geometry.plane.widening",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry.profile.level",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry.profile.uphill",
@@ -181,22 +181,22 @@
     {
       "element_id": "odd.road.geometry.cross.divider",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry.cross.cross_slope",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry.cross.superelevation",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.geometry.cross.sidewalk",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane",
@@ -206,7 +206,7 @@
     {
       "element_id": "odd.road.lane.marking.quality",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.marking.absent",
@@ -216,22 +216,22 @@
     {
       "element_id": "odd.road.lane.marking.color",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.marking.type",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.marking.width",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.non_motor",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.motor",
@@ -240,7 +240,7 @@
     {
       "element_id": "odd.road.lane.type.mixed",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.bus",
@@ -250,17 +250,17 @@
     {
       "element_id": "odd.road.lane.type.dedicated",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.tidal",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.escape",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.emergency",
@@ -270,27 +270,27 @@
     {
       "element_id": "odd.road.lane.type.exit",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.entrance",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.total_count",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.count",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.width",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge",
@@ -300,37 +300,37 @@
     {
       "element_id": "odd.road.edge.guardrail",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.curb",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.temporary",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.hard_shoulder",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.soil_shoulder",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.lawn",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.gravel",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection",
@@ -345,12 +345,12 @@
     {
       "element_id": "odd.road.intersection.roundabout.mini",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.roundabout.compact",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.roundabout.normal",
@@ -359,27 +359,27 @@
     {
       "element_id": "odd.road.intersection.roundabout.large",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.roundabout.double",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.grade_separated",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.interchange.general",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.interchange.hub",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.ramp",
@@ -408,17 +408,17 @@
     {
       "element_id": "odd.infrastructure.roadside.building",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.roadside.tree",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.roadside.streetlight",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.special",
@@ -428,7 +428,7 @@
     {
       "element_id": "odd.infrastructure.special.gate",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.special.bridge",
@@ -441,12 +441,12 @@
     {
       "element_id": "odd.infrastructure.special.height_width_limit",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.special.manhole",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.special.speed_bump",
@@ -464,12 +464,12 @@
     {
       "element_id": "odd.infrastructure.special.toll_station",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.special.warning_post",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.infrastructure.temporary",
@@ -525,22 +525,22 @@
     {
       "element_id": "odd.weather.atmospheric.rain",
       "requirement": "permitted",
-      "description": "[手册未涉及] 公开 IR 未披露具体停运阈值；与 Apollo Go「极端天气停运」惯例一致"
+      "description": "[公开资料未明确] 公开 IR 未披露具体停运阈值；与 Apollo Go「极端天气停运」惯例一致"
     },
     {
       "element_id": "odd.weather.atmospheric.snow.snowfall",
       "requirement": "permitted",
-      "description": "[手册未涉及] 同上，深雪下预期停运"
+      "description": "[公开资料未明确] 同上，深雪下预期停运"
     },
     {
       "element_id": "odd.weather.atmospheric.snow.accumulation",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.atmospheric.special",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.particles",
@@ -555,17 +555,17 @@
     {
       "element_id": "odd.weather.particles.haze",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.particles.dust",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.particles.smoke",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.lighting",
@@ -588,12 +588,12 @@
     {
       "element_id": "odd.weather.lighting.indoor",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.weather.temperature",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.digital.wireless",
@@ -603,7 +603,7 @@
     {
       "element_id": "odd.digital.wireless.v2v",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.digital.wireless.v2i",
@@ -613,12 +613,12 @@
     {
       "element_id": "odd.digital.wireless.v2p",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.digital.wireless.v2n",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.digital.position",
@@ -652,12 +652,12 @@
     {
       "element_id": "personnel.driver.seatbelt",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "personnel.driver.posture",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "personnel.passenger",
@@ -667,7 +667,7 @@
     {
       "element_id": "personnel.passenger.interference",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "personnel.passenger.seatbelt",
@@ -676,7 +676,7 @@
     {
       "element_id": "personnel.passenger.other",
       "requirement": "permitted",
-      "description": "[手册未涉及] 乘客年龄规则公开 IR 未披露（对比 Apollo Go 有明确 14-18 岁陪同、70+ 不支持规则）"
+      "description": "[公开资料未明确] 乘客年龄规则公开 IR 未披露（对比 Apollo Go 有明确 14-18 岁陪同、70+ 不支持规则）"
     },
     {
       "element_id": "vehicle.motion",
@@ -686,7 +686,7 @@
     {
       "element_id": "vehicle.motion.speed.operating",
       "requirement": "permitted",
-      "parameter_range": "[官方声明] 盈亏测算：深圳 2026-02 单车单日 23 单 + 净收入 338 元"
+      "description": "[公开资料未明确] 小马智行公开资料未披露统一运营速度上限；不得用车顶速、道路限速或经营数据替代 ODC 速度阈值。"
     },
     {
       "element_id": "vehicle.motion.speed.activation",
@@ -696,12 +696,12 @@
     {
       "element_id": "vehicle.motion.acceleration.operating",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "vehicle.motion.acceleration.activation",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "vehicle.ads_state",
@@ -728,6 +728,6 @@
       "NVIDIA Blog — Pony.ai Gen-7 DRIVE Orin: https://blogs.nvidia.com/blog/pony-ai-robotaxi-fleet-drive-orin/",
       "ChinaEVHome — Pony.ai Gen-7 1016 TOPS / BOM -70%: https://chinaevhome.com/2025/11/10/pony-ai-debuts-seventh-gen-robotaxi-with-1016-tops-cuts-cost-70/"
     ],
-    "notes": "基于小马智行 IR 公开信息 + 媒体披露的社区反推。关键官方数据：①四城商业化（BJ/SH/GZ/SZ），中国唯一一线城市全覆盖；②第七代硬件 1016 TOPS + 9 激光雷达 + 360° 650 m 感知；③深圳 2026-02 月度盈亏转正（单车日均 23 单 / 338 元净收入）；④车队 667 辆第七代，全球总量 961 辆，2026 底目标 3000+。无公开 mm/h 天气阈值、乘客年龄规则、统一速度上限——这些可能在 App 内或内部 SOP，公开资料空白。"
+    "notes": "基于小马智行官网 / IR 公开信息 + 媒体披露的社区提取样例。公开资料可支撑的信息主要集中在运营城市、车辆硬件、传感器与算力；涉及具体 geofence、车队规模、经营数据等表述需要逐条以 IR 或监管公告核验。无公开 mm/h 天气阈值、乘客年龄规则、统一速度上限——这些可能存在于 App 内或内部 SOP，公开资料空白。"
   }
 }

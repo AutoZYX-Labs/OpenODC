@@ -21,7 +21,7 @@
       <div class="container">
         <p class="eyebrow">ODC EDITOR</p>
         <h1 class="page-title">ODC 编辑器</h1>
-        <p class="page-subtitle">基于 GB/T 45312—2025 创建标准化 ODC 声明。所有数据存储在浏览器本地，可导出 JSON 后通过 PR 提交。</p>
+        <p class="page-subtitle">基于 GB/T 45312—2025 创建标准化 ODC 声明。请区分官方 / 手册 / 社区整理 / 推定来源；L2 样例必须保留驾驶员持续监管说明。</p>
       </div>
     </section>
 
@@ -53,12 +53,12 @@
             <label>提交人 (GitHub 用户名)<input type="text" id="m-submitted_by" placeholder="AutoZYX" /></label>
             <label>审核状态
               <select id="m-review_status">
-                <option value="draft" selected>草稿</option>
+                <option value="draft" selected>社区草稿</option>
                 <option value="community_reviewed">社区审核</option>
                 <option value="vendor_confirmed">厂家确认</option>
               </select>
             </label>
-            <label class="meta-full">数据来源（一行一个 URL 或文献条目）<textarea id="m-sources" rows="3" placeholder="https://example.com/owner-manual.pdf&#10;C-NCAP 2025 测试报告"></textarea></label>
+            <label class="meta-full">数据来源（一行一个 URL 或文献条目）<textarea id="m-sources" rows="3" placeholder="https://example.com/owner-manual.pdf&#10;官方运营规则 / 政府公告 / 第三方测试报告"></textarea></label>
           </div>
         </details>
 
@@ -67,7 +67,8 @@
           <ol>
             <li>从下方层级树中点击任意元素，即可加入声明并设置「允许 / 不允许」</li>
             <li>"不允许"必须指定退出行为（抑制激活 / 触发退出 / 两者皆有）</li>
-            <li>「允许」时若有量化参数（速度、坡度、能见度等）请填入参数范围</li>
+            <li>「允许」时若有量化参数（速度、坡度、能见度等）请填入参数范围；没有公开资料支撑时请标注「公开资料未明确」</li>
+            <li>L2 辅助驾驶记录只能表达功能适用条件，不能写成系统承担动态驾驶任务</li>
             <li>右侧实时预览生成的 JSON。完成后下载 JSON / Markdown</li>
             <li>把 JSON 文件放入 <code>data/examples/</code> 提交 PR 到 <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub 仓库</a></li>
           </ol>
@@ -79,8 +80,8 @@
           <button class="btn-link" id="t-save-local">保存到浏览器</button>
           <button class="btn-link" id="t-load-local">从浏览器恢复</button>
           <span class="toolbar-spacer"></span>
-          <button class="btn-link btn-workbench" id="t-save-workbench" hidden>💾 保存并返回工作台</button>
-          <button class="btn-link btn-workbench" id="t-open-pr" hidden>🚀 生成 PR 提交到样例库</button>
+          <button class="btn-link btn-workbench" id="t-save-workbench" hidden>保存并返回工作台</button>
+          <button class="btn-link btn-workbench" id="t-open-pr" hidden>生成 PR 提交到样例库</button>
           <span class="toolbar-spacer" id="t-workbench-spacer" hidden></span>
           <button class="btn-link" id="t-download-json">下载 JSON</button>
           <button class="btn-link" id="t-download-md">下载 Markdown</button>

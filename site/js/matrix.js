@@ -15,6 +15,7 @@ function classifyCoverage(description, parameterRange) {
   const text = (description || '') + ' ' + (parameterRange || '')
   if (!text.trim()) return 'curated'
   if (text.includes('[手册未涉及]')) return 'gap'
+  if (text.includes('[公开资料未明确]')) return 'gap'
   if (text.includes('[结构性类别]')) return 'structural'
   if (text.includes('[手册明确]')) return 'manual'
   if (text.includes('[官方声明]')) return 'official'
@@ -34,7 +35,7 @@ function requirementClass(elementEntry) {
 function cellLabel(elementEntry) {
   if (!elementEntry) return '—'
   const cov = classifyCoverage(elementEntry.description, elementEntry.parameter_range)
-  if (cov === 'gap') return '未涉及'
+  if (cov === 'gap') return '未明确'
   if (cov === 'structural') return '结构'
   return elementEntry.requirement === 'not_permitted' ? '不允许' : '允许'
 }

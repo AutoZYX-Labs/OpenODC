@@ -1,8 +1,8 @@
 // fill-coverage.mjs
 // Ensures a curated ODC JSON covers all 144 GB/T 45312-2025 elements.
-// Missing elements are inserted with a "[手册未涉及]" marker — the gap
-// itself is data: it shows where the vendor manual is silent relative
-// to the national standard.
+// Missing elements are inserted with a "[公开资料未明确]" marker. The gap
+// itself is data: it shows where public sources do not support a boundary
+// statement relative to the national standard.
 //
 // Usage:
 //   node tools/fill-coverage.mjs data/examples/huawei-ads4-aito-m9.json
@@ -60,7 +60,7 @@ function defaultForMissing(elem) {
   return {
     element_id: elem.id,
     requirement: 'permitted',
-    description: '[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。'
+    description: '[公开资料未明确] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家公开文档的增量价值点。'
   }
 }
 
@@ -91,13 +91,13 @@ function main() {
   doc.elements = allElements
   writeFileSync(absPath, JSON.stringify(doc, null, 2) + '\n', 'utf8')
 
-  const manualCovered = allElements.filter(e => !(e.description || '').includes('[手册未涉及]') && !(e.description || '').includes('[结构性类别]')).length
-  const manualGap = allElements.filter(e => (e.description || '').includes('[手册未涉及]')).length
+  const publicCovered = allElements.filter(e => !(e.description || '').includes('[公开资料未明确]') && !(e.description || '').includes('[手册未涉及]') && !(e.description || '').includes('[结构性类别]')).length
+  const publicGap = allElements.filter(e => (e.description || '').includes('[公开资料未明确]') || (e.description || '').includes('[手册未涉及]')).length
   const structural = allElements.filter(e => (e.description || '').includes('[结构性类别]')).length
 
   console.log(`${target}: total ${allElements.length} / 144`)
-  console.log(`  curated (manual + inferred): ${manualCovered}`)
-  console.log(`  manual gap [手册未涉及]: ${manualGap}`)
+  console.log(`  public-source supported (official + manual + curated + inferred): ${publicCovered}`)
+  console.log(`  public-source gap [公开资料未明确]: ${publicGap}`)
   console.log(`  structural parents [结构性类别]: ${structural}`)
   console.log(`  added this run: ${additions.length}`)
 }

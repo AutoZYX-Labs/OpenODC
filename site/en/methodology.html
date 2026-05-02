@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methodology — OpenODC</title>
+  <meta name="description" content="OpenODC methodology: ODC/ODD semantics, L2/L3/L4 differences, evidence levels, and public-source coverage metrics." />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav"></nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">METHOD / STANDARD</p>
+        <h1 class="page-title">Methodology</h1>
+        <p class="page-subtitle">OpenODC measures how clearly public sources describe operational boundaries. It is not a safety certification and it does not rank automated-driving capability.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="trust-banner">
+          <h3>Baseline publishing rule</h3>
+          <p>Unless a record is marked <code>vendor_confirmed</code>, OpenODC samples are community extractions from public sources. L2 records describe feature availability boundaries, not permission to stop supervising; L3/L4 records are the cases where an ADS may take responsibility for the dynamic driving task inside an ODD.</p>
+        </div>
+
+        <h2 class="section-title">What OpenODC Does</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Structures Public Evidence</h3>
+            <p>Maps owner manuals, official pages, app operating rules, government notices, and third-party tests to the 144 ODC elements in GB/T 45312—2025.</p>
+          </article>
+          <article class="card">
+            <h3>Measures Gaps</h3>
+            <p>Separates official evidence, owner-manual evidence, community extraction, inference, and elements that are not clearly stated in public sources.</p>
+          </article>
+          <article class="card">
+            <h3>Enables Comparison</h3>
+            <p>Compares vehicles, functions, and automation levels through the same element vocabulary instead of comparing product names.</p>
+          </article>
+        </div>
+
+        <h2 class="section-title">ODC and ODD</h2>
+        <p class="lead">ODD usually describes the roads, environment, traffic, speed, geography, and other conditions in which an Automated Driving System is designed to operate. GB/T 45312—2025 provides an ODC element hierarchy that turns those boundaries into a checklist that can be authored, validated, and compared. OpenODC implements that checklist as JSON Schema and web tooling.</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>System Type</th><th>Meaning in OpenODC</th><th>Main Risk</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>L2 driver assistance</td><td>Feature availability and exit / suppression conditions; the driver continuously supervises the dynamic driving task</td><td>Misreading “available” as “system responsible”</td></tr>
+              <tr><td>L3 conditional automation</td><td>The boundary under which the ADS performs the dynamic driving task, plus fallback-ready user responsibilities</td><td>Declaring road and weather while omitting fallback conditions</td></tr>
+              <tr><td>L4 robotaxi / ADS</td><td>Service operating boundary, usually including geofence, operating hours, weather, remote assistance, permit scope, and app rules</td><td>Misreading a pilot geofence as nationwide capability</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">Evidence Levels</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>Tag</th><th>Meaning</th><th>Counts Toward Coverage</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Official statement</td><td>Vendor website, official press release, official configuration table, or official robotaxi operating rule</td><td>Yes, highest confidence</td></tr>
+              <tr><td>Owner manual</td><td>Owner manual or product manual explicitly states the condition, threshold, or warning</td><td>Yes, highest confidence</td></tr>
+              <tr><td>Community extraction</td><td>Public sources support a directional interpretation but not a complete quantitative threshold</td><td>Yes, but source traceability is required</td></tr>
+              <tr><td>Inferred</td><td>Derived from architecture, regulation, domain knowledge, or indirect public evidence</td><td>Yes, but it is never treated as vendor disclosure</td></tr>
+              <tr><td>Not clearly stated</td><td>No public source explicitly states the element</td><td>No; this is a gap</td></tr>
+              <tr><td>Structural</td><td>A parent node in the standard hierarchy; the actual judgment is made in child elements</td><td>No substantive coverage</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">Coverage Metric</h2>
+        <p class="lead">The Gallery coverage number is not a vendor disclosure rate. It is the number of GB/T elements for which OpenODC can build a public-source explanation: official statements + owner manuals + community extraction + inference. The UI also shows the number of elements not clearly stated in public sources so gaps are not mistaken for capability.</p>
+
+        <h2 class="section-title">Reference Standards</h2>
+        <ul class="status-list">
+          <li class="done">GB/T 45312—2025: <a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=0BECACFD363C754F6869F970BC78EE5A" target="_blank" rel="noopener">National Public Service Platform for Standards Information</a></li>
+          <li class="done">GB/T 40429—2021: <a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=4754CB1B7AD798F288C52D916BFECA34" target="_blank" rel="noopener">National Public Service Platform for Standards Information</a></li>
+          <li class="done">ISO 34503:2023 Road vehicles — Taxonomy for ODD: <a href="https://www.iso.org/standard/78952.html" target="_blank" rel="noopener">ISO</a></li>
+          <li class="done">ASAM OpenODD: <a href="https://www.asam.net/standards/detail/openodd/" target="_blank" rel="noopener">ASAM</a></li>
+          <li class="done">NHTSA Levels of Automation: <a href="https://www.nhtsa.gov/document/levels-automation" target="_blank" rel="noopener">NHTSA</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/methodology.html">中文</a>
+        <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>

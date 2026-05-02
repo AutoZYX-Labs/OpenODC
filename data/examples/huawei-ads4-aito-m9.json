@@ -224,7 +224,7 @@
     {
       "element_id": "odd.road.lane.marking.width",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.non_motor",
@@ -255,7 +255,7 @@
     {
       "element_id": "odd.road.lane.type.tidal",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.type.escape",
@@ -282,7 +282,7 @@
     {
       "element_id": "odd.road.lane.type.total_count",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.lane.count",
@@ -322,17 +322,17 @@
     {
       "element_id": "odd.road.edge.soil_shoulder",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.lawn",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.edge.gravel",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection",
@@ -365,7 +365,7 @@
     {
       "element_id": "odd.road.intersection.roundabout.double",
       "requirement": "permitted",
-      "description": "[手册未涉及] 该要素在官方手册 / 公开资料中未被明确声明；正是国标 GB/T 45312—2025 相对厂家文档的增量价值点。"
+      "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     },
     {
       "element_id": "odd.road.intersection.grade_separated",
@@ -734,6 +734,6 @@
       "华为乾崑智能汽车解决方案网络安全白皮书（华为官方 PDF）: https://auto.huawei.com/marketingcloud/pep/asset//20000004/ias-news/img/%E5%8D%8E%E4%B8%BA%E4%B9%BE%E5%B4%91%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf",
       "问界全系 OTA 2026-01-30 升级（横向风稳定控制 / 路口盲区预判）: https://news.qq.com/rain/a/20260130A046K700"
     ],
-    "notes": "本条以问界 M9 2025 款（Max 级硬件）为主进行反推，覆盖 GB/T 45312—2025 全部 7 类约 100 个元素。量化数据优先采用手册明确值（含 [手册明确] 标注），手册未量化的项目使用行业推定值（含 [推定] 标注），读者可对照官方 PDF 逐项核验。注意：1) 本条不含 Ultra 档的高速 L3 能力（L3 见另设样例）；2) ADS 4 宣传的「120 km/h 高速 L3」属技术目标，当前工信部首批 L3 试点速度上限为 50–80 km/h；3) 天气/几何的三档阈值绝大部分为推定 — 建议厂家后续通过 Vendor Workbench 发布权威 ODD。"
+    "notes": "本条以问界 M9 2025 款（Max 级硬件）为主进行社区提取，覆盖 GB/T 45312—2025 全部 7 类要素。量化数据优先采用手册明确值（含 [手册明确] 标注），公开资料未量化的项目使用行业推定值（含 [推定] 标注），读者可对照官方 PDF 逐项核验。注意：1) 本条按 L2 辅助驾驶样例处理，不含 Ultra 档或监管试点中的 L3 能力；2) ADS 4 宣传中的 L3 表述与实际准入、车型、地区、软件版本有关，不应混同为本样例能力；3) 天气/几何的三档阈值绝大部分为推定 — 建议厂家后续通过 Vendor Workbench 发布权威 ODD。"
   }
 }

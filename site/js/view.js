@@ -100,10 +100,11 @@ function renderDev() {
 // ---- Consumer view: plain-language, grouped, verifiable ----
 function renderConsumer() {
   const wrap = el('div', { class: 'consumer-view' })
-  wrap.appendChild(el('p', { class: 'view-intro' }, '面向普通用户：这台车的智驾在什么情况下能用、什么情况下不能用？每条都标注标准章节号，可对照 GB/T 45312—2025 核验。'))
+  wrap.appendChild(el('p', { class: 'view-intro' }, '面向普通用户：这份样例把公开资料里的运行边界翻译成可核验清单。每条都标注标准章节号，可对照 GB/T 45312—2025 核验。'))
+  wrap.appendChild(renderTrustBanner(currentDoc))
 
   const buckets = bucketizeForConsumer(currentDoc)
-  if (buckets.useable.length === 0 && buckets.unusable.length === 0) {
+  if (buckets.useable.length === 0 && buckets.limited.length === 0 && buckets.unusable.length === 0 && buckets.unknown.length === 0) {
     wrap.appendChild(el('p', {}, '暂无足够数据生成消费者视图。'))
     containerEl.appendChild(wrap)
     return
@@ -113,30 +114,34 @@ function renderConsumer() {
 
   const stats = coverageStats(currentDoc)
   const coverageStrip = el('div', { class: 'coverage-strip' })
-  coverageStrip.appendChild(el('div', { class: 'coverage-strip-head' }, '该 ODC 对 GB/T 45312—2025 全部 ' + stats.total + ' 个国标要素的覆盖情况：'))
+  coverageStrip.appendChild(el('div', { class: 'coverage-strip-head' }, '公开资料对 GB/T 45312—2025 全部 ' + stats.total + ' 个国标要素的覆盖情况：'))
   const bar = el('div', { class: 'coverage-bar' })
-  const manual = stats.manual + stats.official + stats.curated
+  const direct = stats.manual + stats.official
+  const community = stats.curated
   const inferred = stats.inferred, gap = stats.gap, structural = stats.structural
-  if (manual) bar.appendChild(el('span', { class: 'seg seg-manual', style: `flex:${manual}` }, '手册/官方 ' + manual))
+  if (direct) bar.appendChild(el('span', { class: 'seg seg-manual', style: `flex:${direct}` }, '官方/手册 ' + direct))
+  if (community) bar.appendChild(el('span', { class: 'seg seg-community', style: `flex:${community}` }, '社区整理 ' + community))
   if (inferred) bar.appendChild(el('span', { class: 'seg seg-inferred', style: `flex:${inferred}` }, '推定 ' + inferred))
-  if (gap) bar.appendChild(el('span', { class: 'seg seg-gap', style: `flex:${gap}` }, '手册未涉及 ' + gap))
+  if (gap) bar.appendChild(el('span', { class: 'seg seg-gap', style: `flex:${gap}` }, '公开资料未明确 ' + gap))
   if (structural) bar.appendChild(el('span', { class: 'seg seg-structural', style: `flex:${structural}` }, '结构 ' + structural))
   coverageStrip.appendChild(bar)
-  coverageStrip.appendChild(el('p', { class: 'coverage-strip-note' }, '「手册未涉及」的数量本身就是数据：它直接显示了该厂家文档相对国标的披露缺口。'))
+  coverageStrip.appendChild(el('p', { class: 'coverage-strip-note' }, '公开资料未明确的数量本身就是数据：它显示了公开边界说明相对国标要素的缺口。'))
   wrap.appendChild(coverageStrip)
 
   if (buckets.exits.length) {
     const exits = el('div', { class: 'consumer-exits' })
-    exits.appendChild(el('h3', {}, `⚠ 这 ${buckets.exits.length} 种情况会让系统突然退出，需要驾驶员立即接管`))
+    exits.appendChild(el('h3', {}, `重点风险：这 ${buckets.exits.length} 种情况可能导致抑制激活、降级或退出`))
     const list = el('ul')
     for (const e of buckets.exits) list.appendChild(el('li', {}, e.label))
     exits.appendChild(list)
     wrap.appendChild(exits)
   }
 
-  wrap.appendChild(renderBucket('green', '✓ 能用', buckets.useable, '无条件允许的场景'))
-  wrap.appendChild(renderBucket('amber', '△ 有限制', buckets.limited, '在参数范围内允许；超出范围会降级或退出'))
-  wrap.appendChild(renderBucket('red', '✗ 不能用', buckets.unusable, '系统明确声明不能处理；实际行为见「退出行为」'))
+  const copy = consumerBucketCopy(currentDoc)
+  wrap.appendChild(renderBucket('green', copy.greenTitle, buckets.useable, copy.greenHint))
+  wrap.appendChild(renderBucket('amber', copy.amberTitle, buckets.limited, copy.amberHint))
+  wrap.appendChild(renderBucket('red', copy.redTitle, buckets.unusable, copy.redHint))
+  wrap.appendChild(renderBucket('unknown', '公开资料未明确', buckets.unknown, '公开资料没有直接说明这些国标要素，不能推定为允许、禁止或系统可处理。'))
 
   wrap.appendChild(renderSourcesFooter(currentDoc))
   containerEl.appendChild(wrap)
@@ -146,6 +151,7 @@ function classifyCoverage(description, parameterRange) {
   const text = (description || '') + ' ' + (parameterRange || '')
   if (!text.trim()) return 'curated'
   if (text.includes('[手册未涉及]')) return 'gap'
+  if (text.includes('[公开资料未明确]')) return 'gap'
   if (text.includes('[结构性类别]')) return 'structural'
   if (text.includes('[手册明确]')) return 'manual'
   if (text.includes('[官方声明]')) return 'official'
@@ -153,8 +159,61 @@ function classifyCoverage(description, parameterRange) {
   return 'curated'
 }
 
+function renderTrustBanner(doc) {
+  const level = Number(doc.ads_level)
+  const title = level <= 2
+    ? 'L2 辅助驾驶样例：驾驶员仍需持续监管'
+    : level === 3
+      ? 'L3 ADS 样例：ODC 是系统承担动态驾驶任务的前提边界'
+      : 'L4 ADS / Robotaxi 样例：ODC 更接近服务运营边界'
+  const body = level <= 2
+    ? '本样例描述的是公开资料中可提取的功能适用条件和限制条件，不表示车辆可以脱离驾驶员监管，也不构成安全认证。'
+    : level === 3
+      ? '本样例应同时理解系统运行边界、接管请求和后备用户责任；公开资料未说明的项目不得推定为系统可处理。'
+      : '本样例应结合 geofence、运营时间、App 实时规则和当地监管许可理解；公开资料未披露的天气、速度或远程协助阈值会明确标为缺口。'
+  const source = doc.metadata.review_status === 'vendor_confirmed'
+    ? '该记录标记为厂家确认版本。'
+    : '该记录为社区基于公开资料提取的草稿或评审版本，不代表厂家官方 ODC 声明。'
+  return el('div', { class: 'trust-banner' }, [
+    el('h3', {}, title),
+    el('p', {}, body + source)
+  ])
+}
+
+function consumerBucketCopy(doc) {
+  const level = Number(doc.ads_level)
+  if (level <= 2) {
+    return {
+      greenTitle: '建议使用条件',
+      greenHint: '公开资料显示该辅助驾驶功能可在这些条件下使用；驾驶员仍需持续监控。',
+      amberTitle: '有限制条件',
+      amberHint: '仅在参数范围内建议使用；超出范围可能降级、退出或要求驾驶员立即接管。',
+      redTitle: '不建议 / 不应使用',
+      redHint: '公开资料明确排除，或 OpenODC 按国标结构标记为不允许。'
+    }
+  }
+  if (level === 3) {
+    return {
+      greenTitle: 'ODC 内允许',
+      greenHint: '系统可在这些声明条件内承担动态驾驶任务；仍需关注接管请求与后备用户责任。',
+      amberTitle: '有限制条件',
+      amberHint: '系统运行依赖明确参数范围；超出范围可能触发接管请求或退出。',
+      redTitle: 'ODC 外 / 不允许',
+      redHint: '超出系统声明运行边界，不能推定 ADS 可继续承担动态驾驶任务。'
+    }
+  }
+  return {
+    greenTitle: '服务边界内',
+    greenHint: '公开资料显示 Robotaxi / ADS 服务可在这些运营条件内提供。',
+    amberTitle: '有限制运营',
+    amberHint: '受 geofence、运营时段、天气、监管许可或 App 实时规则限制。',
+    redTitle: '服务边界外',
+    redHint: '公开资料明确排除，或未被当前运营许可覆盖。'
+  }
+}
+
 function bucketizeForConsumer(doc) {
-  const useable = [], limited = [], unusable = [], exits = []
+  const useable = [], limited = [], unusable = [], unknown = [], exits = []
   for (const e of doc.elements) {
     const meta = currentIndex.get(e.element_id)
     if (!meta) continue
@@ -170,6 +229,11 @@ function bucketizeForConsumer(doc) {
       coverage,
       label: meta.name_zh + (e.parameter_range ? ` (${e.parameter_range})` : '')
     }
+    if (coverage === 'structural') continue
+    if (coverage === 'gap') {
+      unknown.push(item)
+      continue
+    }
     if (e.requirement === 'permitted') {
       if (e.parameter_range) limited.push(item)
       else useable.push(item)
@@ -178,11 +242,17 @@ function bucketizeForConsumer(doc) {
       if (e.exit_behavior === 'trigger_exit' || e.exit_behavior === 'suppress_and_exit') exits.push(item)
     }
   }
-  return { useable, limited, unusable, exits }
+  return { useable, limited, unusable, unknown, exits }
 }
 
 function generateOneLineSummary(doc, buckets) {
-  return `${doc.vendor} ${doc.model} 的「${doc.function_name}」是 ${adsLevelLabel(doc.ads_level)} 自动驾驶系统。声明可用范围包括 ${buckets.useable.length} 项无条件允许、${buckets.limited.length} 项有限制条件，明确不允许 ${buckets.unusable.length} 项场景。`
+  const level = Number(doc.ads_level)
+  const levelText = level <= 2
+    ? `${adsLevelLabel(level)} 辅助驾驶功能，驾驶员仍需持续监管`
+    : level === 3
+      ? `${adsLevelLabel(level)} 条件自动驾驶系统，ODC 是系统承担动态驾驶任务的前提边界`
+      : `${adsLevelLabel(level)} 高度自动驾驶 / Robotaxi 服务，ODC 是服务运营边界`
+  return `${doc.vendor} ${doc.model} 的「${doc.function_name}」属于 ${levelText}。公开资料可支撑 ${buckets.useable.length} 项允许条件、${buckets.limited.length} 项限制条件，明确不允许 ${buckets.unusable.length} 项；另有 ${buckets.unknown.length} 项公开资料未明确。`
 }
 
 function renderBucket(color, heading, items, hint) {
@@ -222,11 +292,12 @@ function renderConsumerItem(it) {
   const head = el('div', { class: 'item-head' })
   head.appendChild(el('span', { class: 'item-name' }, it.name_zh))
   if (it.parameter_range) head.appendChild(el('span', { class: 'item-range' }, ' — ' + it.parameter_range))
-  if (it.coverage === 'gap') head.appendChild(el('span', { class: 'coverage-tag tag-gap' }, '手册未涉及'))
+  if (it.coverage === 'gap') head.appendChild(el('span', { class: 'coverage-tag tag-gap' }, '公开资料未明确'))
   else if (it.coverage === 'structural') head.appendChild(el('span', { class: 'coverage-tag tag-structural' }, '结构性'))
   else if (it.coverage === 'manual') head.appendChild(el('span', { class: 'coverage-tag tag-manual' }, '手册明确'))
   else if (it.coverage === 'official') head.appendChild(el('span', { class: 'coverage-tag tag-official' }, '官方声明'))
   else if (it.coverage === 'inferred') head.appendChild(el('span', { class: 'coverage-tag tag-inferred' }, '推定'))
+  else if (it.coverage === 'curated') head.appendChild(el('span', { class: 'coverage-tag tag-community' }, '社区整理'))
   li.appendChild(head)
   if (it.description && it.coverage !== 'gap' && it.coverage !== 'structural') {
     li.appendChild(el('div', { class: 'item-desc' }, it.description))
@@ -249,8 +320,8 @@ function renderSourcesFooter(doc) {
   const footer = el('div', { class: 'consumer-sources' })
   footer.appendChild(el('h3', {}, '数据来源与核验指引'))
   const statusText = {
-    draft: '本 ODC 为社区基于公开资料（用户手册、官方发布会、第三方测评）反推，不代表厂家官方声明。请以厂家官方手册为准。',
-    community_reviewed: '本 ODC 已经过社区同行评审。',
+    draft: '本 ODC 为社区基于公开资料（用户手册、运营规则、政府公告、官方页面、第三方测评）提取的草稿，不代表厂家官方声明。请以厂家官方资料和实际 App / 车机提示为准。',
+    community_reviewed: '本 ODC 已经过社区同行评审，但仍不等同于厂家官方声明。',
     vendor_confirmed: '本 ODC 已由厂家官方确认。'
   }[doc.metadata.review_status] || ''
   footer.appendChild(el('p', { class: 'source-status' }, statusText))
@@ -298,6 +369,7 @@ function renderHeader() {
 
 function attachActions() {
   document.querySelectorAll('.view-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.view === currentView)
     t.addEventListener('click', () => setView(t.dataset.view))
   })
   document.getElementById('copy-json').addEventListener('click', async () => {
@@ -319,6 +391,7 @@ function toMarkdown(doc) {
   md += `- 生效日期：${doc.effective_date}\n`
   md += `- 标准依据：${doc.spec_source}\n`
   md += `- 审核状态：${reviewStatusLabel(doc.metadata.review_status)}\n\n`
+  md += `> 说明：本 Markdown 由 OpenODC 自动生成。除非审核状态为「厂家确认」，否则该记录为社区基于公开资料提取，不代表厂家官方 ODC 声明。L2 样例不表示车辆可以脱离驾驶员监管。\n\n`
 
   const groups = groupByCategory(doc, currentIndex)
   for (const [_, g] of groups) {

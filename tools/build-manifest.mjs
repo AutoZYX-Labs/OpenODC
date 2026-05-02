@@ -20,6 +20,7 @@ function classifyCoverage(elem) {
   const text = (elem && (typeof elem === 'string' ? elem : ((elem.description || '') + ' ' + (elem.parameter_range || '')))) || ''
   if (!text.trim()) return 'curated'
   if (text.includes('[手册未涉及]')) return 'gap'
+  if (text.includes('[公开资料未明确]')) return 'gap'
   if (text.includes('[结构性类别]')) return 'structural'
   if (text.includes('[手册明确]')) return 'manual'
   if (text.includes('[官方声明]')) return 'official'

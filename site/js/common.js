@@ -52,8 +52,8 @@ export function adsLevelLabel(level) {
 
 export function reviewStatusLabel(status, lang = 'zh') {
   const map = {
-    zh: { draft: '草稿', community_reviewed: '社区审核', vendor_confirmed: '厂家确认' },
-    en: { draft: 'Draft', community_reviewed: 'Community-reviewed', vendor_confirmed: 'Vendor-confirmed' }
+    zh: { draft: '社区草稿', community_reviewed: '社区审核', vendor_confirmed: '厂家确认' },
+    en: { draft: 'Community draft', community_reviewed: 'Community-reviewed', vendor_confirmed: 'Vendor-confirmed' }
   }
   return map[lang][status] || status
 }

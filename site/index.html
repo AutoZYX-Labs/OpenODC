@@ -30,29 +30,29 @@
         <p class="eyebrow">基于 GB/T 45312—2025 国家标准</p>
         <h1 class="hero-title">OpenODC</h1>
         <p class="hero-subtitle">自动驾驶系统运行设计条件开源平台</p>
-        <p class="hero-tagline">把厂家「智驾能在什么情况下用」的答案，结构化、机器可读、可横向对比。</p>
+        <p class="hero-tagline">把公开资料中的智驾边界信息，结构化、机器可读、可横向对比；同时清楚标注哪些是官方说明，哪些只是社区反推。</p>
       </div>
 
       <div class="hero-stats">
         <a class="hero-stat" href="/gallery.html">
           <span class="stat-num">83%</span>
-          <span class="stat-lbl">华为 ADS 4 披露率</span>
-          <span class="stat-sub">119 / 144 国标要素有数据</span>
+          <span class="stat-lbl">华为 ADS 4 样例覆盖度</span>
+          <span class="stat-sub">119 / 144 公开资料可支撑；非厂家确认</span>
         </a>
         <a class="hero-stat" href="/gallery.html">
           <span class="stat-num stat-num-alt">32%</span>
-          <span class="stat-lbl">特斯拉中国 AP 披露率</span>
-          <span class="stat-sub">46 / 144 — 其余 80 项手册未涉及</span>
+          <span class="stat-lbl">特斯拉中国 AP 样例覆盖度</span>
+          <span class="stat-sub">46 / 144；其余 80 项公开资料未明确</span>
         </a>
         <a class="hero-stat" href="/compare.html">
           <span class="stat-num">6</span>
-          <span class="stat-lbl">个已反推样例</span>
-          <span class="stat-sub">Tesla / 华为 / 百度 / 小鹏 / 小马智行</span>
+          <span class="stat-lbl">个社区提取样例</span>
+          <span class="stat-sub">Tesla / 华为 / 百度 / 小鹏 / 小马智行；均为 draft</span>
         </a>
         <a class="hero-stat" href="/workbench.html">
           <span class="stat-num">11</span>
           <span class="stat-lbl">家厂家直填演示</span>
-          <span class="stat-sub">内部管理 + SOP 一键公开</span>
+          <span class="stat-sub">内部维护边界；SOP 后选择性公开</span>
         </a>
       </div>
 
@@ -69,13 +69,13 @@
       <div class="container">
         <h2 class="section-title">这是什么</h2>
         <p class="lead">
-          OpenODC 是一个开源的 ODC（Operational Design Condition，设计运行条件）标准化定义、对比、查阅平台。它基于国家标准 GB/T 45312—2025《智能网联汽车 自动驾驶系统设计运行条件》。
+          OpenODC 是一个开源的 ODC（Operational Design Condition，设计运行条件）标准化定义、对比、查阅平台。它基于国家标准 GB/T 45312—2025《智能网联汽车 自动驾驶系统设计运行条件》，目标是衡量运行边界被公开资料说清楚了多少，而不是评价哪家智驾“更强”。
         </p>
 
         <div class="card-grid">
           <a class="card card-action" href="/gallery.html">
             <h3>① ODC 样例库</h3>
-            <p>公开 ODC 样例库 —— 按车型、功能、自动化等级筛选浏览。每条数据透明标注来源（厂家声明 / 社区反推 / 演示数据）。</p>
+            <p>公开 ODC 样例库 —— 按车型、功能、自动化等级筛选浏览。每条记录标注来源层级：官方 / 手册 / 社区整理 / 推定 / 公开资料未明确。</p>
             <p class="card-cta">浏览样例 →</p>
           </a>
           <a class="card card-action" href="/editor.html">
@@ -85,12 +85,12 @@
           </a>
           <a class="card card-action" href="/view.html?id=huawei-ads4-aito-m9">
             <h3>③ 多视图查看</h3>
-            <p>同一份 ODC 数据，两种视图：开发者（完整 5 层级 + JSON）、消费者（能 / 不能用 + 风险卡片）。</p>
+            <p>同一份 ODC 数据，两种视图：开发者（完整 5 层级 + JSON）、消费者（功能建议使用边界 + 风险卡片）。L2 样例会明确提示驾驶员责任。</p>
             <p class="card-cta">查看示例 →</p>
           </a>
           <a class="card card-action" href="/compare.html">
             <h3>④ ODC 对比</h3>
-            <p>多车型 ODC 并排对比（2–4 个）。绿色 = 双方都允许，红色 = 双方都不允许，橙色 = 不一致。一眼看出能力边界差异。</p>
+            <p>多车型 ODC 并排对比（2–4 个）。绿色 = 双方均声明允许，红色 = 双方均声明不允许，橙色 = 不一致。一眼看出公开边界差异。</p>
             <p class="card-cta">开始对比 →</p>
           </a>
           <a class="card card-action" href="https://github.com/AutoZYX-Labs/OpenODC/tree/main/schema" target="_blank" rel="noopener">
@@ -115,15 +115,15 @@
             <h3>三个行业现状</h3>
             <ul class="problem-list">
               <li>OEM 各自定义 ODC，没有统一格式 —— 监管和第三方机构难以横向对比</li>
-              <li>消费者完全看不到具体边界 —— 销售只说"L2/L3"，事故发生时才发现"原来不能用"</li>
+              <li>消费者看到的是功能名和营销话术，很难看到具体边界 —— 尤其容易混淆 L2 辅助驾驶与 L3/L4 自动驾驶</li>
               <li>国家标准 GB/T 45312—2025 给了完整层级结构，但缺少机器可读的对应物</li>
             </ul>
           </div>
           <div>
             <h3>OpenODC 的定位</h3>
-            <p>不是要取代厂家自己的 ODC 文档系统。实际上，OEM 会在使用手册、车机教学里告诉用户"智驾什么时候能用、什么时候不能用"，不少车企写得还挺详细。</p>
+            <p>不是要取代厂家自己的 ODC 文档系统。实际上，OEM 会在使用手册、车机教学里告诉用户"智驾什么时候建议使用、什么时候不应使用"，不少车企写得还挺详细。</p>
             <p>但每家都用自己的写法、自己的分类、自己的术语，没有统一规范 —— 消费者跨品牌换车要重新学一遍，监管和第三方机构想做横向对比，也找不到统一的抓手。</p>
-            <p>OpenODC 提供一个统一的、机器可读的标准化格式 + 公开样例库，让设计运行条件可查、可比、可复用。开放数据先行，等待 OEM 跟进。</p>
+            <p>OpenODC 提供一个统一的、机器可读的标准化格式 + 公开样例库，让设计运行条件可查、可比、可复用。当前样例均为社区基于公开资料提取，不代表厂家官方确认；只有标记为 vendor_confirmed 的记录才是厂家确认版本。</p>
           </div>
         </div>
       </div>
@@ -135,9 +135,9 @@
         <ul class="status-list">
           <li class="done">Phase 0：完整转录 GB/T 45312—2025（144 个元素 / 7 类）+ JSON Schema + TypeScript 类型</li>
           <li class="done">Phase 0：量化分级表机器可读化（风力、雨量、降雪、积雪、4 类能见度、光照）</li>
-          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（6 个典型样例，全部覆盖 144 个国标要素）</li>
+          <li class="done">Phase 1：<a href="/gallery.html">公开样例库 Gallery</a>（6 个典型样例，均标注公开资料覆盖与缺口）</li>
           <li class="done">Phase 1：<a href="/editor.html">Web 编辑器</a>（层级树勾选 + 实时 JSON + 多格式导出）</li>
-          <li class="done">Phase 2：<a href="/view.html?id=huawei-ads4-aito-m9">双视图渲染</a>（开发者 / 消费者，含来源和覆盖率标签）</li>
+          <li class="done">Phase 2：<a href="/view.html?id=huawei-ads4-aito-m9">双视图渲染</a>（开发者 / 消费者，含来源、责任边界和公开资料覆盖标签）</li>
           <li class="done">Phase 2：<a href="/compare.html">多车型对比 Compare</a>（diff 视图，2–4 个并排）</li>
           <li class="done">Phase 3：<a href="/matrix.html">横向矩阵 Matrix</a>（144 个国标要素 × 6 个样例）</li>
           <li class="done">Phase 3：GitHub PR 模板 + CI 自动校验（ajv-cli + element_id 引用检查）</li>
@@ -145,7 +145,7 @@
           <li class="done">Apache 2.0 代码许可 + CC BY 4.0 数据许可</li>
           <li class="todo">Phase 5：账号体系 + Supabase 后端 + 签名发布</li>
           <li class="todo">Phase 5：与 ROAM 联动（事件 ↔ 涉事车型 ODC 自动关联）</li>
-          <li class="todo">Phase 5：ISO 34503 / BSI PAS 1883 国际化映射</li>
+          <li class="todo">Phase 5：ISO 34503 / BSI PAS 1883 / ASAM OpenODD 国际化映射</li>
         </ul>
       </div>
     </section>
@@ -167,7 +167,8 @@
               <tr><td>§5.4.b 允许 / 不允许</td><td><code>requirement: 'permitted' | 'not_permitted'</code></td></tr>
               <tr><td>§5.4.c 元素关联关系</td><td><code>associations[]</code> 字段</td></tr>
               <tr><td>§5.5 不允许的退出行为</td><td><code>exit_behavior</code> 字段</td></tr>
-              <tr><td>公开样例库</td><td><code>data/examples/*.json</code>（6 个样例，全部 144 要素覆盖）</td></tr>
+              <tr><td>公开样例库</td><td><code>data/examples/*.json</code>（6 个社区提取样例，逐项显示公开资料覆盖与缺口）</td></tr>
+              <tr><td>L2 / L3 / L4 语义边界</td><td><a href="/methodology.html">方法与标准说明</a>：区分功能适用条件、ADS 运行边界、Robotaxi 服务边界</td></tr>
               <tr><td>量化分级表 5–14</td><td><code>schema/enums/quantitative_scales.json</code></td></tr>
             </tbody>
           </table>
@@ -189,7 +190,7 @@
           <article class="card card-related card-current">
             <h3>OpenODC</h3>
             <p class="card-tag">设计边界端</p>
-            <p>设计运行条件标准化定义、对比、查阅。回答"声明能干什么"。</p>
+            <p>设计运行条件标准化定义、对比、查阅。回答"公开资料把边界说清楚了多少"。</p>
             <span class="here-pill">当前页面</span>
           </article>
           <article class="card card-related">
@@ -208,11 +209,11 @@
         <div class="two-col">
           <div>
             <h3>对 OEM / AD 供应商</h3>
-            <p>提交贵方某个车型 / 功能的官方 ODC 声明。我们会标记为 vendor_confirmed，作为该条目的权威版本。</p>
+            <p>提交贵方某个车型 / 功能的官方 ODC 声明。我们会标记为 vendor_confirmed，作为该条目的厂家确认版本；也可选择只公开对外版本，保留内部细节。</p>
           </div>
           <div>
             <h3>对第三方机构 / 学术界 / 媒体</h3>
-            <p>从公开材料（车主手册、媒体测评、申报公告）反推 ODC 数据，标注来源置信度。提交 PR 后进入 community_reviewed 状态。</p>
+            <p>从公开材料（车主手册、运营规则、政府公告、媒体测评）提取 ODC 数据，标注来源置信度。提交 PR 后进入 community_reviewed 状态。</p>
           </div>
         </div>
         <div class="hero-actions" style="margin-top:2rem;">

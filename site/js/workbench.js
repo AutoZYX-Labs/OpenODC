@@ -33,7 +33,7 @@ const DEMO_SEEDS = {
     { id: 'tesla-summon', name: 'Actually Smart Summon', model: 'Model Y HW4', ads_level: 2, status: 'pre_release', updated_at: '2026-02-15T00:00:00Z', manual_url: '', notes: '停车场召唤，限定软件版本灰度中。' }
   ],
   huawei: [
-    { id: 'huawei-ads4-ultra', name: 'ADS 4 Ultra（高速 L3）', model: '尊界 S800 / 岚图泰山 Ultra', ads_level: 3, status: 'shipped', updated_at: '2025-04-22T00:00:00Z', manual_url: '', notes: '中国首个量产高速 L3 方案；工信部首批试点速度上限 50–80 km/h。' },
+    { id: 'huawei-ads4-ultra', name: 'ADS 4 Ultra（高速 L3）', model: '尊界 S800 / 岚图泰山 Ultra', ads_level: 3, status: 'shipped', updated_at: '2025-04-22T00:00:00Z', manual_url: '', notes: '演示用 L3 项目条目；实际准入、速度上限和开放区域需以监管试点与厂家官方声明为准。' },
     { id: 'huawei-ads4-max', name: 'ADS 4 Max（高阶版）', model: '问界 M9 / M8 / 享界 S9 等', ads_level: 2, status: 'shipped', updated_at: '2025-04-22T00:00:00Z', manual_url: 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', notes: 'Max 档主流配置，已对应 OpenODC 公开样例。', public_id: 'huawei-ads4-aito-m9' },
     { id: 'huawei-ads4-pro', name: 'ADS 4 Pro（增强版）', model: '问界 M7 Pro+ / 深蓝 S07 激光版 / 阿维塔 06 Pro', ads_level: 2, status: 'shipped', updated_at: '2025-06-01T00:00:00Z', manual_url: '', notes: '轻图 NCA + 城区辅助，L2+。' },
     { id: 'huawei-ads4-se', name: 'ADS 4 SE（基础版）', model: '深蓝 L07 / 尚界 H5 Pro 等', ads_level: 2, status: 'shipped', updated_at: '2025-08-01T00:00:00Z', manual_url: '', notes: '无激光雷达，L2 入门档。' },

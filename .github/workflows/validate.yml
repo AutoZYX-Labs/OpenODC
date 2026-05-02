@@ -40,9 +40,13 @@ jobs:
           fail=0
           for f in data/examples/*.json; do
             echo "Validating $f"
-            npx ajv-cli validate -s schema/odc.schema.json -d "$f" || fail=1
+            npx ajv-cli validate --spec=draft2019 --strict=false --validate-formats=false -s schema/odc.schema.json -d "$f" || fail=1
           done
           exit $fail
 
       - name: Verify element_id references exist in catalog
         run: node tools/check-references.mjs
+
+      - name: Report source link health
+        run: node tools/check-source-links.mjs
+        continue-on-error: true

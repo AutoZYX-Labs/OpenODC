@@ -43,22 +43,27 @@ function card(d) {
   node.appendChild(el('h3', { class: 'doc-card-title' }, d.vendor + ' · ' + d.model))
   node.appendChild(el('p', { class: 'doc-card-function' }, d.function_name))
 
-  // Coverage strip
+  // Public-source coverage strip
   if (d.coverage && d.element_count) {
     const subst = d.coverage_substantive || 0
     const pct = Math.round((subst / d.element_count) * 100)
-    const officialManual = (d.coverage.manual || 0) + (d.coverage.official || 0) + (d.coverage.curated || 0)
-    const covWrap = el('div', { class: 'doc-card-coverage', title: `手册/官方 ${officialManual} · 推定 ${d.coverage.inferred} · 手册未涉及 ${d.coverage.gap} · 结构性 ${d.coverage.structural}` })
+    const direct = (d.coverage.manual || 0) + (d.coverage.official || 0)
+    const community = d.coverage.curated || 0
+    const inferred = d.coverage.inferred || 0
+    const gap = d.coverage.gap || 0
+    const structural = d.coverage.structural || 0
+    const covWrap = el('div', { class: 'doc-card-coverage', title: `官方/手册 ${direct} · 社区整理 ${community} · 推定 ${inferred} · 公开资料未明确 ${gap} · 结构性 ${structural}` })
     covWrap.appendChild(el('div', { class: 'cov-label' }, [
       el('strong', {}, `${subst} / ${d.element_count}`),
-      el('span', { class: 'cov-sub' }, ` 国标要素有数据（${pct}%）`)
+      el('span', { class: 'cov-sub' }, ` 公开资料覆盖（${pct}%）`)
     ]))
     const segBar = el('div', { class: 'cov-bar' })
     const segs = [
-      { cls: 'seg-manual', count: officialManual },
-      { cls: 'seg-inferred', count: d.coverage.inferred },
-      { cls: 'seg-gap', count: d.coverage.gap },
-      { cls: 'seg-structural', count: d.coverage.structural }
+      { cls: 'seg-manual', count: direct },
+      { cls: 'seg-community', count: community },
+      { cls: 'seg-inferred', count: inferred },
+      { cls: 'seg-gap', count: gap },
+      { cls: 'seg-structural', count: structural }
     ]
     for (const s of segs) {
       if (s.count > 0) segBar.appendChild(el('span', { class: 'seg ' + s.cls, style: `flex:${s.count}` }))

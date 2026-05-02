@@ -13,11 +13,14 @@ export type ODCExitBehavior =
 export type ODCSourceType =
   | 'official'              // 厂家官方声明
   | 'owner_manual'          // 车主手册
+  | 'operating_rule'         // App / 运营服务规则
+  | 'government_notice'      // 政府公告
   | 'media_test'            // 媒体测评
   | 'third_party_test'      // 第三方测试报告
   | 'regulatory_filing'     // 政府申报材料
   | 'academic'              // 学术论文
   | 'community_extracted'   // 社区从公开材料反推
+  | 'inferred'              // 基于公开资料的推定
 
 export type ODCConfidence = 'high' | 'medium' | 'low'
 
@@ -31,6 +34,13 @@ export interface ODCSource {
   url?: string
   confidence: ODCConfidence
   extracted_date?: string
+}
+
+export interface ODCEvidenceRef extends ODCSource {
+  title?: string
+  section?: string
+  page?: number | string | null
+  notes?: string
 }
 
 export interface ODCElement {
@@ -48,6 +58,7 @@ export interface ODCElement {
    */
   exit_behavior?: ODCExitBehavior
   source?: ODCSource
+  evidence_refs?: ODCEvidenceRef[]
 }
 
 export type ODCAssociationRelation =

@@ -17,7 +17,7 @@ Please pick the appropriate section below and delete the rest.
 
 **Vehicle / function:** _e.g. BYD Han 2026 — DiPilot Highway_
 **Automation level (per GB/T 40429-2021):** _L0 / L1 / L2 / L3 / L4 / L5_
-**Source(s):** _list URLs of car owner's manual, type-approval filing, third-party test report, etc._
+**Source(s):** _list URLs of owner manual, operating rule, government notice, type-approval filing, third-party test report, etc._
 **Confidence:** _high / medium / low_
 
 Checklist:
@@ -27,7 +27,9 @@ Checklist:
 - [ ] Every `requirement: "not_permitted"` element has an `exit_behavior`
 - [ ] `metadata.review_status` is set honestly (`draft`, `community_reviewed`, `vendor_confirmed`)
 - [ ] `metadata.sources` lists every reference that backs the data
-- [ ] `npx ajv-cli validate -s schema/odc.schema.json -d data/examples/<your-file>.json` passes locally
+- [ ] Official / owner-manual evidence is separated from community extraction and inference
+- [ ] L2 records explicitly state that the driver remains responsible for the dynamic driving task
+- [ ] `npx ajv-cli validate --spec=draft2019 --strict=false --validate-formats=false -s schema/odc.schema.json -d data/examples/<your-file>.json` passes locally
 
 ### B. Vendor-confirmed override
 

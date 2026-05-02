@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>方法与标准 — OpenODC</title>
+  <meta name="description" content="OpenODC 的方法论：ODC/ODD 关系、L2/L3/L4 语义差异、证据等级、公开资料覆盖度算法。" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav"></nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">METHOD / STANDARD</p>
+        <h1 class="page-title">方法与标准</h1>
+        <p class="page-subtitle">OpenODC 衡量的是运行边界被公开资料说清楚了多少，不是给智驾能力排名，也不是替代厂家官方安全声明。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="trust-banner">
+          <h3>公开推广前的基本口径</h3>
+          <p>除非记录标记为 vendor_confirmed，OpenODC 样例均为社区基于公开资料提取。L2 样例描述功能适用条件，不能解释为车辆可脱离驾驶员监管；L3/L4 样例才涉及 ADS 在 ODD 内承担动态驾驶任务。</p>
+        </div>
+
+        <h2 class="section-title">OpenODC 做什么</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>公开资料结构化</h3>
+            <p>把车主手册、官方页面、App 规则、政府公告、媒体测评中的运行边界，映射到 GB/T 45312—2025 的 144 个 ODC 要素。</p>
+          </article>
+          <article class="card">
+            <h3>缺口度量</h3>
+            <p>明确哪些要素有官方或手册依据，哪些只是社区整理或推定，哪些在公开资料中没有被明确说明。</p>
+          </article>
+          <article class="card">
+            <h3>横向比较</h3>
+            <p>用同一套元素体系比较不同车型、不同功能、不同自动化等级的公开边界差异，避免只比较功能名。</p>
+          </article>
+        </div>
+
+        <h2 class="section-title">ODC 与 ODD 的关系</h2>
+        <p class="lead">ODD 通常描述自动驾驶系统可以运行的道路、环境、交通、速度、地理围栏等设计运行域。GB/T 45312—2025 使用 ODC 元素体系，把这些边界拆成可填写、可校验、可对比的条件清单。OpenODC 将这种清单做成 JSON Schema 和网页工具。</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>对象</th><th>OpenODC 中的含义</th><th>主要风险</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>L2 辅助驾驶</td><td>功能建议使用条件和退出/禁用条件；驾驶员持续负责动态驾驶任务</td><td>把“可用条件”误读成“系统负责驾驶”</td></tr>
+              <tr><td>L3 条件自动驾驶</td><td>ADS 在 ODD 内承担动态驾驶任务的前提边界，同时需要定义接管请求和后备用户责任</td><td>只写道路和天气，不写 fallback 条件</td></tr>
+              <tr><td>L4 Robotaxi / ADS</td><td>服务运营边界，通常包括 geofence、时段、天气、远程协助、监管许可和 App 实时规则</td><td>把示范运营区域误读成全国通用能力</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">证据等级</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>标签</th><th>含义</th><th>是否计入公开资料覆盖</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>官方声明</td><td>厂家官网、官方新闻稿、官方配置表、Robotaxi 官方运营规则</td><td>计入，置信度最高</td></tr>
+              <tr><td>手册明确</td><td>车主手册或使用说明书直接写明的条件、阈值、警示</td><td>计入，置信度最高</td></tr>
+              <tr><td>社区整理</td><td>公开资料能支撑方向性判断，但未给出完整量化阈值</td><td>计入，但必须可追溯来源</td></tr>
+              <tr><td>推定</td><td>基于系统架构、法规、行业常识或公开材料间接推导</td><td>计入覆盖，但必须单独显示，不能当作官方披露</td></tr>
+              <tr><td>公开资料未明确</td><td>公开来源没有直接说明该要素</td><td>不计入覆盖，是项目要揭示的缺口</td></tr>
+              <tr><td>结构性</td><td>国标层级中的父类节点，具体判断看下级元素</td><td>不计入实质覆盖</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">覆盖度算法</h2>
+        <p class="lead">Gallery 卡片中的覆盖度不是厂家披露率。它表示 OpenODC 基于公开资料能为多少个国标要素建立解释：官方声明 + 手册明确 + 社区整理 + 推定。页面会同时显示公开资料未明确的数量，避免把缺口误认为能力。</p>
+
+        <h2 class="section-title">参考标准与资料</h2>
+        <ul class="status-list">
+          <li class="done">GB/T 45312—2025《智能网联汽车 自动驾驶系统设计运行条件》：<a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=0BECACFD363C754F6869F970BC78EE5A" target="_blank" rel="noopener">国家标准全文公开系统</a></li>
+          <li class="done">GB/T 40429—2021《汽车驾驶自动化分级》：<a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=4754CB1B7AD798F288C52D916BFECA34" target="_blank" rel="noopener">国家标准全文公开系统</a></li>
+          <li class="done">ISO 34503:2023 Road vehicles — Taxonomy for ODD：<a href="https://www.iso.org/standard/78952.html" target="_blank" rel="noopener">ISO</a></li>
+          <li class="done">ASAM OpenODD：<a href="https://www.asam.net/standards/detail/openodd/" target="_blank" rel="noopener">ASAM</a></li>
+          <li class="done">NHTSA Levels of Automation：<a href="https://www.nhtsa.gov/document/levels-automation" target="_blank" rel="noopener">NHTSA</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/en/methodology.html">English</a>
+        <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>

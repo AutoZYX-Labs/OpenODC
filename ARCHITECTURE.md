@@ -14,9 +14,11 @@ For the product roadmap, see [PLAN.md](../PLAN.md).
 
 3. **Provenance over completeness.** Every ODC element entry must declare its source: official vendor declaration, community extraction from public materials, regulatory filing, etc. A document with 30 well-sourced entries is more valuable than one with 80 unsourced ones.
 
-4. **No hidden hierarchy.** The catalog mirrors the standard's clause numbering exactly (`spec_section: "6.2.1.1.3.a"`). Anyone reading the standard can find the corresponding JSON, and vice versa.
+4. **Semantics before comparison.** L2, L3, and L4 records can share the same ODC element catalog, but the meaning differs: L2 describes feature availability while the driver remains responsible; L3 describes the ADS operational boundary plus fallback; L4 describes the service / geofence boundary.
 
-5. **One document, many views.** Same JSON renders as: developer view (full hierarchy), consumer view (plain-language cards), compare view (document-to-document diff), and matrix view (catalog × document coverage).
+5. **No hidden hierarchy.** The catalog mirrors the standard's clause numbering exactly (`spec_section: "6.2.1.1.3.a"`). Anyone reading the standard can find the corresponding JSON, and vice versa.
+
+6. **One document, many views.** Same JSON renders as: developer view (full hierarchy), consumer view (plain-language cards), compare view (document-to-document diff), and matrix view (catalog × document coverage).
 
 ## 2. Data model
 
@@ -55,7 +57,7 @@ For example, fog/haze/dust/smoke all use the same 4-level visibility scale (Tabl
 
 ### 2.3 The document schema (`schema/odc.schema.json`)
 
-This is a JSON Schema (Draft 2020-12) that defines the shape of an actual ODC document — what an OEM or contributor would author. Conceptually:
+This is a JSON Schema (Draft 2019-09, chosen for current `ajv-cli` compatibility) that defines the shape of an actual ODC document — what an OEM or contributor would author. Conceptually:
 
 ```
 ODCDocument
@@ -65,7 +67,8 @@ ODCDocument
 │       ├── requirement       ← permitted / not_permitted
 │       ├── parameter_range   ← e.g. "曲率半径 ≥ 150 m"
 │       ├── exit_behavior     ← required when not_permitted
-│       └── source            ← provenance
+│       ├── source            ← provenance
+│       └── evidence_refs[]   ← concrete URL / page / section references
 ├── associations: ODCAssociation[]   ← cross-element constraints
 └── metadata
         ├── submitted_by
@@ -134,7 +137,9 @@ At the document level, `metadata.review_status` summarizes the whole document:
 - `community_reviewed` — peer-checked via PR review
 - `vendor_confirmed` — officially endorsed by the OEM
 
-In the UI, vendor-confirmed records rank above community-extracted ones for the same vehicle, and unconfirmed records carry a visible "⚠ community-sourced" badge.
+In the UI, vendor-confirmed records rank above community-extracted ones for the same vehicle, and unconfirmed records carry a visible community-draft warning.
+
+Coverage metrics intentionally use the phrase **public-source coverage**, not **disclosure rate**. The numerator is `official + owner_manual + community_extracted/curated + inferred`; gaps and structural parent nodes are shown separately. Inferred entries must remain visually distinct and must never be presented as vendor disclosure.
 
 ## 7. How rendering works
 
@@ -143,7 +148,7 @@ The current renderers all read the same `ODCDocument` plus the merged catalog in
 | View | What it shows | What it hides |
 |---|---|---|
 | **Developer** | Full 5-level tree, raw JSON, spec section labels | Nothing |
-| **Consumer** | Plain-language buckets ("能用 / 有限制 / 不能用"), coverage tags, sources | Raw JSON unless expanded through developer view |
+| **Consumer** | Plain-language buckets adapted to automation level, responsibility notice, coverage tags, sources | Raw JSON unless expanded through developer view |
 | **Compare** | 2–4 documents aligned by element_id | Deep source prose |
 | **Matrix** | 144 GB/T elements × all sample documents, with coverage and requirement classes | Raw JSON |
 
