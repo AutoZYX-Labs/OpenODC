@@ -137,7 +137,7 @@ At the document level, `metadata.review_status` summarizes the whole document:
 - `community_reviewed` — peer-checked via PR review
 - `vendor_confirmed` — officially endorsed by the OEM
 
-In the UI, vendor-confirmed records rank above community-extracted ones for the same vehicle, and unconfirmed records carry a visible community-draft warning.
+In the UI, vendor-confirmed records rank above community-extracted ones for the same vehicle, and non-vendor-confirmed records keep a visible status label.
 
 Coverage metrics intentionally use the phrase **public-source coverage**, not **disclosure rate**. The numerator is `official + owner_manual + community_extracted/curated + inferred`; gaps and structural parent nodes are shown separately. Inferred entries must remain visually distinct and must never be presented as vendor disclosure.
 
@@ -181,7 +181,7 @@ For Phase 0–4 MVP, all public data lives as JSON files in the repo:
 - History is git-native
 - Anyone can fork and run their own copy
 
-The current Vendor Workbench is a static frontend MVP backed by browser localStorage. For Phase 5, we will add a Supabase backend for OEM direct authoring, with the git repo as the canonical public export.
+The current Vendor Workbench is a static frontend MVP backed by browser localStorage. It generates a GitHub PR submission package, but it does not yet authenticate a vendor or open a PR automatically. For Phase 5, we will add a Supabase backend and GitHub App integration for OEM direct authoring, signed publishing, and automatic public-export PRs.
 
 ## 9. What's NOT in scope
 

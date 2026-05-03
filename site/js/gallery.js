@@ -6,6 +6,35 @@ const filterStatus = document.getElementById('filter-status')
 const filterSearch = document.getElementById('filter-search')
 const filterCount = document.getElementById('filter-count')
 const emptyCta = document.getElementById('empty-cta')
+const isEn = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/')
+const lang = isEn ? 'en' : 'zh'
+
+const copy = {
+  zh: {
+    records: '条记录',
+    coverageTitle: (direct, community, inferred, gap, structural) => `官方/手册 ${direct} · 社区整理 ${community} · 推定 ${inferred} · 公开资料未明确 ${gap} · 结构性 ${structural}`,
+    coverageSub: pct => ` 公开资料覆盖（${pct}%）`,
+    highConfidence: n => `${n} 项高置信证据`,
+    officialManual: n => `${n} 项官方/手册`,
+    linked: n => `${n} 项逐项引用`,
+    permitted: n => `允许 ${n}`,
+    notPermitted: n => `不允许 ${n}`,
+    total: n => `共 ${n} 项`,
+    loadFailed: msg => `加载失败：${msg}`
+  },
+  en: {
+    records: 'records',
+    coverageTitle: (direct, community, inferred, gap, structural) => `official/manual ${direct} · curated ${community} · inferred ${inferred} · public-source gap ${gap} · structural ${structural}`,
+    coverageSub: pct => ` public-source coverage (${pct}%)`,
+    highConfidence: n => `${n} high-confidence evidence items`,
+    officialManual: n => `${n} official/manual items`,
+    linked: n => `${n} element-level references`,
+    permitted: n => `Permitted ${n}`,
+    notPermitted: n => `Not permitted ${n}`,
+    total: n => `${n} elements`,
+    loadFailed: msg => `Load failed: ${msg}`
+  }
+}
 
 let allDocs = []
 
@@ -27,7 +56,7 @@ function applyFilters() {
 
 function render(docs) {
   grid.innerHTML = ''
-  filterCount.textContent = `${docs.length} / ${allDocs.length} 条记录`
+  filterCount.textContent = `${docs.length} / ${allDocs.length} ${copy[lang].records}`
   emptyCta.hidden = docs.length > 0
   for (const d of docs) {
     grid.appendChild(card(d))
@@ -36,12 +65,15 @@ function render(docs) {
 
 function card(d) {
   const node = el('a', { href: `/view.html?id=${encodeURIComponent(d.id)}`, class: 'doc-card' })
+  const vendor = isEn ? (d.vendor_en || d.vendor) : d.vendor
+  const model = isEn ? (d.model_en || d.model) : d.model
+  const functionName = isEn ? (d.function_name_en || d.function_name) : d.function_name
   node.appendChild(el('div', { class: 'doc-card-header' }, [
     el('span', { class: `ads-pill ads-pill-l${d.ads_level}` }, adsLevelLabel(d.ads_level)),
-    el('span', { class: `status-pill status-${d.review_status}` }, reviewStatusLabel(d.review_status))
+    el('span', { class: `status-pill status-${d.review_status}` }, reviewStatusLabel(d.review_status, lang))
   ]))
-  node.appendChild(el('h3', { class: 'doc-card-title' }, d.vendor + ' · ' + d.model))
-  node.appendChild(el('p', { class: 'doc-card-function' }, d.function_name))
+  node.appendChild(el('h3', { class: 'doc-card-title' }, vendor + ' · ' + model))
+  node.appendChild(el('p', { class: 'doc-card-function' }, functionName))
 
   // Public-source coverage strip
   if (d.coverage && d.element_count) {
@@ -52,10 +84,10 @@ function card(d) {
     const inferred = d.coverage.inferred || 0
     const gap = d.coverage.gap || 0
     const structural = d.coverage.structural || 0
-    const covWrap = el('div', { class: 'doc-card-coverage', title: `官方/手册 ${direct} · 社区整理 ${community} · 推定 ${inferred} · 公开资料未明确 ${gap} · 结构性 ${structural}` })
+    const covWrap = el('div', { class: 'doc-card-coverage', title: copy[lang].coverageTitle(direct, community, inferred, gap, structural) })
     covWrap.appendChild(el('div', { class: 'cov-label' }, [
       el('strong', {}, `${subst} / ${d.element_count}`),
-      el('span', { class: 'cov-sub' }, ` 公开资料覆盖（${pct}%）`)
+      el('span', { class: 'cov-sub' }, copy[lang].coverageSub(pct))
     ]))
     const segBar = el('div', { class: 'cov-bar' })
     const segs = [
@@ -74,16 +106,16 @@ function card(d) {
 
   if (d.evidence) {
     node.appendChild(el('div', { class: 'doc-card-evidence' }, [
-      el('span', { class: 'evidence-metric evidence-strong' }, `${d.evidence.high_confidence || 0} 项高置信证据`),
-      el('span', { class: 'evidence-metric' }, `${d.evidence.official_or_manual || 0} 项官方/手册`),
-      el('span', { class: 'evidence-metric' }, `${d.evidence.linked || 0} 项逐项引用`)
+      el('span', { class: 'evidence-metric evidence-strong' }, copy[lang].highConfidence(d.evidence.high_confidence || 0)),
+      el('span', { class: 'evidence-metric' }, copy[lang].officialManual(d.evidence.official_or_manual || 0)),
+      el('span', { class: 'evidence-metric' }, copy[lang].linked(d.evidence.linked || 0))
     ]))
   }
 
   node.appendChild(el('div', { class: 'doc-card-stats' }, [
-    el('span', { class: 'stat-item stat-permitted' }, `允许 ${d.permitted_count}`),
-    el('span', { class: 'stat-item stat-not-permitted' }, `不允许 ${d.not_permitted_count}`),
-    el('span', { class: 'stat-item' }, `共 ${d.element_count} 项`)
+    el('span', { class: 'stat-item stat-permitted' }, copy[lang].permitted(d.permitted_count)),
+    el('span', { class: 'stat-item stat-not-permitted' }, copy[lang].notPermitted(d.not_permitted_count)),
+    el('span', { class: 'stat-item' }, copy[lang].total(d.element_count))
   ]))
   node.appendChild(el('p', { class: 'doc-card-meta' }, d.effective_date + (d.software_version ? ' · ' + d.software_version : '')))
   return node
@@ -98,6 +130,6 @@ function card(d) {
     filterStatus.addEventListener('change', applyFilters)
     filterSearch.addEventListener('input', applyFilters)
   } catch (e) {
-    grid.innerHTML = `<p class="error">加载失败：${e.message}</p>`
+    grid.innerHTML = `<p class="error">${copy[lang].loadFailed(e.message)}</p>`
   }
 })()

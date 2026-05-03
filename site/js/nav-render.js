@@ -8,7 +8,7 @@ function navHtml(lang, langHref) {
       <a class="brand" href="/en/"><span class="brand-mark">OpenODC</span></a>
       <div class="nav-links">
         <a href="/en/">Home</a>
-        <a href="/gallery.html">Gallery</a>
+        <a href="/en/gallery.html">Gallery</a>
         <a href="/en/methodology.html">Method</a>
         <a href="/en/tools.html">Tools</a>
         <span class="nav-divider" aria-hidden="true"></span>
@@ -38,8 +38,8 @@ function mount() {
   const isEn = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/')
   const path = window.location.pathname
   const langHref = isEn
-    ? (path.endsWith('/methodology.html') ? '/methodology.html' : (path.endsWith('/tools.html') ? '/tools.html' : '/'))
-    : (path.endsWith('/methodology.html') ? '/en/methodology.html' : (path.endsWith('/tools.html') ? '/en/tools.html' : '/en/'))
+    ? (path.endsWith('/methodology.html') ? '/methodology.html' : (path.endsWith('/tools.html') ? '/tools.html' : (path.endsWith('/gallery.html') ? '/gallery.html' : '/')))
+    : (path.endsWith('/methodology.html') ? '/en/methodology.html' : (path.endsWith('/tools.html') ? '/en/tools.html' : (path.endsWith('/gallery.html') ? '/en/gallery.html' : '/en/')))
   navEl.innerHTML = navHtml(isEn ? 'en' : 'zh', langHref).trim()
 
   const current = window.location.pathname.replace(/\/$/, '/index.html')

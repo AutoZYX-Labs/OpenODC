@@ -295,6 +295,19 @@ function bindToolbar() {
 
 const WORKBENCH_KEY = 'openodc.workbench.v1'
 
+function getWorkbenchFunction(vendorId, functionId) {
+  if (!vendorId || !functionId) return null
+  try {
+    const raw = localStorage.getItem(WORKBENCH_KEY)
+    const workbench = raw ? JSON.parse(raw) : {}
+    const vendor = workbench[vendorId]
+    if (!vendor || !Array.isArray(vendor.functions)) return null
+    return vendor.functions.find(f => f.id === functionId) || null
+  } catch {
+    return null
+  }
+}
+
 function saveToWorkbench() {
   const wbVendor = getQueryParam('workbench_vendor')
   const wbFn = getQueryParam('workbench_fn')
@@ -387,6 +400,16 @@ function toMarkdownSummary(doc) {
 }
 
 async function maybeLoadFromQuery() {
+  const wbVendor = getQueryParam('workbench_vendor')
+  const wbFn = getQueryParam('workbench_fn')
+  const workbenchFn = getWorkbenchFunction(wbVendor, wbFn)
+
+  if (workbenchFn?.odc_draft) {
+    importFromDoc(workbenchFn.odc_draft)
+    showWorkbenchBanner(`已加载工作台草稿「${workbenchFn.name || workbenchFn.odc_draft.function_name || '未命名功能'}」。保存后将覆盖该条本地草稿。`, wbVendor, wbFn)
+    return true
+  }
+
   const loadId = getQueryParam('load')
   if (loadId) {
     try {
@@ -395,20 +418,18 @@ async function maybeLoadFromQuery() {
       if (!entry) { console.warn('load id not found:', loadId); return false }
       const doc = await loadDocument(entry.file)
       importFromDoc(doc)
-      showWorkbenchBanner(`已从样例库加载「${doc.vendor} · ${doc.function_name}」作为起点`, getQueryParam('workbench_vendor'), getQueryParam('workbench_fn'))
+      showWorkbenchBanner(`已从样例库加载「${doc.vendor} · ${doc.function_name}」作为起点`, wbVendor, wbFn)
       return true
     } catch (e) { console.warn('load failed:', e); return false }
   }
 
-  const wbVendor = getQueryParam('workbench_vendor')
-  const wbFn = getQueryParam('workbench_fn')
   if (wbVendor && wbFn) {
     // Prefill blank editor with workbench function metadata
     state.meta.vendor = decodeURIComponent(getQueryParam('wb_vendor_name') || '')
-    state.meta.function_name = decodeURIComponent(getQueryParam('wb_fn_name') || '')
-    state.meta.model = decodeURIComponent(getQueryParam('wb_model') || '')
+    state.meta.function_name = decodeURIComponent(getQueryParam('wb_fn_name') || workbenchFn?.name || '')
+    state.meta.model = decodeURIComponent(getQueryParam('wb_model') || workbenchFn?.model || '')
     const lvl = getQueryParam('wb_level')
-    if (lvl) state.meta.ads_level = parseInt(lvl, 10) || 2
+    if (lvl || workbenchFn?.ads_level) state.meta.ads_level = parseInt(lvl || workbenchFn.ads_level, 10) || 2
     showWorkbenchBanner('从厂家直填工作台进入。已预填厂家 / 车型 / 功能名；请在左侧层级树勾选 ODC 要素。', wbVendor, wbFn)
     return true
   }

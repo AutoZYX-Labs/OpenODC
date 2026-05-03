@@ -261,7 +261,7 @@ async function publishFunction(vendorId, fn) {
   try {
     await navigator.clipboard.writeText(odcJson)
     const ghUrl = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
-    alert(`JSON 已复制到剪贴板（${filename}）\n\n即将打开 GitHub 新建文件页。步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\nPR 描述已作为 commit description 预填。`)
+    alert(`已生成 PR 提交包（${filename}），JSON 已复制到剪贴板。\n\n当前静态 MVP 没有 GitHub OAuth / 后端签名能力，因此会打开 GitHub 新建文件页，由提交者手动创建真实 PR。\n\n步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\nPR 描述已作为 commit description 预填。合并前不会自动标记为 OpenODC 已公开。`)
     window.open(ghUrl, '_blank', 'noopener')
   } catch (e) {
     prompt('复制以下 ODC JSON 到 GitHub 新文件：', odcJson)
@@ -271,7 +271,7 @@ async function publishFunction(vendorId, fn) {
   const vendor = ensureVendor(state, vendorId)
   const rec = vendor.functions.find(x => x.id === fn.id)
   if (rec) {
-    rec.status = 'published'
+    rec.last_publish_package_at = new Date().toISOString()
     rec.updated_at = new Date().toISOString()
     saveState(state)
     renderDashboard(vendorId)

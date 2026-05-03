@@ -52,8 +52,8 @@ Important semantic boundary: L2 records describe feature availability conditions
 - ✅ 144-element public-source coverage metrics, e.g. Huawei ADS 4 sample at 119/144 and Tesla Autopilot China sample at 46/144; this is not a vendor disclosure rate
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
-- ✅ Vendor Workbench MVP: internal status tracking, editor handoff, PR-generation flow
-- ⏳ Phase 4 backend: accounts, Supabase storage, signed publishing, automated PRs
+- ✅ Vendor Workbench MVP: internal status tracking, editor handoff, GitHub PR submission package generation
+- ⏳ Phase 4 backend: accounts, Supabase storage, signed publishing, GitHub App PR automation
 
 Full roadmap: [ARCHITECTURE.md](./ARCHITECTURE.md). Publishing semantics: [Methodology](https://openodc.autozyx.com/en/methodology.html).
 
@@ -130,7 +130,7 @@ for automated driving systems. https://openodc.autozyx.com
 
 ## Related projects
 
-- [ROAM](https://github.com/AutoZYX/ROAM) — L4 Robotaxi Operations Anomaly Management
+- [ROAM](https://autozyx.github.io/ROAM/) — L4 Robotaxi Operations Anomaly Management
 - [DRIVEResearch](https://www.driveresearch.tech/) — Aerial naturalistic driving dataset
 
 Together they form an open AD safety toolkit: ROAM (incident outcomes) + OpenODC (declared design boundary) + DRIVEResearch (measured operational distribution).

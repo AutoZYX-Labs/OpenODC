@@ -52,8 +52,8 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 - ✅ 144 要素公开资料覆盖统计：例如华为 ADS 4 样例为 119/144，Tesla 中国基础 AP 样例为 46/144；该数字不是厂家披露率
 - ✅ 双视图渲染：开发者视图 / 消费者视图
 - ✅ 横向矩阵：144 个国标要素 × 6 个样例逐项对比
-- ✅ 厂家直填 Workbench MVP：内部状态管理、编辑器联动、生成 PR 提交流程
-- ⏳ Phase 4 后端：账号体系、Supabase 存储、签名发布、自动 PR
+- ✅ 厂家直填 Workbench MVP：内部状态管理、编辑器联动、生成 GitHub PR 提交包
+- ⏳ Phase 4 后端：账号体系、Supabase 存储、签名发布、GitHub App 自动创建 PR
 
 完整路线图见 [ARCHITECTURE.md](./ARCHITECTURE.md)。公开传播口径见 [Methodology](https://openodc.autozyx.com/methodology.html)。
 
@@ -147,7 +147,7 @@ for automated driving systems. https://openodc.autozyx.com
 
 ## 相关项目
 
-- [ROAM](https://github.com/AutoZYX/ROAM) — L4 Robotaxi 远程运营事故数据库
+- [ROAM](https://autozyx.github.io/ROAM/) — L4 Robotaxi 远程运营事故数据库
 - [DRIVEResearch](https://www.driveresearch.tech/) — 航测自然驾驶数据集
 
 三者构成 AD 安全开源工具栈：ROAM（事故端）+ OpenODC（设计边界端）+ DRIVEResearch（实测分布端）。
