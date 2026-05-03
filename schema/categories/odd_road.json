@@ -64,7 +64,7 @@
     {
       "id": "odd.road.type.urban_road.branch",
       "name_zh": "支路",
-      "name_en": "Branch Road",
+      "name_en": "Local Road",
       "level": 5,
       "parent_id": "odd.road.type.urban_road",
       "spec_section": "6.2.1.1.2.d",
@@ -136,7 +136,7 @@
     {
       "id": "odd.road.type.other",
       "name_zh": "其他道路",
-      "name_en": "Other Roads",
+      "name_en": "Other Road",
       "level": 4,
       "parent_id": "odd.road.type",
       "spec_section": "6.2.1.1.5",
@@ -174,7 +174,7 @@
     {
       "id": "odd.road.surface.type.paved",
       "name_zh": "铺装状态",
-      "name_en": "Paved Surface",
+      "name_en": "Paved Surface Condition",
       "level": 5,
       "parent_id": "odd.road.surface.type",
       "spec_section": "6.2.1.2.1.a",
@@ -183,7 +183,7 @@
     {
       "id": "odd.road.surface.type.unpaved",
       "name_zh": "非铺装状态",
-      "name_en": "Unpaved Surface",
+      "name_en": "Unpaved Surface Condition",
       "level": 5,
       "parent_id": "odd.road.surface.type",
       "spec_section": "6.2.1.2.1.b",
@@ -247,7 +247,7 @@
     {
       "id": "odd.road.surface.coverage",
       "name_zh": "道路表面覆盖物",
-      "name_en": "Road Surface Coverage",
+      "name_en": "Road Surface Covering",
       "level": 4,
       "parent_id": "odd.road.surface",
       "spec_section": "6.2.1.2.3",
@@ -374,7 +374,7 @@
     {
       "id": "odd.road.lane.marking.absent",
       "name_zh": "无道路交通标线",
-      "name_en": "Absent Marking",
+      "name_en": "No Road Traffic Markings",
       "level": 5,
       "parent_id": "odd.road.lane.marking",
       "spec_section": "6.2.1.4.1.b"
@@ -409,7 +409,7 @@
     {
       "id": "odd.road.lane.type.non_motor",
       "name_zh": "非机动车道",
-      "name_en": "Non-Motor Lane",
+      "name_en": "Non-motorized Vehicle Lane",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.a"
@@ -417,7 +417,7 @@
     {
       "id": "odd.road.lane.type.motor",
       "name_zh": "机动车道",
-      "name_en": "Motor Lane",
+      "name_en": "Motor Vehicle Lane",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.b"
@@ -425,7 +425,7 @@
     {
       "id": "odd.road.lane.type.mixed",
       "name_zh": "机非混行车道",
-      "name_en": "Mixed Lane",
+      "name_en": "Mixed Motor / Non-motorized Lane",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.c"
@@ -441,7 +441,7 @@
     {
       "id": "odd.road.lane.type.dedicated",
       "name_zh": "其他专用车道",
-      "name_en": "Other Dedicated Lane",
+      "name_en": "Other Reserved Lane",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.e",
@@ -450,7 +450,7 @@
     {
       "id": "odd.road.lane.type.tidal",
       "name_zh": "潮汐车道",
-      "name_en": "Tidal Lane",
+      "name_en": "Reversible Lane",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.f",
@@ -491,7 +491,7 @@
     {
       "id": "odd.road.lane.type.total_count",
       "name_zh": "车道类型总数",
-      "name_en": "Lane Type Count",
+      "name_en": "Number of Lane Types",
       "level": 5,
       "parent_id": "odd.road.lane.type",
       "spec_section": "6.2.1.4.2.k"
@@ -557,7 +557,7 @@
     {
       "id": "odd.road.edge.soil_shoulder",
       "name_zh": "土路肩",
-      "name_en": "Soil Shoulder",
+      "name_en": "Earthen Shoulder",
       "level": 4,
       "parent_id": "odd.road.edge",
       "spec_section": "6.2.1.5.5"
@@ -565,7 +565,7 @@
     {
       "id": "odd.road.edge.lawn",
       "name_zh": "草坪",
-      "name_en": "Lawn",
+      "name_en": "Grass Verge",
       "level": 4,
       "parent_id": "odd.road.edge",
       "spec_section": "6.2.1.5.6"
@@ -616,7 +616,7 @@
     {
       "id": "odd.road.intersection.roundabout.normal",
       "name_zh": "常规环岛",
-      "name_en": "Normal Roundabout",
+      "name_en": "Standard Roundabout",
       "level": 5,
       "parent_id": "odd.road.intersection.roundabout",
       "spec_section": "6.2.1.6.2.c"

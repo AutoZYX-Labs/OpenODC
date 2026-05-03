@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>横向矩阵 — OpenODC</title>
-  <meta name="description" content="多家 ADS 系统的 ODC 要素横向对比矩阵：一眼看出每个国标要素，每家厂家的声明差异。" />
+  <title>Matrix — OpenODC</title>
+  <meta name="description" content="Cross-vendor ODC matrix: compare how each public sample states each GB/T ODC element." />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
   <header class="site-header">
     <nav class="nav"></nav>
   </header>
@@ -20,30 +19,29 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">CROSS-VENDOR MATRIX · 横向矩阵</p>
-        <h1 class="page-title">多家 ODC 横向对比矩阵</h1>
-        <p class="page-subtitle">国标 144 要素 × 所有样例 — 一眼看出公开资料说清了什么、没有说清什么、不同系统的边界在哪里差异。图例：<span class="legend-dot req-permitted"></span> 允许 · <span class="legend-dot req-not_permitted"></span> 不允许 · <span class="legend-dot req-gap"></span> 公开资料未明确 · <span class="legend-dot req-structural"></span> 结构性</p>
+        <p class="eyebrow">CROSS-VENDOR MATRIX</p>
+        <h1 class="page-title">ODC Matrix</h1>
+        <p class="page-subtitle">144 GB/T elements × all public samples. See what public sources state, what they do not state, and where system boundaries differ. Legend: <span class="legend-dot req-permitted"></span> permitted · <span class="legend-dot req-not_permitted"></span> not permitted · <span class="legend-dot req-gap"></span> unspecified · <span class="legend-dot req-structural"></span> structural.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container container-wide">
-
         <div class="matrix-filters">
-          <label>类别
+          <label>Category
             <select id="f-category">
-              <option value="">全部类别</option>
+              <option value="">All categories</option>
             </select>
           </label>
-          <label>覆盖层级
+          <label>Coverage
             <select id="f-coverage">
-              <option value="all">显示全部</option>
-              <option value="substantive">仅显示有公开资料支撑的要素（过滤掉全部未明确行）</option>
-              <option value="divergent">仅显示有分歧的要素（各家声明不一致）</option>
+              <option value="all">Show all</option>
+              <option value="substantive">Only elements supported by public evidence</option>
+              <option value="divergent">Only divergent elements</option>
             </select>
           </label>
-          <label>搜索要素
-            <input type="text" id="f-search" placeholder="如：雨、环岛、速度" />
+          <label>Search
+            <input type="text" id="f-search" placeholder="rain, roundabout, speed..." />
           </label>
           <span class="matrix-count" id="matrix-count"></span>
         </div>
@@ -54,7 +52,6 @@
             <tbody id="matrix-body"></tbody>
           </table>
         </div>
-
       </div>
     </section>
   </main>
@@ -62,13 +59,13 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
-        <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">
         <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
-        <a href="/en/matrix.html">English</a>
-        <a href="/methodology.html">方法</a>
+        <a href="/matrix.html">中文</a>
+        <a href="/en/methodology.html">Method</a>
       </div>
     </div>
   </footer>

@@ -1,7 +1,7 @@
 {
   "category_id": "odd.targets",
   "name_zh": "目标物",
-  "name_en": "Targets",
+  "name_en": "Target Objects",
   "level": 2,
   "parent_id": "odd",
   "spec_section": "6.2.3",
@@ -10,7 +10,7 @@
     {
       "id": "odd.targets.motor_vehicle",
       "name_zh": "机动车",
-      "name_en": "Motor Vehicle",
+      "name_en": "Motor Vehicles",
       "level": 3,
       "parent_id": "odd.targets",
       "spec_section": "6.2.3.1",
@@ -25,7 +25,7 @@
     {
       "id": "odd.targets.non_motor_vehicle",
       "name_zh": "非机动车",
-      "name_en": "Non-Motor Vehicle",
+      "name_en": "Non-motorized Vehicles",
       "level": 3,
       "parent_id": "odd.targets",
       "spec_section": "6.2.3.2",
@@ -38,7 +38,7 @@
     {
       "id": "odd.targets.pedestrian",
       "name_zh": "行人",
-      "name_en": "Pedestrian",
+      "name_en": "Pedestrians",
       "level": 3,
       "parent_id": "odd.targets",
       "spec_section": "6.2.3.3",
@@ -48,7 +48,7 @@
     {
       "id": "odd.targets.animal",
       "name_zh": "动物",
-      "name_en": "Animal",
+      "name_en": "Animals",
       "level": 3,
       "parent_id": "odd.targets",
       "spec_section": "6.2.3.4",
@@ -63,7 +63,7 @@
     {
       "id": "odd.targets.obstacle",
       "name_zh": "障碍物",
-      "name_en": "Obstacle",
+      "name_en": "Obstacles",
       "level": 3,
       "parent_id": "odd.targets",
       "spec_section": "6.2.3.5",

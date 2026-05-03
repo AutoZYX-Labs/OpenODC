@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor — OpenODC</title>
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav"></nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">ODC EDITOR</p>
+        <h1 class="page-title">ODC Editor</h1>
+        <p class="page-subtitle">Create a structured ODC record aligned with GB/T 45312—2025. Separate official/manual evidence, community extraction, and inference; L2 records must preserve continuous driver supervision.</p>
+      </div>
+    </section>
+
+    <section class="section editor-section">
+      <div class="container container-wide">
+        <details class="editor-meta-panel" open>
+          <summary>① Basic Information</summary>
+          <div class="meta-grid">
+            <label>Vendor (Chinese)<input type="text" id="m-vendor" placeholder="比亚迪" /></label>
+            <label>Vendor (English)<input type="text" id="m-vendor_en" placeholder="BYD" /></label>
+            <label>Model (Chinese)<input type="text" id="m-model" placeholder="汉 EV 2026 款" /></label>
+            <label>Model (English)<input type="text" id="m-model_en" placeholder="Han EV 2026" /></label>
+            <label>Feature Name (Chinese)<input type="text" id="m-function_name" placeholder="DiPilot Highway" /></label>
+            <label>Feature Name (English)<input type="text" id="m-function_name_en" placeholder="DiPilot Highway" /></label>
+            <label>Automation Level
+              <select id="m-ads_level">
+                <option value="0">L0</option>
+                <option value="1">L1</option>
+                <option value="2" selected>L2</option>
+                <option value="3">L3</option>
+                <option value="4">L4</option>
+                <option value="5">L5</option>
+              </select>
+            </label>
+            <label>Software Version<input type="text" id="m-software_version" placeholder="OTA 2026.4" /></label>
+            <label>Hardware Configuration<input type="text" id="m-hardware_config" placeholder="e.g. Orin-X" /></label>
+            <label>Effective Date<input type="date" id="m-effective_date" /></label>
+            <label>Submitter (GitHub username)<input type="text" id="m-submitted_by" placeholder="AutoZYX" /></label>
+            <label>Review Status
+              <select id="m-review_status">
+                <option value="draft" selected>Community draft</option>
+                <option value="community_reviewed">Community-reviewed</option>
+                <option value="vendor_confirmed">Vendor-confirmed</option>
+              </select>
+            </label>
+            <label class="meta-full">Sources (one URL or citation per line)<textarea id="m-sources" rows="3" placeholder="https://example.com/owner-manual.pdf&#10;Official operating rule / government notice / third-party test"></textarea></label>
+          </div>
+        </details>
+
+        <details class="editor-help" open>
+          <summary>② Editing Steps</summary>
+          <ol>
+            <li>Select elements from the taxonomy tree, then set each item to permitted or not permitted.</li>
+            <li>Not-permitted items should specify exit behavior where applicable.</li>
+            <li>For permitted items, add quantitative ranges when public evidence supports them; otherwise mark public evidence gaps explicitly.</li>
+            <li>L2 records describe feature use conditions only; they must not imply that the system performs the dynamic driving task without the driver.</li>
+            <li>The JSON preview updates live. Export JSON or Markdown when ready.</li>
+            <li>Submit the JSON file under <code>data/examples/</code> through the <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub repository</a>.</li>
+          </ol>
+        </details>
+
+        <div class="editor-toolbar">
+          <button class="btn-link" id="t-load-example">Load AITO ADS 4 Sample</button>
+          <button class="btn-link" id="t-clear">Clear</button>
+          <button class="btn-link" id="t-save-local">Save Locally</button>
+          <button class="btn-link" id="t-load-local">Restore Local Draft</button>
+          <span class="toolbar-spacer"></span>
+          <button class="btn-link btn-workbench" id="t-save-workbench" hidden>Save and Return to Workbench</button>
+          <button class="btn-link btn-workbench" id="t-open-pr" hidden>Generate PR Package</button>
+          <span class="toolbar-spacer" id="t-workbench-spacer" hidden></span>
+          <button class="btn-link" id="t-download-json">Download JSON</button>
+          <button class="btn-link" id="t-download-md">Download Markdown</button>
+          <button class="btn-link" id="t-copy-json">Copy JSON</button>
+        </div>
+
+        <div class="editor-body">
+          <div class="editor-tree-pane">
+            <h3>③ Element Taxonomy</h3>
+            <input type="text" id="tree-search" placeholder="Search elements..." class="tree-search" />
+            <div id="catalog-tree" class="catalog-tree">
+              <p class="loading">Loading taxonomy...</p>
+            </div>
+          </div>
+
+          <div class="editor-selected-pane">
+            <h3>④ Declared Elements <span class="el-count" id="selected-count">0</span></h3>
+            <div id="selected-list" class="selected-list">
+              <p class="empty-hint">No elements declared yet. Select elements from the taxonomy tree.</p>
+            </div>
+          </div>
+
+          <div class="editor-preview-pane">
+            <h3>⑤ JSON Preview</h3>
+            <pre id="json-preview" class="json-preview"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/editor.html">中文</a>
+        <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/editor.js"></script>
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>

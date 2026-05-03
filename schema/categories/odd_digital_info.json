@@ -55,7 +55,7 @@
     {
       "id": "odd.digital.position",
       "name_zh": "位置信号",
-      "name_en": "Positioning Signal",
+      "name_en": "Positioning Signals",
       "level": 3,
       "parent_id": "odd.digital",
       "spec_section": "6.2.5.2"

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>厂家直填 — OpenODC</title>
-  <meta name="description" content="OEM / Tier 1 内部统一管理在研 / 预发布 / 已上市 ADS 功能的 ODC 要素，SOP 后一键推送到 OpenODC 公开样例库。" />
+  <title>厂家工作台 — OpenODC</title>
+  <meta name="description" content="OEM / Tier 1 内部维护 ADS 功能 ODC 要素，并生成可审查的公开提交包。" />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,11 +20,11 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">VENDOR WORKBENCH · 厂家直填</p>
+        <p class="eyebrow">VENDOR WORKBENCH</p>
         <h1 class="page-title">厂家 ODC 工作台</h1>
-        <p class="page-subtitle">OEM / Tier 1 在内部统一维护所有 ADS 功能的 ODC 要素——在研 / 预发布 / 已上市全周期。SOP 达成后，一键推送到 OpenODC 公开样例库。</p>
+        <p class="page-subtitle">面向 OEM / Tier 1 的 ODC 维护入口：先在内部整理功能边界、证据来源和版本信息，再生成可审查的 OpenODC 提交包。</p>
         <div class="workbench-phase-banner">
-          <strong>Phase 4 · MVP 演示</strong> — 本页面为前端演示（数据存于浏览器 localStorage，切换设备 / 清缓存会丢失）。当前版本可生成 GitHub PR 提交包；正式版将接入账号体系、后端存储、签名发布与 GitHub App 自动建 PR。<a href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">提产品反馈 →</a>
+          <strong>公开版工作台</strong> — 当前页面把草稿保存在本机浏览器，不上传到 OpenODC 服务器。对外提交时会生成 GitHub PR 提交包，由提交者确认、脱敏并接受社区审查。<a href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">反馈需求 →</a>
         </div>
       </div>
     </section>
@@ -48,7 +48,7 @@
             <option value="momenta">Momenta</option>
             <option value="other">其他 / Tier 1</option>
           </select>
-          <span class="workbench-hint">演示模式：任意选择即可查看该厂家的 ODC 管理界面。</span>
+          <span class="workbench-hint">本地工作区：选择厂家后，可基于已公开样例继续维护，也可新建内部草稿。</span>
         </div>
 
         <div id="workbench-body" class="workbench-body">
@@ -60,24 +60,24 @@
 
     <section class="section section-alt">
       <div class="container">
-        <h2 class="section-title">为什么需要「厂家直填」</h2>
+        <h2 class="section-title">厂家工作台解决什么问题</h2>
         <div class="two-col">
           <div>
-            <h3>现状痛点</h3>
+            <h3>内部管理</h3>
             <ul class="problem-list">
-              <li>每家 OEM / Tier 1 同时开发 5–30+ 个 ADS 功能（不同车型、不同等级、不同市场）</li>
-              <li>ODC 散落在 Confluence / 飞书 / Excel 里，每个项目组格式各异</li>
-              <li>上市前法规审查、媒体测评、事故追溯，都需要翻回"当时的"ODC 声明</li>
-              <li>对外发布的 ODC 文本无法机器读取，监管 / 第三方做横向对比成本高</li>
+              <li>同一厂家往往同时维护多个车型、多个市场、多个 ADS 功能版本</li>
+              <li>ODC 信息需要连接产品、法规、功能安全、SOTIF、测试和售后追溯</li>
+              <li>每次 SOP 或 OTA 都应保留当时的运行边界、证据来源和审核状态</li>
+              <li>对外公开前，需要先区分可公开字段、内部字段和仍需核验字段</li>
             </ul>
           </div>
           <div>
-            <h3>厂家直填的价值</h3>
+            <h3>公开提交</h3>
             <ul class="problem-list">
-              <li><strong>统一格式</strong>：国标 GB/T 45312—2025 提供的标准化结构，自然成为内部所有项目的通用语言</li>
-              <li><strong>版本管理</strong>：从 SOP 开始，每次 OTA 都带一份 ODC 版本号；事后追溯直接定位</li>
-              <li><strong>协作编辑</strong>：架构 / 功能安全 / 法规 / 产品多角色共编，字段级权限</li>
-              <li><strong>一键公开</strong>：SOP 达成后，对外版本（脱敏后）自动推送 OpenODC；既解决"对外披露"又贡献行业标准化</li>
+              <li><strong>统一格式</strong>：使用 GB/T 45312—2025 的 144 项要素，减少自由文本解释空间</li>
+              <li><strong>证据绑定</strong>：每个关键要素都应关联手册、官方页面、运营规则或监管材料</li>
+              <li><strong>版本留痕</strong>：公开样例进入 GitHub 后，可通过提交历史追踪每次边界变化</li>
+              <li><strong>可审查发布</strong>：提交包进入 PR 流程后，由社区检查来源、术语和 L2/L3/L4 语义边界</li>
             </ul>
           </div>
         </div>
@@ -86,24 +86,29 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">正式版路线图</h2>
+        <h2 class="section-title">推荐使用流程</h2>
         <ul class="status-list">
-          <li class="done">Phase 4.0（当前）：前端 localStorage 演示 — 验证工作流</li>
-          <li class="todo">Phase 4.1：账号体系（OEM 管理员 / 项目成员 / 只读观察员）+ Supabase 后端</li>
-          <li class="todo">Phase 4.2：功能组织结构（按车型 / 按等级 / 按市场筛选 + 标签）</li>
-          <li class="todo">Phase 4.3：版本历史 + diff（看每次 OTA 改了哪些要素）+ 字段级注释</li>
-          <li class="todo">Phase 4.4：签名发布 + GitHub App 自动创建 PR 至公开样例库</li>
-          <li class="todo">Phase 4.5：OEM SaaS 订阅 — 让项目长期可持续</li>
+          <li class="done">选择厂家或 Tier 1 身份，创建需要维护的 ADS 功能条目</li>
+          <li class="done">进入 ODC 编辑器，按 144 项国标元素补充允许条件、限制条件和退出行为</li>
+          <li class="done">为关键要素绑定官方手册、产品页、运营规则或监管材料</li>
+          <li class="done">在 SOP、OTA 或公开发布节点生成 PR 提交包</li>
+          <li class="done">通过 GitHub PR 接受公开审查，合并后进入 OpenODC 样例库</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p class="footer-brand">OpenODC</p>
-      <p class="footer-note">自动驾驶系统运行设计条件开源平台 · 对齐 GB/T 45312—2025 · Apache 2.0（代码）+ CC BY 4.0（数据）</p>
-      <p class="footer-maintainer">维护：张玉新 · 吉林大学</p>
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/en/workbench.html">English</a>
+        <a href="/methodology.html">方法</a>
+      </div>
     </div>
   </footer>
 

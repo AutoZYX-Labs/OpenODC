@@ -2,6 +2,18 @@
 // Every HTML page renders an empty <nav class="nav"></nav>; this script
 // populates it so that the nav is byte-identical across all pages.
 
+const bilingualPages = new Set([
+  'index.html',
+  'gallery.html',
+  'methodology.html',
+  'tools.html',
+  'view.html',
+  'compare.html',
+  'matrix.html',
+  'editor.html',
+  'workbench.html'
+])
+
 function navHtml(lang, langHref) {
   if (lang === 'en') {
     return `
@@ -36,11 +48,13 @@ function mount() {
   const navEl = document.querySelector('nav.nav')
   if (!navEl) return
   const isEn = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/')
-  const path = window.location.pathname
-  const langHref = isEn
-    ? (path.endsWith('/methodology.html') ? '/methodology.html' : (path.endsWith('/tools.html') ? '/tools.html' : (path.endsWith('/gallery.html') ? '/gallery.html' : '/')))
-    : (path.endsWith('/methodology.html') ? '/en/methodology.html' : (path.endsWith('/tools.html') ? '/en/tools.html' : (path.endsWith('/gallery.html') ? '/en/gallery.html' : '/en/')))
+  const langHref = alternateLanguageHref(isEn)
   navEl.innerHTML = navHtml(isEn ? 'en' : 'zh', langHref).trim()
+
+  document.querySelectorAll('.footer-links a').forEach(a => {
+    const text = (a.textContent || '').trim().toLowerCase()
+    if (text === 'english' || text === '中文') a.setAttribute('href', langHref)
+  })
 
   const current = window.location.pathname.replace(/\/$/, '/index.html')
   navEl.querySelectorAll('a[href]').forEach(a => {
@@ -49,6 +63,28 @@ function mount() {
     const normalizedHref = href.replace(/\/$/, '/index.html')
     if (current === normalizedHref) a.classList.add('active')
   })
+}
+
+function alternateLanguageHref(isEn) {
+  const url = new URL(window.location.href)
+  let path = url.pathname
+  if (path === '/en') path = '/en/'
+  if (path.endsWith('/')) path += 'index.html'
+  const last = path.split('/').pop()
+  if (last && !last.includes('.')) path += '.html'
+  const query = url.search || ''
+  const hash = url.hash || ''
+
+  if (isEn) {
+    let zhPath = path.replace(/^\/en\//, '/')
+    if (zhPath === '/index.html') zhPath = '/'
+    return zhPath + query + hash
+  }
+
+  const file = path.split('/').pop() || 'index.html'
+  if (!bilingualPages.has(file)) return '/en/' + query + hash
+  const enPath = file === 'index.html' ? '/en/' : `/en/${file}`
+  return enPath + query + hash
 }
 
 if (document.readyState === 'loading') {

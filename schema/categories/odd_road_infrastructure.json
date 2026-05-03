@@ -10,7 +10,7 @@
     {
       "id": "odd.infrastructure.traffic_control",
       "name_zh": "交通控制设施",
-      "name_en": "Traffic Control Facility",
+      "name_en": "Traffic Control Facilities",
       "level": 3,
       "parent_id": "odd.infrastructure",
       "spec_section": "6.2.2.1"
@@ -18,7 +18,7 @@
     {
       "id": "odd.infrastructure.traffic_control.sign",
       "name_zh": "道路交通标志",
-      "name_en": "Traffic Sign",
+      "name_en": "Road Traffic Signs",
       "level": 4,
       "parent_id": "odd.infrastructure.traffic_control",
       "spec_section": "6.2.2.1.1",
@@ -36,7 +36,7 @@
     {
       "id": "odd.infrastructure.traffic_control.signal",
       "name_zh": "交通信号灯",
-      "name_en": "Traffic Signal",
+      "name_en": "Traffic Signals",
       "level": 4,
       "parent_id": "odd.infrastructure.traffic_control",
       "spec_section": "6.2.2.1.2",
@@ -76,7 +76,7 @@
     {
       "id": "odd.infrastructure.roadside.streetlight",
       "name_zh": "路灯",
-      "name_en": "Streetlight",
+      "name_en": "Street Lighting",
       "level": 4,
       "parent_id": "odd.infrastructure.roadside",
       "spec_section": "6.2.2.2.3",
@@ -86,7 +86,7 @@
     {
       "id": "odd.infrastructure.special",
       "name_zh": "特殊设施",
-      "name_en": "Special Facility",
+      "name_en": "Special Facilities",
       "level": 3,
       "parent_id": "odd.infrastructure",
       "spec_section": "6.2.2.3"
@@ -118,7 +118,7 @@
     {
       "id": "odd.infrastructure.special.height_width_limit",
       "name_zh": "限高/限宽设施",
-      "name_en": "Height/Width Limit Facility",
+      "name_en": "Height / Width Restriction Facility",
       "level": 4,
       "parent_id": "odd.infrastructure.special",
       "spec_section": "6.2.2.3.4"
@@ -166,7 +166,7 @@
     {
       "id": "odd.infrastructure.special.warning_post",
       "name_zh": "交通警示柱",
-      "name_en": "Traffic Warning Post",
+      "name_en": "Traffic Warning Post / Delineator",
       "level": 4,
       "parent_id": "odd.infrastructure.special",
       "spec_section": "6.2.2.3.10"
@@ -175,7 +175,7 @@
     {
       "id": "odd.infrastructure.temporary",
       "name_zh": "道路临时设施",
-      "name_en": "Temporary Road Facility",
+      "name_en": "Temporary Road Facilities",
       "level": 3,
       "parent_id": "odd.infrastructure",
       "spec_section": "6.2.2.4"
@@ -201,7 +201,7 @@
     {
       "id": "odd.infrastructure.temporary.traffic_control",
       "name_zh": "交通管制",
-      "name_en": "Traffic Control",
+      "name_en": "Temporary Traffic Control",
       "level": 4,
       "parent_id": "odd.infrastructure.temporary",
       "spec_section": "6.2.2.4.3",

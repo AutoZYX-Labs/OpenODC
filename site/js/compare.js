@@ -1,6 +1,7 @@
 import {
   loadCatalog, loadManifest, loadDocument,
   buildElementIndex, requirementLabel, adsLevelLabel, reviewStatusLabel,
+  lang, docVendor, docModel, docFunctionName, elementName, categoryName,
   el, getQueryParam
 } from './common.js'
 
@@ -14,6 +15,23 @@ let elementIndex = null
 let manifest = null
 let selected = new Set()
 
+const copy = {
+  zh: {
+    maxFour: '最多对比 4 个',
+    loading: '加载文档…',
+    chooseAgain: '← 重新选择',
+    element: '元素',
+    loadFailed: msg => `加载失败：${msg}`
+  },
+  en: {
+    maxFour: 'Compare up to 4 records',
+    loading: 'Loading records…',
+    chooseAgain: '← Choose again',
+    element: 'Element',
+    loadFailed: msg => `Load failed: ${msg}`
+  }
+}
+
 function renderPicker() {
   pickerGrid.innerHTML = ''
   for (const d of manifest.documents) {
@@ -21,18 +39,18 @@ function renderPicker() {
     const cb = el('input', { type: 'checkbox', value: d.id })
     if (selected.has(d.id)) cb.checked = true
     cb.addEventListener('change', () => {
-      if (cb.checked && selected.size >= 4) { cb.checked = false; alert('最多对比 4 个'); return }
+      if (cb.checked && selected.size >= 4) { cb.checked = false; alert(copy[lang].maxFour); return }
       cb.checked ? selected.add(d.id) : selected.delete(d.id)
       runBtn.disabled = selected.size < 2
       renderPicker()
     })
     card.appendChild(cb)
     card.appendChild(el('div', { class: 'picker-card-info' }, [
-      el('div', { class: 'picker-title' }, `${d.vendor} · ${d.model}`),
-      el('div', { class: 'picker-sub' }, d.function_name),
+      el('div', { class: 'picker-title' }, `${docVendor(d)} · ${docModel(d)}`),
+      el('div', { class: 'picker-sub' }, docFunctionName(d)),
       el('div', { class: 'picker-pills' }, [
         el('span', { class: `ads-pill ads-pill-l${d.ads_level}` }, adsLevelLabel(d.ads_level)),
-        el('span', { class: `status-pill status-${d.review_status}` }, reviewStatusLabel(d.review_status))
+        el('span', { class: `status-pill status-${d.review_status}` }, reviewStatusLabel(d.review_status, lang))
       ])
     ]))
     pickerGrid.appendChild(card)
@@ -42,7 +60,7 @@ function renderPicker() {
 async function runCompare() {
   pickerEl.style.display = 'none'
   resultEl.hidden = false
-  resultEl.innerHTML = '<p class="loading">加载文档…</p>'
+  resultEl.innerHTML = `<p class="loading">${copy[lang].loading}</p>`
   const ids = [...selected]
   const docs = await Promise.all(ids.map(id => {
     const f = manifest.documents.find(d => d.id === id).file
@@ -53,7 +71,7 @@ async function runCompare() {
 
 function renderDiff(docs) {
   resultEl.innerHTML = ''
-  const back = el('button', { class: 'btn-link', onclick: () => { pickerEl.style.display = ''; resultEl.hidden = true; selected.clear(); runBtn.disabled = true; renderPicker() } }, '← 重新选择')
+  const back = el('button', { class: 'btn-link', onclick: () => { pickerEl.style.display = ''; resultEl.hidden = true; selected.clear(); runBtn.disabled = true; renderPicker() } }, copy[lang].chooseAgain)
   resultEl.appendChild(back)
 
   // For each catalog element, compute the cell value per document
@@ -64,10 +82,10 @@ function renderDiff(docs) {
   for (const d of docs) {
     summary.appendChild(el('div', { class: 'compare-doc-header' }, [
       el('h3', {}, `${d.vendor} · ${d.model}`),
-      el('p', {}, d.function_name),
+      el('p', {}, docFunctionName(d)),
       el('div', { class: 'doc-badges' }, [
         el('span', { class: `ads-pill ads-pill-l${d.ads_level}` }, adsLevelLabel(d.ads_level)),
-        el('span', { class: `status-pill status-${d.metadata.review_status}` }, reviewStatusLabel(d.metadata.review_status))
+        el('span', { class: `status-pill status-${d.metadata.review_status}` }, reviewStatusLabel(d.metadata.review_status, lang))
       ])
     ]))
   }
@@ -80,12 +98,12 @@ function renderDiff(docs) {
     if (!anyDeclared) continue
 
     const block = el('div', { class: 'cat-block' })
-    block.appendChild(el('h2', { class: 'cat-title' }, cat.name_zh))
+    block.appendChild(el('h2', { class: 'cat-title' }, categoryName(cat)))
 
     const table = el('table', { class: 'odc-table compare-table' })
     const thead = el('thead')
-    const headRow = el('tr', {}, [el('th', {}, '元素')])
-    for (const d of docs) headRow.appendChild(el('th', {}, `${d.vendor} ${d.model}`))
+    const headRow = el('tr', {}, [el('th', {}, copy[lang].element)])
+    for (const d of docs) headRow.appendChild(el('th', {}, `${docVendor(d)} ${docModel(d)}`))
     thead.appendChild(headRow)
     table.appendChild(thead)
 
@@ -106,14 +124,14 @@ function renderDiff(docs) {
 
       const row = el('tr', { class: rowClass })
       row.appendChild(el('td', {}, [
-        el('div', { class: 'el-name' }, e.name_zh),
+        el('div', { class: 'el-name' }, elementName(e)),
         el('div', { class: 'el-section' }, '§' + e.spec_section)
       ]))
       for (const v of cellsValues) {
         if (!v) row.appendChild(el('td', { class: 'compare-cell compare-cell-missing' }, '—'))
         else {
           const cell = el('td', { class: `compare-cell req-${v.requirement}` }, [
-            el('span', { class: 'compare-req' }, requirementLabel(v.requirement)),
+            el('span', { class: 'compare-req' }, requirementLabel(v.requirement, lang)),
             v.parameter_range ? el('div', { class: 'param-range' }, v.parameter_range) : null
           ])
           row.appendChild(cell)
@@ -141,6 +159,6 @@ function renderDiff(docs) {
     runBtn.addEventListener('click', runCompare)
     if (selected.size >= 2) runCompare()
   } catch (e) {
-    pickerGrid.innerHTML = `<p class="error">加载失败：${e.message}</p>`
+    pickerGrid.innerHTML = `<p class="error">${copy[lang].loadFailed(e.message)}</p>`
   }
 })()

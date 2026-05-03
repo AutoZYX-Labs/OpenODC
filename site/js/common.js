@@ -2,6 +2,12 @@
 
 export const SPEC_REFERENCE = 'GB/T 45312-2025'
 
+export const lang = (document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/')) ? 'en' : 'zh'
+
+export function isEnglish() {
+  return lang === 'en'
+}
+
 export async function loadCatalog() {
   const r = await fetch('/data/catalog.json')
   if (!r.ok) throw new Error(`Failed to load catalog: ${r.status}`)
@@ -29,6 +35,39 @@ export function buildElementIndex(catalog) {
     }
   }
   return index
+}
+
+export function docVendor(doc) {
+  return lang === 'en' ? (doc.vendor_en || doc.vendor) : doc.vendor
+}
+
+export function docModel(doc) {
+  return lang === 'en' ? (doc.model_en || doc.model) : doc.model
+}
+
+export function docFunctionName(doc) {
+  return lang === 'en' ? (doc.function_name_en || doc.function_name) : doc.function_name
+}
+
+export function elementName(meta) {
+  return lang === 'en' ? (meta.name_en || meta.name_zh || meta.id) : (meta.name_zh || meta.name_en || meta.id)
+}
+
+export function categoryName(metaOrGroup) {
+  return lang === 'en'
+    ? (metaOrGroup.category_name_en || metaOrGroup.name_en || metaOrGroup.category_name_zh || metaOrGroup.name_zh)
+    : (metaOrGroup.category_name_zh || metaOrGroup.name_zh || metaOrGroup.category_name_en || metaOrGroup.name_en)
+}
+
+export function localizeEvidenceText(text) {
+  if (lang !== 'en' || !text) return text || ''
+  return text
+    .replaceAll('[手册未涉及]', '[Not covered in manual]')
+    .replaceAll('[公开资料未明确]', '[Not specified in public sources]')
+    .replaceAll('[结构性类别]', '[Structural category]')
+    .replaceAll('[手册明确]', '[Manual-backed]')
+    .replaceAll('[官方声明]', '[Official statement]')
+    .replaceAll('[推定]', '[Inferred]')
 }
 
 // Group document elements by their second-level category

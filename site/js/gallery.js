@@ -66,7 +66,8 @@ function render(docs) {
 }
 
 function card(d) {
-  const node = el('a', { href: `/view.html?id=${encodeURIComponent(d.id)}`, class: 'doc-card' })
+  const viewPath = lang === 'en' ? '/en/view.html' : '/view.html'
+  const node = el('a', { href: `${viewPath}?id=${encodeURIComponent(d.id)}`, class: 'doc-card' })
   const vendor = isEn ? (d.vendor_en || d.vendor) : d.vendor
   const model = isEn ? (d.model_en || d.model) : d.model
   const functionName = isEn ? (d.function_name_en || d.function_name) : d.function_name

@@ -74,7 +74,7 @@
     {
       "id": "vehicle.other_systems",
       "name_zh": "车辆其他系统状态",
-      "name_en": "Other Vehicle Systems State",
+      "name_en": "Other Vehicle System States",
       "level": 2,
       "parent_id": "vehicle",
       "spec_section": "6.4.3",

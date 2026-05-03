@@ -1,7 +1,7 @@
 {
   "category_id": "odd.weather",
   "name_zh": "天气环境",
-  "name_en": "Weather Environment",
+  "name_en": "Weather and Environmental Conditions",
   "level": 2,
   "parent_id": "odd",
   "spec_section": "6.2.4",
@@ -10,7 +10,7 @@
     {
       "id": "odd.weather.atmospheric",
       "name_zh": "天气",
-      "name_en": "Atmospheric Weather",
+      "name_en": "Weather Conditions",
       "level": 3,
       "parent_id": "odd.weather",
       "spec_section": "6.2.4.1"
@@ -62,7 +62,7 @@
     {
       "id": "odd.weather.atmospheric.special",
       "name_zh": "特殊天气",
-      "name_en": "Special Weather",
+      "name_en": "Special Weather Conditions",
       "level": 4,
       "parent_id": "odd.weather.atmospheric",
       "spec_section": "6.2.4.1.4",
@@ -73,7 +73,7 @@
     {
       "id": "odd.weather.particles",
       "name_zh": "颗粒物",
-      "name_en": "Particulates",
+      "name_en": "Airborne Particulates",
       "level": 3,
       "parent_id": "odd.weather",
       "spec_section": "6.2.4.2"
@@ -102,7 +102,7 @@
     {
       "id": "odd.weather.particles.dust",
       "name_zh": "沙尘",
-      "name_en": "Dust",
+      "name_en": "Sand / Dust",
       "level": 4,
       "parent_id": "odd.weather.particles",
       "spec_section": "6.2.4.2.3",
@@ -142,7 +142,7 @@
     {
       "id": "odd.weather.lighting.streetlight",
       "name_zh": "路灯",
-      "name_en": "Streetlight (Lighting)",
+      "name_en": "Street Lighting",
       "level": 5,
       "parent_id": "odd.weather.lighting.artificial",
       "spec_section": "6.2.4.3.2.a",
@@ -152,7 +152,7 @@
     {
       "id": "odd.weather.lighting.headlight",
       "name_zh": "车灯",
-      "name_en": "Vehicle Headlight",
+      "name_en": "Vehicle Headlights",
       "level": 5,
       "parent_id": "odd.weather.lighting.artificial",
       "spec_section": "6.2.4.3.2.b",

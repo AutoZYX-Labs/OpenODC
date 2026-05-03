@@ -2,6 +2,7 @@ import {
   loadCatalog, loadDocument, loadManifest,
   buildElementIndex,
   requirementLabel, exitBehaviorLabel, adsLevelLabel, reviewStatusLabel,
+  lang, elementName, categoryName,
   el, downloadBlob, getQueryParam
 } from './common.js'
 
@@ -9,6 +10,69 @@ const STORAGE_KEY = 'openodc-editor-draft-v1'
 
 let catalog = null
 let elementIndex = null
+
+const copy = {
+  zh: {
+    noMatch: '没有匹配元素',
+    noSelected: '还没有声明任何元素。从左侧层级树中点击元素加入。',
+    description: '说明',
+    optional: '可选',
+    parameterRange: '参数范围',
+    parameterExample: '如：曲率半径 ≥ 150 m',
+    exitBehavior: '退出行为',
+    confirmClear: '确认清空当前编辑内容？',
+    saved: '已保存到浏览器本地存储。',
+    noDraft: '没有本地保存的草稿',
+    copied: '已复制到剪贴板',
+    notWorkbench: '非工作台会话',
+    unnamed: '（未命名）',
+    prCopied: filename => `JSON 已复制到剪贴板。即将打开 GitHub 新建文件页（文件名已预填 ${filename}）。\n\n步骤：\n1. 粘贴内容（Ctrl/Cmd + V）\n2. 底部 Commit 消息填 "Add ODC record"\n3. 选 "Create new branch for this commit and start a pull request"\n4. 点击 Commit changes`,
+    copyFailed: '复制失败；请使用“下载 JSON”然后手动上传',
+    mdLabels: {
+      level: '自动化等级',
+      software: '软件版本',
+      effective: '生效日期',
+      standard: '标准依据',
+      status: '审核状态',
+      count: n => `共 ${n} 项 ODC 元素。`
+    },
+    loadedDraft: name => `已加载工作台草稿「${name}」。保存后将覆盖该条本地草稿。`,
+    loadedSample: doc => `已从样例库加载「${doc.vendor} · ${doc.function_name}」作为起点`,
+    fromWorkbench: '从厂家工作台进入。已预填厂家 / 车型 / 功能名；请在左侧层级树勾选 ODC 要素。',
+    backWorkbench: '← 返回工作台',
+    loadFailed: msg => `加载失败：${msg}`
+  },
+  en: {
+    noMatch: 'No matching elements',
+    noSelected: 'No elements declared yet. Select elements from the taxonomy tree.',
+    description: 'Description',
+    optional: 'Optional',
+    parameterRange: 'Parameter range',
+    parameterExample: 'e.g. curve radius ≥ 150 m',
+    exitBehavior: 'Exit behavior',
+    confirmClear: 'Clear the current draft?',
+    saved: 'Saved to browser local storage.',
+    noDraft: 'No locally saved draft',
+    copied: 'Copied to clipboard',
+    notWorkbench: 'Not a workbench session',
+    unnamed: '(untitled)',
+    prCopied: filename => `JSON copied to clipboard. A GitHub new-file page will open with filename ${filename}.\n\nSteps:\n1. Paste the JSON content\n2. Use a commit message such as "Add ODC record"\n3. Select "Create a new branch for this commit and start a pull request"\n4. Click Commit changes`,
+    copyFailed: 'Copy failed; download the JSON and upload it manually',
+    mdLabels: {
+      level: 'Automation level',
+      software: 'Software version',
+      effective: 'Effective date',
+      standard: 'Standard',
+      status: 'Review status',
+      count: n => `${n} ODC elements.`
+    },
+    loadedDraft: name => `Loaded workbench draft “${name}”. Saving will overwrite this local draft.`,
+    loadedSample: doc => `Loaded “${doc.vendor_en || doc.vendor} · ${doc.function_name_en || doc.function_name}” from the gallery as a starting point.`,
+    fromWorkbench: 'Opened from the vendor workbench. Vendor, model, and feature metadata are prefilled; select ODC elements from the taxonomy tree.',
+    backWorkbench: '← Back to Workbench',
+    loadFailed: msg => `Load failed: ${msg}`
+  }
+}
 
 const state = {
   meta: {
@@ -52,7 +116,7 @@ function renderTree(filter = '') {
   const q = filter.trim().toLowerCase()
   for (const cat of catalog.categories) {
     const catNode = el('div', { class: 'tree-cat' })
-    catNode.appendChild(el('h4', { class: 'tree-cat-title' }, cat.name_zh + ' · §' + cat.spec_section))
+    catNode.appendChild(el('h4', { class: 'tree-cat-title' }, categoryName(cat) + ' · §' + cat.spec_section))
 
     // Build a sub-tree for this category by parent_id relationships
     const byParent = new Map()
@@ -68,7 +132,7 @@ function renderTree(filter = '') {
     }
   }
   if (treeContainer.children.length === 0) {
-    treeContainer.appendChild(el('p', { class: 'empty-hint' }, '没有匹配元素'))
+    treeContainer.appendChild(el('p', { class: 'empty-hint' }, copy[lang].noMatch))
   }
 }
 
@@ -77,7 +141,7 @@ function renderSubTree(parentId, byParent, q, cat) {
   if (children.length === 0) return null
   const ul = el('ul', { class: 'tree-list' })
   for (const child of children) {
-    const matches = !q || child.name_zh.toLowerCase().includes(q) || child.id.toLowerCase().includes(q)
+    const matches = !q || (child.name_zh || '').toLowerCase().includes(q) || (child.name_en || '').toLowerCase().includes(q) || child.id.toLowerCase().includes(q)
     const subUl = renderSubTree(child.id, byParent, q, cat)
     if (!matches && (!subUl || subUl.children.length === 0)) continue
     const li = el('li', { class: 'tree-item' })
@@ -102,7 +166,7 @@ function renderSubTree(parentId, byParent, q, cat) {
       }
     }, [
       el('span', { class: 'tree-marker' }, isSelected ? '✓' : '+'),
-      el('span', { class: 'tree-name' }, child.name_zh),
+      el('span', { class: 'tree-name' }, elementName(child)),
       el('span', { class: 'tree-section' }, '§' + child.spec_section)
     ])
     li.appendChild(label)
@@ -116,7 +180,7 @@ function renderSelected() {
   selectedCount.textContent = String(state.elements.size)
   selectedList.innerHTML = ''
   if (state.elements.size === 0) {
-    selectedList.appendChild(el('p', { class: 'empty-hint' }, '还没有声明任何元素。从左侧层级树中点击元素加入。'))
+    selectedList.appendChild(el('p', { class: 'empty-hint' }, copy[lang].noSelected))
     return
   }
   // Group by category
@@ -125,7 +189,7 @@ function renderSelected() {
     const meta = elementIndex.get(id)
     if (!meta) continue
     const key = meta.category_id
-    if (!groups.has(key)) groups.set(key, { name: meta.category_name_zh, items: [] })
+    if (!groups.has(key)) groups.set(key, { name: categoryName(meta), items: [] })
     groups.get(key).items.push({ id, meta, val })
   }
   for (const [_, g] of groups) {
@@ -139,7 +203,7 @@ function renderSelected() {
 function renderSelectedItem({ id, meta, val }) {
   const card = el('div', { class: 'sel-item req-' + val.requirement })
   card.appendChild(el('div', { class: 'sel-item-header' }, [
-    el('span', { class: 'sel-item-name' }, meta.name_zh),
+    el('span', { class: 'sel-item-name' }, elementName(meta)),
     el('span', { class: 'sel-item-section' }, '§' + meta.spec_section),
     el('button', { class: 'sel-item-remove', onclick: () => {
       state.elements.delete(id)
@@ -162,15 +226,16 @@ function renderSelectedItem({ id, meta, val }) {
       renderPreview()
     })
     wrapper.appendChild(input)
-    wrapper.appendChild(document.createTextNode(requirementLabel(r)))
+    wrapper.appendChild(document.createTextNode(requirementLabel(r, lang)))
     reqRow.appendChild(wrapper)
   }
   card.appendChild(reqRow)
 
   // Description
   const descLabel = el('label', { class: 'sel-field' })
-  descLabel.appendChild(el('span', {}, '说明'))
-  const descInput = el('input', { type: 'text', value: val.description, placeholder: meta.description_zh ? meta.description_zh.slice(0, 60) : '可选' })
+  descLabel.appendChild(el('span', {}, copy[lang].description))
+  const descriptionPlaceholder = lang === 'zh' && meta.description_zh ? meta.description_zh.slice(0, 60) : copy[lang].optional
+  const descInput = el('input', { type: 'text', value: val.description, placeholder: descriptionPlaceholder })
   descInput.addEventListener('input', () => { val.description = descInput.value; renderPreview() })
   descLabel.appendChild(descInput)
   card.appendChild(descLabel)
@@ -178,8 +243,8 @@ function renderSelectedItem({ id, meta, val }) {
   // Parameter range (only if permitted)
   if (val.requirement === 'permitted') {
     const paramLabel = el('label', { class: 'sel-field' })
-    paramLabel.appendChild(el('span', {}, '参数范围'))
-    const placeholder = meta.requirement_template ? meta.requirement_template.slice(0, 60) : '如：曲率半径 ≥ 150 m'
+    paramLabel.appendChild(el('span', {}, copy[lang].parameterRange))
+    const placeholder = lang === 'zh' && meta.requirement_template ? meta.requirement_template.slice(0, 60) : copy[lang].parameterExample
     const paramInput = el('input', { type: 'text', value: val.parameter_range, placeholder })
     paramInput.addEventListener('input', () => { val.parameter_range = paramInput.value; renderPreview() })
     paramLabel.appendChild(paramInput)
@@ -189,10 +254,10 @@ function renderSelectedItem({ id, meta, val }) {
   // Exit behavior (only if not_permitted)
   if (val.requirement === 'not_permitted') {
     const exitLabel = el('label', { class: 'sel-field' })
-    exitLabel.appendChild(el('span', {}, '退出行为'))
+    exitLabel.appendChild(el('span', {}, copy[lang].exitBehavior))
     const exitSelect = el('select', {})
     for (const opt of ['suppress_activation', 'trigger_exit', 'suppress_and_exit']) {
-      const o = el('option', { value: opt }, exitBehaviorLabel(opt))
+      const o = el('option', { value: opt }, exitBehaviorLabel(opt, lang))
       if (val.exit_behavior === opt) o.selected = true
       exitSelect.appendChild(o)
     }
@@ -249,7 +314,7 @@ function bindToolbar() {
     importFromDoc(doc)
   })
   document.getElementById('t-clear').addEventListener('click', () => {
-    if (!confirm('确认清空当前编辑内容？')) return
+    if (!confirm(copy[lang].confirmClear)) return
     state.elements.clear()
     for (const k of Object.keys(state.meta)) state.meta[k] = (k === 'ads_level' ? 2 : (k === 'review_status' ? 'draft' : (k === 'effective_date' ? new Date().toISOString().slice(0, 10) : '')))
     bindMetaInputs() // re-sync DOM
@@ -262,11 +327,11 @@ function bindToolbar() {
       meta: state.meta,
       elements: [...state.elements]
     }))
-    alert('已保存到浏览器本地存储。')
+    alert(copy[lang].saved)
   })
   document.getElementById('t-load-local').addEventListener('click', () => {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) { alert('没有本地保存的草稿'); return }
+    if (!raw) { alert(copy[lang].noDraft); return }
     const data = JSON.parse(raw)
     state.meta = data.meta
     state.elements = new Map(data.elements)
@@ -286,14 +351,14 @@ function bindToolbar() {
   document.getElementById('t-copy-json').addEventListener('click', async () => {
     const doc = buildDocument()
     await navigator.clipboard.writeText(JSON.stringify(doc, null, 2))
-    alert('已复制到剪贴板')
+    alert(copy[lang].copied)
   })
   document.getElementById('t-save-workbench').addEventListener('click', saveToWorkbench)
   document.getElementById('t-open-pr').addEventListener('click', openPR)
   treeSearch.addEventListener('input', () => renderTree(treeSearch.value))
 }
 
-const WORKBENCH_KEY = 'openodc.workbench.v1'
+const WORKBENCH_KEY = 'openodc.workbench.v2'
 
 function getWorkbenchFunction(vendorId, functionId) {
   if (!vendorId || !functionId) return null
@@ -311,7 +376,7 @@ function getWorkbenchFunction(vendorId, functionId) {
 function saveToWorkbench() {
   const wbVendor = getQueryParam('workbench_vendor')
   const wbFn = getQueryParam('workbench_fn')
-  if (!wbVendor || !wbFn) { alert('非工作台会话'); return }
+  if (!wbVendor || !wbFn) { alert(copy[lang].notWorkbench); return }
   const raw = localStorage.getItem(WORKBENCH_KEY)
   const state = raw ? JSON.parse(raw) : {}
   if (!state[wbVendor]) state[wbVendor] = { functions: [] }
@@ -320,7 +385,7 @@ function saveToWorkbench() {
   if (fnIndex < 0) {
     state[wbVendor].functions.push({
       id: wbFn,
-      name: doc.function_name || '（未命名）',
+      name: doc.function_name || copy[lang].unnamed,
       model: doc.model || '',
       ads_level: doc.ads_level || 2,
       status: 'in_development',
@@ -351,11 +416,10 @@ function openPR() {
   // Strategy: copy JSON to clipboard + open the new-file page; user pastes.
   navigator.clipboard.writeText(json).then(() => {
     const url = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}`
-    const banner = `JSON 已复制到剪贴板。即将打开 GitHub 新建文件页（文件名已预填 ${filename}）。\n\n步骤：\n1. 粘贴内容（Ctrl/Cmd + V）\n2. 底部 Commit 消息填 "Add ${doc.vendor} ${doc.function_name} ODC"\n3. 选 "Create new branch for this commit and start a pull request"\n4. 点击 Commit changes`
-    alert(banner)
+    alert(copy[lang].prCopied(filename))
     window.open(url, '_blank', 'noopener')
   }).catch(() => {
-    alert('复制失败；请使用"下载 JSON"然后手动上传')
+    alert(copy[lang].copyFailed)
   })
 }
 
@@ -390,12 +454,12 @@ function importFromDoc(doc) {
 
 function toMarkdownSummary(doc) {
   let md = `# ${doc.vendor} ${doc.model} — ${doc.function_name}\n\n`
-  md += `- 自动化等级：${adsLevelLabel(doc.ads_level)}\n`
-  md += `- 软件版本：${doc.software_version || '—'}\n`
-  md += `- 生效日期：${doc.effective_date}\n`
-  md += `- 标准依据：${doc.spec_source}\n`
-  md += `- 审核状态：${reviewStatusLabel(doc.metadata.review_status)}\n\n`
-  md += `共 ${doc.elements.length} 项 ODC 元素。\n`
+  md += `- ${copy[lang].mdLabels.level}: ${adsLevelLabel(doc.ads_level)}\n`
+  md += `- ${copy[lang].mdLabels.software}: ${doc.software_version || '—'}\n`
+  md += `- ${copy[lang].mdLabels.effective}: ${doc.effective_date}\n`
+  md += `- ${copy[lang].mdLabels.standard}: ${doc.spec_source}\n`
+  md += `- ${copy[lang].mdLabels.status}: ${reviewStatusLabel(doc.metadata.review_status, lang)}\n\n`
+  md += `${copy[lang].mdLabels.count(doc.elements.length)}\n`
   return md
 }
 
@@ -406,7 +470,7 @@ async function maybeLoadFromQuery() {
 
   if (workbenchFn?.odc_draft) {
     importFromDoc(workbenchFn.odc_draft)
-    showWorkbenchBanner(`已加载工作台草稿「${workbenchFn.name || workbenchFn.odc_draft.function_name || '未命名功能'}」。保存后将覆盖该条本地草稿。`, wbVendor, wbFn)
+    showWorkbenchBanner(copy[lang].loadedDraft(workbenchFn.name || workbenchFn.odc_draft.function_name || copy[lang].unnamed), wbVendor, wbFn)
     return true
   }
 
@@ -418,7 +482,7 @@ async function maybeLoadFromQuery() {
       if (!entry) { console.warn('load id not found:', loadId); return false }
       const doc = await loadDocument(entry.file)
       importFromDoc(doc)
-      showWorkbenchBanner(`已从样例库加载「${doc.vendor} · ${doc.function_name}」作为起点`, wbVendor, wbFn)
+      showWorkbenchBanner(copy[lang].loadedSample(doc), wbVendor, wbFn)
       return true
     } catch (e) { console.warn('load failed:', e); return false }
   }
@@ -430,7 +494,7 @@ async function maybeLoadFromQuery() {
     state.meta.model = decodeURIComponent(getQueryParam('wb_model') || workbenchFn?.model || '')
     const lvl = getQueryParam('wb_level')
     if (lvl || workbenchFn?.ads_level) state.meta.ads_level = parseInt(lvl || workbenchFn.ads_level, 10) || 2
-    showWorkbenchBanner('从厂家直填工作台进入。已预填厂家 / 车型 / 功能名；请在左侧层级树勾选 ODC 要素。', wbVendor, wbFn)
+    showWorkbenchBanner(copy[lang].fromWorkbench, wbVendor, wbFn)
     return true
   }
   return false
@@ -440,7 +504,7 @@ function showWorkbenchBanner(msg, vendor, fn) {
   const banner = el('div', { class: 'editor-workbench-banner' }, [
     el('span', { class: 'wb-dot' }, '●'),
     el('span', { class: 'wb-msg' }, msg),
-    vendor && fn ? el('a', { class: 'wb-back', href: '/workbench.html' }, '← 返回工作台') : null
+    vendor && fn ? el('a', { class: 'wb-back', href: lang === 'en' ? '/en/workbench.html' : '/workbench.html' }, copy[lang].backWorkbench) : null
   ])
   const main = document.querySelector('main')
   if (main) main.insertBefore(banner, main.firstChild)
@@ -462,6 +526,6 @@ function showWorkbenchBanner(msg, vendor, fn) {
     renderPreview()
     bindToolbar()
   } catch (e) {
-    treeContainer.innerHTML = `<p class="error">加载失败：${e.message}</p>`
+    treeContainer.innerHTML = `<p class="error">${copy[lang].loadFailed(e.message)}</p>`
   }
 })()

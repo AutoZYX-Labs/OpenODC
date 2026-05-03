@@ -28,7 +28,7 @@
     {
       "id": "personnel.driver.takeover.other",
       "name_zh": "其他状态",
-      "name_en": "Other Takeover-Affecting State",
+      "name_en": "Other Fallback-Affecting State",
       "level": 5,
       "parent_id": "personnel.driver.takeover",
       "spec_section": "6.3.1.1.2",
@@ -64,7 +64,7 @@
     {
       "id": "personnel.passenger.interference",
       "name_zh": "干扰状态",
-      "name_en": "Interference State",
+      "name_en": "Interference / Distraction State",
       "level": 4,
       "parent_id": "personnel.passenger",
       "spec_section": "6.3.2.1",

@@ -1,6 +1,6 @@
-// workbench.js — Vendor Workbench MVP (localStorage-backed, no backend)
+// workbench.js — Vendor Workbench (localStorage-backed, no backend)
 //
-// Data model (localStorage key: "openodc.workbench.v1"):
+// Data model (localStorage key: "openodc.workbench.v2"):
 // {
 //   "<vendor_id>": {
 //     functions: [
@@ -10,41 +10,121 @@
 // }
 // status: in_development | pre_release | shipped | published
 
-const STORAGE_KEY = 'openodc.workbench.v1'
+const STORAGE_KEY = 'openodc.workbench.v2'
+const LANG = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/') ? 'en' : 'zh'
 
 const VENDOR_LABELS = {
-  tesla: '特斯拉', huawei: '华为', baidu: '百度 Apollo', byd: '比亚迪',
-  nio: '蔚来', xpeng: '小鹏', li: '理想', zhuoyu: '卓驭科技',
-  horizon: '地平线', momenta: 'Momenta', other: '其他 / Tier 1'
+  zh: {
+    tesla: '特斯拉', huawei: '华为', baidu: '百度 Apollo', byd: '比亚迪',
+    nio: '蔚来', xpeng: '小鹏', li: '理想', zhuoyu: '卓驭科技',
+    horizon: '地平线', momenta: 'Momenta', other: '其他 / Tier 1'
+  },
+  en: {
+    tesla: 'Tesla', huawei: 'Huawei / AITO', baidu: 'Baidu Apollo', byd: 'BYD',
+    nio: 'NIO', xpeng: 'XPENG', li: 'Li Auto', zhuoyu: 'Zhuoyu / DJI Automotive',
+    horizon: 'Horizon Robotics', momenta: 'Momenta', other: 'Other / Tier 1'
+  }
 }
 
 const STATUS_META = {
-  in_development: { label: '在研', color: '#8a6e1d', bg: '#f4ead3' },
-  pre_release: { label: '预发布', color: '#c85a3a', bg: '#fbe4dc' },
-  shipped: { label: '已上市', color: '#2d6a3a', bg: '#d4e6d4' },
-  published: { label: '已公开', color: '#5a7a8e', bg: '#dae7f0' }
+  in_development: { zh: '在研', en: 'In development', color: '#8a6e1d', bg: '#f4ead3' },
+  pre_release: { zh: '预发布', en: 'Pre-release', color: '#c85a3a', bg: '#fbe4dc' },
+  shipped: { zh: '已上市', en: 'Shipped', color: '#2d6a3a', bg: '#d4e6d4' },
+  published: { zh: '已公开', en: 'Published', color: '#5a7a8e', bg: '#dae7f0' }
 }
 
-const DEMO_SEEDS = {
+const copy = {
+  zh: {
+    selectVendor: '请先选择厂家身份。',
+    listTitle: label => `${label} — ODC 功能清单`,
+    published: '已公开',
+    count: n => ` · ${n}`,
+    newFeature: '+ 新建功能',
+    reset: '恢复公开样例种子',
+    resetConfirm: label => `恢复 ${label} 的公开样例种子？这会覆盖该厂家在本机浏览器中的修改。`,
+    empty: '暂无功能记录。点击「新建功能」开始管理。',
+    headers: ['功能名称', '车型', '等级', '状态', '官方手册', '更新时间', '操作'],
+    sampleId: id => `OpenODC 样例 ID: ${id}`,
+    publishedSuffix: ' · 已公开 ✓',
+    openManual: '打开手册 →',
+    notSet: '未设置',
+    edit: '编辑 ODC',
+    publish: '发布到公开库',
+    delete: '删除',
+    namePrompt: '功能名称（例：高速 NCA 3.0）',
+    modelPrompt: '适用车型（可留空）',
+    levelPrompt: 'ADS 等级 (1-4)',
+    publishConfirm: status => `当前状态为「${status}」，不是「已上市」。\n\n建议仅在版本冻结、资料脱敏和内部审批完成后再生成公开提交包。\n\n仍然继续生成吗？`,
+    noDataConfirm: name => `${name} 还没有 ODC 数据。\n\n先到编辑器填写 ODC 要素，然后再回来发布。\n\n现在打开编辑器？`,
+    prBody: (vendor, fn) => `## 请求将 ${vendor} · ${fn.name} 公开到 OpenODC\n\n- 厂家：${vendor}\n- 功能：${fn.name}\n- 车型：${fn.model}\n- ADS 等级：L${fn.ads_level}\n- 官方手册：${fn.manual_url || '（未设置）'}\n- 备注：${fn.notes || '（无）'}\n\n由 OpenODC 厂家工作台生成 · ${new Date().toISOString()}`,
+    packageReady: filename => `已生成 PR 提交包（${filename}），JSON 已复制到剪贴板。\n\n页面将打开 GitHub 新建文件入口，由提交者确认内容后创建 PR。\n\n步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\n合并前不会自动标记为 OpenODC 已公开。`,
+    copyFallback: '复制以下 ODC JSON 到 GitHub 新文件：',
+    deleteConfirm: name => `删除 ${name}？此操作会从本机浏览器工作区移除该条记录。`
+  },
+  en: {
+    selectVendor: 'Select a vendor identity to start.',
+    listTitle: label => `${label} — ODC Feature Records`,
+    published: 'Published',
+    count: n => ` · ${n}`,
+    newFeature: '+ New Feature',
+    reset: 'Restore Public Sample Seeds',
+    resetConfirm: label => `Restore public sample seeds for ${label}? This will overwrite local browser changes for this vendor.`,
+    empty: 'No feature records yet. Click “New Feature” to start.',
+    headers: ['Feature', 'Model', 'Level', 'Status', 'Official Manual', 'Updated', 'Actions'],
+    sampleId: id => `OpenODC sample ID: ${id}`,
+    publishedSuffix: ' · published ✓',
+    openManual: 'Open manual →',
+    notSet: 'Not set',
+    edit: 'Edit ODC',
+    publish: 'Publish package',
+    delete: 'Delete',
+    namePrompt: 'Feature name (e.g. Highway NCA 3.0)',
+    modelPrompt: 'Applicable model (optional)',
+    levelPrompt: 'ADS level (1-4)',
+    publishConfirm: status => `Current status is “${status}”, not “Shipped”.\n\nPublic submission is recommended only after version freeze, data sanitization, and internal approval.\n\nGenerate the package anyway?`,
+    noDataConfirm: name => `${name} does not have ODC data yet.\n\nOpen the editor first, then return to publish.\n\nOpen the editor now?`,
+    prBody: (vendor, fn) => `## Request to publish ${vendor} · ${fn.name} to OpenODC\n\n- Vendor: ${vendor}\n- Feature: ${fn.name}\n- Model: ${fn.model}\n- ADS level: L${fn.ads_level}\n- Official manual: ${fn.manual_url || '(not set)'}\n- Notes: ${fn.notes || '(none)'}\n\nGenerated by OpenODC Vendor Workbench · ${new Date().toISOString()}`,
+    packageReady: filename => `PR package generated (${filename}); JSON copied to clipboard.\n\nA GitHub new-file page will open so the submitter can review content and create a PR.\n\nSteps:\n\n1. Paste the content\n2. Select “Create a new branch for this commit and start a pull request”\n3. Click Commit changes\n\nThe record is not marked public until the PR is merged.`,
+    copyFallback: 'Copy this ODC JSON into a GitHub new file:',
+    deleteConfirm: name => `Delete ${name}? This removes the record from the local browser workspace.`
+  }
+}
+
+function vendorLabel(vendorId) {
+  return VENDOR_LABELS[LANG][vendorId] || vendorId
+}
+
+function statusMeta(status) {
+  const meta = STATUS_META[status] || { zh: status, en: status, color: '#666', bg: '#eee' }
+  return { label: meta[LANG] || meta.zh || status, color: meta.color, bg: meta.bg }
+}
+
+const SAMPLE_SEEDS = {
   tesla: [
-    { id: 'tesla-next-ota-draft', name: '下一版辅助驾驶 ODC（内部草稿示例）', model: '车型 / 硬件平台待确认', ads_level: 2, status: 'in_development', updated_at: '2026-05-03T00:00:00Z', manual_url: '', notes: 'Workbench 演示用内部草稿，不对应公开 OpenODC 样例；对外发布前需绑定官方手册或发布说明。' },
-    { id: 'tesla-fsd-current', name: 'FSD Supervised（美国当前公开版）', model: 'Model 3/Y/S/X HW3/HW4', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/en_us/', notes: '按 Tesla 官方 FSD v14 Trial 与 2026.8 北美手册复核。对应 OpenODC 当前公开样例。', public_id: 'tesla-fsd-us-current' },
-    { id: 'tesla-ad-china-current', name: '辅助驾驶功能（中国）', model: 'Model 3/Y 中国区', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/zh_cn/', notes: '中国区 2026.8 手册章节为辅助驾驶功能，不套用北美 FSD Supervised。', public_id: 'tesla-assisted-driving-china-current' },
-    { id: 'tesla-summon', name: 'Actually Smart Summon', model: 'Model Y HW4', ads_level: 2, status: 'pre_release', updated_at: '2026-02-15T00:00:00Z', manual_url: '', notes: '停车场召唤，限定软件版本灰度中。' }
+    { id: 'tesla-fsd-current', name: 'FSD Supervised（美国当前公开版）', name_en: 'FSD Supervised (US current public sample)', model: 'Model 3/Y/S/X HW3/HW4', model_en: 'Model 3/Y/S/X HW3/HW4', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/en_us/', notes: '按 Tesla 官方 FSD v14 Trial 与 2026.8 北美手册复核。对应 OpenODC 当前公开样例。', notes_en: 'Reviewed against Tesla FSD v14 Trial information and the North America 2026.8 owner manual. Linked to the OpenODC public sample.', public_id: 'tesla-fsd-us-current' },
+    { id: 'tesla-ad-china-current', name: '辅助驾驶功能（中国）', name_en: 'Assisted Driving (China)', model: 'Model 3/Y 中国区', model_en: 'Model 3/Y China market', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/zh_cn/', notes: '中国区 2026.8 手册章节为辅助驾驶功能，不套用北美 FSD Supervised。', notes_en: 'Based on the China 2026.8 owner manual; North America FSD Supervised is not applied to the China sample.', public_id: 'tesla-assisted-driving-china-current' }
   ],
   huawei: [
-    { id: 'huawei-ads4-ultra', name: 'ADS 4 Ultra（高速 L3）', model: '尊界 S800 / 岚图泰山 Ultra', ads_level: 3, status: 'shipped', updated_at: '2025-04-22T00:00:00Z', manual_url: '', notes: '演示用 L3 项目条目；实际准入、速度上限和开放区域需以监管试点与厂家官方声明为准。' },
-    { id: 'huawei-ads4-max', name: 'ADS 4 Max（高阶版）', model: '问界 M9 / M8 / 享界 S9 等', ads_level: 2, status: 'shipped', updated_at: '2025-04-22T00:00:00Z', manual_url: 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', notes: 'Max 档主流配置，已对应 OpenODC 公开样例。', public_id: 'huawei-ads4-aito-m9' },
-    { id: 'huawei-ads4-pro', name: 'ADS 4 Pro（增强版）', model: '问界 M7 Pro+ / 深蓝 S07 激光版 / 阿维塔 06 Pro', ads_level: 2, status: 'shipped', updated_at: '2025-06-01T00:00:00Z', manual_url: '', notes: '轻图 NCA + 城区辅助，L2+。' },
-    { id: 'huawei-ads4-se', name: 'ADS 4 SE（基础版）', model: '深蓝 L07 / 尚界 H5 Pro 等', ads_level: 2, status: 'shipped', updated_at: '2025-08-01T00:00:00Z', manual_url: '', notes: '无激光雷达，L2 入门档。' },
-    { id: 'huawei-ads5', name: 'ADS 5（在研）', model: 'TBD', ads_level: 3, status: 'in_development', updated_at: '2026-04-01T00:00:00Z', manual_url: '', notes: '面向 2026-2027 的下一代，规划含城区 L3。' }
+    { id: 'huawei-ads4-max', name: 'ADS 4（问界 M9 当前公开样例）', name_en: 'ADS 4 (AITO M9 current public sample)', model: '问界 M9 2025 款', model_en: 'AITO M9 2025', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', notes: '对应 OpenODC 公开样例；华为通用页已更新 ADS 5，但问界 M9 官方资料仍以 ADS 4 为证据口径。', notes_en: 'Linked to the OpenODC public sample. Huawei general pages now reference ADS 5, but current AITO M9 public evidence still supports an ADS 4 sample.', public_id: 'huawei-ads4-aito-m9' }
   ],
   baidu: [
-    { id: 'apollo-go-wuhan', name: '萝卜快跑（武汉示范运营）', model: 'Apollo RT6 / 颐驰 06', ads_level: 4, status: 'shipped', updated_at: '2024-07-01T00:00:00Z', manual_url: 'https://www.apollogo.com/ch/', notes: '武汉经开区 3000 km² 围栏内全无人运营；已对应 OpenODC 公开样例。', public_id: 'baidu-apollogo-wuhan' },
-    { id: 'apollo-go-beijing', name: '萝卜快跑（北京亦庄）', model: 'Apollo RT6', ads_level: 4, status: 'shipped', updated_at: '2024-11-01T00:00:00Z', manual_url: 'https://www.apollogo.com/ch/', notes: '北京经开区运营区。' },
-    { id: 'apollo-go-shenzhen', name: '萝卜快跑（深圳）', model: 'Apollo RT6', ads_level: 4, status: 'pre_release', updated_at: '2026-01-15T00:00:00Z', manual_url: '', notes: '已拿到示范运营许可，商业化运营准备中。' },
-    { id: 'apollo-rt7', name: 'RT7（下一代平台）', model: 'RT7', ads_level: 4, status: 'in_development', updated_at: '2026-03-01T00:00:00Z', manual_url: '', notes: '传感器架构简化 + 成本下降 30%，规划 2027 交付。' }
+    { id: 'apollo-go-wuhan', name: '萝卜快跑（武汉示范运营）', name_en: 'Apollo Go (Wuhan demonstration operation)', model: 'Apollo RT6 / 颐驰 06', model_en: 'Apollo RT6 / Yichi 06', ads_level: 4, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.apollogo.com/ch/', notes: '武汉经开区示范运营公开资料样例。', notes_en: 'Public-evidence sample for Wuhan demonstration operations.', public_id: 'baidu-apollogo-wuhan' }
+  ],
+  xpeng: [
+    { id: 'xpeng-xngp-p7plus', name: 'XNGP（P7+ 2026 当前公开样例）', name_en: 'XNGP (P7+ 2026 public sample)', model: '2026 款小鹏 P7+', model_en: 'XPENG P7+ 2026', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.xiaopeng.com/p7_plus_2026.html', notes: '对应 OpenODC 公开样例，证据来自官方产品页、配置表和官方社区指南。', notes_en: 'Linked to the OpenODC public sample; evidence comes from official product pages, configuration tables, and official community guides.', public_id: 'xpeng-xngp-p7plus-2026' }
   ]
+}
+
+function fnName(fn) {
+  return LANG === 'en' ? (fn.name_en || fn.name) : fn.name
+}
+
+function fnModel(fn) {
+  return LANG === 'en' ? (fn.model_en || fn.model) : fn.model
+}
+
+function fnNotes(fn) {
+  return LANG === 'en' ? (fn.notes_en || fn.notes) : fn.notes
 }
 
 function loadState() {
@@ -64,7 +144,7 @@ function saveState(state) {
 function ensureVendor(state, vendorId) {
   if (!state[vendorId]) {
     state[vendorId] = {
-      functions: (DEMO_SEEDS[vendorId] || []).map(f => ({ ...f }))
+      functions: (SAMPLE_SEEDS[vendorId] || []).map(f => ({ ...f }))
     }
     saveState(state)
   }
@@ -98,13 +178,13 @@ function renderDashboard(vendorId) {
   const body = document.getElementById('workbench-body')
   body.innerHTML = ''
   if (!vendorId) {
-    body.appendChild(el('div', { class: 'workbench-empty' }, '请先选择厂家身份。'))
+    body.appendChild(el('div', { class: 'workbench-empty' }, copy[LANG].selectVendor))
     return
   }
 
   const state = loadState()
   const vendor = ensureVendor(state, vendorId)
-  const label = VENDOR_LABELS[vendorId] || vendorId
+  const label = vendorLabel(vendorId)
 
   // Summary row
   const summary = el('div', { class: 'workbench-summary' })
@@ -113,13 +193,11 @@ function renderDashboard(vendorId) {
     if (counts[f.status] != null) counts[f.status]++
     if (f.public_id) counts.published++
   }
-  summary.appendChild(el('h2', { class: 'workbench-vendor-name' }, `${label} — ODC 功能清单`))
+  summary.appendChild(el('h2', { class: 'workbench-vendor-name' }, copy[LANG].listTitle(label)))
   const pillRow = el('div', { class: 'workbench-pill-row' })
   for (const [status, n] of Object.entries(counts)) {
-    const meta = status === 'published'
-      ? { label: '已公开', color: STATUS_META.published.color, bg: STATUS_META.published.bg }
-      : STATUS_META[status]
-    const pill = el('span', { class: 'workbench-pill', style: `color:${meta.color};background:${meta.bg}` }, `${meta.label} · ${n}`)
+    const meta = statusMeta(status)
+    const pill = el('span', { class: 'workbench-pill', style: `color:${meta.color};background:${meta.bg}` }, `${meta.label}${copy[LANG].count(n)}`)
     pillRow.appendChild(pill)
   }
   summary.appendChild(pillRow)
@@ -127,12 +205,12 @@ function renderDashboard(vendorId) {
 
   // Action bar
   const actionBar = el('div', { class: 'workbench-action-bar' })
-  const newBtn = el('button', { class: 'btn btn-primary', id: 'new-fn-btn' }, '+ 新建功能')
+  const newBtn = el('button', { class: 'btn btn-primary', id: 'new-fn-btn' }, copy[LANG].newFeature)
   newBtn.addEventListener('click', () => newFunction(vendorId))
   actionBar.appendChild(newBtn)
-  const resetBtn = el('button', { class: 'btn btn-ghost', id: 'reset-btn' }, '重置为演示数据')
+  const resetBtn = el('button', { class: 'btn btn-ghost', id: 'reset-btn' }, copy[LANG].reset)
   resetBtn.addEventListener('click', () => {
-    if (confirm(`重置 ${label} 的数据为演示种子？（会覆盖本地修改）`)) {
+    if (confirm(copy[LANG].resetConfirm(label))) {
       delete state[vendorId]
       saveState(state)
       renderDashboard(vendorId)
@@ -143,52 +221,44 @@ function renderDashboard(vendorId) {
 
   // Function table
   if (vendor.functions.length === 0) {
-    body.appendChild(el('div', { class: 'workbench-empty' }, '暂无功能记录。点击「新建功能」开始管理。'))
+    body.appendChild(el('div', { class: 'workbench-empty' }, copy[LANG].empty))
     return
   }
 
   const table = el('table', { class: 'workbench-table' })
-  table.appendChild(el('thead', {}, el('tr', {}, [
-    el('th', {}, '功能名称'),
-    el('th', {}, '车型'),
-    el('th', {}, '等级'),
-    el('th', {}, '状态'),
-    el('th', {}, '官方手册'),
-    el('th', {}, '更新时间'),
-    el('th', {}, '操作')
-  ])))
+  table.appendChild(el('thead', {}, el('tr', {}, copy[LANG].headers.map(h => el('th', {}, h)))))
   const tbody = el('tbody')
   for (const fn of vendor.functions) {
     const tr = el('tr')
     tr.appendChild(el('td', { class: 'fn-name-cell' }, [
-      el('div', { class: 'fn-name' }, fn.name),
-      fn.notes ? el('div', { class: 'fn-notes' }, fn.notes) : null
+      el('div', { class: 'fn-name' }, fnName(fn)),
+      fnNotes(fn) ? el('div', { class: 'fn-notes' }, fnNotes(fn)) : null
     ]))
-    tr.appendChild(el('td', {}, fn.model || '—'))
+    tr.appendChild(el('td', {}, fnModel(fn) || '—'))
     tr.appendChild(el('td', {}, `L${fn.ads_level}`))
-    const statusMeta = STATUS_META[fn.status] || { label: fn.status, color: '#666', bg: '#eee' }
+    const sMeta = statusMeta(fn.status)
     tr.appendChild(el('td', {}, [
-      el('span', { class: 'fn-status-pill', style: `color:${statusMeta.color};background:${statusMeta.bg}` }, statusMeta.label),
-      fn.public_id ? el('span', { class: 'fn-published', title: `OpenODC 样例 ID: ${fn.public_id}` }, ' · 已公开 ✓') : null
+      el('span', { class: 'fn-status-pill', style: `color:${sMeta.color};background:${sMeta.bg}` }, sMeta.label),
+      fn.public_id ? el('span', { class: 'fn-published', title: copy[LANG].sampleId(fn.public_id) }, copy[LANG].publishedSuffix) : null
     ]))
     const manualCell = el('td', {})
     if (fn.manual_url) {
-      const a = el('a', { href: fn.manual_url, target: '_blank', rel: 'noopener' }, '打开手册 →')
+      const a = el('a', { href: fn.manual_url, target: '_blank', rel: 'noopener' }, copy[LANG].openManual)
       manualCell.appendChild(a)
-    } else manualCell.appendChild(el('span', { class: 'text-mute' }, '未设置'))
+    } else manualCell.appendChild(el('span', { class: 'text-mute' }, copy[LANG].notSet))
     tr.appendChild(manualCell)
     tr.appendChild(el('td', {}, formatDate(fn.updated_at)))
 
     const actionsCell = el('td', { class: 'fn-actions' })
-    const editBtn = el('button', { class: 'btn-mini' }, '编辑 ODC')
+    const editBtn = el('button', { class: 'btn-mini' }, copy[LANG].edit)
     editBtn.addEventListener('click', () => openEditor(vendorId, fn))
     actionsCell.appendChild(editBtn)
     if (fn.status !== 'published' && !fn.public_id) {
-      const pubBtn = el('button', { class: 'btn-mini btn-accent' }, '发布到公开库')
+      const pubBtn = el('button', { class: 'btn-mini btn-accent' }, copy[LANG].publish)
       pubBtn.addEventListener('click', () => publishFunction(vendorId, fn))
       actionsCell.appendChild(pubBtn)
     }
-    const delBtn = el('button', { class: 'btn-mini btn-danger' }, '删除')
+    const delBtn = el('button', { class: 'btn-mini btn-danger' }, copy[LANG].delete)
     delBtn.addEventListener('click', () => deleteFunction(vendorId, fn))
     actionsCell.appendChild(delBtn)
     tr.appendChild(actionsCell)
@@ -199,10 +269,10 @@ function renderDashboard(vendorId) {
 }
 
 function newFunction(vendorId) {
-  const name = prompt('功能名称（例：FSD v14 / 高速 NCA 3.0）')
+  const name = prompt(copy[LANG].namePrompt)
   if (!name) return
-  const model = prompt('适用车型（可留空）') || ''
-  const ads_level = parseInt(prompt('ADS 等级 (1-4)', '2') || '2', 10)
+  const model = prompt(copy[LANG].modelPrompt) || ''
+  const ads_level = parseInt(prompt(copy[LANG].levelPrompt, '2') || '2', 10)
   const state = loadState()
   const vendor = ensureVendor(state, vendorId)
   vendor.functions.push({
@@ -227,13 +297,14 @@ function openEditor(vendorId, fn) {
   if (fn.name) params.set('wb_fn_name', encodeURIComponent(fn.name))
   if (fn.model) params.set('wb_model', encodeURIComponent(fn.model))
   if (fn.ads_level) params.set('wb_level', String(fn.ads_level))
-  params.set('wb_vendor_name', encodeURIComponent(VENDOR_LABELS[vendorId] || vendorId))
-  window.location.href = '/editor.html?' + params.toString()
+  params.set('wb_vendor_name', encodeURIComponent(vendorLabel(vendorId)))
+  const editorPath = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/') ? '/en/editor.html' : '/editor.html'
+  window.location.href = editorPath + '?' + params.toString()
 }
 
 async function publishFunction(vendorId, fn) {
   if (fn.status !== 'shipped') {
-    if (!confirm(`当前状态为「${STATUS_META[fn.status]?.label}」，不是「已上市」。\n\n真正的 SOP 流程会要求：已上市 + 版本冻结 + 内部审批。\n\n继续演示发布吗？`)) return
+    if (!confirm(copy[LANG].publishConfirm(statusMeta(fn.status).label))) return
   }
 
   let odcJson = null
@@ -249,22 +320,22 @@ async function publishFunction(vendorId, fn) {
 
   if (!odcJson) {
     // No ODC data yet → route to editor first
-    if (confirm(`${fn.name} 还没有 ODC 数据。\n\n先到编辑器填写 ODC 要素，然后再回来发布。\n\n现在打开编辑器？`)) {
+    if (confirm(copy[LANG].noDataConfirm(fn.name))) {
       openEditor(vendorId, fn)
     }
     return
   }
 
   const filename = (fn.public_id || fn.id) + '.json'
-  const prBody = `## 请求将 ${VENDOR_LABELS[vendorId]} · ${fn.name} 公开到 OpenODC\n\n- 厂家：${VENDOR_LABELS[vendorId]}\n- 功能：${fn.name}\n- 车型：${fn.model}\n- ADS 等级：L${fn.ads_level}\n- 官方手册：${fn.manual_url || '（未设置）'}\n- 备注：${fn.notes || '（无）'}\n\n由 OpenODC 厂家直填工作台生成 · ${new Date().toISOString()}`
+  const prBody = copy[LANG].prBody(vendorLabel(vendorId), { ...fn, name: fnName(fn), model: fnModel(fn), notes: fnNotes(fn) })
 
   try {
     await navigator.clipboard.writeText(odcJson)
     const ghUrl = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
-    alert(`已生成 PR 提交包（${filename}），JSON 已复制到剪贴板。\n\n当前静态 MVP 没有 GitHub OAuth / 后端签名能力，因此会打开 GitHub 新建文件页，由提交者手动创建真实 PR。\n\n步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\nPR 描述已作为 commit description 预填。合并前不会自动标记为 OpenODC 已公开。`)
+    alert(copy[LANG].packageReady(filename))
     window.open(ghUrl, '_blank', 'noopener')
   } catch (e) {
-    prompt('复制以下 ODC JSON 到 GitHub 新文件：', odcJson)
+    prompt(copy[LANG].copyFallback, odcJson)
   }
 
   const state = loadState()
@@ -279,7 +350,7 @@ async function publishFunction(vendorId, fn) {
 }
 
 function deleteFunction(vendorId, fn) {
-  if (!confirm(`删除 ${fn.name}？此操作不可撤销（localStorage 演示）。`)) return
+  if (!confirm(copy[LANG].deleteConfirm(fn.name))) return
   const state = loadState()
   const vendor = ensureVendor(state, vendorId)
   vendor.functions = vendor.functions.filter(x => x.id !== fn.id)

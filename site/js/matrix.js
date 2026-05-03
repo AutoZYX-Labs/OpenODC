@@ -1,4 +1,8 @@
-import { loadCatalog, loadManifest, loadDocument, buildElementIndex, adsLevelLabel, el } from './common.js'
+import {
+  loadCatalog, loadManifest, loadDocument, buildElementIndex,
+  adsLevelLabel, lang, docVendor, docModel, docFunctionName,
+  elementName, categoryName, localizeEvidenceText, el
+} from './common.js'
 
 const headEl = document.getElementById('matrix-head')
 const bodyEl = document.getElementById('matrix-body')
@@ -10,6 +14,31 @@ const countEl = document.getElementById('matrix-count')
 let catalog, elementIndex
 let docs = []              // [{ manifestEntry, odc, elementMap: Map }]
 let categories = []        // top-level
+
+const copy = {
+  zh: {
+    element: '国标要素',
+    unspecified: '未明确',
+    structural: '结构',
+    notPermitted: '不允许',
+    permitted: '允许',
+    noData: '没有数据',
+    exitBehavior: '退出行为',
+    count: (rows, records) => `${rows} 个要素 · ${records} 个样例`,
+    loadFailed: msg => `加载失败：${msg}`
+  },
+  en: {
+    element: 'Standard Element',
+    unspecified: 'Unspecified',
+    structural: 'Structural',
+    notPermitted: 'Not permitted',
+    permitted: 'Permitted',
+    noData: 'No data',
+    exitBehavior: 'Exit behavior',
+    count: (rows, records) => `${rows} elements · ${records} samples`,
+    loadFailed: msg => `Load failed: ${msg}`
+  }
+}
 
 function classifyCoverage(description, parameterRange) {
   const text = (description || '') + ' ' + (parameterRange || '')
@@ -35,18 +64,18 @@ function requirementClass(elementEntry) {
 function cellLabel(elementEntry) {
   if (!elementEntry) return '—'
   const cov = classifyCoverage(elementEntry.description, elementEntry.parameter_range)
-  if (cov === 'gap') return '未明确'
-  if (cov === 'structural') return '结构'
-  return elementEntry.requirement === 'not_permitted' ? '不允许' : '允许'
+  if (cov === 'gap') return copy[lang].unspecified
+  if (cov === 'structural') return copy[lang].structural
+  return elementEntry.requirement === 'not_permitted' ? copy[lang].notPermitted : copy[lang].permitted
 }
 
 function cellTooltip(elementEntry) {
-  if (!elementEntry) return '没有数据'
+  if (!elementEntry) return copy[lang].noData
   const parts = []
-  parts.push(elementEntry.requirement === 'permitted' ? '允许' : '不允许')
+  parts.push(elementEntry.requirement === 'permitted' ? copy[lang].permitted : copy[lang].notPermitted)
   if (elementEntry.parameter_range) parts.push('· ' + elementEntry.parameter_range)
-  if (elementEntry.description) parts.push('\n' + elementEntry.description)
-  if (elementEntry.exit_behavior) parts.push('\n退出行为: ' + elementEntry.exit_behavior)
+  if (elementEntry.description) parts.push('\n' + localizeEvidenceText(elementEntry.description))
+  if (elementEntry.exit_behavior) parts.push(`\n${copy[lang].exitBehavior}: ${elementEntry.exit_behavior}`)
   return parts.join(' ')
 }
 
@@ -58,7 +87,7 @@ function allElements() {
       all.push({
         ...e,
         topCategoryId: cat.category_id,
-        topCategoryName: cat.name_zh
+        topCategoryName: categoryName(cat)
       })
     }
   }
@@ -86,12 +115,13 @@ function render() {
   // Build header
   headEl.innerHTML = ''
   const headRow = el('tr')
-  headRow.appendChild(el('th', { class: 'matrix-th-elem' }, '国标要素'))
+  headRow.appendChild(el('th', { class: 'matrix-th-elem' }, copy[lang].element))
   for (const d of docs) {
-    const th = el('th', { class: 'matrix-th-doc', title: d.odc.function_name })
-    th.appendChild(el('a', { href: `/view.html?id=${encodeURIComponent(d.odc.id)}` }, [
-      el('div', { class: 'th-vendor' }, d.odc.vendor),
-      el('div', { class: 'th-model' }, d.odc.model),
+    const th = el('th', { class: 'matrix-th-doc', title: docFunctionName(d.odc) })
+    const viewPath = lang === 'en' ? '/en/view.html' : '/view.html'
+    th.appendChild(el('a', { href: `${viewPath}?id=${encodeURIComponent(d.odc.id)}` }, [
+      el('div', { class: 'th-vendor' }, docVendor(d.odc)),
+      el('div', { class: 'th-model' }, docModel(d.odc)),
       el('div', { class: 'th-lvl' }, adsLevelLabel(d.odc.ads_level))
     ]))
     headRow.appendChild(th)
@@ -107,7 +137,7 @@ function render() {
   for (const elem of elements) {
     if (catFilter && elem.topCategoryId !== catFilter) continue
     if (q) {
-      const hay = (elem.name_zh + ' ' + elem.id + ' ' + (elem.description_zh || '')).toLowerCase()
+      const hay = ((elem.name_zh || '') + ' ' + (elem.name_en || '') + ' ' + elem.id + ' ' + (elem.description_zh || '') + ' ' + (elem.description_en || '')).toLowerCase()
       if (!hay.includes(q)) continue
     }
     if (covFilter === 'substantive') {
@@ -134,7 +164,7 @@ function render() {
 
     const tr = el('tr')
     const leftTd = el('td', { class: 'matrix-elem' })
-    leftTd.appendChild(el('div', { class: 'elem-name' }, elem.name_zh))
+    leftTd.appendChild(el('div', { class: 'elem-name' }, elementName(elem)))
     leftTd.appendChild(el('div', { class: 'elem-meta' }, [
       el('code', { class: 'elem-id' }, elem.id),
       el('span', { class: 'elem-sec' }, ' · §' + elem.spec_section)
@@ -144,7 +174,7 @@ function render() {
       const e = d.elementMap.get(elem.id)
       const td = el('td', { class: 'matrix-cell ' + requirementClass(e), title: cellTooltip(e) })
       td.appendChild(el('span', { class: 'cell-dot' }))
-      const rangeOrDesc = e?.parameter_range || (e?.description && !e.description.includes('[') ? e.description : '')
+      const rangeOrDesc = e?.parameter_range || (e?.description && !e.description.includes('[') ? localizeEvidenceText(e.description) : '')
       if (rangeOrDesc) td.appendChild(el('span', { class: 'cell-text' }, rangeOrDesc.slice(0, 50) + (rangeOrDesc.length > 50 ? '…' : '')))
       else td.appendChild(el('span', { class: 'cell-lbl' }, cellLabel(e)))
       tr.appendChild(td)
@@ -153,7 +183,7 @@ function render() {
     rowCount++
   }
 
-  countEl.textContent = `${rowCount} 个要素 · ${docs.length} 个样例`
+  countEl.textContent = copy[lang].count(rowCount, docs.length)
 }
 
 ;(async () => {
@@ -166,7 +196,7 @@ function render() {
     for (const cat of catalog.categories) {
       const opt = document.createElement('option')
       opt.value = cat.category_id
-      opt.textContent = cat.name_zh
+      opt.textContent = categoryName(cat)
       catSel.appendChild(opt)
     }
 
@@ -183,6 +213,6 @@ function render() {
     covSel.addEventListener('change', render)
     searchInput.addEventListener('input', render)
   } catch (e) {
-    bodyEl.innerHTML = `<tr><td class="error">加载失败：${e.message}</td></tr>`
+    bodyEl.innerHTML = `<tr><td class="error">${copy[lang].loadFailed(e.message)}</td></tr>`
   }
 })()

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>对比 — OpenODC</title>
+  <title>Compare — OpenODC</title>
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
   <header class="site-header">
     <nav class="nav"></nav>
   </header>
@@ -20,20 +19,20 @@
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">DIFF / COMPARISON</p>
-        <h1 class="page-title">多车型 ODC 对比</h1>
-        <p class="page-subtitle">并排对比多个 ODC 样例。绿色 = 双方均声明允许；红色 = 双方均声明不允许；橙色 = 公开边界不一致。社区草稿不代表厂家官方声明。</p>
+        <h1 class="page-title">ODC Compare</h1>
+        <p class="page-subtitle">Compare multiple ODC samples side by side. Green indicates aligned permitted conditions, red indicates aligned exclusions, and amber highlights boundary differences. Community records are not vendor official declarations.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container container-wide">
         <div class="compare-picker" id="compare-picker">
-          <h3>选择要对比的车型（2–4 个）</h3>
+          <h3>Select 2–4 records</h3>
           <div id="picker-grid" class="picker-grid">
-            <p class="loading">加载中…</p>
+            <p class="loading">Loading…</p>
           </div>
           <div class="compare-actions">
-            <button class="btn btn-primary" id="run-compare" disabled>开始对比 →</button>
+            <button class="btn btn-primary" id="run-compare" disabled>Compare →</button>
           </div>
         </div>
 
@@ -45,12 +44,12 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
-        <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">
         <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
-        <a href="/en/compare.html">English</a>
+        <a href="/compare.html">中文</a>
         <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a>
       </div>
     </div>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor Workbench — OpenODC</title>
+  <meta name="description" content="Maintain ADS ODC records internally and generate reviewable OpenODC submission packages." />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav"></nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">VENDOR WORKBENCH</p>
+        <h1 class="page-title">Vendor ODC Workbench</h1>
+        <p class="page-subtitle">An authoring entry point for OEMs and Tier 1 suppliers: maintain operating boundaries, evidence links, and version context internally, then generate a reviewable OpenODC submission package.</p>
+        <div class="workbench-phase-banner">
+          <strong>Public Workbench</strong> — Drafts are stored in this browser only and are not uploaded to an OpenODC server. Public export creates a GitHub PR package that the submitter must review, sanitize, and submit for community review. <a href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">Send feedback →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="workbench-vendor-row">
+          <label class="workbench-label">Vendor Identity</label>
+          <select id="vendor-select" class="workbench-select">
+            <option value="">— Select vendor —</option>
+            <option value="tesla">Tesla</option>
+            <option value="huawei">Huawei / AITO / HIMA</option>
+            <option value="baidu">Baidu Apollo / Apollo Go</option>
+            <option value="byd">BYD</option>
+            <option value="nio">NIO</option>
+            <option value="xpeng">XPENG</option>
+            <option value="li">Li Auto</option>
+            <option value="zhuoyu">Zhuoyu Technology / DJI Automotive</option>
+            <option value="horizon">Horizon Robotics</option>
+            <option value="momenta">Momenta</option>
+            <option value="other">Other / Tier 1</option>
+          </select>
+          <span class="workbench-hint">Local workspace: start from public samples where available, or create internal drafts.</span>
+        </div>
+
+        <div id="workbench-body" class="workbench-body">
+          <div class="workbench-empty">Select a vendor identity to start.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">What the Workbench Is For</h2>
+        <div class="two-col">
+          <div>
+            <h3>Internal Management</h3>
+            <ul class="problem-list">
+              <li>One vendor often maintains multiple models, markets, automation levels, and feature variants.</li>
+              <li>ODC data needs to connect product, regulation, functional safety, SOTIF, testing, and after-sales traceability.</li>
+              <li>Each SOP or OTA should preserve the operating boundary, evidence sources, and review status at that time.</li>
+              <li>Before public release, teams need to separate publishable fields, internal fields, and items that still require verification.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Public Submission</h3>
+            <ul class="problem-list">
+              <li><strong>Structured format</strong>: use the 144 GB/T 45312—2025 elements instead of free-form boundary prose.</li>
+              <li><strong>Evidence binding</strong>: link key elements to manuals, official pages, operating rules, or regulatory material.</li>
+              <li><strong>Version traceability</strong>: GitHub history records how public boundaries change over time.</li>
+              <li><strong>Reviewable publication</strong>: PR review checks sources, terminology, and L2/L3/L4 semantics before merge.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Recommended Flow</h2>
+        <ul class="status-list">
+          <li class="done">Choose a vendor or Tier 1 identity and create the ADS feature record.</li>
+          <li class="done">Open the editor and fill permitted conditions, limitations, and exit behavior across the 144 elements.</li>
+          <li class="done">Bind key elements to official manuals, product pages, operating rules, or regulatory sources.</li>
+          <li class="done">Generate a PR package at SOP, OTA, or public-release checkpoints.</li>
+          <li class="done">Submit for GitHub review; after merge, the record appears in the OpenODC gallery.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.4.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/workbench.html">中文</a>
+        <a href="/en/methodology.html">Method</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/workbench.js"></script>
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>
