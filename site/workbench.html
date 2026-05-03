@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>厂家工作台 — OpenODC</title>
-  <meta name="description" content="OEM / Tier 1 内部维护 ADS 功能 ODC 要素，并生成可审查的公开提交包。" />
+  <title>厂家资料工作台 — OpenODC</title>
+  <meta name="description" content="导入用户手册、配置表、运营规则或脱敏摘录，生成可核验的 ODC 草案表，并说明企业验证与公开发布路径。" />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,80 +20,157 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">VENDOR WORKBENCH</p>
-        <h1 class="page-title">厂家 ODC 工作台</h1>
-        <p class="page-subtitle">面向 OEM / Tier 1 的 ODC 维护入口：先在内部整理功能边界、证据来源和版本信息，再生成可审查的 OpenODC 提交包。</p>
-        <div class="workbench-phase-banner">
-          <strong>公开版工作台</strong> — 当前页面把草稿保存在本机浏览器，不上传到 OpenODC 服务器。对外提交时会生成 GitHub PR 提交包，由提交者确认、脱敏并接受社区审查。<a href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">反馈需求 →</a>
+        <p class="eyebrow">VENDOR INTAKE WORKBENCH</p>
+        <h1 class="page-title">厂家 ODC 资料工作台</h1>
+        <p class="page-subtitle">更现实的工作流不是让工程师逐项手填 144 个要素，而是导入手册、配置表、运营规则或脱敏摘录，先生成 ODC 草案表，再由企业联系人确认和发布。</p>
+        <div class="workbench-boundary-banner">
+          <strong>公开站点边界</strong>
+          <span>本页不做真实企业认证，也不上传商业敏感文件；仅在浏览器内处理公开资料或脱敏摘录。正式厂家提交应使用企业域名验证、权限审批和后台审核，GitHub 只作为社区贡献的兜底通道。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="intake-flow-grid">
+          <article class="intake-flow-card">
+            <span>01</span>
+            <h3>企业验证</h3>
+            <p>使用企业域名邮箱、厂家管理员邀请或合作方白名单确认提交者身份；公共站点不把“选择厂家”当作认证。</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>02</span>
+            <h3>资料导入</h3>
+            <p>导入用户手册、车主手册、功能说明、配置表、运营规则、OTA 说明或脱敏内部边界文档。</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>03</span>
+            <h3>ODC 归纳</h3>
+            <p>系统把文本映射到 GB/T 45312—2025 的 144 个要素，标注证据句、参数范围和未明确项。</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>04</span>
+            <h3>确认发布</h3>
+            <p>厂家确认可公开字段后，通过后台、API、CSV 审核包或 GitHub 社区通道进入 OpenODC 样例库。</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="container container-wide">
+        <div class="workbench-import-layout">
+          <div class="workbench-import-panel">
+            <div class="section-head-row section-head-row-compact">
+              <div>
+                <p class="eyebrow">MANUAL TO ODC TABLE</p>
+                <h2 class="section-title">从资料生成 ODC 草案表</h2>
+              </div>
+              <span class="intake-mode-pill">浏览器本地处理</span>
+            </div>
 
-        <div class="workbench-vendor-row">
-          <label class="workbench-label">当前厂家身份</label>
-          <select id="vendor-select" class="workbench-select">
-            <option value="">— 请选择厂家 —</option>
-            <option value="tesla">特斯拉（Tesla）</option>
-            <option value="huawei">华为（HUAWEI / AITO / Luxeed / Stelato）</option>
-            <option value="baidu">百度 Apollo（萝卜快跑）</option>
-            <option value="byd">比亚迪（BYD）</option>
-            <option value="nio">蔚来（NIO）</option>
-            <option value="xpeng">小鹏（XPENG）</option>
-            <option value="li">理想（Li Auto）</option>
-            <option value="zhuoyu">卓驭科技（DJI Automotive）</option>
-            <option value="horizon">地平线（Horizon Robotics）</option>
-            <option value="momenta">Momenta</option>
-            <option value="other">其他 / Tier 1</option>
-          </select>
-          <span class="workbench-hint">本地工作区：选择厂家后，可基于已公开样例继续维护，也可新建内部草稿。</span>
+            <div class="intake-meta-grid">
+              <label>组织 / 厂家
+                <input id="intake-org" type="text" placeholder="例如：某 OEM / Tier 1" />
+              </label>
+              <label>功能名称
+                <input id="intake-feature" type="text" placeholder="例如：高速 NOA / Robotaxi 武汉运营" />
+              </label>
+              <label>车型 / 场景
+                <input id="intake-model" type="text" placeholder="例如：2026 款车型 / 武汉经开区" />
+              </label>
+              <label>自动化等级
+                <select id="intake-level">
+                  <option value="2">L2 辅助驾驶</option>
+                  <option value="3">L3 有条件自动驾驶</option>
+                  <option value="4">L4 高度自动驾驶</option>
+                </select>
+              </label>
+              <label>企业邮箱或域名
+                <input id="intake-domain" type="text" placeholder="name@oem.com 或 oem.com" />
+              </label>
+              <label>资料来源 URL
+                <input id="intake-source-url" type="url" placeholder="官方手册 / 产品页 / 运营规则链接" />
+              </label>
+              <label class="meta-full">资料文件
+                <input id="intake-file" type="file" accept=".pdf,.doc,.docx,.txt,.md,.csv,.xlsx" />
+                <small id="file-hint">公开页面仅记录文件名，不上传或解析文件内容。</small>
+              </label>
+              <label class="meta-full">粘贴手册、规则或脱敏摘录
+                <textarea id="intake-text" rows="9" placeholder="示例：该功能仅适用于高速公路和城市快速路；驾驶员需始终保持注意力；雨雪雾、施工区域、无清晰车道线或系统提示接管时，功能可能受限或退出；车速范围 0–130 km/h。"></textarea>
+              </label>
+            </div>
+
+            <div class="workbench-action-bar">
+              <button class="btn btn-ghost" id="fill-sample">填入公开样例摘录</button>
+              <button class="btn btn-primary" id="generate-table">生成 ODC 草案表 →</button>
+              <button class="btn btn-ghost" id="copy-markdown" disabled>复制 Markdown 表格</button>
+              <button class="btn btn-ghost" id="download-csv" disabled>下载 CSV</button>
+            </div>
+          </div>
+
+          <aside class="workbench-side-panel">
+            <h3>系统应输出什么</h3>
+            <ul>
+              <li>每个标准要素的声明状态：允许、不允许、资料未明确或结构性要素</li>
+              <li>被引用的证据句和来源 URL，而不是只给结论</li>
+              <li>速度、降雨、能见度、道路类型等量化范围</li>
+              <li>需要厂家确认、法务脱敏或补充手册页码的待办项</li>
+            </ul>
+            <p>这比逐项手填更符合工程师工作习惯：系统先做 70% 的归纳，人工只负责确认、修正和补证据。</p>
+          </aside>
         </div>
 
-        <div id="workbench-body" class="workbench-body">
-          <div class="workbench-empty">请先选择厂家身份。</div>
+        <div class="workbench-results" id="workbench-results">
+          <div class="workbench-empty">导入资料后，将在这里生成 144 个 ODC 要素的草案表。</div>
         </div>
-
       </div>
     </section>
 
     <section class="section section-alt">
       <div class="container">
-        <h2 class="section-title">厂家工作台解决什么问题</h2>
-        <div class="two-col">
-          <div>
-            <h3>内部管理</h3>
-            <ul class="problem-list">
-              <li>同一厂家往往同时维护多个车型、多个市场、多个 ADS 功能版本</li>
-              <li>ODC 信息需要连接产品、法规、功能安全、SOTIF、测试和售后追溯</li>
-              <li>每次 SOP 或 OTA 都应保留当时的运行边界、证据来源和审核状态</li>
-              <li>对外公开前，需要先区分可公开字段、内部字段和仍需核验字段</li>
-            </ul>
-          </div>
-          <div>
-            <h3>公开提交</h3>
-            <ul class="problem-list">
-              <li><strong>统一格式</strong>：使用 GB/T 45312—2025 的 144 项要素，减少自由文本解释空间</li>
-              <li><strong>证据绑定</strong>：每个关键要素都应关联手册、官方页面、运营规则或监管材料</li>
-              <li><strong>版本留痕</strong>：公开样例进入 GitHub 后，可通过提交历史追踪每次边界变化</li>
-              <li><strong>可审查发布</strong>：提交包进入 PR 流程后，由社区检查来源、术语和 L2/L3/L4 语义边界</li>
-            </ul>
-          </div>
+        <h2 class="section-title">公开发布不应只依赖 GitHub</h2>
+        <div class="submission-grid">
+          <article class="submission-card preferred">
+            <span>推荐形态</span>
+            <h3>厂家门户</h3>
+            <p>企业域名验证、管理员审批、角色权限、版本冻结、法务脱敏和发布确认都在门户内完成。</p>
+          </article>
+          <article class="submission-card">
+            <span>近期可落地</span>
+            <h3>审核包提交</h3>
+            <p>导出 CSV / JSON / Markdown 审核包，通过邮件、飞书、企业微信或网页表单交给 OpenODC 管理员代录。</p>
+          </article>
+          <article class="submission-card">
+            <span>规模化</span>
+            <h3>API / 批量同步</h3>
+            <p>适合同时维护多个车型和多个市场版本的 OEM / Tier 1，在 SOP 或 OTA 节点同步公开字段。</p>
+          </article>
+          <article class="submission-card">
+            <span>社区通道</span>
+            <h3>GitHub PR</h3>
+            <p>保留给开源社区、研究者和熟悉 GitHub 的贡献者；不应成为厂家工程师的唯一提交方式。</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">推荐使用流程</h2>
-        <ul class="status-list">
-          <li class="done">选择厂家或 Tier 1 身份，创建需要维护的 ADS 功能条目</li>
-          <li class="done">进入 ODC 编辑器，按 144 项国标元素补充允许条件、限制条件和退出行为</li>
-          <li class="done">为关键要素绑定官方手册、产品页、运营规则或监管材料</li>
-          <li class="done">在 SOP、OTA 或公开发布节点生成 PR 提交包</li>
-          <li class="done">通过 GitHub PR 接受公开审查，合并后进入 OpenODC 样例库</li>
-        </ul>
+        <h2 class="section-title">厂家确认的最小闭环</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>环节</th><th>必须解决的问题</th><th>OpenODC 需要承接的产物</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>身份验证</td><td>谁代表厂家提交，是否有公开授权</td><td>企业域名、联系人角色、审核记录</td></tr>
+              <tr><td>资料归纳</td><td>手册和规则是否覆盖 144 个要素，哪些是缺口</td><td>ODC 草案表、证据句、来源链接、页码</td></tr>
+              <tr><td>人工确认</td><td>哪些字段可以公开，哪些只能内部保存</td><td>公开字段清单、脱敏说明、版本号</td></tr>
+              <tr><td>平台发布</td><td>公开版本如何进入样例库并可追溯</td><td>审核通过的 JSON、CSV、变更日志和证据快照</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>

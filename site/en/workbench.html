@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vendor Workbench — OpenODC</title>
-  <meta name="description" content="Maintain ADS ODC records internally and generate reviewable OpenODC submission packages." />
+  <title>Vendor Intake Workbench — OpenODC</title>
+  <meta name="description" content="Import manuals, configuration tables, operating rules, or sanitized excerpts, then generate a reviewable ODC draft table and submission package." />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,78 +19,157 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">VENDOR WORKBENCH</p>
-        <h1 class="page-title">Vendor ODC Workbench</h1>
-        <p class="page-subtitle">An authoring entry point for OEMs and Tier 1 suppliers: maintain operating boundaries, evidence links, and version context internally, then generate a reviewable OpenODC submission package.</p>
-        <div class="workbench-phase-banner">
-          <strong>Public Workbench</strong> — Drafts are stored in this browser only and are not uploaded to an OpenODC server. Public export creates a GitHub PR package that the submitter must review, sanitize, and submit for community review. <a href="https://github.com/AutoZYX-Labs/OpenODC/issues" target="_blank" rel="noopener">Send feedback →</a>
+        <p class="eyebrow">VENDOR INTAKE WORKBENCH</p>
+        <h1 class="page-title">Vendor ODC Intake Workbench</h1>
+        <p class="page-subtitle">The practical workflow is not asking engineers to fill 144 elements one by one. Import manuals, configuration tables, operating rules, or sanitized excerpts first; generate an ODC draft table; then let authorized vendor contacts confirm and publish.</p>
+        <div class="workbench-boundary-banner">
+          <strong>Public-site boundary</strong>
+          <span>This page does not perform real vendor authentication or upload sensitive files. It only processes public or sanitized text in the browser. Official vendor submission should use domain verification, role approval, and back-office review; GitHub remains only a community fallback path.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="intake-flow-grid">
+          <article class="intake-flow-card">
+            <span>01</span>
+            <h3>Organization Verification</h3>
+            <p>Verify submitters through corporate email domains, vendor-admin invitations, or trusted partner allowlists. Selecting a vendor name on a public page is not authentication.</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>02</span>
+            <h3>Source Import</h3>
+            <p>Import owner manuals, feature guides, configuration tables, robotaxi operating rules, OTA notes, or sanitized internal boundary documents.</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>03</span>
+            <h3>ODC Extraction</h3>
+            <p>Map text to the 144 elements in GB/T 45312—2025, including evidence snippets, parameter ranges, and unspecified gaps.</p>
+          </article>
+          <article class="intake-flow-card">
+            <span>04</span>
+            <h3>Confirm and Publish</h3>
+            <p>After vendor confirmation, publish through a portal, API, CSV review package, or GitHub community contribution path.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="workbench-vendor-row">
-          <label class="workbench-label">Vendor Identity</label>
-          <select id="vendor-select" class="workbench-select">
-            <option value="">— Select vendor —</option>
-            <option value="tesla">Tesla</option>
-            <option value="huawei">Huawei / AITO / HIMA</option>
-            <option value="baidu">Baidu Apollo / Apollo Go</option>
-            <option value="byd">BYD</option>
-            <option value="nio">NIO</option>
-            <option value="xpeng">XPENG</option>
-            <option value="li">Li Auto</option>
-            <option value="zhuoyu">Zhuoyu Technology / DJI Automotive</option>
-            <option value="horizon">Horizon Robotics</option>
-            <option value="momenta">Momenta</option>
-            <option value="other">Other / Tier 1</option>
-          </select>
-          <span class="workbench-hint">Local workspace: start from public samples where available, or create internal drafts.</span>
+      <div class="container container-wide">
+        <div class="workbench-import-layout">
+          <div class="workbench-import-panel">
+            <div class="section-head-row section-head-row-compact">
+              <div>
+                <p class="eyebrow">MANUAL TO ODC TABLE</p>
+                <h2 class="section-title">Generate an ODC Draft Table</h2>
+              </div>
+              <span class="intake-mode-pill">Browser-local processing</span>
+            </div>
+
+            <div class="intake-meta-grid">
+              <label>Organization / Vendor
+                <input id="intake-org" type="text" placeholder="e.g. OEM or Tier 1 name" />
+              </label>
+              <label>Feature Name
+                <input id="intake-feature" type="text" placeholder="e.g. Highway NOA / Wuhan Robotaxi service" />
+              </label>
+              <label>Model / Operating Scenario
+                <input id="intake-model" type="text" placeholder="e.g. 2026 model / Wuhan Economic Development Zone" />
+              </label>
+              <label>Automation Level
+                <select id="intake-level">
+                  <option value="2">L2 driver assistance</option>
+                  <option value="3">L3 conditional automation</option>
+                  <option value="4">L4 automated driving</option>
+                </select>
+              </label>
+              <label>Corporate Email or Domain
+                <input id="intake-domain" type="text" placeholder="name@oem.com or oem.com" />
+              </label>
+              <label>Source URL
+                <input id="intake-source-url" type="url" placeholder="official manual / product page / operating rule URL" />
+              </label>
+              <label class="meta-full">Source File
+                <input id="intake-file" type="file" accept=".pdf,.doc,.docx,.txt,.md,.csv,.xlsx" />
+                <small id="file-hint">The public page records the filename only; it does not upload or parse the file.</small>
+              </label>
+              <label class="meta-full">Paste Manual, Rule, or Sanitized Excerpt
+                <textarea id="intake-text" rows="9" placeholder="Example: The feature is only available on highways and urban expressways. The driver must remain attentive. Rain, snow, fog, construction zones, missing lane markings, or takeover prompts may limit or exit the feature. Speed range: 0–130 km/h."></textarea>
+              </label>
+            </div>
+
+            <div class="workbench-action-bar">
+              <button class="btn btn-ghost" id="fill-sample">Fill Example Excerpt</button>
+              <button class="btn btn-primary" id="generate-table">Generate ODC Draft →</button>
+              <button class="btn btn-ghost" id="copy-markdown" disabled>Copy Markdown Table</button>
+              <button class="btn btn-ghost" id="download-csv" disabled>Download CSV</button>
+            </div>
+          </div>
+
+          <aside class="workbench-side-panel">
+            <h3>Expected Output</h3>
+            <ul>
+              <li>Status for every standard element: permitted, not permitted, unspecified, or structural</li>
+              <li>Evidence snippets and source URLs, not just conclusions</li>
+              <li>Quantified ranges for speed, rainfall, visibility, road type, and other key boundaries</li>
+              <li>Review actions for vendor confirmation, legal sanitization, or missing manual page references</li>
+            </ul>
+            <p>This is closer to how engineering teams work: the system performs the first extraction pass, and humans confirm, correct, and add evidence.</p>
+          </aside>
         </div>
 
-        <div id="workbench-body" class="workbench-body">
-          <div class="workbench-empty">Select a vendor identity to start.</div>
+        <div class="workbench-results" id="workbench-results">
+          <div class="workbench-empty">Import source material to generate a draft table across the 144 ODC elements.</div>
         </div>
       </div>
     </section>
 
     <section class="section section-alt">
       <div class="container">
-        <h2 class="section-title">What the Workbench Is For</h2>
-        <div class="two-col">
-          <div>
-            <h3>Internal Management</h3>
-            <ul class="problem-list">
-              <li>One vendor often maintains multiple models, markets, automation levels, and feature variants.</li>
-              <li>ODC data needs to connect product, regulation, functional safety, SOTIF, testing, and after-sales traceability.</li>
-              <li>Each SOP or OTA should preserve the operating boundary, evidence sources, and review status at that time.</li>
-              <li>Before public release, teams need to separate publishable fields, internal fields, and items that still require verification.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Public Submission</h3>
-            <ul class="problem-list">
-              <li><strong>Structured format</strong>: use the 144 GB/T 45312—2025 elements instead of free-form boundary prose.</li>
-              <li><strong>Evidence binding</strong>: link key elements to manuals, official pages, operating rules, or regulatory material.</li>
-              <li><strong>Version traceability</strong>: GitHub history records how public boundaries change over time.</li>
-              <li><strong>Reviewable publication</strong>: PR review checks sources, terminology, and L2/L3/L4 semantics before merge.</li>
-            </ul>
-          </div>
+        <h2 class="section-title">Publication Should Not Depend on GitHub Alone</h2>
+        <div class="submission-grid">
+          <article class="submission-card preferred">
+            <span>Target Mode</span>
+            <h3>Vendor Portal</h3>
+            <p>Corporate-domain verification, admin approval, role permissions, version freeze, legal sanitization, and publication confirmation happen inside the portal.</p>
+          </article>
+          <article class="submission-card">
+            <span>Near-Term</span>
+            <h3>Review Package</h3>
+            <p>Export CSV / JSON / Markdown and submit it through email, enterprise IM, or a web form for OpenODC administrator review.</p>
+          </article>
+          <article class="submission-card">
+            <span>At Scale</span>
+            <h3>API / Batch Sync</h3>
+            <p>Suitable for OEMs and Tier 1 suppliers maintaining many models, markets, feature versions, SOP releases, and OTA updates.</p>
+          </article>
+          <article class="submission-card">
+            <span>Community Path</span>
+            <h3>GitHub PR</h3>
+            <p>Useful for open-source contributors and researchers who already use GitHub; it should not be the only path for vendor engineers.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Recommended Flow</h2>
-        <ul class="status-list">
-          <li class="done">Choose a vendor or Tier 1 identity and create the ADS feature record.</li>
-          <li class="done">Open the editor and fill permitted conditions, limitations, and exit behavior across the 144 elements.</li>
-          <li class="done">Bind key elements to official manuals, product pages, operating rules, or regulatory sources.</li>
-          <li class="done">Generate a PR package at SOP, OTA, or public-release checkpoints.</li>
-          <li class="done">Submit for GitHub review; after merge, the record appears in the OpenODC gallery.</li>
-        </ul>
+        <h2 class="section-title">Minimum Vendor-Confirmation Loop</h2>
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>Stage</th><th>Question to Resolve</th><th>OpenODC Artifact</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Identity</td><td>Who is submitting on behalf of the vendor, and is the submission authorized?</td><td>Corporate domain, contact role, review record</td></tr>
+              <tr><td>Extraction</td><td>Which of the 144 elements are covered by manuals or rules, and which remain gaps?</td><td>ODC draft table, evidence snippets, source links, page references</td></tr>
+              <tr><td>Confirmation</td><td>Which fields can be public, and which must remain internal?</td><td>Public field list, sanitization notes, version identifier</td></tr>
+              <tr><td>Publication</td><td>How does the confirmed record enter the gallery and remain traceable?</td><td>Approved JSON, CSV, changelog, and evidence snapshot</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>

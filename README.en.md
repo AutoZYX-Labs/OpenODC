@@ -24,11 +24,11 @@ It addresses three problems:
 OpenODC delivers:
 
 - A **JSON Schema** strictly aligned with GB/T 45312—2025
-- A **web editor** for OEMs or the community to fill in a standardized ODC table
+- A **web editor** for OEMs or the community to maintain a standardized ODC table
 - A public **gallery** with six community-extracted ADAS / ADS / Robotaxi samples from public sources
 - A **matrix view** that aligns 144 GB/T elements across multiple systems
 - Two **views** of the same data: developer / consumer
-- A **Vendor Workbench MVP** that demonstrates how OEMs and Tier-1s could manage internal ODC records and publish at SOP
+- A **Vendor Intake Workbench** that turns manuals, configuration tables, operating rules, or sanitized excerpts into a 144-element ODC draft table
 
 ## Why this exists
 
@@ -52,8 +52,8 @@ Important semantic boundary: L2 records describe feature availability conditions
 - ✅ 144-element public-source coverage metrics with per-sample evidence-as-of dates; this is not a vendor disclosure rate
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
-- ✅ Vendor Workbench MVP: internal status tracking, editor handoff, GitHub PR submission package generation
-- ⏳ Phase 4 backend: accounts, Supabase storage, signed publishing, GitHub App PR automation
+- ✅ Vendor Intake Workbench: paste manual / rule excerpts, generate a 144-element ODC draft table, and export CSV / Markdown review packages
+- ⏳ Backend publishing loop: corporate-domain verification, role permissions, private file parsing, administrator review, and portal / API / GitHub publication channels
 
 Full roadmap: [ARCHITECTURE.md](./ARCHITECTURE.md). Publishing semantics: [Methodology](https://openodc.autozyx.com/en/methodology.html).
 

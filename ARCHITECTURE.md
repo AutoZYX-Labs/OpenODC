@@ -182,7 +182,9 @@ For Phase 0–4 MVP, all public data lives as JSON files in the repo:
 - History is git-native
 - Anyone can fork and run their own copy
 
-The current Vendor Workbench is a static frontend MVP backed by browser localStorage. It generates a GitHub PR submission package, but it does not yet authenticate a vendor or open a PR automatically. For Phase 5, we will add a Supabase backend and GitHub App integration for OEM direct authoring, signed publishing, and automatic public-export PRs.
+The current Vendor Intake Workbench is a static frontend tool that runs in the browser. It does not authenticate a vendor, upload sensitive files, or fetch private manuals. Its purpose is to show the more realistic authoring workflow: import public or sanitized source excerpts, map them into the 144-element ODC table, mark evidence gaps, and export a CSV / Markdown review package.
+
+For vendor-confirmed records, GitHub should be only one publication path. The production workflow should add corporate-domain verification, organization roles, private document parsing, administrator review, signed publishing, and multiple submission channels: vendor portal, API / batch sync, review-package upload, and GitHub PR for community contributors.
 
 ## 9. What's NOT in scope
 

@@ -1,373 +1,509 @@
-// workbench.js — Vendor Workbench (localStorage-backed, no backend)
-//
-// Data model (localStorage key: "openodc.workbench.v2"):
-// {
-//   "<vendor_id>": {
-//     functions: [
-//       { id, name, model, ads_level, status, updated_at, manual_url, notes }
-//     ]
-//   }
-// }
-// status: in_development | pre_release | shipped | published
+import {
+  loadCatalog, buildElementIndex,
+  lang, elementName, categoryName,
+  el, downloadBlob
+} from './common.js'
 
-const STORAGE_KEY = 'openodc.workbench.v2'
-const LANG = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/') ? 'en' : 'zh'
+// workbench.js — browser-local intake tool for turning source material into an ODC draft table.
 
-const VENDOR_LABELS = {
-  zh: {
-    tesla: '特斯拉', huawei: '华为', baidu: '百度 Apollo', byd: '比亚迪',
-    nio: '蔚来', xpeng: '小鹏', li: '理想', zhuoyu: '卓驭科技',
-    horizon: '地平线', momenta: 'Momenta', other: '其他 / Tier 1'
-  },
-  en: {
-    tesla: 'Tesla', huawei: 'Huawei / AITO', baidu: 'Baidu Apollo', byd: 'BYD',
-    nio: 'NIO', xpeng: 'XPENG', li: 'Li Auto', zhuoyu: 'Zhuoyu / DJI Automotive',
-    horizon: 'Horizon Robotics', momenta: 'Momenta', other: 'Other / Tier 1'
-  }
-}
-
-const STATUS_META = {
-  in_development: { zh: '在研', en: 'In development', color: '#8a6e1d', bg: '#f4ead3' },
-  pre_release: { zh: '预发布', en: 'Pre-release', color: '#c85a3a', bg: '#fbe4dc' },
-  shipped: { zh: '已上市', en: 'Shipped', color: '#2d6a3a', bg: '#d4e6d4' },
-  published: { zh: '已公开', en: 'Published', color: '#5a7a8e', bg: '#dae7f0' }
-}
+const STORAGE_KEY = 'openodc.intake.v1'
+let catalog = null
+let elementIndex = null
+let latestRows = []
 
 const copy = {
   zh: {
-    selectVendor: '请先选择厂家身份。',
-    listTitle: label => `${label} — ODC 功能清单`,
-    published: '已公开',
-    count: n => ` · ${n}`,
-    newFeature: '+ 新建功能',
-    reset: '恢复公开样例种子',
-    resetConfirm: label => `恢复 ${label} 的公开样例种子？这会覆盖该厂家在本机浏览器中的修改。`,
-    empty: '暂无功能记录。点击「新建功能」开始管理。',
-    headers: ['功能名称', '车型', '等级', '状态', '官方手册', '更新时间', '操作'],
-    sampleId: id => `OpenODC 样例 ID: ${id}`,
-    publishedSuffix: ' · 已公开 ✓',
-    openManual: '打开手册 →',
-    notSet: '未设置',
-    edit: '编辑 ODC',
-    publish: '发布到公开库',
-    delete: '删除',
-    namePrompt: '功能名称（例：高速 NCA 3.0）',
-    modelPrompt: '适用车型（可留空）',
-    levelPrompt: 'ADS 等级 (1-4)',
-    publishConfirm: status => `当前状态为「${status}」，不是「已上市」。\n\n建议仅在版本冻结、资料脱敏和内部审批完成后再生成公开提交包。\n\n仍然继续生成吗？`,
-    noDataConfirm: name => `${name} 还没有 ODC 数据。\n\n先到编辑器填写 ODC 要素，然后再回来发布。\n\n现在打开编辑器？`,
-    prBody: (vendor, fn) => `## 请求将 ${vendor} · ${fn.name} 公开到 OpenODC\n\n- 厂家：${vendor}\n- 功能：${fn.name}\n- 车型：${fn.model}\n- ADS 等级：L${fn.ads_level}\n- 官方手册：${fn.manual_url || '（未设置）'}\n- 备注：${fn.notes || '（无）'}\n\n由 OpenODC 厂家工作台生成 · ${new Date().toISOString()}`,
-    packageReady: filename => `已生成 PR 提交包（${filename}），JSON 已复制到剪贴板。\n\n页面将打开 GitHub 新建文件入口，由提交者确认内容后创建 PR。\n\n步骤：\n\n1. 在内容区粘贴（Ctrl/Cmd + V）\n2. 底部选择「Create a new branch for this commit and start a pull request」\n3. 点击 Commit changes\n\n合并前不会自动标记为 OpenODC 已公开。`,
-    copyFallback: '复制以下 ODC JSON 到 GitHub 新文件：',
-    deleteConfirm: name => `删除 ${name}？此操作会从本机浏览器工作区移除该条记录。`
+    fileRecorded: name => `已记录文件名：${name}。公开页面不会上传或解析文件。`,
+    fileDefault: '公开页面仅记录文件名，不上传或解析文件内容。',
+    needText: '请先粘贴手册、规则或脱敏摘录。仅填写 URL 时，当前静态页面无法抓取网页正文。',
+    generated: (matched, total) => `已生成 ${total} 个标准要素，其中 ${matched} 项从导入资料中识别到证据。`,
+    copied: 'Markdown 表格已复制到剪贴板。',
+    copyFailed: '复制失败，请使用下载 CSV。',
+    matched: '已识别',
+    gaps: '待补证据',
+    structural: '结构性要素',
+    total: '标准要素',
+    category: '类别',
+    element: 'ODC 要素',
+    status: '状态',
+    parameter: '参数 / 证据',
+    action: '确认动作',
+    noEvidence: '导入资料中未识别到直接证据。',
+    structuralEvidence: '层级结构项，实际声明通常落在子要素。',
+    confirmPublish: '厂家确认可公开字段与证据位置',
+    addEvidence: '补充手册页码、阈值或明确说明',
+    reviewStructural: '检查子要素即可',
+    permitted: '允许',
+    notPermitted: '不允许',
+    unspecified: '资料未明确',
+    extracted: '从导入资料中识别',
+    source: '来源',
+    sampleOrg: '示例 OEM',
+    sampleFeature: '高速 NOA',
+    sampleModel: '2026 款车型',
+    sampleDomain: 'safety@example-oem.com',
+    sampleUrl: 'https://example-oem.com/owner-manual.pdf',
+    sampleText: '该高速 NOA 功能仅适用于高速公路和城市快速路，车速范围 0–130 km/h。驾驶员必须始终保持注意力并准备接管。遇到大雨、降雪、浓雾、能见度不足、施工区域、事故现场、无清晰车道线、交通管制、隧道、环岛、行人或非机动车混行场景，系统可能抑制激活或提示接管退出。功能依赖定位信号、车道线和交通标志识别，夜间需要道路照明或车辆前照灯条件满足。'
   },
   en: {
-    selectVendor: 'Select a vendor identity to start.',
-    listTitle: label => `${label} — ODC Feature Records`,
-    published: 'Published',
-    count: n => ` · ${n}`,
-    newFeature: '+ New Feature',
-    reset: 'Restore Public Sample Seeds',
-    resetConfirm: label => `Restore public sample seeds for ${label}? This will overwrite local browser changes for this vendor.`,
-    empty: 'No feature records yet. Click “New Feature” to start.',
-    headers: ['Feature', 'Model', 'Level', 'Status', 'Official Manual', 'Updated', 'Actions'],
-    sampleId: id => `OpenODC sample ID: ${id}`,
-    publishedSuffix: ' · published ✓',
-    openManual: 'Open manual →',
-    notSet: 'Not set',
-    edit: 'Edit ODC',
-    publish: 'Publish package',
-    delete: 'Delete',
-    namePrompt: 'Feature name (e.g. Highway NCA 3.0)',
-    modelPrompt: 'Applicable model (optional)',
-    levelPrompt: 'ADS level (1-4)',
-    publishConfirm: status => `Current status is “${status}”, not “Shipped”.\n\nPublic submission is recommended only after version freeze, data sanitization, and internal approval.\n\nGenerate the package anyway?`,
-    noDataConfirm: name => `${name} does not have ODC data yet.\n\nOpen the editor first, then return to publish.\n\nOpen the editor now?`,
-    prBody: (vendor, fn) => `## Request to publish ${vendor} · ${fn.name} to OpenODC\n\n- Vendor: ${vendor}\n- Feature: ${fn.name}\n- Model: ${fn.model}\n- ADS level: L${fn.ads_level}\n- Official manual: ${fn.manual_url || '(not set)'}\n- Notes: ${fn.notes || '(none)'}\n\nGenerated by OpenODC Vendor Workbench · ${new Date().toISOString()}`,
-    packageReady: filename => `PR package generated (${filename}); JSON copied to clipboard.\n\nA GitHub new-file page will open so the submitter can review content and create a PR.\n\nSteps:\n\n1. Paste the content\n2. Select “Create a new branch for this commit and start a pull request”\n3. Click Commit changes\n\nThe record is not marked public until the PR is merged.`,
-    copyFallback: 'Copy this ODC JSON into a GitHub new file:',
-    deleteConfirm: name => `Delete ${name}? This removes the record from the local browser workspace.`
+    fileRecorded: name => `Filename recorded: ${name}. The public page does not upload or parse files.`,
+    fileDefault: 'The public page records the filename only; it does not upload or parse the file.',
+    needText: 'Paste a manual, operating rule, or sanitized excerpt first. The static page cannot fetch webpage body text from a URL alone.',
+    generated: (matched, total) => `Generated ${total} standard elements; ${matched} elements include evidence recognized from the imported text.`,
+    copied: 'Markdown table copied to clipboard.',
+    copyFailed: 'Copy failed. Use Download CSV instead.',
+    matched: 'Matched',
+    gaps: 'Evidence gaps',
+    structural: 'Structural',
+    total: 'Standard elements',
+    category: 'Category',
+    element: 'ODC Element',
+    status: 'Status',
+    parameter: 'Parameter / Evidence',
+    action: 'Review Action',
+    noEvidence: 'No direct evidence recognized in the imported material.',
+    structuralEvidence: 'Hierarchy node; substantive declarations usually belong to child elements.',
+    confirmPublish: 'Vendor confirms public fields and evidence locations',
+    addEvidence: 'Add manual page, threshold, or explicit statement',
+    reviewStructural: 'Review child elements',
+    permitted: 'Permitted',
+    notPermitted: 'Not permitted',
+    unspecified: 'Unspecified',
+    extracted: 'Recognized from imported text',
+    source: 'Source',
+    sampleOrg: 'Example OEM',
+    sampleFeature: 'Highway NOA',
+    sampleModel: '2026 vehicle model',
+    sampleDomain: 'safety@example-oem.com',
+    sampleUrl: 'https://example-oem.com/owner-manual.pdf',
+    sampleText: 'This Highway NOA feature is only available on highways and urban expressways, with a speed range of 0–130 km/h. The driver must remain attentive and be ready to take over at all times. Heavy rain, snowfall, dense fog, low visibility, construction zones, accident scenes, unclear lane markings, traffic control, tunnels, roundabouts, pedestrians, and mixed non-motorized traffic may suppress activation or trigger takeover and exit. The feature depends on positioning signals, lane marking recognition, and traffic sign recognition; nighttime operation requires sufficient street lighting or vehicle headlights.'
   }
 }
 
-function vendorLabel(vendorId) {
-  return VENDOR_LABELS[LANG][vendorId] || vendorId
+const RULES = [
+  {
+    id: 'odd.road.type.highway.expressway',
+    keywords: ['高速公路', '高速', 'highway', 'expressway', 'freeway'],
+    parameter: { zh: '高速公路', en: 'Highway / expressway' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.road.type.urban_road.expressway',
+    keywords: ['城市快速路', '快速路', 'urban expressway'],
+    parameter: { zh: '城市快速路', en: 'Urban expressway' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'vehicle.motion.speed.operating',
+    keywords: ['车速', '速度', '限速', 'speed', 'km/h', 'mph'],
+    parameter: { zh: '提取运行速度范围', en: 'Extract operating speed range' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'personnel.driver.takeover.attention',
+    keywords: ['驾驶员', '注意力', '接管', '保持注意', 'take over', 'takeover', 'attentive', 'supervise', 'driver'],
+    parameter: { zh: '驾驶员持续监管 / 可接管', en: 'Driver supervision / takeover readiness' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.weather.atmospheric.rain',
+    keywords: ['雨', '降雨', '大雨', '暴雨', 'rain', 'rainfall', 'heavy rain'],
+    parameter: { zh: '需补充降雨量阈值', en: 'Rainfall threshold requires confirmation' }
+  },
+  {
+    id: 'odd.weather.atmospheric.snow.snowfall',
+    keywords: ['雪', '降雪', 'snow', 'snowfall'],
+    parameter: { zh: '需补充降雪等级或积雪条件', en: 'Snowfall / snow accumulation threshold requires confirmation' }
+  },
+  {
+    id: 'odd.weather.particles.fog',
+    keywords: ['雾', '浓雾', '能见度', 'fog', 'visibility', 'dense fog'],
+    parameter: { zh: '需补充能见度阈值', en: 'Visibility threshold requires confirmation' }
+  },
+  {
+    id: 'odd.infrastructure.temporary.construction',
+    keywords: ['施工', '施工区域', 'construction', 'work zone', 'roadworks'],
+    parameter: { zh: '施工区域需确认退出或抑制激活', en: 'Construction zone behavior requires confirmation' },
+    requirement: 'not_permitted'
+  },
+  {
+    id: 'odd.infrastructure.temporary.accident_site',
+    keywords: ['事故现场', '事故', 'accident scene', 'crash scene'],
+    parameter: { zh: '事故现场需确认退出或抑制激活', en: 'Accident-scene behavior requires confirmation' },
+    requirement: 'not_permitted'
+  },
+  {
+    id: 'odd.infrastructure.temporary.traffic_control',
+    keywords: ['交通管制', '临时管制', 'traffic control', 'temporary traffic control'],
+    parameter: { zh: '临时交通管制', en: 'Temporary traffic control' }
+  },
+  {
+    id: 'odd.road.lane.marking.quality',
+    keywords: ['车道线', '标线', 'lane marking', 'lane markings', 'clear lane'],
+    parameter: { zh: '车道线清晰度', en: 'Lane marking quality' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.road.lane.marking.absent',
+    keywords: ['无清晰车道线', '无车道线', '缺失车道线', 'missing lane markings', 'unclear lane markings'],
+    parameter: { zh: '无清晰车道线', en: 'Missing / unclear lane markings' },
+    requirement: 'not_permitted'
+  },
+  {
+    id: 'odd.infrastructure.special.tunnel',
+    keywords: ['隧道', 'tunnel'],
+    parameter: { zh: '隧道场景', en: 'Tunnel scenario' }
+  },
+  {
+    id: 'odd.road.intersection.roundabout.normal',
+    keywords: ['环岛', 'roundabout'],
+    parameter: { zh: '环岛场景', en: 'Roundabout scenario' }
+  },
+  {
+    id: 'odd.targets.pedestrian',
+    keywords: ['行人', 'pedestrian'],
+    parameter: { zh: '行人目标物', en: 'Pedestrians' }
+  },
+  {
+    id: 'odd.targets.non_motor_vehicle',
+    keywords: ['非机动车', '电动自行车', '自行车', 'non-motorized', 'cyclist', 'bicycle'],
+    parameter: { zh: '非机动车目标物', en: 'Non-motorized vehicles' }
+  },
+  {
+    id: 'odd.infrastructure.traffic_control.sign',
+    keywords: ['交通标志', '交通标识', 'traffic sign', 'road sign'],
+    parameter: { zh: '交通标志识别', en: 'Traffic sign recognition' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.infrastructure.traffic_control.signal',
+    keywords: ['交通信号灯', '红绿灯', 'traffic light', 'traffic signal'],
+    parameter: { zh: '交通信号灯识别', en: 'Traffic signal recognition' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.weather.lighting.streetlight',
+    keywords: ['道路照明', '路灯', 'street lighting', 'streetlight'],
+    parameter: { zh: '道路照明条件', en: 'Street lighting condition' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.weather.lighting.headlight',
+    keywords: ['前照灯', '大灯', 'headlight', 'headlights'],
+    parameter: { zh: '车辆前照灯条件', en: 'Vehicle headlight condition' },
+    requirement: 'permitted'
+  },
+  {
+    id: 'odd.digital.position',
+    keywords: ['定位', '定位信号', 'gps', 'gnss', 'positioning'],
+    parameter: { zh: '定位信号可用', en: 'Positioning signal available' },
+    requirement: 'permitted'
+  }
+]
+
+const NEGATIVE_TERMS = [
+  '不支持', '不可', '不能', '无法', '退出', '接管', '受限', '抑制', '禁止',
+  'not available', 'unavailable', 'not supported', 'exit', 'take over',
+  'takeover', 'suppress', 'limit', 'limited', 'disable', 'disabled'
+]
+
+async function init() {
+  catalog = await loadCatalog()
+  elementIndex = buildElementIndex(catalog)
+  bindInputs()
+  restoreDraft()
 }
 
-function statusMeta(status) {
-  const meta = STATUS_META[status] || { zh: status, en: status, color: '#666', bg: '#eee' }
-  return { label: meta[LANG] || meta.zh || status, color: meta.color, bg: meta.bg }
+function bindInputs() {
+  const fileInput = document.getElementById('intake-file')
+  const fileHint = document.getElementById('file-hint')
+  fileInput?.addEventListener('change', () => {
+    const file = fileInput.files?.[0]
+    fileHint.textContent = file ? copy[lang].fileRecorded(file.name) : copy[lang].fileDefault
+    saveDraft()
+  })
+
+  for (const id of ['intake-org', 'intake-feature', 'intake-model', 'intake-level', 'intake-domain', 'intake-source-url', 'intake-text']) {
+    document.getElementById(id)?.addEventListener('input', saveDraft)
+  }
+
+  document.getElementById('fill-sample')?.addEventListener('click', fillSample)
+  document.getElementById('generate-table')?.addEventListener('click', generateDraft)
+  document.getElementById('copy-markdown')?.addEventListener('click', copyMarkdown)
+  document.getElementById('download-csv')?.addEventListener('click', downloadCsv)
 }
 
-const SAMPLE_SEEDS = {
-  tesla: [
-    { id: 'tesla-fsd-current', name: 'FSD Supervised（美国当前公开版）', name_en: 'FSD Supervised (US current public sample)', model: 'Model 3/Y/S/X HW3/HW4', model_en: 'Model 3/Y/S/X HW3/HW4', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/en_us/', notes: '按 Tesla 官方 FSD v14 Trial 与 2026.8 北美手册复核。对应 OpenODC 当前公开样例。', notes_en: 'Reviewed against Tesla FSD v14 Trial information and the North America 2026.8 owner manual. Linked to the OpenODC public sample.', public_id: 'tesla-fsd-us-current' },
-    { id: 'tesla-ad-china-current', name: '辅助驾驶功能（中国）', name_en: 'Assisted Driving (China)', model: 'Model 3/Y 中国区', model_en: 'Model 3/Y China market', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/zh_cn/', notes: '中国区 2026.8 手册章节为辅助驾驶功能，不套用北美 FSD Supervised。', notes_en: 'Based on the China 2026.8 owner manual; North America FSD Supervised is not applied to the China sample.', public_id: 'tesla-assisted-driving-china-current' }
-  ],
-  huawei: [
-    { id: 'huawei-ads4-max', name: 'ADS 4（问界 M9 当前公开样例）', name_en: 'ADS 4 (AITO M9 current public sample)', model: '问界 M9 2025 款', model_en: 'AITO M9 2025', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', notes: '对应 OpenODC 公开样例；华为通用页已更新 ADS 5，但问界 M9 官方资料仍以 ADS 4 为证据口径。', notes_en: 'Linked to the OpenODC public sample. Huawei general pages now reference ADS 5, but current AITO M9 public evidence still supports an ADS 4 sample.', public_id: 'huawei-ads4-aito-m9' }
-  ],
-  baidu: [
-    { id: 'apollo-go-wuhan', name: '萝卜快跑（武汉示范运营）', name_en: 'Apollo Go (Wuhan demonstration operation)', model: 'Apollo RT6 / 颐驰 06', model_en: 'Apollo RT6 / Yichi 06', ads_level: 4, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.apollogo.com/ch/', notes: '武汉经开区示范运营公开资料样例。', notes_en: 'Public-evidence sample for Wuhan demonstration operations.', public_id: 'baidu-apollogo-wuhan' }
-  ],
-  xpeng: [
-    { id: 'xpeng-xngp-p7plus', name: 'XNGP（P7+ 2026 当前公开样例）', name_en: 'XNGP (P7+ 2026 public sample)', model: '2026 款小鹏 P7+', model_en: 'XPENG P7+ 2026', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.xiaopeng.com/p7_plus_2026.html', notes: '对应 OpenODC 公开样例，证据来自官方产品页、配置表和官方社区指南。', notes_en: 'Linked to the OpenODC public sample; evidence comes from official product pages, configuration tables, and official community guides.', public_id: 'xpeng-xngp-p7plus-2026' }
-  ]
+function fillSample() {
+  setValue('intake-org', copy[lang].sampleOrg)
+  setValue('intake-feature', copy[lang].sampleFeature)
+  setValue('intake-model', copy[lang].sampleModel)
+  setValue('intake-domain', copy[lang].sampleDomain)
+  setValue('intake-source-url', copy[lang].sampleUrl)
+  setValue('intake-text', copy[lang].sampleText)
+  saveDraft()
+  generateDraft()
 }
 
-function fnName(fn) {
-  return LANG === 'en' ? (fn.name_en || fn.name) : fn.name
+function setValue(id, value) {
+  const node = document.getElementById(id)
+  if (node) node.value = value
 }
 
-function fnModel(fn) {
-  return LANG === 'en' ? (fn.model_en || fn.model) : fn.model
+function getValue(id) {
+  return document.getElementById(id)?.value?.trim() || ''
 }
 
-function fnNotes(fn) {
-  return LANG === 'en' ? (fn.notes_en || fn.notes) : fn.notes
+function saveDraft() {
+  const draft = collectMetadata()
+  draft.text = getValue('intake-text')
+  const file = document.getElementById('intake-file')?.files?.[0]
+  if (file) draft.file_name = file.name
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(draft))
 }
 
-function loadState() {
+function restoreDraft() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return {}
-    return JSON.parse(raw)
-  } catch {
-    return {}
-  }
-}
-
-function saveState(state) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-}
-
-function ensureVendor(state, vendorId) {
-  if (!state[vendorId]) {
-    state[vendorId] = {
-      functions: (SAMPLE_SEEDS[vendorId] || []).map(f => ({ ...f }))
+    if (!raw) return
+    const draft = JSON.parse(raw)
+    for (const [id, key] of Object.entries(inputMap())) {
+      const node = document.getElementById(id)
+      if (node && draft[key]) node.value = draft[key]
     }
-    saveState(state)
-  }
-  return state[vendorId]
+    if (draft.text) setValue('intake-text', draft.text)
+    if (draft.file_name) {
+      const fileHint = document.getElementById('file-hint')
+      if (fileHint) fileHint.textContent = copy[lang].fileRecorded(draft.file_name)
+    }
+  } catch {}
 }
 
-function formatDate(iso) {
-  if (!iso) return '—'
-  try {
-    const d = new Date(iso)
-    return d.toISOString().slice(0, 10)
-  } catch { return '—' }
+function inputMap() {
+  return {
+    'intake-org': 'organization',
+    'intake-feature': 'feature',
+    'intake-model': 'model',
+    'intake-level': 'level',
+    'intake-domain': 'domain',
+    'intake-source-url': 'source_url'
+  }
 }
 
-function el(tag, attrs = {}, children = []) {
-  const node = document.createElement(tag)
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') node.className = v
-    else if (k === 'html') node.innerHTML = v
-    else node.setAttribute(k, v)
+function collectMetadata() {
+  return {
+    organization: getValue('intake-org'),
+    feature: getValue('intake-feature'),
+    model: getValue('intake-model'),
+    level: getValue('intake-level') || '2',
+    domain: getValue('intake-domain'),
+    source_url: getValue('intake-source-url')
   }
-  const arr = Array.isArray(children) ? children : [children]
-  for (const c of arr) {
-    if (c == null) continue
-    node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c)
-  }
-  return node
 }
 
-function renderDashboard(vendorId) {
-  const body = document.getElementById('workbench-body')
-  body.innerHTML = ''
-  if (!vendorId) {
-    body.appendChild(el('div', { class: 'workbench-empty' }, copy[LANG].selectVendor))
+function generateDraft() {
+  const text = getValue('intake-text')
+  if (!text) {
+    alert(copy[lang].needText)
     return
   }
+  saveDraft()
+  latestRows = buildRows(text, collectMetadata())
+  renderResults(latestRows)
+  setExportsEnabled(true)
+}
 
-  const state = loadState()
-  const vendor = ensureVendor(state, vendorId)
-  const label = vendorLabel(vendorId)
-
-  // Summary row
-  const summary = el('div', { class: 'workbench-summary' })
-  const counts = { in_development: 0, pre_release: 0, shipped: 0, published: 0 }
-  for (const f of vendor.functions) {
-    if (counts[f.status] != null) counts[f.status]++
-    if (f.public_id) counts.published++
+function buildRows(text, metadata) {
+  const matches = new Map()
+  for (const rule of RULES) {
+    const evidence = findEvidence(text, rule.keywords)
+    if (!evidence) continue
+    const requirement = rule.requirement || (isNegativeEvidence(evidence) ? 'not_permitted' : 'permitted')
+    matches.set(rule.id, {
+      requirement,
+      parameter: extractParameter(evidence) || localized(rule.parameter),
+      evidence,
+      source: metadata.source_url || '',
+      action: copy[lang].confirmPublish,
+      matched: true
+    })
   }
-  summary.appendChild(el('h2', { class: 'workbench-vendor-name' }, copy[LANG].listTitle(label)))
-  const pillRow = el('div', { class: 'workbench-pill-row' })
-  for (const [status, n] of Object.entries(counts)) {
-    const meta = statusMeta(status)
-    const pill = el('span', { class: 'workbench-pill', style: `color:${meta.color};background:${meta.bg}` }, `${meta.label}${copy[LANG].count(n)}`)
-    pillRow.appendChild(pill)
-  }
-  summary.appendChild(pillRow)
-  body.appendChild(summary)
 
-  // Action bar
-  const actionBar = el('div', { class: 'workbench-action-bar' })
-  const newBtn = el('button', { class: 'btn btn-primary', id: 'new-fn-btn' }, copy[LANG].newFeature)
-  newBtn.addEventListener('click', () => newFunction(vendorId))
-  actionBar.appendChild(newBtn)
-  const resetBtn = el('button', { class: 'btn btn-ghost', id: 'reset-btn' }, copy[LANG].reset)
-  resetBtn.addEventListener('click', () => {
-    if (confirm(copy[LANG].resetConfirm(label))) {
-      delete state[vendorId]
-      saveState(state)
-      renderDashboard(vendorId)
+  const childIds = new Set()
+  for (const cat of catalog.categories) {
+    for (const item of cat.elements) {
+      if (item.parent_id) childIds.add(item.parent_id)
     }
-  })
-  actionBar.appendChild(resetBtn)
-  body.appendChild(actionBar)
-
-  // Function table
-  if (vendor.functions.length === 0) {
-    body.appendChild(el('div', { class: 'workbench-empty' }, copy[LANG].empty))
-    return
   }
 
-  const table = el('table', { class: 'workbench-table' })
-  table.appendChild(el('thead', {}, el('tr', {}, copy[LANG].headers.map(h => el('th', {}, h)))))
+  const rows = []
+  for (const cat of catalog.categories) {
+    for (const item of cat.elements) {
+      const matched = matches.get(item.id)
+      const isStructural = !matched && (childIds.has(item.id) || item.level <= 3)
+      rows.push({
+        id: item.id,
+        category: categoryName(cat),
+        element: elementName(item),
+        requirement: matched?.requirement || (isStructural ? 'structural' : 'gap'),
+        parameter: matched?.parameter || '',
+        evidence: matched?.evidence || (isStructural ? copy[lang].structuralEvidence : copy[lang].noEvidence),
+        source: matched?.source || '',
+        action: matched?.action || (isStructural ? copy[lang].reviewStructural : copy[lang].addEvidence),
+        matched: Boolean(matched),
+        structural: isStructural
+      })
+    }
+  }
+  return rows
+}
+
+function localized(value) {
+  if (!value) return ''
+  return value[lang] || value.zh || value.en || ''
+}
+
+function findEvidence(text, keywords) {
+  const sentences = text
+    .replace(/\r/g, '\n')
+    .split(/(?<=[。！？.!?])\s+|[。！？!?]\s*|\n+/)
+    .map(s => s.trim())
+    .filter(Boolean)
+  const lowerSentences = sentences.map(s => s.toLowerCase())
+  for (let i = 0; i < sentences.length; i++) {
+    if (keywords.some(k => lowerSentences[i].includes(k.toLowerCase()))) return sentences[i]
+  }
+  return ''
+}
+
+function isNegativeEvidence(sentence) {
+  const lower = sentence.toLowerCase()
+  return NEGATIVE_TERMS.some(term => lower.includes(term.toLowerCase()))
+}
+
+function extractParameter(sentence) {
+  const range = sentence.match(/\d+(?:\.\d+)?\s*[–~\-至到]\s*\d+(?:\.\d+)?\s*(?:km\/h|公里\/小时|mph|m\/s|mm\/h|mm|m|米|℃|°C|%)/i)
+  if (range) return range[0]
+  const values = sentence.match(/\d+(?:\.\d+)?\s*(?:km\/h|公里\/小时|mph|m\/s|mm\/h|mm|m|米|℃|°C|%)/gi)
+  return values ? values.slice(0, 3).join(' / ') : ''
+}
+
+function renderResults(rows) {
+  const root = document.getElementById('workbench-results')
+  root.innerHTML = ''
+  const matched = rows.filter(r => r.matched).length
+  const structural = rows.filter(r => r.requirement === 'structural').length
+  const gaps = rows.length - matched - structural
+
+  root.appendChild(el('div', { class: 'intake-result-summary' }, [
+    statCard(copy[lang].matched, matched),
+    statCard(copy[lang].gaps, gaps),
+    statCard(copy[lang].structural, structural),
+    statCard(copy[lang].total, rows.length)
+  ]))
+
+  root.appendChild(el('p', { class: 'source-status' }, copy[lang].generated(matched, rows.length)))
+
+  const table = el('table', { class: 'intake-table' })
+  table.appendChild(el('thead', {}, el('tr', {}, [
+    el('th', {}, copy[lang].category),
+    el('th', {}, copy[lang].element),
+    el('th', {}, copy[lang].status),
+    el('th', {}, copy[lang].parameter),
+    el('th', {}, copy[lang].action)
+  ])))
   const tbody = el('tbody')
-  for (const fn of vendor.functions) {
-    const tr = el('tr')
-    tr.appendChild(el('td', { class: 'fn-name-cell' }, [
-      el('div', { class: 'fn-name' }, fnName(fn)),
-      fnNotes(fn) ? el('div', { class: 'fn-notes' }, fnNotes(fn)) : null
-    ]))
-    tr.appendChild(el('td', {}, fnModel(fn) || '—'))
-    tr.appendChild(el('td', {}, `L${fn.ads_level}`))
-    const sMeta = statusMeta(fn.status)
-    tr.appendChild(el('td', {}, [
-      el('span', { class: 'fn-status-pill', style: `color:${sMeta.color};background:${sMeta.bg}` }, sMeta.label),
-      fn.public_id ? el('span', { class: 'fn-published', title: copy[LANG].sampleId(fn.public_id) }, copy[LANG].publishedSuffix) : null
-    ]))
-    const manualCell = el('td', {})
-    if (fn.manual_url) {
-      const a = el('a', { href: fn.manual_url, target: '_blank', rel: 'noopener' }, copy[LANG].openManual)
-      manualCell.appendChild(a)
-    } else manualCell.appendChild(el('span', { class: 'text-mute' }, copy[LANG].notSet))
-    tr.appendChild(manualCell)
-    tr.appendChild(el('td', {}, formatDate(fn.updated_at)))
-
-    const actionsCell = el('td', { class: 'fn-actions' })
-    const editBtn = el('button', { class: 'btn-mini' }, copy[LANG].edit)
-    editBtn.addEventListener('click', () => openEditor(vendorId, fn))
-    actionsCell.appendChild(editBtn)
-    if (fn.status !== 'published' && !fn.public_id) {
-      const pubBtn = el('button', { class: 'btn-mini btn-accent' }, copy[LANG].publish)
-      pubBtn.addEventListener('click', () => publishFunction(vendorId, fn))
-      actionsCell.appendChild(pubBtn)
-    }
-    const delBtn = el('button', { class: 'btn-mini btn-danger' }, copy[LANG].delete)
-    delBtn.addEventListener('click', () => deleteFunction(vendorId, fn))
-    actionsCell.appendChild(delBtn)
-    tr.appendChild(actionsCell)
-    tbody.appendChild(tr)
-  }
+  for (const row of rows) tbody.appendChild(renderRow(row))
   table.appendChild(tbody)
-  body.appendChild(table)
+  root.appendChild(el('div', { class: 'intake-table-wrap' }, table))
 }
 
-function newFunction(vendorId) {
-  const name = prompt(copy[LANG].namePrompt)
-  if (!name) return
-  const model = prompt(copy[LANG].modelPrompt) || ''
-  const ads_level = parseInt(prompt(copy[LANG].levelPrompt, '2') || '2', 10)
-  const state = loadState()
-  const vendor = ensureVendor(state, vendorId)
-  vendor.functions.push({
-    id: 'new-' + Date.now(),
-    name, model, ads_level,
-    status: 'in_development',
-    updated_at: new Date().toISOString(),
-    manual_url: '', notes: ''
-  })
-  saveState(state)
-  renderDashboard(vendorId)
+function statCard(label, value) {
+  return el('div', { class: 'intake-stat-card' }, [
+    el('strong', {}, String(value)),
+    el('span', {}, label)
+  ])
 }
 
-function openEditor(vendorId, fn) {
-  const params = new URLSearchParams()
-  if (fn.public_id) {
-    // Has a published sample — load it as the starting point
-    params.set('load', fn.public_id)
-  }
-  params.set('workbench_vendor', vendorId)
-  params.set('workbench_fn', fn.id)
-  if (fn.name) params.set('wb_fn_name', encodeURIComponent(fn.name))
-  if (fn.model) params.set('wb_model', encodeURIComponent(fn.model))
-  if (fn.ads_level) params.set('wb_level', String(fn.ads_level))
-  params.set('wb_vendor_name', encodeURIComponent(vendorLabel(vendorId)))
-  const editorPath = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/') ? '/en/editor.html' : '/editor.html'
-  window.location.href = editorPath + '?' + params.toString()
+function renderRow(row) {
+  const tr = el('tr', { class: `intake-row intake-${row.requirement}` })
+  tr.appendChild(el('td', {}, row.category))
+  tr.appendChild(el('td', {}, [
+    el('div', { class: 'intake-element-name' }, row.element),
+    el('code', {}, row.id)
+  ]))
+  tr.appendChild(el('td', {}, statusLabel(row.requirement)))
+  const evidenceChildren = []
+  if (row.parameter) evidenceChildren.push(el('div', { class: 'intake-parameter' }, row.parameter))
+  evidenceChildren.push(el('div', { class: 'intake-evidence' }, row.evidence))
+  if (row.source) evidenceChildren.push(el('a', { href: row.source, target: '_blank', rel: 'noopener' }, copy[lang].source))
+  tr.appendChild(el('td', {}, evidenceChildren))
+  tr.appendChild(el('td', {}, row.action))
+  return tr
 }
 
-async function publishFunction(vendorId, fn) {
-  if (fn.status !== 'shipped') {
-    if (!confirm(copy[LANG].publishConfirm(statusMeta(fn.status).label))) return
+function statusLabel(status) {
+  const map = {
+    permitted: copy[lang].permitted,
+    not_permitted: copy[lang].notPermitted,
+    gap: copy[lang].unspecified,
+    structural: copy[lang].structural
   }
+  return map[status] || status
+}
 
-  let odcJson = null
-  if (fn.odc_draft) {
-    odcJson = JSON.stringify(fn.odc_draft, null, 2)
-  } else if (fn.public_id) {
-    // Already has a public counterpart — fetch it as the starting content
-    try {
-      const res = await fetch('/data/examples/' + fn.public_id + '.json')
-      if (res.ok) odcJson = await res.text()
-    } catch {}
-  }
-
-  if (!odcJson) {
-    // No ODC data yet → route to editor first
-    if (confirm(copy[LANG].noDataConfirm(fn.name))) {
-      openEditor(vendorId, fn)
-    }
-    return
-  }
-
-  const filename = (fn.public_id || fn.id) + '.json'
-  const prBody = copy[LANG].prBody(vendorLabel(vendorId), { ...fn, name: fnName(fn), model: fnModel(fn), notes: fnNotes(fn) })
-
+async function copyMarkdown() {
+  if (!latestRows.length) return
   try {
-    await navigator.clipboard.writeText(odcJson)
-    const ghUrl = `https://github.com/AutoZYX-Labs/OpenODC/new/main/data/examples?filename=${encodeURIComponent(filename)}&message=${encodeURIComponent('Add ' + fn.name + ' ODC')}&description=${encodeURIComponent(prBody)}`
-    alert(copy[LANG].packageReady(filename))
-    window.open(ghUrl, '_blank', 'noopener')
-  } catch (e) {
-    prompt(copy[LANG].copyFallback, odcJson)
-  }
-
-  const state = loadState()
-  const vendor = ensureVendor(state, vendorId)
-  const rec = vendor.functions.find(x => x.id === fn.id)
-  if (rec) {
-    rec.last_publish_package_at = new Date().toISOString()
-    rec.updated_at = new Date().toISOString()
-    saveState(state)
-    renderDashboard(vendorId)
+    await navigator.clipboard.writeText(toMarkdown(latestRows))
+    alert(copy[lang].copied)
+  } catch {
+    alert(copy[lang].copyFailed)
   }
 }
 
-function deleteFunction(vendorId, fn) {
-  if (!confirm(copy[LANG].deleteConfirm(fn.name))) return
-  const state = loadState()
-  const vendor = ensureVendor(state, vendorId)
-  vendor.functions = vendor.functions.filter(x => x.id !== fn.id)
-  saveState(state)
-  renderDashboard(vendorId)
+function downloadCsv() {
+  if (!latestRows.length) return
+  const csv = toCsv(latestRows)
+  downloadBlob(csv, 'openodc-intake-draft.csv', 'text/csv;charset=utf-8')
 }
 
-// Wire up
-const vendorSelect = document.getElementById('vendor-select')
-vendorSelect.addEventListener('change', () => renderDashboard(vendorSelect.value))
-
-// Restore last choice from session
-const last = sessionStorage.getItem('workbench.vendor')
-if (last) {
-  vendorSelect.value = last
-  renderDashboard(last)
+function setExportsEnabled(enabled) {
+  document.getElementById('copy-markdown').disabled = !enabled
+  document.getElementById('download-csv').disabled = !enabled
 }
-vendorSelect.addEventListener('change', () => {
-  sessionStorage.setItem('workbench.vendor', vendorSelect.value)
+
+function toMarkdown(rows) {
+  const meta = collectMetadata()
+  const header = [
+    `# OpenODC Intake Draft — ${meta.organization || 'Organization'} / ${meta.feature || 'Feature'}`,
+    '',
+    `- ADS level: L${meta.level}`,
+    `- Model / scenario: ${meta.model || '—'}`,
+    `- Submitter domain: ${meta.domain || '—'}`,
+    `- Source URL: ${meta.source_url || '—'}`,
+    '',
+    `| ${copy[lang].category} | ${copy[lang].element} | ${copy[lang].status} | ${copy[lang].parameter} | ${copy[lang].action} |`,
+    '|---|---|---|---|---|'
+  ]
+  const body = rows.map(r => `| ${esc(r.category)} | ${esc(r.element)} | ${esc(statusLabel(r.requirement))} | ${esc([r.parameter, r.evidence].filter(Boolean).join(' — '))} | ${esc(r.action)} |`)
+  return header.concat(body).join('\n')
+}
+
+function toCsv(rows) {
+  const header = ['element_id', 'category', 'element', 'status', 'parameter', 'evidence', 'source', 'review_action']
+  const body = rows.map(r => [r.id, r.category, r.element, statusLabel(r.requirement), r.parameter, r.evidence, r.source, r.action])
+  return [header, ...body].map(cols => cols.map(csvCell).join(',')).join('\n')
+}
+
+function csvCell(value) {
+  return `"${String(value || '').replaceAll('"', '""')}"`
+}
+
+function esc(value) {
+  return String(value || '').replaceAll('|', '\\|').replace(/\s+/g, ' ').trim()
+}
+
+init().catch(err => {
+  const root = document.getElementById('workbench-results')
+  if (root) root.innerHTML = `<p class="error">${err.message}</p>`
 })
