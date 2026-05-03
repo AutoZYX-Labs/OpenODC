@@ -26,7 +26,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -35,7 +35,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -52,7 +52,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -61,7 +61,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -72,7 +72,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -81,7 +81,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -92,7 +92,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -101,7 +101,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -113,7 +113,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -122,7 +122,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -140,7 +140,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -149,7 +149,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -181,7 +181,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -190,7 +190,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -221,7 +221,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -230,7 +230,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -242,7 +242,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -251,7 +251,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -302,7 +302,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -311,7 +311,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -337,7 +337,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -346,7 +346,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -357,7 +357,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -366,7 +366,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -408,7 +408,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -417,7 +417,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -448,7 +448,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -457,7 +457,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -474,7 +474,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -483,7 +483,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -510,7 +510,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -519,7 +519,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -601,7 +601,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -610,7 +610,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -631,7 +631,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -640,7 +640,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -677,7 +677,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -686,7 +686,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -702,7 +702,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -711,7 +711,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -723,7 +723,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -732,7 +732,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -773,7 +773,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -782,7 +782,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -793,7 +793,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -802,7 +802,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -823,7 +823,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -832,7 +832,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -844,7 +844,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -853,7 +853,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -864,7 +864,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -873,7 +873,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -900,7 +900,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -909,7 +909,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -920,7 +920,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -929,7 +929,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -941,7 +941,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -950,7 +950,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -961,7 +961,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -970,7 +970,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -982,7 +982,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -991,7 +991,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1002,7 +1002,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1011,7 +1011,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1022,7 +1022,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1031,7 +1031,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1043,7 +1043,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1052,7 +1052,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1069,7 +1069,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1078,7 +1078,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1115,7 +1115,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1124,7 +1124,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1155,7 +1155,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1164,7 +1164,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1175,7 +1175,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1184,7 +1184,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1196,7 +1196,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1205,7 +1205,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1237,7 +1237,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1246,7 +1246,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1272,7 +1272,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1281,7 +1281,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1293,7 +1293,7 @@
         "type": "inferred",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1302,7 +1302,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "OpenODC inference from Pony.ai official release",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1319,7 +1319,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1328,7 +1328,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1340,7 +1340,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1349,7 +1349,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1380,7 +1380,7 @@
         "type": "community_extracted",
         "url": "https://pony.ai/?lang=zh",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1389,7 +1389,7 @@
           "url": "https://pony.ai/?lang=zh",
           "title": "OpenODC extraction from Pony.ai public sources",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1431,7 +1431,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1440,7 +1440,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1452,7 +1452,7 @@
         "type": "official",
         "url": "https://ir.pony.ai/node/7506/pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1461,7 +1461,7 @@
           "url": "https://ir.pony.ai/node/7506/pdf",
           "title": "Pony.ai official release PDF",
           "section": "Gen-7 Robotaxi commercial operations",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     }
@@ -1477,6 +1477,7 @@
       "深圳前海管理局 · 小马智行前海全无人商业化运营: https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/mpost_12077869.html",
       "NVIDIA Blog · Pony.ai Gen-7 DRIVE Orin: https://blogs.nvidia.com/blog/pony-ai-robotaxi-fleet-drive-orin/"
     ],
-    "notes": "OpenODC 社区已按 2026-05-02 可访问的小马智行官网、IR 官方 PDF、深圳前海政府页面和硬件合作方资料复核。本条可高置信支撑 Gen-7 全无人商业化运营城市、L4 Robotaxi 服务属性、车内无安全员、硬件/算力方向；具体 geofence、速度上限、天气停运阈值、乘客规则和远程协助 SOP 未公开。"
+    "notes": "OpenODC 社区已按 2026-05-03 可访问的小马智行官网、IR 官方 PDF、深圳前海政府页面和硬件合作方资料复核。本条可高置信支撑 Gen-7 全无人商业化运营城市、L4 Robotaxi 服务属性、车内无安全员、硬件/算力方向；具体 geofence、速度上限、天气停运阈值、乘客规则和远程协助 SOP 未公开。",
+    "evidence_as_of": "2026-05-03"
   }
 }

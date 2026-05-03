@@ -78,6 +78,7 @@ export interface ODCMetadata {
   submitted_at: string
   review_status: ODCReviewStatus
   sources?: string[]
+  evidence_as_of?: string
   notes?: string
 }
 

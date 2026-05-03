@@ -73,6 +73,7 @@ ODCDocument
 └── metadata
         ├── submitted_by
         ├── review_status     ← draft / community_reviewed / vendor_confirmed
+        ├── evidence_as_of    ← public evidence verification date
         └── sources
 ```
 
@@ -199,4 +200,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-02 (v0.4.0 / Phase 0–4 MVP).*
+*Last updated 2026-05-03 (v0.4.0 / Phase 0–4 MVP).*

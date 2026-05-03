@@ -48,8 +48,8 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 - ✅ JSON Schema + TypeScript 类型定义
 - ✅ 量化分级表机器可读化（风力 12 级、雨量 4 级、降雪/积雪/能见度等）
 - ✅ Web 编辑器：层级树勾选、实时 JSON、导出 / 复制 / 本地保存
-- ✅ 公开样例库：Tesla FSD US、Tesla Autopilot 中国、华为 ADS 4、百度萝卜快跑、小鹏 XNGP、小马智行 Gen-7 Robotaxi
-- ✅ 144 要素公开资料覆盖统计：例如华为 ADS 4 样例为 119/144，Tesla 中国基础 AP 样例为 46/144；该数字不是厂家披露率
+- ✅ 公开样例库：Tesla FSD（美国当前公开版本）、Tesla 中国区辅助驾驶、华为 ADS 4、百度萝卜快跑、小鹏 XNGP、小马智行 Gen-7 Robotaxi
+- ✅ 144 要素公开资料覆盖统计：Gallery 会显示每条样例的公开资料覆盖率和证据核验日期；该数字不是厂家披露率
 - ✅ 双视图渲染：开发者视图 / 消费者视图
 - ✅ 横向矩阵：144 个国标要素 × 6 个样例逐项对比
 - ✅ 厂家直填 Workbench MVP：内部状态管理、编辑器联动、生成 GitHub PR 提交包
@@ -77,8 +77,8 @@ OpenODC/
 ├── data/
 │   └── examples/
 │       ├── huawei-ads4-aito-m9.json
-│       ├── tesla-fsd-us-v13.json
-│       ├── tesla-autopilot-china-basic.json
+│       ├── tesla-fsd-us-current.json
+│       ├── tesla-assisted-driving-china-current.json
 │       ├── baidu-apollogo-wuhan.json
 │       ├── xpeng-xngp-p7plus-2026.json
 │       └── pony-ai-gen7-robotaxi.json

@@ -1,17 +1,17 @@
 {
-  "id": "tesla-autopilot-china-basic",
+  "id": "tesla-assisted-driving-china-current",
   "spec_version": "0.1.0",
   "spec_source": "GB/T 45312-2025",
   "vendor": "特斯拉",
   "vendor_en": "Tesla",
-  "model": "Model 3 / Model Y（中国市场标配 AP）",
-  "model_en": "Model 3 / Y (China — Basic AP standard)",
-  "function_name": "基础版 Autopilot（自适应巡航 + 车道保持辅助，中国市场）",
-  "function_name_en": "Basic Autopilot (TACC + Autosteer, China)",
+  "model": "Model 3 / Model Y（中国市场；Model Y 2026.8 中国区手册）",
+  "model_en": "Model 3 / Y (China market; Model Y 2026.8 China manual)",
+  "function_name": "辅助驾驶功能（主动巡航控制 + 智能辅助转向，中国市场）",
+  "function_name_en": "Assisted Driving (Traffic-Aware Cruise Control + Intelligent Assist Steer, China)",
   "ads_level": 2,
-  "software_version": "2025.x（基础 AP 栈，不含 FSD 能力）",
+  "software_version": "Model Y 中国区车主手册 2026.8；基础辅助驾驶功能（不含北美 FSD Supervised）",
   "hardware_config": "HW3 / HW4，纯视觉",
-  "effective_date": "2025-01-01",
+  "effective_date": "2026-05-03",
   "elements": [
     {
       "element_id": "odd.road.type",
@@ -34,18 +34,18 @@
       "description": "城市快速路（主要使用场景）",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -55,18 +55,18 @@
       "description": "[手册明确] 中国 Model Y 手册说明 Autopilot/智能辅助转向属于辅助驾驶，不能实现自动驾驶或取代驾驶员身份；城市主干路如满足车道线、速度、车灯等条件可使用相关辅助功能，但路口、信号灯、行人和复杂交通仍由驾驶员负责。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -76,18 +76,18 @@
       "description": "[推定] 同主干路，有清晰车道线时 Autosteer 可激活；路口与信号灯由驾驶员处理。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -97,18 +97,18 @@
       "description": "[推定] 有清晰车道线可激活，但支路车道窄、路口密、交叉情况多，实用性有限；手册未单独声明禁止。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -122,18 +122,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -142,18 +142,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -163,18 +163,18 @@
       "description": "[推定] 二级公路（双车道）在清晰车道线下 Autosteer 可激活；实际行车较少见",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -194,18 +194,18 @@
       "description": "[推定] 乡村道路有清晰标线时 Autosteer 可激活；路况复杂时手册建议驾驶员谨慎使用。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -221,18 +221,18 @@
       "exit_behavior": "suppress_activation",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -242,18 +242,18 @@
       "exit_behavior": "suppress_activation",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -267,18 +267,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -288,18 +288,18 @@
       "exit_behavior": "trigger_exit",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -339,18 +339,18 @@
       "description": "[手册明确] 中文手册「结冰或湿滑路面…切勿使用 TACC；大雨 / 大雪 / 浓雾等天气不宜恒定速度行驶」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -364,18 +364,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -386,18 +386,18 @@
       "description": "[手册明确] 中文手册「在有急弯的蜿蜒道路上…切勿使用 TACC」；Autosteer 在车道线急弯曲折时不可用。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -417,18 +417,18 @@
       "description": "[手册明确] 中文手册「在山路上行驶」列为 Autosteer 局限。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -438,18 +438,18 @@
       "description": "[手册明确] 中文手册同上适用。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -484,18 +484,18 @@
       "description": "[手册明确] 中文手册原文「车道线过度磨损、能看到以前的标线、因施工变化、或变化过于迅速时，Autosteer 无法准确判断车道线」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -506,18 +506,18 @@
       "exit_behavior": "suppress_and_exit",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -546,18 +546,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -572,18 +572,18 @@
       "description": "[手册明确] 中文手册「NoA 可能无法识别专用车道，如自行车、拼车、应急车辆等专用车道」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -608,18 +608,18 @@
       "exit_behavior": "suppress_activation",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -629,18 +629,18 @@
       "description": "[推定] 基础 AP 不含 NoA 不会自动变道驶离，但在出口车道上 Autosteer 可继续运行；驾驶员主动切入。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -650,18 +650,18 @@
       "description": "[推定] 基础 AP 不含 NoA 不会自动上高速，但上高速后 Autosteer 可激活。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -682,18 +682,18 @@
       "parameter_range": "[公开资料未量化]",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -748,18 +748,18 @@
       "description": "[推定] 系统可以在有平面交叉的道路上持续运行，但基础 AP 不识别信号灯 / 不自动让行；路口通行完全由驾驶员负责。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -809,18 +809,18 @@
       "description": "[推定] 基础 AP 不含 Navigate on Autopilot 不会自动出入匝道，但已在匝道上时 TACC + Autosteer 可继续运行；驾驶员须主动切入 / 切出匝道。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -840,18 +840,18 @@
       "description": "[推定] 系统可以在有信号灯的道路运行，但基础 AP 不识别信号灯（不像 FSD 有 Stop Sign and Traffic Light Control），信号灯通行完全由驾驶员负责。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -896,18 +896,18 @@
       "description": "[手册明确] 中文手册「切勿依赖 TACC 对行人和骑行者充分减速」。基础 AP 不主动让行，AEB 仅作兜底。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -937,18 +937,18 @@
       "description": "[手册明确] 中文手册「在隧道中行驶」影响摄像头视野，TACC/Autopilot 可能无法按预期运行。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -958,18 +958,18 @@
       "description": "[手册明确] 手册原文「接近收费站」列为 TACC/Autosteer 运行不可靠情形。系统不主动禁用，但驾驶员须主动接管通过。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -989,18 +989,18 @@
       "description": "[手册明确] 中文手册原文「切勿在施工区使用 Autosteer」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1020,18 +1020,18 @@
       "description": "TACC 跟随前方车辆",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1041,18 +1041,18 @@
       "description": "[推定] AEB 可识别（自行车 / 电动车），但 AP 不主动让行——手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1062,18 +1062,18 @@
       "description": "[推定] AEB 可识别行人，但 AP 不主动让行——手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。",
       "source": {
         "type": "inferred",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "inferred",
           "confidence": "low",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC inference from Tesla China manual",
           "section": "Manual states qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1103,18 +1103,18 @@
       "description": "[手册明确] 中文手册「能见度低（暴雨、大雪、浓雾等）或天气条件干扰传感器运行」时 Autosteer 可能异常。无 mm/h 阈值。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1125,18 +1125,18 @@
       "description": "[手册明确] 中文手册同上引述。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1162,18 +1162,18 @@
       "parameter_range": "[公开资料未量化]",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1203,18 +1203,18 @@
       "description": "[手册明确] 中文手册「强光（如迎面车灯或阳光直射）干扰摄像头视野」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1223,18 +1223,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1243,18 +1243,18 @@
       "requirement": "permitted",
       "source": {
         "type": "community_extracted",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "community_extracted",
           "confidence": "medium",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
           "title": "OpenODC extraction from Tesla China manual",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1269,18 +1269,18 @@
       "description": "[手册明确] 中文手册「极热或极冷温度」干扰传感器运行。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1335,18 +1335,18 @@
       "description": "[手册明确] Tesla 中国 AP 说明页原文「驾驶员必须始终将双手置于方向盘上，并注意路况、周围交通和其他道路使用者」。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1361,18 +1361,18 @@
       "description": "[手册明确] 未系安全带系统不激活。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1412,18 +1412,18 @@
       "parameter_range": "[手册明确] 中国 Model Y 手册公开页显示智能辅助转向 / Autosteer 典型可用速度为 30–140 km/h；无前方车辆时低于 30 km/h 不可启用。超过 80 km/h 时 TACC 对静止车辆识别存在限制。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1433,18 +1433,18 @@
       "parameter_range": "[手册明确] Autosteer / 智能辅助转向可在 30–140 km/h 范围启用；若前方至少约 1.5 m 有车辆，可在更低车速启用。",
       "source": {
         "type": "owner_manual",
-        "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+        "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
           "type": "owner_manual",
           "confidence": "high",
-          "url": "https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
           "title": "Tesla 中国 Model Y 车主手册 PDF",
-          "section": "Autopilot 自动辅助驾驶",
-          "extracted_date": "2026-05-02"
+          "section": "辅助驾驶功能",
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1474,12 +1474,13 @@
     "submitted_at": "2026-04-17T10:00:00Z",
     "review_status": "community_reviewed",
     "sources": [
-      "Tesla 中国 Model Y 车主手册（简体中文）: https://www.tesla.cn/ownersmanual/modely/zh_cn_us/",
-      "Tesla 中国 Model Y 车主手册 PDF: https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf",
+      "Tesla 中国区 Model Y 车主手册 2026.8（简体中文，China）: https://www.tesla.com/ownersmanual/modely/zh_cn/",
+      "Tesla 中国区 Model Y Owner Manual 2026.8（English, China）: https://www.tesla.com/ownersmanual/modely/en_cn/",
+      "Tesla 中国区 Model Y 车主手册 PDF: https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf",
       "Tesla 中国 · 辅助驾驶功能使用说明和警示: https://www.tesla.cn/support/autopilot-notes",
-      "Tesla 中国 Model Y 产品页: https://www.tesla.cn/modely",
-      "Tesla 中国 Model Y L 产品页: https://www.tesla.cn/modely-L"
+      "Tesla 中国 Model Y 产品页: https://www.tesla.cn/modely"
     ],
-    "notes": "OpenODC 社区已按 2026-05-02 可访问的 Tesla 中国车主手册和辅助驾驶警示页复核。本条描述中国市场基础 Autopilot（TACC + Autosteer），不包含 FSD 中国付费功能包。手册可高置信支撑驾驶员持续监管、速度上限、车道线/天气/施工/安全带等限制；未公开 mm/h、曲率半径、坡度等量化 ODC。"
+    "notes": "OpenODC 社区已按 2026-05-03 可访问的 Tesla 官方中国区 Model Y 2026.8 车主手册复核。中国区 2026.8 手册章节为“辅助驾驶功能”，包括主动巡航控制、智能辅助转向、智能泊车、召唤功能和辅助驾驶限制/警告；本条不使用北美中文手册，也不把北美 FSD（Supervised）能力套用到中国市场。手册可高置信支撑驾驶员持续监管、车道线/天气/施工/安全带等限制；未公开 mm/h、曲率半径、坡度等量化 ODC。",
+    "evidence_as_of": "2026-05-03"
   }
 }

@@ -9,9 +9,9 @@
   "function_name": "L4 无人驾驶出租车（武汉示范运营）",
   "function_name_en": "L4 Robotaxi (Wuhan commercial operation)",
   "ads_level": 4,
-  "software_version": "Apollo 2024 Day 发布栈（1200 TOPS，38 传感器融合）",
+  "software_version": "Apollo RT6 / 武汉 3000 km² 示范运营公开资料；2026-05-03 证据复核",
   "hardware_config": "RT6：激光雷达 + 摄像头 + 毫米波雷达多模态融合；HD 地图",
-  "effective_date": "2024-07-01",
+  "effective_date": "2025-04-22",
   "elements": [
     {
       "element_id": "odd.road.type",
@@ -26,7 +26,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -35,7 +35,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -52,7 +52,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -61,7 +61,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -72,7 +72,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -81,7 +81,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -92,7 +92,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -101,7 +101,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -114,7 +114,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -123,7 +123,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -141,7 +141,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -150,7 +150,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -182,7 +182,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -191,7 +191,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -222,7 +222,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -231,7 +231,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -243,7 +243,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -252,7 +252,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -303,7 +303,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -312,7 +312,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -379,7 +379,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -388,7 +388,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -419,7 +419,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -428,7 +428,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -445,7 +445,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -454,7 +454,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -481,7 +481,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -490,7 +490,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -572,7 +572,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -581,7 +581,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -602,7 +602,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -611,7 +611,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -648,7 +648,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -657,7 +657,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -673,7 +673,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -682,7 +682,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -694,7 +694,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -703,7 +703,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -745,7 +745,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -754,7 +754,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -766,7 +766,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -775,7 +775,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -796,7 +796,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -805,7 +805,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -817,7 +817,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -826,7 +826,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -838,7 +838,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -847,7 +847,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -874,7 +874,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -883,7 +883,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -904,7 +904,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -913,7 +913,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -925,7 +925,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -934,7 +934,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -945,7 +945,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -954,7 +954,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -965,7 +965,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -974,7 +974,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -986,7 +986,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -995,7 +995,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1023,7 +1023,7 @@
         "type": "inferred",
         "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1032,7 +1032,7 @@
           "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
           "title": "OpenODC inference from Wuhan pilot information",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1050,7 +1050,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1059,7 +1059,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1100,7 +1100,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1109,7 +1109,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1120,7 +1120,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1129,7 +1129,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1141,7 +1141,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1150,7 +1150,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1176,7 +1176,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1185,7 +1185,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1197,7 +1197,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1206,7 +1206,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1233,7 +1233,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1242,7 +1242,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1254,7 +1254,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1263,7 +1263,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1280,7 +1280,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1289,7 +1289,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1301,7 +1301,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1310,7 +1310,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1377,7 +1377,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1386,7 +1386,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1398,7 +1398,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1407,7 +1407,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     }
@@ -1424,6 +1424,7 @@
       "武汉经开区 · 3000 平方公里城市实验室报道: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202504/t20250422_2570742.html",
       "Baidu Apollo RT6 官方发布稿（PR Newswire 镜像）: https://www.prnewswire.com/news-releases/baidu-unveils-next-gen-autonomous-vehicle-ready-to-provide-driverless-robotaxi-half-of-taxi-fares-301590644.html"
     ],
-    "notes": "OpenODC 社区已按 2026-05-02 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。"
+    "notes": "OpenODC 社区已按 2026-05-03 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。",
+    "evidence_as_of": "2026-05-03"
   }
 }

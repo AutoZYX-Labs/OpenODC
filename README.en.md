@@ -48,8 +48,8 @@ Important semantic boundary: L2 records describe feature availability conditions
 - ✅ JSON Schema + TypeScript type definitions
 - ✅ Machine-readable quantitative scales (12 wind levels, 4 rain levels, snow / accumulation / visibility, etc.)
 - ✅ Web editor with tree selection, live JSON, export / copy / local save
-- ✅ Public gallery with Tesla FSD US, Tesla Autopilot China, Huawei ADS 4, Apollo Go, XPeng XNGP, and Pony.ai Gen-7 Robotaxi
-- ✅ 144-element public-source coverage metrics, e.g. Huawei ADS 4 sample at 119/144 and Tesla Autopilot China sample at 46/144; this is not a vendor disclosure rate
+- ✅ Public gallery with Tesla FSD US current public sample, Tesla China Assisted Driving, Huawei ADS 4, Apollo Go, XPeng XNGP, and Pony.ai Gen-7 Robotaxi
+- ✅ 144-element public-source coverage metrics with per-sample evidence-as-of dates; this is not a vendor disclosure rate
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
 - ✅ Vendor Workbench MVP: internal status tracking, editor handoff, GitHub PR submission package generation

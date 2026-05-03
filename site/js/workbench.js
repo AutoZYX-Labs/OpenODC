@@ -27,9 +27,9 @@ const STATUS_META = {
 
 const DEMO_SEEDS = {
   tesla: [
-    { id: 'tesla-fsd-v14', name: 'FSD Supervised v14（内测）', model: 'Model Y HW5', ads_level: 2, status: 'in_development', updated_at: '2026-03-12T08:00:00Z', manual_url: '', notes: '下一代 HW5 平台验证中，尚未对外。' },
-    { id: 'tesla-fsd-v13', name: 'FSD Supervised v13', model: 'Model 3/Y/S/X HW3/HW4', ads_level: 2, status: 'shipped', updated_at: '2025-01-01T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/en_us/', notes: '已于 2024-12 OTA 至所有 HW3/HW4 车主。对应 OpenODC 公开样例。', public_id: 'tesla-fsd-us-v13' },
-    { id: 'tesla-ap-china', name: '基础 Autopilot（中国）', model: 'Model 3/Y 中国标配', ads_level: 2, status: 'shipped', updated_at: '2025-01-01T00:00:00Z', manual_url: 'https://www.tesla.cn/ownersmanual/modely/zh_cn_us/', notes: '中国标配，不含 FSD。', public_id: 'tesla-autopilot-china-basic' },
+    { id: 'tesla-next-ota-draft', name: '下一版辅助驾驶 ODC（内部草稿示例）', model: '车型 / 硬件平台待确认', ads_level: 2, status: 'in_development', updated_at: '2026-05-03T00:00:00Z', manual_url: '', notes: 'Workbench 演示用内部草稿，不对应公开 OpenODC 样例；对外发布前需绑定官方手册或发布说明。' },
+    { id: 'tesla-fsd-current', name: 'FSD Supervised（美国当前公开版）', model: 'Model 3/Y/S/X HW3/HW4', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/en_us/', notes: '按 Tesla 官方 FSD v14 Trial 与 2026.8 北美手册复核。对应 OpenODC 当前公开样例。', public_id: 'tesla-fsd-us-current' },
+    { id: 'tesla-ad-china-current', name: '辅助驾驶功能（中国）', model: 'Model 3/Y 中国区', ads_level: 2, status: 'shipped', updated_at: '2026-05-03T00:00:00Z', manual_url: 'https://www.tesla.com/ownersmanual/modely/zh_cn/', notes: '中国区 2026.8 手册章节为辅助驾驶功能，不套用北美 FSD Supervised。', public_id: 'tesla-assisted-driving-china-current' },
     { id: 'tesla-summon', name: 'Actually Smart Summon', model: 'Model Y HW4', ads_level: 2, status: 'pre_release', updated_at: '2026-02-15T00:00:00Z', manual_url: '', notes: '停车场召唤，限定软件版本灰度中。' }
   ],
   huawei: [

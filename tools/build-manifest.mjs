@@ -61,6 +61,7 @@ const documents = files.map(f => {
     ads_level: doc.ads_level,
     software_version: doc.software_version || null,
     effective_date: doc.effective_date,
+    evidence_as_of: doc.metadata?.evidence_as_of || null,
     review_status: doc.metadata?.review_status || 'draft',
     element_count: (doc.elements || []).length,
     permitted_count: (doc.elements || []).filter(e => e.requirement === 'permitted').length,

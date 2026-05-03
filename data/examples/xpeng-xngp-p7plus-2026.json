@@ -36,7 +36,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -45,7 +45,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -57,7 +57,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -66,7 +66,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -77,7 +77,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -86,7 +86,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -98,7 +98,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -107,7 +107,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -124,7 +124,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -133,7 +133,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -144,7 +144,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -153,7 +153,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -165,7 +165,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -174,7 +174,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -196,7 +196,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -205,7 +205,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -222,7 +222,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -231,7 +231,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -242,7 +242,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -251,7 +251,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -267,7 +267,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -276,7 +276,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -289,7 +289,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -298,7 +298,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -349,7 +349,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -358,7 +358,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -371,7 +371,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -380,7 +380,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -401,7 +401,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -410,7 +410,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -421,7 +421,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -430,7 +430,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -467,7 +467,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -476,7 +476,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -488,7 +488,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -497,7 +497,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -528,7 +528,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -537,7 +537,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -554,7 +554,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -563,7 +563,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -590,7 +590,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -599,7 +599,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -611,7 +611,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -620,7 +620,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -631,7 +631,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -640,7 +640,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -712,7 +712,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -721,7 +721,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -743,7 +743,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -752,7 +752,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -778,7 +778,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -787,7 +787,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -804,7 +804,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -813,7 +813,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -829,7 +829,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -838,7 +838,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -850,7 +850,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -859,7 +859,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -905,7 +905,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -914,7 +914,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -935,7 +935,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -944,7 +944,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -960,7 +960,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -969,7 +969,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -981,7 +981,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -990,7 +990,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1012,7 +1012,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1021,7 +1021,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1043,7 +1043,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1052,7 +1052,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1063,7 +1063,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1072,7 +1072,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1084,7 +1084,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1093,7 +1093,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1174,7 +1174,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1183,7 +1183,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1194,7 +1194,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1203,7 +1203,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1214,7 +1214,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1223,7 +1223,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1255,7 +1255,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1264,7 +1264,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1290,7 +1290,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1299,7 +1299,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1321,7 +1321,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1330,7 +1330,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1346,7 +1346,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1355,7 +1355,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1432,6 +1432,7 @@
       "XNGP 快速上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/2834581",
       "G6 高速 NGP 上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/1799825"
     ],
-    "notes": "OpenODC 社区已按 2026-05-02 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。"
+    "notes": "OpenODC 社区已按 2026-05-03 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。",
+    "evidence_as_of": "2026-05-03"
   }
 }

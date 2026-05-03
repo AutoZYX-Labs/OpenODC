@@ -1,17 +1,17 @@
 {
-  "id": "tesla-fsd-us-v13",
+  "id": "tesla-fsd-us-current",
   "spec_version": "0.1.0",
   "spec_source": "GB/T 45312-2025",
   "vendor": "特斯拉",
   "vendor_en": "Tesla",
-  "model": "Model 3 / Model Y / Model S / Model X（HW3 或 HW4）",
-  "model_en": "Model 3 / Y / S / X (HW3 or HW4)",
-  "function_name": "FSD（Supervised）监督式全场景辅助驾驶 v13（美国市场）",
-  "function_name_en": "FSD (Supervised) v13 — US market",
+  "model": "Model 3 / Model Y / Model S / Model X（HW3 / HW4；美国市场）",
+  "model_en": "Model 3 / Y / S / X (HW3 / HW4; US market)",
+  "function_name": "FSD（Supervised）监督式全场景辅助驾驶（美国市场，当前公开版本）",
+  "function_name_en": "FSD (Supervised) — US market current public sample",
   "ads_level": 2,
-  "software_version": "FSD v13.x（2024-12 起）",
+  "software_version": "FSD（Supervised）v14.2 或更高；Model Y 车主手册软件版本 2026.8（北美）",
   "hardware_config": "HW3 / HW4，纯视觉（8 摄像头）",
-  "effective_date": "2025-01-01",
+  "effective_date": "2026-05-03",
   "elements": [
     {
       "element_id": "odd.road.type",
@@ -36,7 +36,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -45,19 +45,19 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
     {
       "element_id": "odd.road.type.urban_road.arterial",
       "requirement": "permitted",
-      "description": "城市主干路（v12 起支持城市道路端到端）",
+      "description": "城市主干路（FSD Supervised 可按导航在城市道路行驶，驾驶员持续负责）",
       "source": {
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -66,7 +66,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -77,7 +77,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -86,7 +86,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -98,7 +98,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -107,7 +107,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -123,7 +123,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -132,7 +132,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -143,7 +143,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -152,7 +152,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -164,7 +164,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -173,7 +173,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -190,12 +190,12 @@
     {
       "element_id": "odd.road.type.rural",
       "requirement": "permitted",
-      "description": "乡村道路（v13 表现提升）",
+      "description": "乡村道路（当前公开手册未给出独立道路等级阈值，按 FSD Supervised 导航能力社区整理）",
       "source": {
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -204,7 +204,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -221,7 +221,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -230,7 +230,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -242,7 +242,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -251,7 +251,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -267,7 +267,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -276,7 +276,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -289,7 +289,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -298,7 +298,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -340,7 +340,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -349,7 +349,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -365,7 +365,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -374,7 +374,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -386,7 +386,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -395,7 +395,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -417,7 +417,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -426,7 +426,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -438,7 +438,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -447,7 +447,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -484,7 +484,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -493,19 +493,19 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
     {
       "element_id": "odd.road.lane.marking.absent",
       "requirement": "permitted",
-      "description": "v12 起支持无标线路段（停车场、末端小路）",
+      "description": "当前公开手册显示 FSD Supervised 可从驻车挡启动并选择目的地行为；无标线路段能力按社区整理标注",
       "source": {
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -514,7 +514,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -545,7 +545,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -554,7 +554,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -571,7 +571,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -580,7 +580,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -608,7 +608,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -617,7 +617,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -628,7 +628,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -637,7 +637,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -648,7 +648,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -657,7 +657,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -680,7 +680,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -689,7 +689,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -746,7 +746,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -755,7 +755,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -776,7 +776,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -785,7 +785,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -811,7 +811,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -820,7 +820,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -836,7 +836,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -845,7 +845,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -862,7 +862,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -871,7 +871,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -883,7 +883,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -892,7 +892,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -934,12 +934,12 @@
     {
       "element_id": "odd.infrastructure.special.crosswalk",
       "requirement": "permitted",
-      "description": "[手册明确] 手册原文「切勿依赖 TACC 对行人和骑行者充分减速」——FSD v13 识别人行横道并让行，但驾驶员责任不减。",
+      "description": "[手册明确] 手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。FSD（Supervised）可在部分场景中识别人行横道并让行，但官方未给出可覆盖人行横道类型清单，驾驶员责任不减。",
       "source": {
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -948,7 +948,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -969,7 +969,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -978,7 +978,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -990,7 +990,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -999,7 +999,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1011,7 +1011,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1020,7 +1020,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1032,7 +1032,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1041,7 +1041,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1058,12 +1058,12 @@
     {
       "element_id": "odd.infrastructure.temporary.construction",
       "requirement": "permitted",
-      "description": "[手册明确] 手册原文「切勿在施工区使用 Autosteer」。FSD v13 可识别并减速通过，但非设计场景。",
+      "description": "[手册明确] 手册原文「切勿在施工区使用 Autosteer」。FSD（Supervised）可能处理部分道路施工扰动，但施工区不应视为稳定设计场景。",
       "source": {
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1072,7 +1072,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1093,7 +1093,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1102,7 +1102,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1114,7 +1114,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1123,7 +1123,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1134,7 +1134,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1143,7 +1143,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1155,7 +1155,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1164,7 +1164,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1191,7 +1191,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1200,7 +1200,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1213,7 +1213,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1222,7 +1222,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1235,7 +1235,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1244,7 +1244,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1267,7 +1267,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1276,7 +1276,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1308,7 +1308,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1317,7 +1317,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1328,7 +1328,7 @@
         "type": "community_extracted",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "medium",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1337,7 +1337,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "OpenODC extraction from Tesla manual",
           "section": "Autopilot limitations and warnings",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1349,7 +1349,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1358,7 +1358,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1375,7 +1375,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1384,7 +1384,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1441,7 +1441,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1450,7 +1450,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1467,7 +1467,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1476,7 +1476,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1518,7 +1518,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1527,7 +1527,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1539,7 +1539,7 @@
         "type": "owner_manual",
         "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
         "confidence": "high",
-        "extracted_date": "2026-05-02"
+        "extracted_date": "2026-05-03"
       },
       "evidence_refs": [
         {
@@ -1548,7 +1548,7 @@
           "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
           "title": "Tesla Model Y Owner Manual · Full Self-Driving (Supervised)",
           "section": "Autopilot / Full Self-Driving (Supervised)",
-          "extracted_date": "2026-05-02"
+          "extracted_date": "2026-05-03"
         }
       ]
     },
@@ -1578,12 +1578,13 @@
     "submitted_at": "2026-04-17T10:00:00Z",
     "review_status": "community_reviewed",
     "sources": [
-      "Tesla Model Y Owner Manual · Full Self-Driving (Supervised): https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
-      "Tesla Model Y Owner Manual · Speed Assist: https://www.tesla.com/ownersmanual/modely/en_us/GUID-5D3D4014-4E98-45D7-8BBC-F76BCA9CEC05.html",
+      "Tesla Model Y Owner Manual 2026.8 · Full Self-Driving (Supervised): https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
+      "Tesla Model Y Owner Manual 2026.8 · North America index: https://www.tesla.com/ownersmanual/modely/en_us/",
       "Tesla Model Y Owner Manual PDF: https://www.tesla.com/ownersmanual/modely/en_us/Owners_Manual.pdf",
-      "Tesla FSD Supervised support page: https://www.tesla.com/support/fsd",
-      "NotATeslaApp release-note mirror, supplementary only: https://www.notateslaapp.com/software-updates/version/2025.14.6/release-notes"
+      "Tesla Full Self-Driving (Supervised) support page: https://www.tesla.com/support/fsd",
+      "Tesla Full Self-Driving (Supervised) v14 Trial support page: https://www.tesla.com/support/fsd/v14-trial"
     ],
-    "notes": "OpenODC 社区已按 2026-05-02 可访问的 Tesla 官方 Model Y 手册、FSD Supervised 说明与补充版本线索复核。本条仍不是 Tesla 官方 ODC 声明。手册可高置信支撑驾驶员持续监管、FSD 激活速度 <85 mph (140 km/h)、车灯/雨刮/摄像头/安全带/接管等条件；天气、曲率、坡度等没有量化阈值，不能推定为完整 ODD。"
+    "notes": "OpenODC 社区已按 2026-05-03 可访问的 Tesla 官方 Model Y 2026.8 北美车主手册、FSD Supervised 说明页与 FSD v14 Trial 官方说明复核。本条为美国市场 FSD（Supervised）当前公开样例，不再固定为早期版本；Tesla 官方说明显示 FSD v14 Trial 需要 FSD（Supervised）14.2 或更高版本。该样例仍不是 Tesla 官方 ODC 声明。手册可高置信支撑驾驶员持续监管、FSD 激活速度 <85 mph (140 km/h)、车灯/雨刮/摄像头/安全带/接管等条件；天气、曲率、坡度等没有量化阈值，不能推定为完整 ODD。",
+    "evidence_as_of": "2026-05-03"
   }
 }

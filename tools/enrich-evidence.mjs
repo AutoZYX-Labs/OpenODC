@@ -10,40 +10,40 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
 
-const today = '2026-05-02'
+const today = '2026-05-03'
 
 function ref(type, confidence, url, title, section, page, notes) {
   return Object.fromEntries(Object.entries({ type, confidence, url, title, section, page, extracted_date: today, notes }).filter(([, v]) => v !== undefined))
 }
 
 const profiles = {
-  'tesla-fsd-us-v13': {
+  'tesla-fsd-us-current': {
     sources: [
-      'Tesla Model Y Owner Manual · Full Self-Driving (Supervised): https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html',
-      'Tesla Model Y Owner Manual · Speed Assist: https://www.tesla.com/ownersmanual/modely/en_us/GUID-5D3D4014-4E98-45D7-8BBC-F76BCA9CEC05.html',
+      'Tesla Model Y Owner Manual 2026.8 · Full Self-Driving (Supervised): https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html',
+      'Tesla Model Y Owner Manual 2026.8 · North America index: https://www.tesla.com/ownersmanual/modely/en_us/',
       'Tesla Model Y Owner Manual PDF: https://www.tesla.com/ownersmanual/modely/en_us/Owners_Manual.pdf',
-      'Tesla FSD Supervised support page: https://www.tesla.com/support/fsd',
-      'NotATeslaApp release-note mirror, supplementary only: https://www.notateslaapp.com/software-updates/version/2025.14.6/release-notes'
+      'Tesla Full Self-Driving (Supervised) support page: https://www.tesla.com/support/fsd',
+      'Tesla Full Self-Driving (Supervised) v14 Trial support page: https://www.tesla.com/support/fsd/v14-trial'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的 Tesla 官方 Model Y 手册、FSD Supervised 说明与补充版本线索复核。本条仍不是 Tesla 官方 ODC 声明。手册可高置信支撑驾驶员持续监管、FSD 激活速度 <85 mph (140 km/h)、车灯/雨刮/摄像头/安全带/接管等条件；天气、曲率、坡度等没有量化阈值，不能推定为完整 ODD。',
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的 Tesla 官方 Model Y 2026.8 北美车主手册、FSD Supervised 说明页与 FSD v14 Trial 官方说明复核。本条为美国市场 FSD（Supervised）当前公开样例，不再固定为早期版本；Tesla 官方说明显示 FSD v14 Trial 需要 FSD（Supervised）14.2 或更高版本。该样例仍不是 Tesla 官方 ODC 声明。手册可高置信支撑驾驶员持续监管、FSD 激活速度 <85 mph (140 km/h)、车灯/雨刮/摄像头/安全带/接管等条件；天气、曲率、坡度等没有量化阈值，不能推定为完整 ODD。',
     manual: ref('owner_manual', 'high', 'https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html', 'Tesla Model Y Owner Manual · Full Self-Driving (Supervised)', 'Autopilot / Full Self-Driving (Supervised)'),
     official: ref('official', 'high', 'https://www.tesla.com/support/fsd', 'Tesla FSD Supervised support page', 'FSD Supervised'),
     curated: ref('community_extracted', 'medium', 'https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html', 'OpenODC extraction from Tesla manual', 'Autopilot limitations and warnings'),
     inferred: ref('inferred', 'low', 'https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html', 'OpenODC inference from Tesla manual', 'Manual states qualitative limitation but no quantitative threshold')
   },
-  'tesla-autopilot-china-basic': {
+  'tesla-assisted-driving-china-current': {
     sources: [
-      'Tesla 中国 Model Y 车主手册（简体中文）: https://www.tesla.cn/ownersmanual/modely/zh_cn_us/',
-      'Tesla 中国 Model Y 车主手册 PDF: https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf',
+      'Tesla 中国区 Model Y 车主手册 2026.8（简体中文，China）: https://www.tesla.com/ownersmanual/modely/zh_cn/',
+      'Tesla 中国区 Model Y Owner Manual 2026.8（English, China）: https://www.tesla.com/ownersmanual/modely/en_cn/',
+      'Tesla 中国区 Model Y 车主手册 PDF: https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf',
       'Tesla 中国 · 辅助驾驶功能使用说明和警示: https://www.tesla.cn/support/autopilot-notes',
-      'Tesla 中国 Model Y 产品页: https://www.tesla.cn/modely',
-      'Tesla 中国 Model Y L 产品页: https://www.tesla.cn/modely-L'
+      'Tesla 中国 Model Y 产品页: https://www.tesla.cn/modely'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的 Tesla 中国车主手册和辅助驾驶警示页复核。本条描述中国市场基础 Autopilot（TACC + Autosteer），不包含 FSD 中国付费功能包。手册可高置信支撑驾驶员持续监管、速度上限、车道线/天气/施工/安全带等限制；未公开 mm/h、曲率半径、坡度等量化 ODC。',
-    manual: ref('owner_manual', 'high', 'https://www.tesla.cn/ownersmanual/modely/zh_cn_us/Owners_Manual.pdf', 'Tesla 中国 Model Y 车主手册 PDF', 'Autopilot 自动辅助驾驶'),
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的 Tesla 官方中国区 Model Y 2026.8 车主手册复核。中国区 2026.8 手册章节为“辅助驾驶功能”，包括主动巡航控制、智能辅助转向、智能泊车、召唤功能和辅助驾驶限制/警告；本条不使用北美中文手册，也不把北美 FSD（Supervised）能力套用到中国市场。手册可高置信支撑驾驶员持续监管、车道线/天气/施工/安全带等限制；未公开 mm/h、曲率半径、坡度等量化 ODC。',
+    manual: ref('owner_manual', 'high', 'https://www.tesla.com/ownersmanual/modely/zh_cn/Owners_Manual.pdf', 'Tesla 中国区 Model Y 车主手册 PDF', '辅助驾驶功能'),
     official: ref('official', 'high', 'https://www.tesla.cn/support/autopilot-notes', 'Tesla 中国辅助驾驶功能使用说明和警示', 'Autopilot notes'),
-    curated: ref('community_extracted', 'medium', 'https://www.tesla.cn/ownersmanual/modely/zh_cn_us/', 'OpenODC extraction from Tesla China manual', 'Autopilot 自动辅助驾驶'),
-    inferred: ref('inferred', 'low', 'https://www.tesla.cn/ownersmanual/modely/zh_cn_us/', 'OpenODC inference from Tesla China manual', 'Manual states qualitative limitation but no quantitative threshold')
+    curated: ref('community_extracted', 'medium', 'https://www.tesla.com/ownersmanual/modely/zh_cn/', 'OpenODC extraction from Tesla China manual', '辅助驾驶功能'),
+    inferred: ref('inferred', 'low', 'https://www.tesla.com/ownersmanual/modely/zh_cn/', 'OpenODC inference from Tesla China manual', 'Manual states qualitative limitation but no quantitative threshold')
   },
   'huawei-ads4-aito-m9': {
     sources: [
@@ -53,7 +53,7 @@ const profiles = {
       '问界 M9 参数配置表（AITO 官方）: https://aito.auto/model/m9/configuration/',
       '华为乾崑智驾官方页（2026-05 已更新为 ADS 5，用于核验辅助驾驶责任边界）: https://auto.huawei.com/cn/ads'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的 AITO 官方 M9 产品页、配置表和 2026-03-17 版官方使用说明书复核。本条是问界 M9 2025 款 ADS 4 辅助驾驶样例，不等同于 2026-04-23 发布的 ADS 5，也不包含监管试点中的 L3 能力。手册可高置信支撑 NCA 适用道路、驾驶员责任、NCA 最高目标车速 130 km/h、初始目标车速下限 30 km/h、新手考试/里程条件、脱手检测与降级逻辑；雨雪雾没有 mm/h 或能见度量化阈值。',
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的 AITO 官方 M9 产品页、配置表和 2026-03-17 版官方使用说明书复核。本条是问界 M9 2025 款 ADS 4 辅助驾驶样例，不等同于 2026-04-23 发布的 ADS 5，也不包含监管试点中的 L3 能力。手册可高置信支撑 NCA 适用道路、驾驶员责任、NCA 最高目标车速 130 km/h、初始目标车速下限 30 km/h、新手考试/里程条件、脱手检测与降级逻辑；雨雪雾没有 mm/h 或能见度量化阈值。',
     manual: ref('owner_manual', 'high', 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', '问界 M9 2025 款纯电使用说明书（2026-03-17）', '了解 ADS / 领航辅助 NCA', '235, 269, 275'),
     official: ref('official', 'high', 'https://aito.auto/model/m9/', '问界 M9 官方产品页', '华为乾崑智驾 ADS 4 / 免责声明'),
     curated: ref('community_extracted', 'medium', 'https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf', 'OpenODC extraction from AITO manual', 'ADS limitations and NCA conditions'),
@@ -68,7 +68,7 @@ const profiles = {
       '武汉经开区 · 3000 平方公里城市实验室报道: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202504/t20250422_2570742.html',
       'Baidu Apollo RT6 官方发布稿（PR Newswire 镜像）: https://www.prnewswire.com/news-releases/baidu-unveils-next-gen-autonomous-vehicle-ready-to-provide-driverless-robotaxi-half-of-taxi-fares-301590644.html'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。',
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。',
     manual: ref('government_notice', 'high', 'https://www.whkfq.gov.cn/xxgk/zc/gfxwj/202409/t20240920_2457091.html', '武汉经开区智能网联汽车道路测试与示范应用管理办法', '测试、示范应用与安全员管理'),
     official: ref('government_notice', 'high', 'https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html', '武汉经开区自动驾驶装备商业化试点管理办法发布说明', '商业化试点管理办法'),
     curated: ref('community_extracted', 'medium', 'https://www.apollogo.com/ch/', 'OpenODC extraction from Apollo Go public portal and government notices', 'Robotaxi operating boundary'),
@@ -82,7 +82,7 @@ const profiles = {
       '深圳前海管理局 · 小马智行前海全无人商业化运营: https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/mpost_12077869.html',
       'NVIDIA Blog · Pony.ai Gen-7 DRIVE Orin: https://blogs.nvidia.com/blog/pony-ai-robotaxi-fleet-drive-orin/'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的小马智行官网、IR 官方 PDF、深圳前海政府页面和硬件合作方资料复核。本条可高置信支撑 Gen-7 全无人商业化运营城市、L4 Robotaxi 服务属性、车内无安全员、硬件/算力方向；具体 geofence、速度上限、天气停运阈值、乘客规则和远程协助 SOP 未公开。',
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的小马智行官网、IR 官方 PDF、深圳前海政府页面和硬件合作方资料复核。本条可高置信支撑 Gen-7 全无人商业化运营城市、L4 Robotaxi 服务属性、车内无安全员、硬件/算力方向；具体 geofence、速度上限、天气停运阈值、乘客规则和远程协助 SOP 未公开。',
     manual: ref('official', 'high', 'https://ir.pony.ai/node/7506/pdf', 'Pony.ai Gen-7 fully-driverless commercial services official PDF', 'Gen-7 Robotaxi commercial operations'),
     official: ref('official', 'high', 'https://ir.pony.ai/node/7506/pdf', 'Pony.ai official release PDF', 'Gen-7 Robotaxi commercial operations'),
     curated: ref('community_extracted', 'medium', 'https://pony.ai/?lang=zh', 'OpenODC extraction from Pony.ai public sources', 'Robotaxi operating boundary'),
@@ -97,7 +97,7 @@ const profiles = {
       'XNGP 快速上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/2834581',
       'G6 高速 NGP 上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/1799825'
     ],
-    notes: 'OpenODC 社区已按 2026-05-02 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。',
+    notes: 'OpenODC 社区已按 2026-05-03 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。',
     manual: ref('official', 'high', 'https://www.xiaopeng.com/p7_plus_2026/configuration.html', '2026 款小鹏 P7+ 参数配置表', 'AI辅助驾驶 / 全域安全'),
     official: ref('official', 'high', 'https://www.xiaopeng.com/p7_plus_2026.html', '2026 款小鹏 P7+ 产品页', 'AI辅助驾驶 / 页面注释'),
     curated: ref('community_extracted', 'medium', 'https://bbs.xiaopeng.com/article/2834581', 'XNGP 快速上手指南（小鹏官方社区）', 'XNGP user guidance'),
@@ -106,7 +106,7 @@ const profiles = {
 }
 
 const overrides = {
-  'tesla-fsd-us-v13': {
+  'tesla-fsd-us-current': {
     'odd.road.lane.width': {
       description: '[手册明确] 手册将狭窄道路、有迎面车辆或双排停放车辆的场景列为 FSD / Autopilot 需要驾驶员特别注意或可能干预的限制条件；未给出最小车道宽度阈值。',
       parameter_range: '[公开资料未量化] 最小车道宽度未公开。'
@@ -118,7 +118,7 @@ const overrides = {
       parameter_range: '[手册明确] FSD Supervised 可在车速低于 85 mph（140 km/h）时启用，包括车辆静止时；从驻车触摸屏启动还要求合适驾驶员在座、安全带、车门/前后备箱/充电状态等条件满足。'
     }
   },
-  'tesla-autopilot-china-basic': {
+  'tesla-assisted-driving-china-current': {
     'odd.road.type.urban_road.arterial': {
       description: '[手册明确] 中国 Model Y 手册说明 Autopilot/智能辅助转向属于辅助驾驶，不能实现自动驾驶或取代驾驶员身份；城市主干路如满足车道线、速度、车灯等条件可使用相关辅助功能，但路口、信号灯、行人和复杂交通仍由驾驶员负责。'
     },
@@ -292,6 +292,7 @@ function applyDoc(file) {
   if (!profile) return 0
 
   doc.metadata.review_status = 'community_reviewed'
+  doc.metadata.evidence_as_of = today
   doc.metadata.sources = profile.sources
   doc.metadata.notes = profile.notes
 

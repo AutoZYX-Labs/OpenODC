@@ -29,10 +29,10 @@
     "description": "[手册明确] 手册「在隧道中行驶」影响摄像头视野，TACC/Autopilot 可能异常。"
   },
   "odd.infrastructure.special.crosswalk": {
-    "description": "[手册明确] 手册原文「切勿依赖 TACC 对行人和骑行者充分减速」——FSD v13 识别人行横道并让行，但驾驶员责任不减。"
+    "description": "[手册明确] 手册原文「切勿依赖 TACC 对行人和骑行者充分减速」。FSD Supervised 可在部分场景中识别人行横道并让行，但官方未给出可覆盖人行横道类型清单，驾驶员责任不减。"
   },
   "odd.infrastructure.temporary.construction": {
-    "description": "[手册明确] 手册原文「切勿在施工区使用 Autosteer」。FSD v13 可识别并减速通过，但非设计场景。"
+    "description": "[手册明确] 手册原文「切勿在施工区使用 Autosteer」。FSD Supervised 可能处理部分道路施工扰动，但施工区不应视为稳定设计场景。"
   },
   "odd.weather.atmospheric.rain": {
     "description": "[手册明确] 手册原文「能见度低（暴雨、大雪、浓雾等）或天气条件干扰传感器」时 Autosteer 可能无法按预期运行。无 mm/h 阈值。"

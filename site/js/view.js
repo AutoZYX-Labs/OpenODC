@@ -372,6 +372,9 @@ function renderSourcesFooter(doc) {
     vendor_confirmed: '本 ODC 已由厂家官方确认。'
   }[doc.metadata.review_status] || ''
   footer.appendChild(el('p', { class: 'source-status' }, statusText))
+  if (doc.metadata.evidence_as_of) {
+    footer.appendChild(el('p', { class: 'source-status' }, `证据核验日期：${doc.metadata.evidence_as_of}。功能 OTA 或运营规则更新后，需要重新核验。`))
+  }
   if (doc.metadata.sources && doc.metadata.sources.length) {
     footer.appendChild(el('p', { class: 'source-list-intro' }, '引用资料：'))
     const list = el('ul', { class: 'source-list' })
@@ -410,7 +413,7 @@ function renderHeader() {
   badgesEl.innerHTML = ''
   badgesEl.appendChild(el('span', { class: `ads-pill ads-pill-l${currentDoc.ads_level}` }, adsLevelLabel(currentDoc.ads_level)))
   badgesEl.appendChild(el('span', { class: `status-pill status-${currentDoc.metadata.review_status}` }, reviewStatusLabel(currentDoc.metadata.review_status)))
-  badgesEl.appendChild(el('span', { class: 'meta-pill' }, currentDoc.effective_date))
+  badgesEl.appendChild(el('span', { class: 'meta-pill' }, currentDoc.metadata?.evidence_as_of ? `证据核验 ${currentDoc.metadata.evidence_as_of}` : currentDoc.effective_date))
   if (currentDoc.software_version) badgesEl.appendChild(el('span', { class: 'meta-pill' }, currentDoc.software_version))
 }
 
@@ -436,6 +439,7 @@ function toMarkdown(doc) {
   md += `- 自动化等级：${adsLevelLabel(doc.ads_level)}\n`
   md += `- 软件版本：${doc.software_version || '—'}\n`
   md += `- 生效日期：${doc.effective_date}\n`
+  if (doc.metadata?.evidence_as_of) md += `- 证据核验日期：${doc.metadata.evidence_as_of}\n`
   md += `- 标准依据：${doc.spec_source}\n`
   md += `- 审核状态：${reviewStatusLabel(doc.metadata.review_status)}\n\n`
   md += `> 说明：本 Markdown 由 OpenODC 自动生成。除非审核状态为「厂家确认」，否则该记录为社区基于公开资料提取，不代表厂家官方 ODC 声明。L2 样例不表示车辆可以脱离驾驶员监管。\n\n`

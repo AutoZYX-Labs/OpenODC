@@ -20,6 +20,7 @@ const copy = {
     permitted: n => `允许 ${n}`,
     notPermitted: n => `不允许 ${n}`,
     total: n => `共 ${n} 项`,
+    verified: d => `证据核验至 ${d}`,
     loadFailed: msg => `加载失败：${msg}`
   },
   en: {
@@ -32,6 +33,7 @@ const copy = {
     permitted: n => `Permitted ${n}`,
     notPermitted: n => `Not permitted ${n}`,
     total: n => `${n} elements`,
+    verified: d => `Evidence verified ${d}`,
     loadFailed: msg => `Load failed: ${msg}`
   }
 }
@@ -117,7 +119,11 @@ function card(d) {
     el('span', { class: 'stat-item stat-not-permitted' }, copy[lang].notPermitted(d.not_permitted_count)),
     el('span', { class: 'stat-item' }, copy[lang].total(d.element_count))
   ]))
-  node.appendChild(el('p', { class: 'doc-card-meta' }, d.effective_date + (d.software_version ? ' · ' + d.software_version : '')))
+  const metaParts = []
+  if (d.evidence_as_of) metaParts.push(copy[lang].verified(d.evidence_as_of))
+  else if (d.effective_date) metaParts.push(d.effective_date)
+  if (d.software_version) metaParts.push(d.software_version)
+  node.appendChild(el('p', { class: 'doc-card-meta' }, metaParts.join(' · ')))
   return node
 }
 

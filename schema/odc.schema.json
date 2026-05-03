@@ -99,6 +99,11 @@
           "description": "URLs or document references that back the data in this record.",
           "items": { "type": "string" }
         },
+        "evidence_as_of": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when public evidence for this community-extracted record was last checked."
+        },
         "notes": {
           "type": "string"
         }
