@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openodc.autozyx.com/sitemap.xml

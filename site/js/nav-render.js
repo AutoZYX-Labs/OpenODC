@@ -7,6 +7,7 @@ const bilingualPages = new Set([
   'gallery.html',
   'methodology.html',
   'tools.html',
+  'join.html',
   'view.html',
   'compare.html',
   'matrix.html',
@@ -23,6 +24,7 @@ function navHtml(lang, langHref) {
         <a href="/en/gallery.html">Gallery</a>
         <a href="/en/methodology.html">Method</a>
         <a href="/en/tools.html">Tools</a>
+        <a href="/en/join.html">Join</a>
         <span class="nav-divider" aria-hidden="true"></span>
         <a class="lang-toggle" href="${langHref}">中</a>
         <a class="github-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
@@ -37,6 +39,7 @@ function navHtml(lang, langHref) {
       <a href="/gallery.html">样例库</a>
       <a href="/methodology.html">方法</a>
       <a href="/tools.html">工具台</a>
+      <a href="/join.html">共建</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <a class="lang-toggle" href="${langHref}">EN</a>
       <a class="github-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>

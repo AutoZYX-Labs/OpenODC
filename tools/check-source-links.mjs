@@ -13,6 +13,7 @@ const examplesDir = join(process.cwd(), 'data', 'examples')
 const sourceUrlRe = /(https?:\/\/\S+)/g
 const botSensitiveHosts = new Set([
   'aito.auto',
+  'auto.huawei.com',
   'qh.sz.gov.cn',
   'www.apollogo.com',
   'ir.pony.ai',

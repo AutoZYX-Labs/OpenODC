@@ -174,9 +174,9 @@ A nested view is generated from the flat data at render time.
 - Future API exposure (REST / GraphQL) maps to JSON natively
 - The standard's example tables are tabular — JSON arrays of objects is the obvious fit
 
-### Why store everything in git instead of a database?
+### Why store the public prototype in git instead of a database?
 
-For Phase 0–4 MVP, all public data lives as JSON files in the repo:
+In the current public prototype, all public data lives as JSON files in the repo:
 - Zero infrastructure cost
 - Every change is reviewable as a PR diff
 - History is git-native
@@ -184,7 +184,7 @@ For Phase 0–4 MVP, all public data lives as JSON files in the repo:
 
 The current Vendor Intake Workbench is a static frontend tool that runs in the browser. It does not authenticate a vendor, upload sensitive files, or fetch private manuals. Its purpose is to show the more realistic authoring workflow: import public or sanitized source excerpts, map them into the 144-element ODC table, mark evidence gaps, and export a CSV / Markdown review package.
 
-For vendor-confirmed records, GitHub should be only one publication path. The production workflow should add corporate-domain verification, organization roles, private document parsing, administrator review, signed publishing, and multiple submission channels: vendor portal, API / batch sync, review-package upload, and GitHub PR for community contributors.
+For vendor-confirmed records, GitHub should be only one publication path. The production workflow should add corporate-domain verification, organization roles, private document parsing, administrator review, signed publishing, and multiple submission channels: vendor portal, API / batch sync, review-package upload, email / enterprise-IM review packages, and GitHub PR for community contributors.
 
 ## 9. What's NOT in scope
 
@@ -202,4 +202,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-03 (v0.4.0 / Phase 0–4 MVP).*
+*Last updated 2026-05-09 (v0.4.1 / public prototype and open stewardship call).*

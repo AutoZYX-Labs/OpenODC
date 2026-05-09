@@ -42,7 +42,7 @@ Important semantic boundary: L2 records describe feature availability conditions
 
 ## Current status
 
-`v0.4.0 (Phase 0–4 MVP)`
+`v0.4.1 (public prototype / open stewardship call)`
 
 - ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (144 elements / 7 categories)
 - ✅ JSON Schema + TypeScript type definitions
@@ -53,9 +53,10 @@ Important semantic boundary: L2 records describe feature availability conditions
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
 - ✅ Vendor Intake Workbench: paste manual / rule excerpts, generate a 144-element ODC draft table, and export CSV / Markdown review packages
-- ⏳ Backend publishing loop: corporate-domain verification, role permissions, private file parsing, administrator review, and portal / API / GitHub publication channels
+- ✅ Stewardship page for contributors with standards, ADAS / ADS development, safety, testing, data engineering, or open-source operations experience
+- ⏳ Backend publishing loop: corporate-domain verification, role permissions, private file parsing, administrator review, and portal / API / review-package / GitHub publication channels
 
-Full roadmap: [ARCHITECTURE.md](./ARCHITECTURE.md). Publishing semantics: [Methodology](https://openodc.autozyx.com/en/methodology.html).
+Full roadmap: [ARCHITECTURE.md](./ARCHITECTURE.md). Publishing semantics: [Methodology](https://openodc.autozyx.com/en/methodology.html). Co-maintainer plan: [Join OpenODC](https://openodc.autozyx.com/en/join.html).
 
 ## Repository layout
 
@@ -115,6 +116,20 @@ Three types of contributions are welcome:
 3. **Schema improvements** — international mappings (ISO 34503 / ASAM OpenODD / BSI PAS 1883), level corrections.
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Open Stewardship
+
+OpenODC was initiated by Zhang Yuxin, but it should not remain a one-person project. We are looking for co-maintainers with experience in standards work, ADAS / ADS development, functional safety / SOTIF, testing and evaluation, data engineering, vendor engagement, or open-source operations.
+
+Roles currently needed:
+
+- Sample curators: track owner manuals, feature pages, OTA notes, configuration tables, and government operating rules
+- Standards mapping maintainers: map GB/T 45312—2025 to ISO 34503, ASAM OpenODD, BSI PAS 1883, SAE J3016, and related standards
+- ADAS / ADS reviewers: review L2 / L3 / L4 semantics, takeover conditions, exit behavior, and quantified thresholds
+- Data and tooling engineers: automate source ingestion, evidence extraction, version diffs, link checks, and publishing review
+- Vendor and institution liaisons: help OEMs, Tier 1s, test labs, associations, and standards bodies submit public ODC fields
+
+See [https://openodc.autozyx.com/en/join.html](https://openodc.autozyx.com/en/join.html).
 
 ## License
 

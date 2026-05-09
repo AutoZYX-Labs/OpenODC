@@ -2,6 +2,18 @@
 
 Thank you for considering a contribution. OpenODC is built around the principle that public, machine-readable ODCs are a piece of safety infrastructure — and infrastructure gets better with many contributors.
 
+## Co-maintainer roles
+
+OpenODC is looking for long-term co-maintainers, not just one-off PRs. The highest-impact roles are:
+
+- Sample curators who track owner manuals, feature pages, OTA notes, configuration tables, and government operating rules
+- Standards mapping maintainers who align GB/T 45312—2025 with ISO 34503, ASAM OpenODD, BSI PAS 1883, SAE J3016, and related standards
+- ADAS / ADS reviewers who check L2 / L3 / L4 semantics, driver-responsibility language, takeover conditions, exit behavior, and quantitative thresholds
+- Data and tooling engineers who automate source ingestion, evidence extraction, version diffs, link checks, and review-package generation
+- Vendor and institution liaisons who help OEMs, Tier 1s, test labs, associations, and standards organizations submit public ODC fields
+
+See the public stewardship page: https://openodc.autozyx.com/en/join.html
+
 ## What kinds of contributions are welcome
 
 ### 1. New sample ODC documents
@@ -24,8 +36,9 @@ If you represent an OEM or AD supplier and want to publish an officially-endorse
 
 1. Either claim and amend an existing community draft, or submit a fresh document
 2. Set `metadata.review_status: "vendor_confirmed"`
-3. Sign off in the PR description with your role and contact (e.g. "John Doe, Safety Engineering Lead, BYD")
-4. We will merge after a basic sanity check
+3. Include a corporate-domain contact, role, source version, and public-field approval statement
+4. Submit through a GitHub PR if your team uses GitHub, or contact the maintainer for a CSV / JSON / Markdown review package workflow
+5. We will publish after source, scope, and authorization sanity checks
 
 Vendor-confirmed records rank above community-extracted ones for the same vehicle. They also remove the community-draft warning from the public view.
 

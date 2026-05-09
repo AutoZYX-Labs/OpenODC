@@ -42,7 +42,7 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 
 ## 当前状态
 
-`v0.4.0 (Phase 0–4 MVP)`
+`v0.4.1（公开样例与共建治理原型）`
 
 - ✅ 完整转录 GB/T 45312—2025 的 ODC 元素层级（144 个元素 / 7 类）
 - ✅ JSON Schema + TypeScript 类型定义
@@ -53,9 +53,10 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 - ✅ 双视图渲染：开发者视图 / 消费者视图
 - ✅ 横向矩阵：144 个国标要素 × 6 个样例逐项对比
 - ✅ 厂家资料工作台：粘贴手册 / 规则摘录，生成 144 要素 ODC 草案表，并导出 CSV / Markdown 审核包
-- ⏳ 后端发布闭环：企业域名验证、角色权限、私有文件解析、管理员审核、API / 门户 / GitHub 多通道发布
+- ✅ 共建入口：面向标准、智驾开发、功能安全、测评、数据工程和开源运营协作者的维护计划
+- ⏳ 后端发布闭环：企业域名验证、角色权限、私有文件解析、管理员审核、API / 门户 / 审核包 / GitHub 多通道发布
 
-完整路线图见 [ARCHITECTURE.md](./ARCHITECTURE.md)。公开传播口径见 [Methodology](https://openodc.autozyx.com/methodology.html)。
+完整路线图见 [ARCHITECTURE.md](./ARCHITECTURE.md)。公开传播口径见 [Methodology](https://openodc.autozyx.com/methodology.html)。共同维护计划见 [共建 OpenODC](https://openodc.autozyx.com/join.html)。
 
 ## 仓库结构
 
@@ -130,6 +131,20 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 3. Schema 完善：补充国际化映射（ISO 34503 / ASAM OpenODD / BSI PAS 1883）、修复元素层级错误
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
+## 共建维护
+
+OpenODC 由张玉新个人发起，但不适合长期停留在个人维护状态。项目正在寻找具备标准工作、智驾开发、功能安全 / SOTIF、测试评价、数据工程、厂家对接或开源运营经验的共同维护者。
+
+近期最需要的角色：
+
+- 样例库维护者：持续跟踪用户手册、功能页、OTA 说明、配置表和政府运营规则
+- 标准映射维护者：维护 GB/T 45312—2025 与 ISO 34503、ASAM OpenODD、BSI PAS 1883、SAE J3016 等术语映射
+- 智驾工程审阅者：审查 L2 / L3 / L4 语义边界、接管条件、系统退出条件和量化阈值
+- 数据与工具工程师：自动化手册导入、证据抽取、版本差异、链接检查和发布审核
+- 厂家与机构对接人：推动 OEM、Tier 1、测评机构、学会和标准化组织提交可公开字段
+
+共建计划和联系方式见 [https://openodc.autozyx.com/join.html](https://openodc.autozyx.com/join.html)。
 
 ## 许可证
 
