@@ -20,6 +20,8 @@ For the product roadmap, see [PLAN.md](../PLAN.md).
 
 6. **One document, many views.** Same JSON renders as: developer view (full hierarchy), consumer view (plain-language cards), compare view (document-to-document diff), and matrix view (catalog × document coverage).
 
+7. **Element tables first, combination boundaries second.** The ODC element table is the stable base layer, but single-element permission does not prove that every combined scene is inside the real system boundary. OpenODC therefore supports a deliberately small `boundary_combinations[]` layer for public-source-supported multi-element boundaries and trigger-condition candidates.
+
 ## 2. Data model
 
 There are three kinds of files in `schema/`:
@@ -70,6 +72,11 @@ ODCDocument
 │       ├── source            ← provenance
 │       └── evidence_refs[]   ← concrete URL / page / section references
 ├── associations: ODCAssociation[]   ← cross-element constraints
+├── boundary_combinations: ODCBoundaryCombination[]
+│       ├── related_element_ids       ← multiple catalog elements
+│       ├── relation_to_odc           ← inside / outside / boundary / unknown
+│       ├── expected_response         ← degrade / takeover / remote assistance / etc.
+│       └── evidence_refs[]           ← public evidence for the combination
 └── metadata
         ├── submitted_by
         ├── review_status     ← draft / community_reviewed / vendor_confirmed
@@ -119,6 +126,24 @@ Our model:
 - `requirement` is an enum: `'permitted' | 'not_permitted'`
 - `exit_behavior` is required when `requirement === 'not_permitted'`, with values `'suppress_activation' | 'trigger_exit' | 'suppress_and_exit'`
 - Associations are stored at the document level (not per-element) because they are inherently relational. Each association names a primary and a dependent element and the relation type.
+
+## 5.1 Boundary combinations and trigger-condition candidates
+
+The standard element table is intentionally decomposed into single ODC elements. That makes it auditable and comparable, but it also creates a limitation: real driving scenes are combinations. Rain, darkness, worn lane markings, construction, traffic control, speed, and driver attention can appear together. Even if each single element has a public-source statement, the combined scene may still be outside the real system boundary.
+
+OpenODC handles this without turning into a full SOTIF platform:
+
+- `elements[]` remains the main ODC declaration table.
+- `associations[]` captures explicit primary / dependent element rules.
+- `boundary_combinations[]` captures a small number of public-source-supported combinations per sample.
+
+Boundary combinations are intentionally non-exhaustive. They are used to:
+
+- warn consumers that single-element coverage is not the same as combined-scene capability;
+- show developers where public ODC data can become SOTIF trigger-condition candidates;
+- expose combination-level public disclosure gaps, such as weather + lane-marking thresholds or remote-assistance intervention thresholds.
+
+They must not be presented as vendor safety conclusions unless the document itself is `vendor_confirmed`.
 
 ## 6. Provenance and trust levels
 
@@ -193,6 +218,7 @@ OpenODC is **not** trying to be:
 - An OEM's internal ADS specification system (we are a publishing format)
 - A safety case framework (ISO 21448 / ISO 26262 sit above us)
 - A real-time monitoring system (we declare design conditions; we do not measure runtime conditions)
+- A complete trigger-condition database (we only publish public-source-supported boundary-combination candidates)
 
 ## 10. Versioning
 
@@ -202,4 +228,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-09 (v0.4.1 / public prototype and open stewardship call).*
+*Last updated 2026-05-13 (v0.4.2 / boundary combinations and trigger-condition candidates).*

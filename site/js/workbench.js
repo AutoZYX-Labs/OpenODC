@@ -10,6 +10,7 @@ const STORAGE_KEY = 'openodc.intake.v1'
 let catalog = null
 let elementIndex = null
 let latestRows = []
+let latestBoundaryCandidates = []
 
 const copy = {
   zh: {
@@ -38,6 +39,9 @@ const copy = {
     unspecified: '资料未明确',
     extracted: '从导入资料中识别',
     source: '来源',
+    boundaryCandidates: '边界组合候选',
+    boundaryHint: '这些候选来自导入文本中同时命中的多个限制要素，适合人工确认后转成 ODC 边界组合或 SOTIF 触发条件候选。',
+    boundaryReview: '人工确认组合边界、系统响应和证据页码',
     sampleOrg: '示例 OEM',
     sampleFeature: '高速 NOA',
     sampleModel: '2026 款车型',
@@ -71,6 +75,9 @@ const copy = {
     unspecified: 'Unspecified',
     extracted: 'Recognized from imported text',
     source: 'Source',
+    boundaryCandidates: 'Boundary combination candidates',
+    boundaryHint: 'These candidates are generated when multiple limitation elements are recognized from the imported text. They should be manually reviewed before becoming ODC boundary combinations or SOTIF trigger-condition candidates.',
+    boundaryReview: 'Manually confirm combined boundary, system response, and evidence location',
     sampleOrg: 'Example OEM',
     sampleFeature: 'Highway NOA',
     sampleModel: '2026 vehicle model',
@@ -308,7 +315,8 @@ function generateDraft() {
   }
   saveDraft()
   latestRows = buildRows(text, collectMetadata())
-  renderResults(latestRows)
+  latestBoundaryCandidates = buildBoundaryCandidates(latestRows)
+  renderResults(latestRows, latestBoundaryCandidates)
   setExportsEnabled(true)
 }
 
@@ -357,6 +365,66 @@ function buildRows(text, metadata) {
   return rows
 }
 
+function buildBoundaryCandidates(rows) {
+  const byId = new Map(rows.filter(r => r.matched).map(r => [r.id, r]))
+  const has = ids => ids.some(id => byId.has(id))
+  const getRows = ids => ids.map(id => byId.get(id)).filter(Boolean)
+  const candidates = []
+
+  function add(candidate) {
+    if (candidate.relatedRows.length >= 2) candidates.push(candidate)
+  }
+
+  add({
+    id: 'weather-lane-marking',
+    title: lang === 'en' ? 'Weather degradation + lane marking quality' : '天气退化 + 车道线质量',
+    summary: lang === 'en'
+      ? 'Weather and lane-marking limitations are both present. This should be reviewed as a combined perception / lane-keeping boundary, not as separate single elements.'
+      : '资料同时出现天气和车道线限制，应按感知 / 车道保持的组合边界人工确认，而不是只看单项要素。',
+    relatedRows: getRows(['odd.weather.atmospheric.rain', 'odd.weather.atmospheric.snow.snowfall', 'odd.weather.particles.fog', 'odd.road.lane.marking.quality', 'odd.road.lane.marking.absent'])
+  })
+
+  add({
+    id: 'temporary-layout-lane-marking',
+    title: lang === 'en' ? 'Temporary road layout + lane marking change' : '临时道路形态 + 车道线变化',
+    summary: lang === 'en'
+      ? 'Construction, accident scenes, or traffic control appear together with lane-marking evidence. Review this as a temporary-layout boundary.'
+      : '施工、事故现场或交通管制与车道线证据同时出现，应作为临时道路形态边界组合确认。',
+    relatedRows: getRows(['odd.infrastructure.temporary.construction', 'odd.infrastructure.temporary.accident_site', 'odd.infrastructure.temporary.traffic_control', 'odd.road.lane.marking.quality', 'odd.road.lane.marking.absent'])
+  })
+
+  add({
+    id: 'speed-driver-supervision',
+    title: lang === 'en' ? 'Speed range + driver supervision' : '速度范围 + 驾驶员监管',
+    summary: lang === 'en'
+      ? 'A speed range and driver-supervision requirement are both recognized. The speed range should not be treated as a standalone availability promise.'
+      : '资料同时出现速度范围和驾驶员监管要求，速度范围不应单独理解为可用承诺。',
+    relatedRows: getRows(['vehicle.motion.speed.operating', 'personnel.driver.takeover.attention'])
+  })
+
+  add({
+    id: 'tunnel-lighting-perception',
+    title: lang === 'en' ? 'Tunnel / lighting + perception boundary' : '隧道 / 光照 + 感知边界',
+    summary: lang === 'en'
+      ? 'Tunnel or nighttime evidence appears with lighting requirements. Review this as a perception boundary rather than a simple road-infrastructure item.'
+      : '资料同时出现隧道或夜间光照要求，应作为感知边界组合确认，而不是简单道路设施项。',
+    relatedRows: getRows(['odd.infrastructure.special.tunnel', 'odd.weather.lighting.streetlight', 'odd.weather.lighting.headlight'])
+  })
+
+  add({
+    id: 'vru-mixed-traffic',
+    title: lang === 'en' ? 'VRU / mixed traffic + road context' : '弱势交通参与者 / 混行 + 道路环境',
+    summary: lang === 'en'
+      ? 'Pedestrian, cyclist, or mixed-traffic evidence is present. Review the road context and system response before treating it as within ODC.'
+      : '资料出现行人、非机动车或混行场景，应结合道路环境和系统响应确认组合边界。',
+    relatedRows: getRows(['odd.targets.pedestrian', 'odd.targets.non_motor_vehicle', 'odd.road.type.urban_road.expressway', 'odd.road.type.highway.expressway'])
+  })
+
+  return candidates
+    .filter(c => c.relatedRows.length >= 2)
+    .filter((c, i, arr) => arr.findIndex(x => x.id === c.id) === i)
+}
+
 function localized(value) {
   if (!value) return ''
   return value[lang] || value.zh || value.en || ''
@@ -387,7 +455,7 @@ function extractParameter(sentence) {
   return values ? values.slice(0, 3).join(' / ') : ''
 }
 
-function renderResults(rows) {
+function renderResults(rows, boundaryCandidates = []) {
   const root = document.getElementById('workbench-results')
   root.innerHTML = ''
   const matched = rows.filter(r => r.matched).length
@@ -403,6 +471,8 @@ function renderResults(rows) {
 
   root.appendChild(el('p', { class: 'source-status' }, copy[lang].generated(matched, rows.length)))
 
+  if (boundaryCandidates.length) root.appendChild(renderBoundaryCandidates(boundaryCandidates))
+
   const table = el('table', { class: 'intake-table' })
   table.appendChild(el('thead', {}, el('tr', {}, [
     el('th', {}, copy[lang].category),
@@ -415,6 +485,32 @@ function renderResults(rows) {
   for (const row of rows) tbody.appendChild(renderRow(row))
   table.appendChild(tbody)
   root.appendChild(el('div', { class: 'intake-table-wrap' }, table))
+}
+
+function renderBoundaryCandidates(candidates) {
+  const section = el('section', { class: 'boundary-combinations boundary-combinations-workbench' })
+  section.appendChild(el('div', { class: 'boundary-head' }, [
+    el('h3', {}, copy[lang].boundaryCandidates),
+    el('p', {}, copy[lang].boundaryHint)
+  ]))
+  const grid = el('div', { class: 'boundary-grid' })
+  for (const c of candidates) {
+    const card = el('article', { class: 'boundary-card boundary-boundary' })
+    card.appendChild(el('div', { class: 'boundary-card-head' }, [
+      el('h4', {}, c.title),
+      el('span', { class: 'boundary-relation' }, copy[lang].boundaryReview)
+    ]))
+    card.appendChild(el('p', { class: 'boundary-summary' }, c.summary))
+    const chips = el('div', { class: 'boundary-related-chips' })
+    for (const row of c.relatedRows) chips.appendChild(el('code', {}, row.element))
+    card.appendChild(el('div', { class: 'boundary-related' }, [
+      el('div', { class: 'boundary-related-label' }, copy[lang].element),
+      chips
+    ]))
+    grid.appendChild(card)
+  }
+  section.appendChild(grid)
+  return section
 }
 
 function statCard(label, value) {
@@ -486,7 +582,22 @@ function toMarkdown(rows) {
     '|---|---|---|---|---|'
   ]
   const body = rows.map(r => `| ${esc(r.category)} | ${esc(r.element)} | ${esc(statusLabel(r.requirement))} | ${esc([r.parameter, r.evidence].filter(Boolean).join(' — '))} | ${esc(r.action)} |`)
-  return header.concat(body).join('\n')
+  const boundary = latestBoundaryCandidates.length
+    ? [
+        '',
+        `## ${copy[lang].boundaryCandidates}`,
+        '',
+        ...latestBoundaryCandidates.flatMap(c => [
+          `### ${c.title}`,
+          '',
+          c.summary,
+          '',
+          `${copy[lang].element}: ${c.relatedRows.map(r => r.element).join(' / ')}`,
+          ''
+        ])
+      ]
+    : []
+  return header.concat(body, boundary).join('\n')
 }
 
 function toCsv(rows) {

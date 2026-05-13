@@ -73,6 +73,70 @@ export interface ODCAssociation {
   description: string
 }
 
+export type ODCBoundaryRelation =
+  | 'inside_odc'        // 组合边界位于声明 ODC 内
+  | 'outside_odc'       // 组合边界位于声明 ODC 外
+  | 'boundary'          // 边界附近，可能触发退出/降级/接管
+  | 'mixed_or_unknown'  // 公开资料未充分说明组合关系
+
+export type ODCBoundaryEvidenceLevel =
+  | 'official'
+  | 'manual_backed'
+  | 'government_rule'
+  | 'operating_rule'
+  | 'community_extracted'
+  | 'inferred'
+  | 'public_gap'
+
+export type ODCExpectedResponse =
+  | 'suppress_activation'
+  | 'trigger_exit'
+  | 'suppress_and_exit'
+  | 'degrade'
+  | 'takeover_request'
+  | 'driver_responsibility'
+  | 'remote_assistance'
+  | 'service_suspension'
+  | 'not_disclosed'
+  | null
+
+export type ODCAffectedCapability =
+  | 'perception'
+  | 'prediction'
+  | 'planning'
+  | 'control'
+  | 'localization'
+  | 'hmi'
+  | 'remote_assistance'
+  | 'driver_supervision'
+  | 'operations'
+
+export interface ODCBoundaryCombination {
+  /**
+   * Lightweight cross-element boundary combination.
+   * This is not a full SOTIF analysis; it marks where multiple ODC elements
+   * jointly form a boundary, trigger-condition candidate, or disclosure gap.
+   */
+  id: string
+  title_zh: string
+  title_en: string
+  related_element_ids: string[]
+  relation_to_odc: ODCBoundaryRelation
+  evidence_level: ODCBoundaryEvidenceLevel
+  trigger_condition_candidate?: boolean
+  affected_capability?: ODCAffectedCapability[]
+  expected_response?: ODCExpectedResponse
+  condition_zh?: string
+  condition_en?: string
+  public_response_zh?: string
+  public_response_en?: string
+  consumer_summary_zh: string
+  consumer_summary_en: string
+  developer_note_zh: string
+  developer_note_en: string
+  evidence_refs?: ODCEvidenceRef[]
+}
+
 export interface ODCMetadata {
   submitted_by: string
   submitted_at: string
@@ -98,6 +162,7 @@ export interface ODCDocument {
   effective_date: string
   elements: ODCElement[]
   associations?: ODCAssociation[]
+  boundary_combinations?: ODCBoundaryCombination[]
   metadata: ODCMetadata
 }
 

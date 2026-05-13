@@ -1573,6 +1573,120 @@
       "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     }
   ],
+  "boundary_combinations": [
+    {
+      "id": "reduced-visibility-lane-marking",
+      "title_zh": "恶劣天气 + 能见度下降 + 车道线不清",
+      "title_en": "Severe weather + reduced visibility + unclear lane markings",
+      "related_element_ids": [
+        "odd.weather.atmospheric.rain",
+        "odd.weather.atmospheric.snow.snowfall",
+        "odd.weather.particles.fog",
+        "odd.road.lane.marking.quality"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "control",
+        "driver_supervision"
+      ],
+      "expected_response": "takeover_request",
+      "condition_zh": "大雨、大雪、浓雾或低能见度叠加车道线磨损、变化或遮挡时，视觉感知和车道保持能力同时受影响。",
+      "condition_en": "Heavy rain, snow, fog, or low visibility combined with worn, changed, or obscured lane markings affects both visual perception and lane keeping.",
+      "public_response_zh": "公开手册将这些情况列为 Autopilot / FSD 需要驾驶员特别注意或可能无法按预期运行的限制条件。",
+      "public_response_en": "The public manual treats these as limitations where Autopilot / FSD may not operate as expected and the driver must remain ready to intervene.",
+      "consumer_summary_zh": "即使 FSD Supervised 可在多类道路上工作，雨雪雾和车道线不清同时出现时，也不应把它理解成稳定可用。",
+      "consumer_summary_en": "Even if FSD Supervised can operate on many roads, combined bad weather and unclear lane markings should not be treated as a stable-use condition.",
+      "developer_note_zh": "适合作为感知退化、车道保持和驾驶员接管联动测试的触发条件候选。",
+      "developer_note_en": "Useful as a trigger-condition candidate for perception degradation, lane keeping, and driver-intervention tests.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
+          "title": "Tesla Model Y Owner Manual 2026.8 · Full Self-Driving (Supervised)",
+          "section": "Autopilot / Full Self-Driving limitations",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "construction-changing-lanes",
+      "title_zh": "施工区 + 临时车道变化",
+      "title_en": "Construction zone + temporary lane changes",
+      "related_element_ids": [
+        "odd.infrastructure.temporary.construction",
+        "odd.road.lane.marking.quality",
+        "odd.road.lane.marking.absent"
+      ],
+      "relation_to_odc": "outside_odc",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "planning",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "施工区内车道线临时调整、旧线残留、锥桶或标志引导变化，会让单项“道路可用”失去意义。",
+      "condition_en": "Temporary construction markings, legacy markings, cones, and work-zone guidance can invalidate the meaning of a single “road allowed” element.",
+      "public_response_zh": "公开手册明确提示不要在施工区使用 Autosteer；FSD Supervised 仍要求驾驶员持续监管。",
+      "public_response_en": "The public manual explicitly warns against using Autosteer in construction zones; FSD Supervised still requires continuous supervision.",
+      "consumer_summary_zh": "遇到施工区、临时车道或标线变化时，应按驾驶员自行处理理解，而不是按系统稳定能力理解。",
+      "consumer_summary_en": "Work zones and temporary lane layouts should be treated as driver-handled conditions, not stable system capability.",
+      "developer_note_zh": "该组合比单独的“施工区”或“车道线质量”更接近真实 SOTIF 触发条件。",
+      "developer_note_en": "This combination is closer to a real SOTIF trigger condition than either construction or lane-marking quality alone.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
+          "title": "Tesla Model Y Owner Manual 2026.8 · Full Self-Driving (Supervised)",
+          "section": "Autopilot / Full Self-Driving limitations",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "tunnel-toll-camera-limits",
+      "title_zh": "隧道 / 收费站 + 摄像头视野受限",
+      "title_en": "Tunnel / toll station + limited camera view",
+      "related_element_ids": [
+        "odd.infrastructure.special.tunnel",
+        "odd.infrastructure.special.toll_station",
+        "odd.weather.lighting.headlight"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "planning",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "隧道光照变化、收费站复杂车道和视觉遮挡会同时影响感知与路径选择。",
+      "condition_en": "Tunnel lighting transitions, toll-lane complexity, and visual obstruction affect perception and path selection together.",
+      "public_response_zh": "公开手册将隧道和接近收费站列为 Autopilot 可能异常或需要驾驶员注意的场景。",
+      "public_response_en": "The public manual lists tunnels and approaching toll stations as situations where Autopilot may behave unexpectedly or require driver attention.",
+      "consumer_summary_zh": "隧道和收费站不是简单的“道路类型”问题，而是光照、车道、遮挡和路径选择叠加的问题。",
+      "consumer_summary_en": "Tunnels and toll stations combine lighting, lane layout, occlusion, and path-choice issues rather than a simple road-type condition.",
+      "developer_note_zh": "适合作为视觉系统边界和驾驶员监督策略的组合场景。",
+      "developer_note_en": "Useful as a combined scenario for visual-system boundary and driver-supervision strategy review.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html",
+          "title": "Tesla Model Y Owner Manual 2026.8 · Full Self-Driving (Supervised)",
+          "section": "Autopilot / Full Self-Driving limitations",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    }
+  ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T10:00:00Z",

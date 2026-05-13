@@ -1469,6 +1469,127 @@
       "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     }
   ],
+  "boundary_combinations": [
+    {
+      "id": "wet-icy-road-cruise",
+      "title_zh": "湿滑 / 结冰路面 + 定速跟车",
+      "title_en": "Wet / icy road + cruise following",
+      "related_element_ids": [
+        "odd.road.surface.coverage",
+        "odd.weather.atmospheric.rain",
+        "odd.weather.atmospheric.snow.snowfall",
+        "vehicle.motion.speed.operating"
+      ],
+      "relation_to_odc": "outside_odc",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "control",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "湿滑或结冰路面与恒定速度控制叠加时，单独的速度范围不能代表真实可控边界。",
+      "condition_en": "When wet or icy surfaces combine with constant-speed control, the speed range alone does not represent the true controllability boundary.",
+      "public_response_zh": "中文手册明确提示结冰或湿滑路面切勿使用 TACC，大雨、大雪、浓雾等天气不宜恒定速度行驶。",
+      "public_response_en": "The China manual warns against using TACC on icy or slippery roads and against constant-speed driving in heavy rain, snow, or dense fog.",
+      "consumer_summary_zh": "基础辅助驾驶不是湿滑路面上的稳定控制承诺；此时应按人工驾驶处理。",
+      "consumer_summary_en": "Basic assistance is not a stable-control promise on slippery roads; the driver should treat it as manual driving.",
+      "developer_note_zh": "该组合适合映射为控制能力退化与驾驶员监管触发条件。",
+      "developer_note_en": "This maps naturally to control degradation and driver-supervision trigger conditions.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
+          "title": "Tesla 中国区 Model Y 车主手册 2026.8",
+          "section": "Autopilot / 自动辅助驾驶限制",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "construction-lane-marking-change",
+      "title_zh": "施工区 + 车道线变化过快",
+      "title_en": "Construction zone + rapidly changing lane markings",
+      "related_element_ids": [
+        "odd.infrastructure.temporary.construction",
+        "odd.road.lane.marking.quality",
+        "odd.road.lane.marking.absent"
+      ],
+      "relation_to_odc": "outside_odc",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "planning",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "施工导致车道线变化、旧标线残留或锥桶引导变化时，Autosteer 的车道判断基础被破坏。",
+      "condition_en": "Construction-related lane changes, legacy markings, or cone guidance undermine the lane interpretation basis for Autosteer.",
+      "public_response_zh": "中文手册明确提示切勿在施工区使用 Autosteer，并列出车道线磨损、旧线残留和施工变化等限制。",
+      "public_response_en": "The China manual warns not to use Autosteer in construction zones and lists worn markings, old markings, and construction changes as limitations.",
+      "consumer_summary_zh": "施工区不是“谨慎一点还能自动开”的场景，而是应主动接管的边界组合。",
+      "consumer_summary_en": "A construction zone is not a “use carefully” automation case; it is a boundary combination where the driver should take over.",
+      "developer_note_zh": "比单项施工区更准确地表达了感知输入和道路拓扑同时变化的触发条件。",
+      "developer_note_en": "More accurately captures a trigger condition where perception inputs and road topology change at the same time.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
+          "title": "Tesla 中国区 Model Y 车主手册 2026.8",
+          "section": "Autopilot / 自动辅助驾驶限制",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "signals-intersections-basic-ap",
+      "title_zh": "信号灯路口 + 基础辅助驾驶",
+      "title_en": "Signalized intersections + basic Autopilot",
+      "related_element_ids": [
+        "odd.road.intersection.at_grade",
+        "odd.infrastructure.traffic_control.signal",
+        "personnel.driver.takeover.attention"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "official",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "driver_supervision",
+        "planning",
+        "hmi"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "车辆可行驶道路上存在信号灯和平面交叉，不等于基础辅助驾驶会处理信号灯通行责任。",
+      "condition_en": "The presence of signalized intersections on drivable roads does not mean basic Autopilot handles signal-compliance responsibility.",
+      "public_response_zh": "Tesla 中国公开资料强调辅助驾驶不能取代驾驶员，路口与交通规则责任仍归驾驶员。",
+      "public_response_en": "Tesla China public materials stress that driver assistance does not replace the driver; intersection and traffic-rule responsibility remains with the driver.",
+      "consumer_summary_zh": "在中国区基础辅助驾驶样例里，“有信号灯路口”不是系统自动通行承诺。",
+      "consumer_summary_en": "For China basic assisted driving, “signalized intersection present” is not a promise of automated intersection handling.",
+      "developer_note_zh": "用于防止把道路环境允许项误读为行为能力项。",
+      "developer_note_en": "Helps prevent a road-environment element from being misread as a behavioral capability.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.tesla.cn/support/autopilot-notes",
+          "title": "Tesla 中国 · 辅助驾驶功能使用说明和警示",
+          "section": "驾驶员责任与辅助驾驶警示",
+          "extracted_date": "2026-05-03"
+        },
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://www.tesla.com/ownersmanual/modely/zh_cn/",
+          "title": "Tesla 中国区 Model Y 车主手册 2026.8",
+          "section": "Autopilot / 自动辅助驾驶限制",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    }
+  ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T10:00:00Z",

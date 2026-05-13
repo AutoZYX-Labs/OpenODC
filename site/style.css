@@ -1197,6 +1197,14 @@ code {
   border-color: #c6d9c4;
   background: #edf6ed;
 }
+.evidence-boundary {
+  color: var(--accent-deep);
+  border-color: #e6c3b4;
+  background: #fff4ec;
+}
+.doc-card-boundary {
+  margin-top: -0.35rem;
+}
 
 .empty-cta {
   text-align: center;
@@ -1396,6 +1404,134 @@ code {
 
 .assoc-list { margin: 0; padding-left: 1.2rem; color: var(--ink-soft); }
 .assoc-list li { margin-bottom: 0.5rem; }
+
+/* Boundary combinations */
+.boundary-combinations {
+  margin: 2rem 0;
+  padding: 1.4rem 1.5rem;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.boundary-combinations-consumer {
+  background: #fff8ef;
+  border-color: #ead6bf;
+}
+.boundary-head h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+}
+.boundary-head p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.boundary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.boundary-card {
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid #8a8580;
+  border-radius: 5px;
+}
+.boundary-inside_odc { border-left-color: #2d6a3a; }
+.boundary-outside_odc { border-left-color: #c85a3a; }
+.boundary-boundary { border-left-color: #c8a13a; }
+.boundary-mixed_or_unknown { border-left-color: #8a8580; }
+.boundary-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.45rem;
+}
+.boundary-card h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.boundary-relation {
+  flex: 0 0 auto;
+  max-width: 48%;
+  padding: 1px 7px;
+  border-radius: 3px;
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  line-height: 1.7;
+  white-space: normal;
+  text-align: right;
+}
+.boundary-combinations-workbench .boundary-card-head {
+  display: block;
+}
+.boundary-combinations-workbench .boundary-relation {
+  display: inline-flex;
+  max-width: 100%;
+  margin-top: 0.35rem;
+  text-align: left;
+}
+.boundary-summary,
+.boundary-line {
+  margin: 0.45rem 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.boundary-line strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.boundary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.7rem 0 0.55rem;
+}
+.boundary-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+.boundary-trigger {
+  color: var(--accent-deep);
+  background: #fff4ec;
+  border-color: #e6c3b4;
+}
+.boundary-related {
+  margin-top: 0.65rem;
+}
+.boundary-related-label {
+  font-size: 0.76rem;
+  color: var(--ink-mute);
+  margin-bottom: 0.35rem;
+}
+.boundary-related-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.boundary-related-chips code {
+  color: var(--ink-soft);
+  background: var(--bg-alt);
+  font-size: 0.7rem;
+}
 
 /* Tester view */
 .test-summary {

@@ -21,7 +21,7 @@
       <div class="container">
         <p class="eyebrow">VENDOR INTAKE WORKBENCH</p>
         <h1 class="page-title">Vendor ODC Intake Workbench</h1>
-        <p class="page-subtitle">The practical workflow is not asking engineers to fill 144 elements one by one. Import manuals, configuration tables, operating rules, or sanitized excerpts first; generate an ODC draft table; then let authorized vendor contacts confirm and publish.</p>
+        <p class="page-subtitle">The practical workflow is not asking engineers to fill 144 elements one by one. Import manuals, configuration tables, operating rules, or sanitized excerpts first; generate an ODC draft table and boundary-combination candidates; then let authorized vendor contacts confirm and publish.</p>
         <div class="workbench-boundary-banner">
           <strong>Public-site boundary</strong>
           <span>This page does not perform real vendor authentication or upload sensitive files. It only processes public or sanitized text in the browser. Official vendor submission should use domain verification, role approval, and back-office review; GitHub remains only a community fallback path.</span>
@@ -45,7 +45,7 @@
           <article class="intake-flow-card">
             <span>03</span>
             <h3>ODC Extraction</h3>
-            <p>Map text to the 144 elements in GB/T 45312—2025, including evidence snippets, parameter ranges, and unspecified gaps.</p>
+            <p>Map text to the 144 elements in GB/T 45312—2025, including evidence snippets, parameter ranges, unspecified gaps, and boundary-combination candidates.</p>
           </article>
           <article class="intake-flow-card">
             <span>04</span>
@@ -114,6 +114,7 @@
               <li>Status for every standard element: permitted, not permitted, unspecified, or structural</li>
               <li>Evidence snippets and source URLs, not just conclusions</li>
               <li>Quantified ranges for speed, rainfall, visibility, road type, and other key boundaries</li>
+              <li>Boundary-combination candidates when multiple limitation elements appear together</li>
               <li>Review actions for vendor confirmation, legal sanitization, or missing manual page references</li>
             </ul>
             <p>This is closer to how engineering teams work: the system performs the first extraction pass, and humans confirm, correct, and add evidence.</p>
@@ -177,7 +178,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.1</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
         <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">

@@ -48,6 +48,13 @@ const documents = files.map(f => {
       evidence.official_or_manual++
     }
   }
+  const boundaryCombinations = doc.boundary_combinations || []
+  const boundaryStats = {
+    total: boundaryCombinations.length,
+    manual_or_official: boundaryCombinations.filter(c => ['official', 'manual_backed', 'government_rule', 'operating_rule'].includes(c.evidence_level)).length,
+    public_gap: boundaryCombinations.filter(c => c.evidence_level === 'public_gap' || c.relation_to_odc === 'mixed_or_unknown').length,
+    not_disclosed_response: boundaryCombinations.filter(c => c.expected_response === 'not_disclosed').length
+  }
   const substantive = coverage.manual + coverage.official + coverage.curated + coverage.inferred
   return {
     id: doc.id,
@@ -69,7 +76,8 @@ const documents = files.map(f => {
     coverage,
     coverage_substantive: substantive,
     coverage_total: doc.elements?.length || 0,
-    evidence
+    evidence,
+    boundary_combinations: boundaryStats
   }
 })
 

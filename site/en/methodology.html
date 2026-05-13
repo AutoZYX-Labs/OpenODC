@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Methodology — OpenODC</title>
-  <meta name="description" content="OpenODC methodology: ODC/ODD semantics, L2/L3/L4 differences, evidence levels, and public-source coverage metrics." />
+  <meta name="description" content="OpenODC methodology: ODC/ODD semantics, L2/L3/L4 differences, ODC table limitations, boundary combinations, evidence levels, and public-source coverage metrics." />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,6 +65,40 @@
           </table>
         </div>
 
+        <h2 class="section-title">Limitations of the ODC Table</h2>
+        <p class="lead">An ODC table is a necessary starting point for transparency, but it is not the full safety boundary of a driving system. Roads, weather, lane markings, objects, and speed are single-element projections of a high-dimensional real-world scene. Real-road risk often emerges when several elements appear together, so allowed single-element ranges must not be multiplied into an assumed safe combined boundary.</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>Layer</th><th>How OpenODC Handles It</th><th>Boundary Reminder</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Single ODC element</td><td>The main table remains element-based: permitted / not permitted, parameter range, and evidence</td><td>Shows whether public sources explain the element</td></tr>
+              <tr><td>Element association</td><td>Keeps explicit primary / dependent element constraints from the standard structure</td><td>Shows whether there is an explicit cross-element rule</td></tr>
+              <tr><td>Boundary combination</td><td>Adds a lightweight layer for a small number of public-source-supported combined boundaries</td><td>Shows why single-element coverage is not enough</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">Boundary Combinations and Trigger Conditions</h2>
+        <p class="lead">OpenODC does not try to become a full SOTIF analysis platform. It only marks typical combined boundaries that are already visible in public sources. For consumers, these are “boundary combinations.” For developers, they can be treated as trigger-condition candidates.</p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Not Exhaustive</h3>
+            <p>Each sample lists only a few high-value combinations, such as bad weather + unclear markings, construction + temporary lanes, or geofence + app runtime rules.</p>
+          </article>
+          <article class="card">
+            <h3>Not a Vendor Safety Case</h3>
+            <p>Boundary combinations are extracted from public sources or clearly marked community analysis. They indicate gaps and verification entry points, not SOTIF conclusions.</p>
+          </article>
+          <article class="card">
+            <h3>Connects Communication and Testing</h3>
+            <p>Consumers see when extra caution is needed; developers see which combinations can become test scenarios or trigger-condition analyses.</p>
+          </article>
+        </div>
+
         <h2 class="section-title">Evidence Levels</h2>
         <div class="table-wrap">
           <table class="mapping-table">
@@ -100,7 +134,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.1</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
         <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">

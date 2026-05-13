@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>方法与标准 — OpenODC</title>
-  <meta name="description" content="OpenODC 的方法论：ODC/ODD 关系、L2/L3/L4 语义差异、证据等级、公开资料覆盖度算法。" />
+  <meta name="description" content="OpenODC 的方法论：ODC/ODD 关系、L2/L3/L4 语义差异、ODC 表格局限、边界组合、证据等级和公开资料覆盖度算法。" />
   <meta name="theme-color" content="#c85a3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,6 +65,40 @@
           </table>
         </div>
 
+        <h2 class="section-title">ODC 表格的局限</h2>
+        <p class="lead">ODC 表格是公开透明的必要起点，但它不是完整的系统安全边界。表格中的道路、天气、标线、目标物、速度等要素，本质上是把高维真实场景投影到一个个单项维度。真实道路风险往往来自多个要素同时出现，不能把每个单项允许范围简单相乘，推定为组合场景也一定可用。</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>层级</th><th>OpenODC 中的处理</th><th>边界提醒</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>单项 ODC 要素</td><td>仍然是主表：逐项说明允许、不允许、参数范围和证据来源</td><td>解决“公开资料有没有说清楚”</td></tr>
+              <tr><td>元素关联关系</td><td>保留标准中的主从元素关系，例如某道路类型限制速度或设施条件</td><td>解决“单项之间有没有显式约束”</td></tr>
+              <tr><td>边界组合</td><td>新增轻量补充层：列出少量公开资料可支撑的典型组合边界</td><td>解决“单项允许不等于组合可用”</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">边界组合与触发条件</h2>
+        <p class="lead">OpenODC 不把自己扩展成完整 SOTIF 分析平台，但会把公开资料中已经能识别的典型组合边界标出来。面向消费者，它们叫“边界组合”；面向开发者，它们可以作为 Trigger Condition candidates，也就是触发条件候选。</p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>不穷尽场景空间</h3>
+            <p>每个样例只列少量高价值组合，例如雨雪雾 + 标线不清、施工区 + 临时车道、geofence + App 实时规则。</p>
+          </article>
+          <article class="card">
+            <h3>不替代厂家安全分析</h3>
+            <p>边界组合来自公开资料和社区整理，只用于提示组合边界、公开缺口和验证入口，不构成 SOTIF 安全结论。</p>
+          </article>
+          <article class="card">
+            <h3>连接验证与沟通</h3>
+            <p>消费者看到“什么时候更该谨慎”，开发者看到“哪些组合适合转成测试场景或触发条件分析”。</p>
+          </article>
+        </div>
+
         <h2 class="section-title">证据等级</h2>
         <div class="table-wrap">
           <table class="mapping-table">
@@ -100,7 +134,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.1</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">

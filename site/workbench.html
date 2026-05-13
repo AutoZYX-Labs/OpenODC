@@ -22,7 +22,7 @@
       <div class="container">
         <p class="eyebrow">VENDOR INTAKE WORKBENCH</p>
         <h1 class="page-title">厂家 ODC 资料工作台</h1>
-        <p class="page-subtitle">更现实的工作流不是让工程师逐项手填 144 个要素，而是导入手册、配置表、运营规则或脱敏摘录，先生成 ODC 草案表，再由企业联系人确认和发布。</p>
+        <p class="page-subtitle">更现实的工作流不是让工程师逐项手填 144 个要素，而是导入手册、配置表、运营规则或脱敏摘录，先生成 ODC 草案表和边界组合候选，再由企业联系人确认和发布。</p>
         <div class="workbench-boundary-banner">
           <strong>公开站点边界</strong>
           <span>本页不做真实企业认证，也不上传商业敏感文件；仅在浏览器内处理公开资料或脱敏摘录。正式厂家提交应使用企业域名验证、权限审批和后台审核，GitHub 只作为社区贡献的兜底通道。</span>
@@ -46,7 +46,7 @@
           <article class="intake-flow-card">
             <span>03</span>
             <h3>ODC 归纳</h3>
-            <p>系统把文本映射到 GB/T 45312—2025 的 144 个要素，标注证据句、参数范围和未明确项。</p>
+            <p>系统把文本映射到 GB/T 45312—2025 的 144 个要素，标注证据句、参数范围、未明确项和边界组合候选。</p>
           </article>
           <article class="intake-flow-card">
             <span>04</span>
@@ -115,6 +115,7 @@
               <li>每个标准要素的声明状态：允许、不允许、资料未明确或结构性要素</li>
               <li>被引用的证据句和来源 URL，而不是只给结论</li>
               <li>速度、降雨、能见度、道路类型等量化范围</li>
+              <li>多个限制要素同时出现时形成的边界组合候选</li>
               <li>需要厂家确认、法务脱敏或补充手册页码的待办项</li>
             </ul>
             <p>这比逐项手填更符合工程师工作习惯：系统先做 70% 的归纳，人工只负责确认、修正和补证据。</p>
@@ -178,7 +179,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.1</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">

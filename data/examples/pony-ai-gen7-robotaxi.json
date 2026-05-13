@@ -1466,6 +1466,128 @@
       ]
     }
   ],
+  "boundary_combinations": [
+    {
+      "id": "city-permit-geofence-commercial-service",
+      "title_zh": "城市许可 + geofence + 全无人商业化服务",
+      "title_en": "City permit + geofence + fully driverless commercial service",
+      "related_element_ids": [
+        "odd.road.type.area",
+        "personnel.driver.takeover.attention",
+        "odd.digital.position.rtk"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "official",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "operations",
+        "localization",
+        "remote_assistance"
+      ],
+      "expected_response": "service_suspension",
+      "condition_zh": "小马智行全无人商业化服务的 ODC 不能脱离城市许可、电子围栏和运营规则理解。",
+      "condition_en": "Pony.ai fully driverless commercial service ODC cannot be read apart from city permits, geofence, and operating rules.",
+      "public_response_zh": "官方 IR 和前海政府页面披露城市服务和全无人商业化运营，但具体边界应以当地许可和 App 实时规则为准。",
+      "public_response_en": "Official IR and Qianhai government materials disclose city services and fully driverless commercial operations, but exact boundaries depend on local permits and app rules.",
+      "consumer_summary_zh": "全无人服务不是“所有城市道路通用”，而是许可城市、区域和运营条件内的服务。",
+      "consumer_summary_en": "Fully driverless service is not universal on all city roads; it is a permitted-area and operating-condition service.",
+      "developer_note_zh": "L4 ODC 的首要组合边界应是城市许可 + geofence + 运营规则。",
+      "developer_note_en": "For L4 ODC, the primary boundary combination should be city permit + geofence + operating rules.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai Gen-7 fully-driverless commercial services official PDF",
+          "section": "Gen-7 Robotaxi and fully driverless commercial service",
+          "extracted_date": "2026-05-03"
+        },
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/mpost_12077869.html",
+          "title": "深圳前海管理局 · 小马智行前海全无人商业化运营",
+          "section": "前海全无人商业化运营范围",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "adverse-weather-sensor-public-gap",
+      "title_zh": "恶劣天气传感器配置 + 停运阈值未公开",
+      "title_en": "Adverse-weather sensor configuration + unpublished suspension threshold",
+      "related_element_ids": [
+        "odd.weather.atmospheric.rain",
+        "odd.weather.particles.fog",
+        "odd.weather.atmospheric.wind",
+        "odd.road.surface.coverage"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "public_gap",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "operations",
+        "remote_assistance"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "传感器配置显示有恶劣天气设计考虑，但公开资料未披露雨量、能见度、积水或停运阈值。",
+      "condition_en": "Sensor configuration suggests adverse-weather design consideration, but rainfall, visibility, standing-water, and suspension thresholds are not publicly disclosed.",
+      "public_response_zh": "公开资料没有给出统一运营阈值，不能从传感器数量反推出 ODC 量化边界。",
+      "public_response_en": "Public sources do not provide unified operating thresholds; sensor count should not be reverse-engineered into quantitative ODC boundaries.",
+      "consumer_summary_zh": "有恶劣天气传感器，不等于恶劣天气 ODC 已经公开。",
+      "consumer_summary_en": "Adverse-weather sensors do not mean adverse-weather ODC thresholds are public.",
+      "developer_note_zh": "这是 L4 样例中“硬件能力披露”和“ODC 阈值披露”之间的典型差距。",
+      "developer_note_en": "A typical gap between hardware-capability disclosure and ODC-threshold disclosure in L4 samples.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai Gen-7 fully-driverless commercial services official PDF",
+          "section": "Gen-7 Robotaxi and fully driverless commercial service",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "uncrewed-remote-assistance-threshold",
+      "title_zh": "车内无安全员 + 远程协助阈值未披露",
+      "title_en": "No in-vehicle safety driver + undisclosed remote-assistance threshold",
+      "related_element_ids": [
+        "personnel.driver.takeover.attention",
+        "odd.infrastructure.temporary.traffic_control",
+        "odd.infrastructure.temporary.construction"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "public_gap",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "remote_assistance",
+        "operations",
+        "planning"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "全无人服务取消车内安全员后，远程协助触发阈值和最小风险策略成为关键组合边界。",
+      "condition_en": "Once the in-vehicle safety driver is removed, remote-assistance trigger thresholds and minimal-risk strategy become key boundary combinations.",
+      "public_response_zh": "公开资料披露全无人商业化服务，但未披露远程协助和 MRM 的具体触发阈值。",
+      "public_response_en": "Public sources disclose fully driverless commercial service, but not concrete remote-assistance or MRM trigger thresholds.",
+      "consumer_summary_zh": "车内无安全员是能力进展，但远程协助何时介入仍是公开资料缺口。",
+      "consumer_summary_en": "No in-vehicle safety driver is a capability milestone, but when remote assistance intervenes remains a public-source gap.",
+      "developer_note_zh": "建议作为 L4 厂家确认版本必须补充的组合边界。",
+      "developer_note_en": "Recommended as a required combination boundary for future vendor-confirmed L4 records.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://ir.pony.ai/node/7506/pdf",
+          "title": "Pony.ai Gen-7 fully-driverless commercial services official PDF",
+          "section": "Gen-7 Robotaxi and fully driverless commercial service",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    }
+  ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-18T10:00:00Z",

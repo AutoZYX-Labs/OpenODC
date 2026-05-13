@@ -17,6 +17,9 @@ const copy = {
     highConfidence: n => `${n} 项高置信证据`,
     officialManual: n => `${n} 项官方/手册`,
     linked: n => `${n} 项逐项引用`,
+    boundary: n => `${n} 条边界组合`,
+    boundaryBacked: n => `${n} 条高置信组合`,
+    responseGap: n => `${n} 条响应未披露`,
     permitted: n => `允许 ${n}`,
     notPermitted: n => `不允许 ${n}`,
     total: n => `共 ${n} 项`,
@@ -30,6 +33,9 @@ const copy = {
     highConfidence: n => `${n} high-confidence evidence items`,
     officialManual: n => `${n} official/manual items`,
     linked: n => `${n} element-level references`,
+    boundary: n => `${n} boundary combinations`,
+    boundaryBacked: n => `${n} high-confidence combinations`,
+    responseGap: n => `${n} undisclosed responses`,
     permitted: n => `Permitted ${n}`,
     notPermitted: n => `Not permitted ${n}`,
     total: n => `${n} elements`,
@@ -112,6 +118,14 @@ function card(d) {
       el('span', { class: 'evidence-metric evidence-strong' }, copy[lang].highConfidence(d.evidence.high_confidence || 0)),
       el('span', { class: 'evidence-metric' }, copy[lang].officialManual(d.evidence.official_or_manual || 0)),
       el('span', { class: 'evidence-metric' }, copy[lang].linked(d.evidence.linked || 0))
+    ]))
+  }
+
+  if (d.boundary_combinations?.total) {
+    node.appendChild(el('div', { class: 'doc-card-evidence doc-card-boundary' }, [
+      el('span', { class: 'evidence-metric evidence-boundary' }, copy[lang].boundary(d.boundary_combinations.total)),
+      el('span', { class: 'evidence-metric' }, copy[lang].boundaryBacked(d.boundary_combinations.manual_or_official || 0)),
+      el('span', { class: 'evidence-metric' }, copy[lang].responseGap(d.boundary_combinations.not_disclosed_response || 0))
     ]))
   }
 

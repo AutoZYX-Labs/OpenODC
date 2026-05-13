@@ -1420,6 +1420,129 @@
       "description": "[公开资料未明确] 公开资料未明确声明该要素；这是 OpenODC 用于度量公开资料缺口的价值点。"
     }
   ],
+  "boundary_combinations": [
+    {
+      "id": "urban-nca-construction-complex-road",
+      "title_zh": "城区 NCA + 施工绕行 / 复杂路口",
+      "title_en": "Urban NCA + construction detour / complex intersection",
+      "related_element_ids": [
+        "odd.road.type.urban_road",
+        "odd.infrastructure.temporary.construction",
+        "odd.road.intersection.at_grade",
+        "odd.infrastructure.traffic_control.signal"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "official",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "prediction",
+        "planning",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "官方资料展示城区 NCA 和施工绕行等能力，但复杂路口、施工和交通参与者组合仍不能等同于完整自动驾驶责任。",
+      "condition_en": "Official sources present Urban NCA and construction-detour capabilities, but complex intersections, construction, and traffic participants together do not transfer full driving responsibility.",
+      "public_response_zh": "小鹏官方资料提示辅助驾驶不能应对所有交通、天气和路况，驾驶员仍需监管。",
+      "public_response_en": "XPeng official materials state that assistance cannot handle all traffic, weather, and road conditions; the driver still supervises.",
+      "consumer_summary_zh": "城区 NCA 覆盖和施工绕行演示，不等于每个施工路口组合都稳定可处理。",
+      "consumer_summary_en": "Urban NCA coverage and construction-detour demonstrations do not mean every construction-intersection combination is robustly handled.",
+      "developer_note_zh": "用于区分“能力展示场景”和“公开 ODC 组合边界”。",
+      "developer_note_en": "Separates demonstrated capability scenarios from public ODC boundary combinations.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/p7_plus_2026.html",
+          "title": "2026 款小鹏 P7+ 产品页",
+          "section": "XNGP / 智能辅助驾驶能力说明",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "weather-lane-marking-public-gap",
+      "title_zh": "天气受限 + 标线退化阈值未公开",
+      "title_en": "Weather limitation + unpublished lane-marking degradation threshold",
+      "related_element_ids": [
+        "odd.weather.atmospheric.rain",
+        "odd.weather.atmospheric.snow.snowfall",
+        "odd.weather.particles.fog",
+        "odd.road.lane.marking.quality"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "public_gap",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "localization",
+        "driver_supervision"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "公开页面提示天气和路况限制，但没有披露降雨量、能见度或标线退化阈值。",
+      "condition_en": "Public pages mention weather and road-condition limitations but do not disclose rainfall, visibility, or lane-marking degradation thresholds.",
+      "public_response_zh": "公开资料未说明统一退出阈值，应以车机提示和驾驶员接管为准。",
+      "public_response_en": "Public sources do not state unified exit thresholds; in-vehicle prompts and driver intervention remain decisive.",
+      "consumer_summary_zh": "天气和标线同时变差时，公开资料还不足以判断系统边界。",
+      "consumer_summary_en": "When weather and markings degrade together, public sources are insufficient to determine the system boundary.",
+      "developer_note_zh": "这是 OpenODC 应主动暴露的组合披露缺口。",
+      "developer_note_en": "A combination-level disclosure gap that OpenODC should expose explicitly.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/p7_plus_2026.html",
+          "title": "2026 款小鹏 P7+ 产品页",
+          "section": "XNGP / 智能辅助驾驶能力说明",
+          "extracted_date": "2026-05-03"
+        },
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用条件与注意事项",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "active-safety-speed-vs-xngp",
+      "title_zh": "主动安全速度能力 + XNGP 运行速度边界",
+      "title_en": "Active-safety speed capability + XNGP operating-speed boundary",
+      "related_element_ids": [
+        "odd.targets.motor_vehicle",
+        "vehicle.motion.speed.operating",
+        "vehicle.motion.speed.activation"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "public_gap",
+      "trigger_condition_candidate": false,
+      "affected_capability": [
+        "control",
+        "planning"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "AEB / AES 速度能力不能直接替代 XNGP 的启用或运行速度 ODC。",
+      "condition_en": "AEB / AES speed capability should not be used as a substitute for XNGP activation or operating-speed ODC.",
+      "public_response_zh": "公开配置表披露主动安全速度能力，但未公开 XNGP 统一运行速度边界。",
+      "public_response_en": "The public configuration table discloses active-safety speed capability but not a unified XNGP operating-speed boundary.",
+      "consumer_summary_zh": "某个主动安全功能支持到 130 km/h，不代表 XNGP 在同一速度下边界完整公开。",
+      "consumer_summary_en": "An active-safety feature working up to 130 km/h does not mean XNGP has a fully disclosed boundary at the same speed.",
+      "developer_note_zh": "用于防止把子功能参数混用为上层智驾功能 ODC。",
+      "developer_note_en": "Prevents child-function parameters from being reused as the ODC of the higher-level ADAS function.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/p7_plus_2026.html",
+          "title": "2026 款小鹏 P7+ 产品页",
+          "section": "XNGP / 智能辅助驾驶能力说明",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    }
+  ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-18T10:00:00Z",

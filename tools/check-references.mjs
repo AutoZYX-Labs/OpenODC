@@ -36,6 +36,14 @@ for (const f of readdirSync(join(repoRoot, 'data', 'examples')).filter(f => f.en
       problems++
     }
   }
+  for (const c of doc.boundary_combinations || []) {
+    for (const id of c.related_element_ids || []) {
+      if (!catalogIds.has(id)) {
+        console.error(`  ✗ ${f}: unknown boundary_combinations[${c.id || '?'}] related_element_id "${id}"`)
+        problems++
+      }
+    }
+  }
 }
 
 if (problems === 0) {

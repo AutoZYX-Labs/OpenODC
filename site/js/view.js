@@ -23,6 +23,19 @@ const copy = {
     description: '说明 / 参数',
     exitBehavior: '退出行为',
     associations: '元素关联关系',
+    boundaryConsumerTitle: '边界组合：单项允许不等于组合可用',
+    boundaryConsumerIntro: 'ODC 表格按单一要素展开，但真实道路风险常来自多个要素同时出现。这里列出公开资料中已经能识别的典型组合边界，不穷尽所有场景，也不等同于完整 SOTIF 分析。',
+    boundaryDevTitle: '边界组合 / Trigger Condition 候选',
+    boundaryDevIntro: '这些条目把多个 ODC 要素连接成轻量组合边界，供工程审阅、SOTIF 触发条件识别和测试场景设计参考。',
+    noBoundary: '暂无边界组合条目。',
+    relatedElements: '关联 ODC 要素',
+    relation: '与 ODC 的关系',
+    evidenceLevel: '证据等级',
+    expectedResponse: '公开响应',
+    affectedCapability: '受影响能力',
+    condition: '组合条件',
+    publicResponse: '公开资料中的系统响应',
+    triggerCandidate: '触发条件候选',
     rawJson: '查看完整 JSON 原文',
     consumerIntro: '面向普通用户：这份样例把公开资料里的运行边界翻译成可核验清单。每条都标注标准章节号，可对照 GB/T 45312—2025 核验。',
     noConsumerData: '暂无足够数据生成消费者视图。',
@@ -70,6 +83,19 @@ const copy = {
     description: 'Description / parameter',
     exitBehavior: 'Exit behavior',
     associations: 'Element Associations',
+    boundaryConsumerTitle: 'Boundary combinations: single-element coverage is not enough',
+    boundaryConsumerIntro: 'The ODC table is element-based, while real-road risk often emerges from multiple elements appearing together. This section lists typical public-source boundary combinations. It is not exhaustive and it is not a full SOTIF analysis.',
+    boundaryDevTitle: 'Boundary combinations / trigger-condition candidates',
+    boundaryDevIntro: 'These entries connect multiple ODC elements into lightweight boundary combinations for engineering review, SOTIF trigger-condition identification, and test-scenario design.',
+    noBoundary: 'No boundary combination entries yet.',
+    relatedElements: 'Related ODC elements',
+    relation: 'Relation to ODC',
+    evidenceLevel: 'Evidence level',
+    expectedResponse: 'Public response',
+    affectedCapability: 'Affected capability',
+    condition: 'Combination condition',
+    publicResponse: 'Publicly stated response',
+    triggerCandidate: 'Trigger-condition candidate',
     rawJson: 'Show raw JSON',
     consumerIntro: 'Plain-language view: this sample turns publicly available operating-boundary evidence into a verifiable checklist. Each item keeps the GB/T 45312—2025 section number for traceability.',
     noConsumerData: 'Not enough data to render a consumer view.',
@@ -185,6 +211,8 @@ function renderDev() {
     wrap.appendChild(ass)
   }
 
+  wrap.appendChild(renderBoundaryCombinations('dev'))
+
   // JSON dump
   const jsonBlock = el('details', { class: 'json-details' })
   jsonBlock.appendChild(el('summary', {}, copy[lang].rawJson))
@@ -235,6 +263,8 @@ function renderConsumer() {
     exits.appendChild(list)
     wrap.appendChild(exits)
   }
+
+  wrap.appendChild(renderBoundaryCombinations('consumer'))
 
   const bucketCopy = consumerBucketCopy(currentDoc)
   wrap.appendChild(renderBucket('green', bucketCopy.greenTitle, buckets.useable, bucketCopy.greenHint))
@@ -439,6 +469,183 @@ function renderBucket(color, heading, items, hint) {
   return section
 }
 
+function localized(combo, field) {
+  return lang === 'en'
+    ? (combo[`${field}_en`] || combo[`${field}_zh`] || '')
+    : (combo[`${field}_zh`] || combo[`${field}_en`] || '')
+}
+
+function relationLabel(value) {
+  const labels = {
+    zh: {
+      inside_odc: 'ODC 内',
+      outside_odc: 'ODC 外',
+      boundary: '边界附近',
+      mixed_or_unknown: '组合关系未充分披露'
+    },
+    en: {
+      inside_odc: 'Inside ODC',
+      outside_odc: 'Outside ODC',
+      boundary: 'Near boundary',
+      mixed_or_unknown: 'Combination not fully disclosed'
+    }
+  }
+  return labels[lang][value] || value || ''
+}
+
+function evidenceLevelLabel(value) {
+  const labels = {
+    zh: {
+      official: '官方声明',
+      manual_backed: '手册明确',
+      government_rule: '政府规则',
+      operating_rule: '运营规则',
+      community_extracted: '社区整理',
+      inferred: '推定',
+      public_gap: '公开资料缺口'
+    },
+    en: {
+      official: 'Official statement',
+      manual_backed: 'Manual-backed',
+      government_rule: 'Government rule',
+      operating_rule: 'Operating rule',
+      community_extracted: 'Community extraction',
+      inferred: 'Inferred',
+      public_gap: 'Public-source gap'
+    }
+  }
+  return labels[lang][value] || value || ''
+}
+
+function expectedResponseLabel(value) {
+  const labels = {
+    zh: {
+      suppress_activation: '抑制激活',
+      trigger_exit: '触发退出',
+      suppress_and_exit: '抑制激活并触发退出',
+      degrade: '降级',
+      takeover_request: '接管请求',
+      driver_responsibility: '驾驶员负责',
+      remote_assistance: '远程协助',
+      service_suspension: '服务暂停',
+      not_disclosed: '未披露'
+    },
+    en: {
+      suppress_activation: 'Suppress activation',
+      trigger_exit: 'Trigger exit',
+      suppress_and_exit: 'Suppress and exit',
+      degrade: 'Degrade',
+      takeover_request: 'Takeover request',
+      driver_responsibility: 'Driver responsibility',
+      remote_assistance: 'Remote assistance',
+      service_suspension: 'Service suspension',
+      not_disclosed: 'Not disclosed'
+    }
+  }
+  return labels[lang][value] || value || ''
+}
+
+function capabilityLabel(value) {
+  const labels = {
+    zh: {
+      perception: '感知',
+      prediction: '预测',
+      planning: '规划',
+      control: '控制',
+      localization: '定位',
+      hmi: '人机交互',
+      remote_assistance: '远程协助',
+      driver_supervision: '驾驶员监管',
+      operations: '运营'
+    },
+    en: {
+      perception: 'Perception',
+      prediction: 'Prediction',
+      planning: 'Planning',
+      control: 'Control',
+      localization: 'Localization',
+      hmi: 'HMI',
+      remote_assistance: 'Remote assistance',
+      driver_supervision: 'Driver supervision',
+      operations: 'Operations'
+    }
+  }
+  return labels[lang][value] || value || ''
+}
+
+function renderBoundaryCombinations(mode) {
+  const combos = currentDoc.boundary_combinations || []
+  const section = el('section', { class: `boundary-combinations boundary-combinations-${mode}` })
+  section.appendChild(el('div', { class: 'boundary-head' }, [
+    el('h3', {}, mode === 'dev' ? copy[lang].boundaryDevTitle : copy[lang].boundaryConsumerTitle),
+    el('p', {}, mode === 'dev' ? copy[lang].boundaryDevIntro : copy[lang].boundaryConsumerIntro)
+  ]))
+  if (!combos.length) {
+    section.appendChild(el('p', { class: 'empty-note' }, copy[lang].noBoundary))
+    return section
+  }
+
+  const grid = el('div', { class: 'boundary-grid' })
+  for (const combo of combos) grid.appendChild(renderBoundaryCard(combo, mode))
+  section.appendChild(grid)
+  return section
+}
+
+function renderBoundaryCard(combo, mode) {
+  const card = el('article', { class: `boundary-card boundary-${combo.relation_to_odc || 'mixed_or_unknown'}` })
+  card.appendChild(el('div', { class: 'boundary-card-head' }, [
+    el('h4', {}, localized(combo, 'title')),
+    el('span', { class: 'boundary-relation' }, relationLabel(combo.relation_to_odc))
+  ]))
+
+  const summary = mode === 'dev' ? localized(combo, 'developer_note') : localized(combo, 'consumer_summary')
+  if (summary) card.appendChild(el('p', { class: 'boundary-summary' }, summary))
+
+  if (mode === 'dev' && localized(combo, 'condition')) {
+    card.appendChild(renderBoundaryMetaLine(copy[lang].condition, localized(combo, 'condition')))
+  }
+  if (localized(combo, 'public_response')) {
+    card.appendChild(renderBoundaryMetaLine(copy[lang].publicResponse, localized(combo, 'public_response')))
+  }
+
+  const meta = el('div', { class: 'boundary-meta' })
+  meta.appendChild(el('span', { class: 'boundary-pill' }, `${copy[lang].evidenceLevel}: ${evidenceLevelLabel(combo.evidence_level)}`))
+  if (combo.expected_response) meta.appendChild(el('span', { class: 'boundary-pill' }, `${copy[lang].expectedResponse}: ${expectedResponseLabel(combo.expected_response)}`))
+  if (combo.trigger_condition_candidate !== false) meta.appendChild(el('span', { class: 'boundary-pill boundary-trigger' }, copy[lang].triggerCandidate))
+  card.appendChild(meta)
+
+  if (combo.affected_capability?.length) {
+    const caps = combo.affected_capability.map(capabilityLabel).filter(Boolean).join(' / ')
+    card.appendChild(renderBoundaryMetaLine(copy[lang].affectedCapability, caps))
+  }
+
+  if (combo.related_element_ids?.length) {
+    const related = el('div', { class: 'boundary-related' })
+    related.appendChild(el('div', { class: 'boundary-related-label' }, copy[lang].relatedElements))
+    const chips = el('div', { class: 'boundary-related-chips' })
+    for (const id of combo.related_element_ids) {
+      const meta = currentIndex.get(id)
+      chips.appendChild(el('code', {}, meta ? elementName(meta) : id))
+    }
+    related.appendChild(chips)
+    card.appendChild(related)
+  }
+
+  if (mode === 'dev' && combo.evidence_refs?.length) {
+    const evidence = renderEvidenceInline(combo)
+    if (evidence) card.appendChild(evidence)
+  }
+
+  return card
+}
+
+function renderBoundaryMetaLine(label, value) {
+  return el('p', { class: 'boundary-line' }, [
+    el('strong', {}, `${label}: `),
+    el('span', {}, value)
+  ])
+}
+
 function renderConsumerItem(it) {
   const li = el('li', { class: 'consumer-item coverage-' + it.coverage })
   const head = el('div', { class: 'item-head' })
@@ -632,6 +839,18 @@ function toMarkdown(doc) {
       md += `- ${p} → ${d}：${a.description}\n`
     }
     md += '\n'
+  }
+  if (doc.boundary_combinations?.length) {
+    md += `## ${copy[lang].boundaryDevTitle}\n\n`
+    for (const c of doc.boundary_combinations) {
+      md += `### ${localized(c, 'title')}\n\n`
+      md += `- ${copy[lang].relation}: ${relationLabel(c.relation_to_odc)}\n`
+      md += `- ${copy[lang].evidenceLevel}: ${evidenceLevelLabel(c.evidence_level)}\n`
+      if (c.expected_response) md += `- ${copy[lang].expectedResponse}: ${expectedResponseLabel(c.expected_response)}\n`
+      if (c.affected_capability?.length) md += `- ${copy[lang].affectedCapability}: ${c.affected_capability.map(capabilityLabel).join(' / ')}\n`
+      md += `- ${copy[lang].relatedElements}: ${(c.related_element_ids || []).map(id => elementName(currentIndex.get(id) || { id })).join(' / ')}\n\n`
+      md += `${localized(c, 'developer_note') || localized(c, 'consumer_summary')}\n\n`
+    }
   }
   md += `---\n*由 OpenODC 生成 · ${new Date().toISOString()} · https://openodc.autozyx.com*\n`
   return md

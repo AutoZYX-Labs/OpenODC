@@ -28,6 +28,7 @@ OpenODC delivers:
 - A public **gallery** with six community-extracted ADAS / ADS / Robotaxi samples from public sources
 - A **matrix view** that aligns 144 GB/T elements across multiple systems
 - Two **views** of the same data: developer / consumer
+- A lightweight **boundary-combination** layer that marks public-source multi-element boundaries as trigger-condition candidates
 - A **Vendor Intake Workbench** that turns manuals, configuration tables, operating rules, or sanitized excerpts into a 144-element ODC draft table
 
 ## Why this exists
@@ -40,9 +41,11 @@ OpenODC provides a unified, machine-readable public format and a sample library 
 
 Important semantic boundary: L2 records describe feature availability conditions while the driver remains responsible for the dynamic driving task. L3/L4 records are the cases where an ADS may take responsibility inside an ODD. See the [Methodology](https://openodc.autozyx.com/en/methodology.html) page.
 
+OpenODC also makes one limitation explicit: an ODC table is element-based, and single-element permission does not mean a combined scene is within the real system boundary. Real-road risk often appears when weather, road geometry, lane markings, objects, speed, and human-machine interaction combine. OpenODC therefore adds `boundary_combinations[]`: a small, public-source-supported layer for typical combined boundaries. It helps consumers, supports engineering review, and connects to SOTIF trigger-condition candidates without pretending to replace a vendor safety analysis.
+
 ## Current status
 
-`v0.4.1 (public prototype / open stewardship call)`
+`v0.4.2 (public prototype / open stewardship call)`
 
 - ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (144 elements / 7 categories)
 - ✅ JSON Schema + TypeScript type definitions
@@ -50,6 +53,7 @@ Important semantic boundary: L2 records describe feature availability conditions
 - ✅ Web editor with tree selection, live JSON, export / copy / local save
 - ✅ Public gallery with Tesla FSD US current public sample, Tesla China Assisted Driving, Huawei ADS 4, Apollo Go, XPeng XNGP, and Pony.ai Gen-7 Robotaxi
 - ✅ 144-element public-source coverage metrics with per-sample evidence-as-of dates; this is not a vendor disclosure rate
+- ✅ Boundary combinations: 18 typical combinations across six samples, making explicit that single-element coverage is not the full boundary
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
 - ✅ Vendor Intake Workbench: paste manual / rule excerpts, generate a 144-element ODC draft table, and export CSV / Markdown review packages
@@ -103,6 +107,7 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 | §5.4.b Permitted / not permitted | `requirement: 'permitted' \| 'not_permitted'` |
 | §5.4.c Element associations | `associations[]` field |
 | §5.5 Exit behavior for not-permitted elements | `exit_behavior` field |
+| Boundary combinations / trigger-condition candidates | `boundary_combinations[]` field |
 | Public sample library | `data/examples/*.json` (community-extracted samples with per-element public-source coverage and gaps) |
 | L2 / L3 / L4 semantics | `site/en/methodology.html` |
 | Tables 5–14 quantitative scales | `schema/enums/quantitative_scales.json` |

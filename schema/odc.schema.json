@@ -77,6 +77,12 @@
       "items": { "$ref": "#/$defs/ODCAssociation" }
     },
 
+    "boundary_combinations": {
+      "type": "array",
+      "description": "Lightweight cross-element boundary combinations. These are not a full SOTIF analysis; they identify public-source combinations where multiple ODC elements jointly form a boundary, trigger-condition candidate, or public disclosure gap.",
+      "items": { "$ref": "#/$defs/ODCBoundaryCombination" }
+    },
+
     "metadata": {
       "type": "object",
       "required": ["submitted_by", "submitted_at", "review_status"],
@@ -158,6 +164,78 @@
         "evidence_refs": {
           "type": "array",
           "description": "One or more concrete references backing this element. Use for page numbers, app rule screenshots, official paragraphs, or issue links when the document-level source list is too coarse.",
+          "items": { "$ref": "#/$defs/ODCEvidenceRef" }
+        }
+      }
+    },
+
+    "ODCBoundaryCombination": {
+      "type": "object",
+      "required": [
+        "id",
+        "title_zh",
+        "title_en",
+        "related_element_ids",
+        "relation_to_odc",
+        "evidence_level",
+        "consumer_summary_zh",
+        "consumer_summary_en",
+        "developer_note_zh",
+        "developer_note_en"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable slug within the ODC document.",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title_zh": { "type": "string" },
+        "title_en": { "type": "string" },
+        "related_element_ids": {
+          "type": "array",
+          "description": "ODC elements that jointly form this boundary combination.",
+          "items": {
+            "type": "string",
+            "pattern": "^(odd|personnel|vehicle)\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "minItems": 2
+        },
+        "relation_to_odc": {
+          "type": "string",
+          "enum": ["inside_odc", "outside_odc", "boundary", "mixed_or_unknown"],
+          "description": "Whether the combination is inside the declared boundary, outside it, near the boundary, or not clearly disclosed."
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": ["official", "manual_backed", "government_rule", "operating_rule", "community_extracted", "inferred", "public_gap"],
+          "description": "Highest evidence level supporting the combination."
+        },
+        "trigger_condition_candidate": {
+          "type": "boolean",
+          "default": true,
+          "description": "True when the combination can be treated as a SOTIF trigger-condition candidate for engineering review."
+        },
+        "affected_capability": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["perception", "prediction", "planning", "control", "localization", "hmi", "remote_assistance", "driver_supervision", "operations"]
+          }
+        },
+        "expected_response": {
+          "type": ["string", "null"],
+          "enum": [null, "suppress_activation", "trigger_exit", "suppress_and_exit", "degrade", "takeover_request", "driver_responsibility", "remote_assistance", "service_suspension", "not_disclosed"]
+        },
+        "condition_zh": { "type": "string" },
+        "condition_en": { "type": "string" },
+        "public_response_zh": { "type": "string" },
+        "public_response_en": { "type": "string" },
+        "consumer_summary_zh": { "type": "string" },
+        "consumer_summary_en": { "type": "string" },
+        "developer_note_zh": { "type": "string" },
+        "developer_note_en": { "type": "string" },
+        "evidence_refs": {
+          "type": "array",
           "items": { "$ref": "#/$defs/ODCEvidenceRef" }
         }
       }

@@ -2544,6 +2544,122 @@
       ]
     }
   ],
+  "boundary_combinations": [
+    {
+      "id": "nationwide-claim-runtime-prompt",
+      "title_zh": "全国可开表述 + 版本 / 车机实时提示",
+      "title_en": "Nationwide-availability claim + version / in-vehicle prompt",
+      "related_element_ids": [
+        "odd.road.type.area",
+        "odd.road.type.urban_road",
+        "odd.road.type.highway",
+        "personnel.driver.takeover.attention"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "official",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "hmi",
+        "driver_supervision",
+        "operations"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "“全国都能开”是产品能力表述，但具体可用路段、版本、导航路线和实时车机提示共同决定真实边界。",
+      "condition_en": "“Nationwide availability” is a product-capability statement; actual boundaries depend on route, software version, navigation, and in-vehicle prompts.",
+      "public_response_zh": "AITO 官方页面有 ADS 4 能力宣传和免责声明，但未公开机器可读的全国路段 / 版本边界清单。",
+      "public_response_en": "AITO’s official page presents ADS 4 capability and disclaimers, but does not publish a machine-readable nationwide route/version boundary list.",
+      "consumer_summary_zh": "“全国都能开”不等于每条路、每个版本、每个实时状态都稳定可用，应以车机提示和官方说明为准。",
+      "consumer_summary_en": "“Nationwide” should not be read as stable availability on every road, version, and runtime state; in-vehicle prompts and official materials still govern.",
+      "developer_note_zh": "这是典型的营销表述与可验证 ODC 清单之间的边界缺口。",
+      "developer_note_en": "A typical gap between marketing-level availability wording and verifiable ODC declarations.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://aito.auto/model/m9/",
+          "title": "问界 M9 官方产品页",
+          "section": "华为乾崑智驾 ADS 4 / 免责声明",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "weather-water-lane-edge",
+      "title_zh": "雨雪雾 / 积水 + 车道线或道路边缘识别",
+      "title_en": "Rain / snow / fog / standing water + lane or road-edge recognition",
+      "related_element_ids": [
+        "odd.weather.atmospheric.rain",
+        "odd.weather.atmospheric.snow.snowfall",
+        "odd.weather.particles.fog",
+        "odd.road.surface.coverage",
+        "odd.road.lane.marking.quality"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "perception",
+        "localization",
+        "control"
+      ],
+      "expected_response": "degrade",
+      "condition_zh": "雨雪雾、积水和车道线 / 道路边缘质量同时变化时，单项天气或单项标线边界不能表达真实能力。",
+      "condition_en": "When weather, standing water, and lane / road-edge quality change together, single weather or lane-marking elements do not represent the actual capability boundary.",
+      "public_response_zh": "公开使用说明书可支撑部分限制和驾驶员责任，但未给出降雨量、能见度或积水深度等统一量化阈值。",
+      "public_response_en": "The public manual supports limitations and driver responsibility, but does not provide unified rainfall, visibility, or standing-water thresholds.",
+      "consumer_summary_zh": "遇到雨雪雾、积水和标线不清叠加时，不应只看“天气允许”或“道路允许”的单项表述。",
+      "consumer_summary_en": "When weather, standing water, and poor markings overlap, do not rely on a single “weather allowed” or “road allowed” statement.",
+      "developer_note_zh": "适合作为 ADS 4 公开 ODC 从单项要素走向组合边界的首批样例。",
+      "developer_note_en": "A useful first example for moving ADS 4 public ODC from single elements to boundary combinations.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17 版）",
+          "section": "ADS / NCA 使用限制与驾驶员责任",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "id": "speed-new-user-attention",
+      "title_zh": "NCA 速度范围 + 新手条件 + 驾驶员监管",
+      "title_en": "NCA speed range + new-user condition + driver supervision",
+      "related_element_ids": [
+        "vehicle.motion.speed.operating",
+        "vehicle.motion.speed.activation",
+        "personnel.driver.takeover.attention"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "manual_backed",
+      "trigger_condition_candidate": true,
+      "affected_capability": [
+        "hmi",
+        "driver_supervision",
+        "control"
+      ],
+      "expected_response": "suppress_activation",
+      "condition_zh": "速度范围只是 NCA 激活 / 运行条件之一，新手考试、里程条件和驾驶员监管共同决定是否可用。",
+      "condition_en": "Speed range is only one activation / operation condition; new-user checks, mileage conditions, and driver supervision jointly determine availability.",
+      "public_response_zh": "手册可支撑 NCA 目标车速、初始目标车速、新手条件和脱手检测等信息。",
+      "public_response_en": "The manual supports NCA target speed, initial target speed, new-user conditions, and hands-off detection information.",
+      "consumer_summary_zh": "不要把 NCA 速度范围单独理解为“只要在这个速度内就能用”。",
+      "consumer_summary_en": "Do not read the NCA speed range as “usable whenever the vehicle is within this speed band.”",
+      "developer_note_zh": "体现 ODC 单项参数与 HMI / 人因状态的组合关系。",
+      "developer_note_en": "Shows how a numeric ODC parameter combines with HMI and human-factor states.",
+      "evidence_refs": [
+        {
+          "type": "owner_manual",
+          "confidence": "high",
+          "url": "https://aito.auto/dam/content/dam/aito/cn/service/pdf/m9-2025-ev-product-manual-20260317.pdf",
+          "title": "问界 M9 2025 款纯电使用说明书（2026-03-17 版）",
+          "section": "ADS / NCA 使用限制与驾驶员责任",
+          "extracted_date": "2026-05-03"
+        }
+      ]
+    }
+  ],
   "metadata": {
     "submitted_by": "openodc-community",
     "submitted_at": "2026-04-17T12:00:00Z",
