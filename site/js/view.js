@@ -601,7 +601,7 @@ function renderBoundaryCard(combo, mode) {
   const summary = mode === 'dev' ? localized(combo, 'developer_note') : localized(combo, 'consumer_summary')
   if (summary) card.appendChild(el('p', { class: 'boundary-summary' }, summary))
 
-  if (mode === 'dev' && localized(combo, 'condition')) {
+  if (localized(combo, 'condition')) {
     card.appendChild(renderBoundaryMetaLine(copy[lang].condition, localized(combo, 'condition')))
   }
   if (localized(combo, 'public_response')) {
@@ -631,7 +631,7 @@ function renderBoundaryCard(combo, mode) {
     card.appendChild(related)
   }
 
-  if (mode === 'dev' && combo.evidence_refs?.length) {
+  if (combo.evidence_refs?.length) {
     const evidence = renderEvidenceInline(combo)
     if (evidence) card.appendChild(evidence)
   }
@@ -773,9 +773,17 @@ function renderSourceLi(src) {
 }
 
 // ---- Header rendering ----
+function compactModelLabel(doc) {
+  return docModel(doc)
+    .replace(/[（(].*?[）)]/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
 function renderHeader() {
-  document.title = `${docVendor(currentDoc)} ${docModel(currentDoc)} — OpenODC`
-  titleEl.textContent = `${docVendor(currentDoc)} · ${docModel(currentDoc)}`
+  const model = compactModelLabel(currentDoc)
+  document.title = `${docVendor(currentDoc)} ${model} — OpenODC`
+  titleEl.textContent = `${docVendor(currentDoc)} · ${model}`
   subtitleEl.textContent = docFunctionName(currentDoc)
   badgesEl.innerHTML = ''
   badgesEl.appendChild(el('span', { class: `ads-pill ads-pill-l${currentDoc.ads_level}` }, adsLevelLabel(currentDoc.ads_level)))

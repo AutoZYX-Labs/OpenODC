@@ -99,6 +99,22 @@
           </article>
         </div>
 
+        <h2 class="section-title">与 ROAM / DRIVEResearch 的关系</h2>
+        <p class="lead">如果只看 ODC 表格，容易停留在“某个单项要素有没有写清楚”。但真实道路中的触发条件通常是组合出来的：同样是雨天，和夜间、逆光、车道线磨损、施工改道、驾驶员分心叠加后，风险含义完全不同。因此 OpenODC 只保留轻量的组合边界层，把更重的暴露评估和异常结果分析交给互补项目承接。</p>
+
+        <div class="table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr><th>问题层</th><th>对应项目</th><th>边界组合承担的作用</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>厂家或公开资料声明了什么边界</td><td>OpenODC</td><td>把单项 ODC 要素连接成可引用的组合边界候选，明确证据来源和公开缺口</td></tr>
+              <tr><td>这些组合在真实道路中有多常见</td><td>DRIVEResearch</td><td>用自然驾驶数据估计组合出现频次、参数分布和人类驾驶基准</td></tr>
+              <tr><td>越界或接近边界后发生了什么</td><td>ROAM</td><td>用远程运营异常、事故和干预记录反查哪些组合值得优先治理</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <h2 class="section-title">证据等级</h2>
         <div class="table-wrap">
           <table class="mapping-table">
@@ -134,7 +150,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.4.3</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">

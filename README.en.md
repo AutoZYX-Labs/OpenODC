@@ -45,7 +45,7 @@ OpenODC also makes one limitation explicit: an ODC table is element-based, and s
 
 ## Current status
 
-`v0.4.2 (public prototype / open stewardship call)`
+`v0.4.3 (boundary-combination expansion / open stewardship call)`
 
 - ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (144 elements / 7 categories)
 - ✅ JSON Schema + TypeScript type definitions
@@ -53,7 +53,7 @@ OpenODC also makes one limitation explicit: an ODC table is element-based, and s
 - ✅ Web editor with tree selection, live JSON, export / copy / local save
 - ✅ Public gallery with Tesla FSD US current public sample, Tesla China Assisted Driving, Huawei ADS 4, Apollo Go, XPeng XNGP, and Pony.ai Gen-7 Robotaxi
 - ✅ 144-element public-source coverage metrics with per-sample evidence-as-of dates; this is not a vendor disclosure rate
-- ✅ Boundary combinations: 18 typical combinations across six samples, making explicit that single-element coverage is not the full boundary
+- ✅ Boundary combinations: 60 granular combinations across six samples, making explicit that single-element coverage is not the full boundary
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
 - ✅ Vendor Intake Workbench: paste manual / rule excerpts, generate a 144-element ODC draft table, and export CSV / Markdown review packages
@@ -153,7 +153,15 @@ for automated driving systems. https://openodc.autozyx.com
 - [ROAM](https://autozyx.github.io/ROAM/) — L4 Robotaxi Operations Anomaly Management
 - [DRIVEResearch](https://www.driveresearch.tech/) — Aerial naturalistic driving dataset
 
-Together they form an open AD safety toolkit: ROAM (incident outcomes) + OpenODC (declared design boundary) + DRIVEResearch (measured operational distribution).
+Together they form an open AD safety toolkit, with different responsibilities:
+
+| Project | Focus | Relationship to boundary combinations |
+|---|---|---|
+| OpenODC | Declared operating boundaries and public evidence | Connects single ODC elements into traceable combined-boundary candidates |
+| DRIVEResearch | Real traffic exposure distribution | Estimates occurrence frequency, parameter ranges, and human-driving baselines for these combinations |
+| ROAM | Robotaxi remote-operation anomalies and incidents | Records what happens near or beyond boundaries, helping prioritize high-value combinations |
+
+Boundary combinations are the minimum shared interface among the three projects. OpenODC does not perform a full SOTIF safety case, but it can structure public combined-boundary evidence so exposure data and anomaly records can continue the analysis.
 
 ## Contact
 

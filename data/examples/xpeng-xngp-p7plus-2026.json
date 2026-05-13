@@ -11,7 +11,7 @@
   "ads_level": 2,
   "software_version": "第二代 VLA（Vision-Language-Action）大模型，2026-03 起首批 OTA 推送",
   "hardware_config": "3× 自研图灵 AI 芯片，整车 2250 TOPS；舱内 1× 图灵 750 TOPS；AI 鹰眼纯视觉（P7+ 2024-10 起无激光雷达）",
-  "effective_date": "2026-01-08",
+  "effective_date": "2026-05-13",
   "elements": [
     {
       "element_id": "odd.road.type",
@@ -36,7 +36,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -45,7 +45,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -57,7 +57,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -66,7 +66,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -77,7 +77,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -86,7 +86,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -98,7 +98,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -107,7 +107,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -124,7 +124,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -133,7 +133,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -144,7 +144,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -153,7 +153,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -165,7 +165,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -174,7 +174,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -196,7 +196,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -205,7 +205,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -222,7 +222,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -231,7 +231,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -242,7 +242,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -251,7 +251,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -267,7 +267,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -276,7 +276,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -289,7 +289,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -298,7 +298,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -349,7 +349,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -358,7 +358,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -371,7 +371,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -380,7 +380,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -401,7 +401,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -410,7 +410,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -421,7 +421,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -430,7 +430,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -467,7 +467,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -476,7 +476,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -488,7 +488,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -497,7 +497,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -528,7 +528,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -537,7 +537,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -554,7 +554,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -563,7 +563,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -590,7 +590,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -599,7 +599,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -611,7 +611,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -620,7 +620,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -631,7 +631,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -640,7 +640,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -712,7 +712,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -721,7 +721,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -743,7 +743,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -752,7 +752,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -778,7 +778,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -787,7 +787,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -804,7 +804,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -813,7 +813,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -829,7 +829,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -838,7 +838,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -850,7 +850,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -859,7 +859,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -905,7 +905,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -914,7 +914,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -935,7 +935,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -944,7 +944,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -960,7 +960,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -969,7 +969,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -981,7 +981,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -990,7 +990,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1012,7 +1012,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1021,7 +1021,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1043,7 +1043,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1052,7 +1052,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1063,7 +1063,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1072,7 +1072,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1084,7 +1084,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1093,7 +1093,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1174,7 +1174,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1183,7 +1183,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1194,7 +1194,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1203,7 +1203,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1214,7 +1214,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1223,7 +1223,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1255,7 +1255,7 @@
         "type": "inferred",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1264,7 +1264,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "OpenODC inference from XPeng official pages",
           "section": "Official pages state qualitative limitation but no quantitative threshold",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1290,7 +1290,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1299,7 +1299,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1321,7 +1321,7 @@
         "type": "official",
         "url": "https://www.xiaopeng.com/p7_plus_2026.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1330,7 +1330,7 @@
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
           "section": "AI辅助驾驶 / 页面注释",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1346,7 +1346,7 @@
         "type": "community_extracted",
         "url": "https://bbs.xiaopeng.com/article/2834581",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1355,7 +1355,7 @@
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
           "section": "XNGP user guidance",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1422,9 +1422,10 @@
   ],
   "boundary_combinations": [
     {
+      "trigger_condition_candidate": true,
       "id": "urban-nca-construction-complex-road",
-      "title_zh": "城区 NCA + 施工绕行 / 复杂路口",
-      "title_en": "Urban NCA + construction detour / complex intersection",
+      "title_zh": "城区 NGP + 施工绕行 / 复杂路口",
+      "title_en": "Urban NGP + construction detour / complex intersection",
       "related_element_ids": [
         "odd.road.type.urban_road",
         "odd.infrastructure.temporary.construction",
@@ -1433,37 +1434,44 @@
       ],
       "relation_to_odc": "boundary",
       "evidence_level": "official",
-      "trigger_condition_candidate": true,
       "affected_capability": [
         "perception",
-        "prediction",
         "planning",
         "driver_supervision"
       ],
       "expected_response": "driver_responsibility",
-      "condition_zh": "官方资料展示城区 NCA 和施工绕行等能力，但复杂路口、施工和交通参与者组合仍不能等同于完整自动驾驶责任。",
-      "condition_en": "Official sources present Urban NCA and construction-detour capabilities, but complex intersections, construction, and traffic participants together do not transfer full driving responsibility.",
-      "public_response_zh": "小鹏官方资料提示辅助驾驶不能应对所有交通、天气和路况，驾驶员仍需监管。",
-      "public_response_en": "XPeng official materials state that assistance cannot handle all traffic, weather, and road conditions; the driver still supervises.",
-      "consumer_summary_zh": "城区 NCA 覆盖和施工绕行演示，不等于每个施工路口组合都稳定可处理。",
-      "consumer_summary_en": "Urban NCA coverage and construction-detour demonstrations do not mean every construction-intersection combination is robustly handled.",
-      "developer_note_zh": "用于区分“能力展示场景”和“公开 ODC 组合边界”。",
-      "developer_note_en": "Separates demonstrated capability scenarios from public ODC boundary combinations.",
+      "condition_zh": "城市 NGP 能力与施工标志、路障摆放、复杂路口和人车混行叠加时，公开资料没有给出稳定阈值。",
+      "condition_en": "When urban NGP capability meets construction signs, irregular barriers, complex intersections, and mixed traffic, public sources do not provide stable thresholds.",
+      "public_response_zh": "小鹏官方社区指南提示施工场景对感知要求高，该接管时就接管。",
+      "public_response_en": "XPeng’s official community guide says construction scenarios place high demands on perception and drivers should take over when needed.",
+      "consumer_summary_zh": "城市 NGP 不等于所有施工和复杂路口都能稳健处理。",
+      "consumer_summary_en": "Urban NGP does not mean every construction scene or complex intersection is robustly handled.",
+      "developer_note_zh": "适合从能力展示场景拆成施工 / 路口组合边界。",
+      "developer_note_en": "Useful for separating capability demos from construction / intersection boundary combinations.",
       "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        },
         {
           "type": "official",
           "confidence": "high",
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
-          "section": "XNGP / 智能辅助驾驶能力说明",
-          "extracted_date": "2026-05-03"
+          "section": "第二代 VLA、主动安全和辅助驾驶免责声明",
+          "extracted_date": "2026-05-13"
         }
       ]
     },
     {
+      "trigger_condition_candidate": true,
       "id": "weather-lane-marking-public-gap",
       "title_zh": "天气受限 + 标线退化阈值未公开",
-      "title_en": "Weather limitation + unpublished lane-marking degradation threshold",
+      "title_en": "Weather limitation + undisclosed lane-marking degradation threshold",
       "related_element_ids": [
         "odd.weather.atmospheric.rain",
         "odd.weather.atmospheric.snow.snowfall",
@@ -1472,41 +1480,40 @@
       ],
       "relation_to_odc": "mixed_or_unknown",
       "evidence_level": "public_gap",
-      "trigger_condition_candidate": true,
       "affected_capability": [
         "perception",
-        "localization",
-        "driver_supervision"
+        "control"
       ],
       "expected_response": "not_disclosed",
-      "condition_zh": "公开页面提示天气和路况限制，但没有披露降雨量、能见度或标线退化阈值。",
-      "condition_en": "Public pages mention weather and road-condition limitations but do not disclose rainfall, visibility, or lane-marking degradation thresholds.",
-      "public_response_zh": "公开资料未说明统一退出阈值，应以车机提示和驾驶员接管为准。",
-      "public_response_en": "Public sources do not state unified exit thresholds; in-vehicle prompts and driver intervention remain decisive.",
-      "consumer_summary_zh": "天气和标线同时变差时，公开资料还不足以判断系统边界。",
-      "consumer_summary_en": "When weather and markings degrade together, public sources are insufficient to determine the system boundary.",
-      "developer_note_zh": "这是 OpenODC 应主动暴露的组合披露缺口。",
-      "developer_note_en": "A combination-level disclosure gap that OpenODC should expose explicitly.",
+      "condition_zh": "官网免责声明说明辅助驾驶无法应对所有交通、天气和路况；但未给出雨雪雾、标线退化的量化边界。",
+      "condition_en": "The product disclaimer states assisted driving cannot handle all traffic, weather, and road conditions, but does not quantify rain, snow, fog, or lane-marking degradation boundaries.",
+      "public_response_zh": "公开资料不足以判断天气和标线退化组合下的系统退出阈值。",
+      "public_response_en": "Public sources are insufficient to determine system-exit thresholds under combined weather and marking degradation.",
+      "consumer_summary_zh": "天气和标线同时退化时，应理解为公开缺口。",
+      "consumer_summary_en": "Combined weather and marking degradation should be treated as a public disclosure gap.",
+      "developer_note_zh": "需要厂家手册或车机提示补充阈值。",
+      "developer_note_en": "Requires vendor manual or in-vehicle prompt thresholds.",
       "evidence_refs": [
         {
           "type": "official",
           "confidence": "high",
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
-          "section": "XNGP / 智能辅助驾驶能力说明",
-          "extracted_date": "2026-05-03"
+          "section": "第二代 VLA、主动安全和辅助驾驶免责声明",
+          "extracted_date": "2026-05-13"
         },
         {
           "type": "official",
           "confidence": "medium",
           "url": "https://bbs.xiaopeng.com/article/2834581",
           "title": "XNGP 快速上手指南（小鹏官方社区）",
-          "section": "使用条件与注意事项",
-          "extracted_date": "2026-05-03"
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
         }
       ]
     },
     {
+      "trigger_condition_candidate": false,
       "id": "active-safety-speed-vs-xngp",
       "title_zh": "主动安全速度能力 + XNGP 运行速度边界",
       "title_en": "Active-safety speed capability + XNGP operating-speed boundary",
@@ -1517,28 +1524,303 @@
       ],
       "relation_to_odc": "mixed_or_unknown",
       "evidence_level": "public_gap",
-      "trigger_condition_candidate": false,
       "affected_capability": [
-        "control",
-        "planning"
+        "control"
       ],
       "expected_response": "not_disclosed",
-      "condition_zh": "AEB / AES 速度能力不能直接替代 XNGP 的启用或运行速度 ODC。",
-      "condition_en": "AEB / AES speed capability should not be used as a substitute for XNGP activation or operating-speed ODC.",
-      "public_response_zh": "公开配置表披露主动安全速度能力，但未公开 XNGP 统一运行速度边界。",
-      "public_response_en": "The public configuration table discloses active-safety speed capability but not a unified XNGP operating-speed boundary.",
-      "consumer_summary_zh": "某个主动安全功能支持到 130 km/h，不代表 XNGP 在同一速度下边界完整公开。",
-      "consumer_summary_en": "An active-safety feature working up to 130 km/h does not mean XNGP has a fully disclosed boundary at the same speed.",
-      "developer_note_zh": "用于防止把子功能参数混用为上层智驾功能 ODC。",
-      "developer_note_en": "Prevents child-function parameters from being reused as the ODC of the higher-level ADAS function.",
+      "condition_zh": "AEB / AES 的 130 km/h 公开能力不能外推为 XNGP 的统一运行速度边界。",
+      "condition_en": "Public 130 km/h AEB / AES capability cannot be generalized into a unified XNGP operating-speed boundary.",
+      "public_response_zh": "官网披露主动安全速度能力，但没有披露 XNGP 统一运行速度 ODC。",
+      "public_response_en": "The product page discloses active-safety speed capability, but not a unified XNGP operating-speed ODC.",
+      "consumer_summary_zh": "主动安全速度和导航辅助驾驶速度是两类不同边界。",
+      "consumer_summary_en": "Active-safety speed and navigation-assisted-driving speed are different boundaries.",
+      "developer_note_zh": "防止把主动安全宣传参数误填为 XNGP ODC。",
+      "developer_note_en": "Prevents active-safety marketing parameters from being copied into XNGP ODC.",
       "evidence_refs": [
         {
           "type": "official",
           "confidence": "high",
           "url": "https://www.xiaopeng.com/p7_plus_2026.html",
           "title": "2026 款小鹏 P7+ 产品页",
-          "section": "XNGP / 智能辅助驾驶能力说明",
-          "extracted_date": "2026-05-03"
+          "section": "第二代 VLA、主动安全和辅助驾驶免责声明",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "driver-supervision-safety-exam-new-user",
+      "title_zh": "安全考试 / 新手任务 + 驾驶员持续监管",
+      "title_en": "Safety exam / novice task + continuous driver supervision",
+      "related_element_ids": [
+        "personnel.driver.takeover.attention",
+        "personnel.driver.posture",
+        "vehicle.ads_state"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "official",
+      "affected_capability": [
+        "driver_supervision",
+        "hmi"
+      ],
+      "expected_response": "suppress_activation",
+      "condition_zh": "XNGP 开启前需要完成安全考试；初次使用存在新手任务，驾驶员仍需手握方向盘、注意路况、及时接管。",
+      "condition_en": "XNGP requires a safety exam before use; initial use includes novice tasks, and the driver must keep hands on the wheel, monitor the road, and take over in time.",
+      "public_response_zh": "小鹏官方社区指南明确写明安全考试、新手任务和驾驶员接管责任。",
+      "public_response_en": "XPeng’s official community guide states the safety exam, novice task, and driver takeover responsibility.",
+      "consumer_summary_zh": "XNGP 的边界包括使用者状态，不只是车辆能力。",
+      "consumer_summary_en": "XNGP boundaries include user state, not just vehicle capability.",
+      "developer_note_zh": "L2+ ODC 应强制包含驾驶员状态与 HMI 条件。",
+      "developer_note_en": "L2+ ODC should require driver-state and HMI conditions.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "ghost-probe-mixed-traffic-intersection",
+      "title_zh": "复杂路口 / 人车混行 + 鬼探头",
+      "title_en": "Complex intersection / mixed traffic + sudden pedestrian or vehicle emergence",
+      "related_element_ids": [
+        "odd.road.intersection.at_grade",
+        "odd.targets.pedestrian",
+        "odd.targets.non_motor_vehicle",
+        "odd.targets.motor_vehicle"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "official",
+      "affected_capability": [
+        "perception",
+        "prediction",
+        "planning",
+        "driver_supervision"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "复杂路口、人车混行和遮挡后突然出现目标叠加时，即便系统具备一定应对能力，仍要求驾驶员准备接管。",
+      "condition_en": "At complex intersections with mixed traffic and sudden emergence behind occlusion, the driver must remain ready to take over even if the system can handle some cases.",
+      "public_response_zh": "官方指南将“车辆 / 行人鬼探头”“复杂路口、人车混行”列为需要保持警惕并随时接管的场景。",
+      "public_response_en": "The official guide lists sudden vehicle / pedestrian emergence and complex mixed-traffic intersections as scenarios requiring alertness and takeover readiness.",
+      "consumer_summary_zh": "鬼探头是组合触发条件，不是单一“行人”要素。",
+      "consumer_summary_en": "Sudden emergence is a combined trigger condition, not a single “pedestrian” element.",
+      "developer_note_zh": "应与 ROAM 的城市交叉口异常和 DRIVEResearch 的遮挡目标分布联动。",
+      "developer_note_en": "Should link with ROAM urban-intersection anomalies and DRIVEResearch occluded-target distributions.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "cut-in-main-aux-merge",
+      "title_zh": "旁车紧急加塞 + 主辅路切换 / 车道汇流",
+      "title_en": "Emergency cut-in + main-side-road transition / lane merge",
+      "related_element_ids": [
+        "odd.road.lane.type.entrance",
+        "odd.road.lane.type.exit",
+        "odd.road.intersection.ramp",
+        "odd.targets.motor_vehicle"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "official",
+      "affected_capability": [
+        "prediction",
+        "planning",
+        "control"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "紧急加塞、主辅路切换和汇流场景把侧向目标预测、速度差和路径规划绑定在一起。",
+      "condition_en": "Emergency cut-ins, main-side-road transitions, and merges bind lateral target prediction, speed differential, and route planning together.",
+      "public_response_zh": "官方指南提示旁车紧急加塞、主辅路切换和车道汇流场景仍需用户认真监督并随时准备接管。",
+      "public_response_en": "The official guide says emergency cut-ins, main-side-road transitions, and merges still require serious supervision and takeover readiness.",
+      "consumer_summary_zh": "变道能力不等于所有加塞和汇流都能稳定处理。",
+      "consumer_summary_en": "Lane-change capability does not mean every cut-in and merge is robustly handled.",
+      "developer_note_zh": "适合转化为横向交互组合边界。",
+      "developer_note_en": "Suitable as a lateral-interaction boundary combination.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "small-road-unexpected-events",
+      "title_zh": "小路场景 + 突发情况种类多",
+      "title_en": "Small-road scenario + diverse unexpected events",
+      "related_element_ids": [
+        "odd.road.type.urban_road.branch",
+        "odd.road.lane.width",
+        "odd.targets.pedestrian",
+        "odd.targets.non_motor_vehicle",
+        "odd.targets.obstacle"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "official",
+      "affected_capability": [
+        "perception",
+        "prediction",
+        "planning"
+      ],
+      "expected_response": "driver_responsibility",
+      "condition_zh": "小路通常伴随窄车道、非机动车、行人、临停车辆和遮挡；它不是一个单独道路类型就能表达的边界。",
+      "condition_en": "Small roads usually involve narrow lanes, non-motorized vehicles, pedestrians, parked vehicles, and occlusion; they are not expressible as a single road type.",
+      "public_response_zh": "官方指南称小路场景突发情况种类很多，需要注意安全。",
+      "public_response_en": "The official guide states that small-road scenarios contain many types of unexpected events and require caution.",
+      "consumer_summary_zh": "“小路丝滑”应与小路突发风险同时展示。",
+      "consumer_summary_en": "“Smooth on small roads” should be displayed together with small-road sudden-risk boundaries.",
+      "developer_note_zh": "建议作为 OpenODC 的消费者视图重点边界。",
+      "developer_note_en": "Recommended as a prominent consumer-view boundary.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/p7_plus_2026.html",
+          "title": "2026 款小鹏 P7+ 产品页",
+          "section": "第二代 VLA、主动安全和辅助驾驶免责声明",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "navigation-destination-activation",
+      "title_zh": "导航目的地 + 档杆两次拨动 + 功能可用状态",
+      "title_en": "Navigation destination + double stalk action + feature availability state",
+      "related_element_ids": [
+        "odd.digital.position.gnss",
+        "vehicle.ads_state",
+        "personnel.driver.takeover.attention"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "official",
+      "affected_capability": [
+        "hmi",
+        "localization",
+        "operations"
+      ],
+      "expected_response": "suppress_activation",
+      "condition_zh": "XNGP 的激活需要导航目的地、车辆状态满足条件和用户执行明确 HMI 操作。",
+      "condition_en": "XNGP activation requires a navigation destination, eligible vehicle state, and explicit HMI operation.",
+      "public_response_zh": "官方指南写明设置导航目的地、仪表显示可用图标后，连续向下拨动档杆两次开启。",
+      "public_response_en": "The official guide states that a navigation destination is required and the driver activates the feature by double-stalking after the availability icon appears.",
+      "consumer_summary_zh": "XNGP 可用性是导航、车辆状态和用户操作的组合条件。",
+      "consumer_summary_en": "XNGP availability is a combined condition of navigation, vehicle state, and user operation.",
+      "developer_note_zh": "该组合可指导 Workbench 从手册中抽取激活条件。",
+      "developer_note_en": "Useful for Workbench extraction of activation conditions from manuals.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "nationwide-route-claim-street-level-gap",
+      "title_zh": "不限城市 / 不限路线表述 + 街道级边界缺口",
+      "title_en": "“No city / route limitation” claim + street-level boundary gap",
+      "related_element_ids": [
+        "odd.road.type.area",
+        "odd.road.type.urban_road",
+        "odd.road.type.highway",
+        "odd.digital.position.gnss"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "public_gap",
+      "affected_capability": [
+        "operations",
+        "planning"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "“不限城市、不限路线、不限路况”是公开能力表述，但没有给出道路级 ODC 列表、版本边界和不可用规则。",
+      "condition_en": "“No city, route, or road-condition limitation” is a public capability statement, but it does not provide road-level ODC lists, version boundaries, or unavailability rules.",
+      "public_response_zh": "小鹏官方社区指南有全国覆盖表述，同时强调 XNGP 仍是辅助驾驶，需要驾驶员接管。",
+      "public_response_en": "XPeng’s official community guide uses nationwide coverage language while emphasizing XNGP remains assisted driving and requires driver takeover.",
+      "consumer_summary_zh": "全国覆盖不应被误读为所有道路条件都明确公开。",
+      "consumer_summary_en": "Nationwide coverage should not be misread as every road condition being publicly specified.",
+      "developer_note_zh": "与华为样例类似，应保留覆盖表述与可机读 ODC 之间的差距。",
+      "developer_note_en": "Similar to the Huawei sample, preserve the gap between coverage language and machine-readable ODC.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "medium",
+          "url": "https://bbs.xiaopeng.com/article/2834581",
+          "title": "XNGP 快速上手指南（小鹏官方社区）",
+          "section": "使用准备、新手任务、退出方式、接管注意场景",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/p7_plus_2026.html",
+          "title": "2026 款小鹏 P7+ 产品页",
+          "section": "第二代 VLA、主动安全和辅助驾驶免责声明",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": false,
+      "id": "vla-robotaxi-transfer-not-odc",
+      "title_zh": "第二代 VLA / Robotaxi 测试 + 量产 XNGP ODC 不等同",
+      "title_en": "Second-generation VLA / Robotaxi testing + production XNGP ODC not equivalent",
+      "related_element_ids": [
+        "vehicle.ads_state",
+        "odd.road.type.area",
+        "personnel.driver.takeover.attention"
+      ],
+      "relation_to_odc": "mixed_or_unknown",
+      "evidence_level": "official",
+      "affected_capability": [
+        "operations"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "第二代 VLA 面向 L4 Robotaxi 的能力演进与量产 P7+ 上的 L2+ XNGP 公开 ODC 不能直接等同。",
+      "condition_en": "Second-generation VLA’s L4 Robotaxi capability evolution is not directly equivalent to the public ODC of production P7+ L2+ XNGP.",
+      "public_response_zh": "发布会新闻稿说明第二代 VLA 正在训练更多 L4 能力，Robotaxi 通过场地测试；这不是量产车 ODC 声明。",
+      "public_response_en": "The launch release states second-generation VLA is training more L4 capabilities and Robotaxi passed proving-ground testing; this is not a production-car ODC declaration.",
+      "consumer_summary_zh": "Robotaxi 技术路线不能直接当成消费者辅助驾驶边界。",
+      "consumer_summary_en": "Robotaxi technology roadmap should not be copied as consumer assisted-driving boundary.",
+      "developer_note_zh": "用于防止把技术路线宣传误填为产品 ODC。",
+      "developer_note_en": "Prevents technology-roadmap claims from being entered as product ODC.",
+      "evidence_refs": [
+        {
+          "type": "official",
+          "confidence": "high",
+          "url": "https://www.xiaopeng.com/news/company_news/5529.html",
+          "title": "2026 小鹏全球新品发布会新闻稿",
+          "section": "第二代 VLA、Robotaxi 测试、P7+ 智驾和主动安全公开说明",
+          "extracted_date": "2026-05-13"
         }
       ]
     }
@@ -1555,7 +1837,7 @@
       "XNGP 快速上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/2834581",
       "G6 高速 NGP 上手指南（小鹏官方社区）: https://bbs.xiaopeng.com/article/1799825"
     ],
-    "notes": "OpenODC 社区已按 2026-05-03 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。",
-    "evidence_as_of": "2026-05-03"
+    "notes": "OpenODC 社区已按 2026-05-13 可访问的小鹏 P7+ 官方产品页、配置表、官方新闻稿和官方社区指南复核。本条为 L2 辅助驾驶样例。官方页面可支撑 P7+ AI 辅助驾驶硬件、城市/高速 NGP、车位到车位、人机共驾、AEB/AES 130 km/h 等主动安全参数和驾驶员责任提示；公开资料未给出 XNGP 统一运行速度上限、雨量/能见度/坡度等量化 ODC 阈值。",
+    "evidence_as_of": "2026-05-13"
   }
 }

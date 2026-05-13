@@ -9,9 +9,9 @@
   "function_name": "L4 无人驾驶出租车（武汉示范运营）",
   "function_name_en": "L4 Robotaxi (Wuhan commercial operation)",
   "ads_level": 4,
-  "software_version": "Apollo RT6 / 武汉 3000 km² 示范运营公开资料；2026-05-03 证据复核",
+  "software_version": "Apollo RT6 / 武汉 3000 km² 示范运营公开资料；2026-05-13 证据复核",
   "hardware_config": "RT6：激光雷达 + 摄像头 + 毫米波雷达多模态融合；HD 地图",
-  "effective_date": "2025-04-22",
+  "effective_date": "2026-05-13",
   "elements": [
     {
       "element_id": "odd.road.type",
@@ -26,7 +26,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -35,7 +35,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -52,7 +52,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -61,7 +61,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -72,7 +72,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -81,7 +81,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -92,7 +92,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -101,7 +101,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -114,7 +114,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -123,7 +123,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -141,7 +141,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -150,7 +150,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -182,7 +182,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -191,7 +191,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -222,7 +222,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -231,7 +231,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -243,7 +243,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -252,7 +252,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -303,7 +303,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -312,7 +312,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -379,7 +379,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -388,7 +388,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -419,7 +419,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -428,7 +428,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -445,7 +445,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -454,7 +454,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -481,7 +481,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -490,7 +490,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -572,7 +572,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -581,7 +581,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -602,7 +602,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -611,7 +611,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -648,7 +648,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -657,7 +657,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -673,7 +673,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -682,7 +682,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -694,7 +694,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -703,7 +703,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -745,7 +745,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -754,7 +754,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -766,7 +766,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -775,7 +775,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -796,7 +796,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -805,7 +805,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -817,7 +817,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -826,7 +826,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -838,7 +838,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -847,7 +847,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -874,7 +874,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -883,7 +883,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -904,7 +904,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -913,7 +913,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -925,7 +925,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -934,7 +934,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -945,7 +945,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -954,7 +954,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -965,7 +965,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -974,7 +974,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -986,7 +986,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -995,7 +995,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1023,7 +1023,7 @@
         "type": "inferred",
         "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
         "confidence": "low",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1032,7 +1032,7 @@
           "url": "https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
           "title": "OpenODC inference from Wuhan pilot information",
           "section": "Operational details not fully public",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1050,7 +1050,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1059,7 +1059,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1100,7 +1100,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1109,7 +1109,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1120,7 +1120,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1129,7 +1129,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1141,7 +1141,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1150,7 +1150,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1176,7 +1176,7 @@
         "type": "community_extracted",
         "url": "https://www.apollogo.com/ch/",
         "confidence": "medium",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1185,7 +1185,7 @@
           "url": "https://www.apollogo.com/ch/",
           "title": "OpenODC extraction from Apollo Go public portal and government notices",
           "section": "Robotaxi operating boundary",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1197,7 +1197,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1206,7 +1206,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1233,7 +1233,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1242,7 +1242,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1254,7 +1254,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1263,7 +1263,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1280,7 +1280,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1289,7 +1289,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1301,7 +1301,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1310,7 +1310,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1377,7 +1377,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1386,7 +1386,7 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     },
@@ -1398,7 +1398,7 @@
         "type": "government_notice",
         "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
         "confidence": "high",
-        "extracted_date": "2026-05-03"
+        "extracted_date": "2026-05-13"
       },
       "evidence_refs": [
         {
@@ -1407,13 +1407,14 @@
           "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
           "title": "武汉经开区自动驾驶装备商业化试点管理办法发布说明",
           "section": "商业化试点管理办法",
-          "extracted_date": "2026-05-03"
+          "extracted_date": "2026-05-13"
         }
       ]
     }
   ],
   "boundary_combinations": [
     {
+      "trigger_condition_candidate": true,
       "id": "geofence-app-permit",
       "title_zh": "电子围栏 + App 实时规则 + 政府许可",
       "title_en": "Geofence + app runtime rules + government permit",
@@ -1424,112 +1425,410 @@
       ],
       "relation_to_odc": "inside_odc",
       "evidence_level": "government_rule",
-      "trigger_condition_candidate": true,
       "affected_capability": [
         "operations",
-        "localization",
-        "remote_assistance"
+        "localization"
       ],
       "expected_response": "service_suspension",
-      "condition_zh": "Robotaxi 的真实服务边界由政府许可区域、App 实时电子围栏、定位和车路协同基础设施共同决定。",
-      "condition_en": "The actual robotaxi service boundary is jointly determined by government-permitted areas, app geofencing, localization, and V2X infrastructure.",
-      "public_response_zh": "公开资料披露武汉多区示范运营和管理规则，但具体可叫车范围仍以 App 实时显示为准。",
-      "public_response_en": "Public sources disclose multi-district Wuhan operations and management rules, while the exact serviceable area remains governed by the app.",
-      "consumer_summary_zh": "萝卜快跑武汉不是“城市任意道路都能叫”，而是许可区域、电子围栏和实时调度共同决定。",
-      "consumer_summary_en": "Apollo Go Wuhan is not available on arbitrary roads; permit scope, geofence, and runtime dispatch jointly determine availability.",
-      "developer_note_zh": "L4 样例中，ODC 与运营边界高度重合，应把监管许可和 App 规则作为组合边界处理。",
-      "developer_note_en": "For L4 samples, ODC and service boundary strongly overlap; permits and app rules should be modeled as boundary combinations.",
+      "condition_zh": "Robotaxi 的真实 ODC 由政府批准区域、App 可叫车范围、上车点和实时运营规则共同定义。",
+      "condition_en": "The real ODC of a robotaxi service is jointly defined by approved areas, app-callable zones, pickup points, and runtime operating rules.",
+      "public_response_zh": "武汉公开资料披露全无人示范运营资格、运营区域扩展和 App 叫车入口，但没有发布机器可读 geofence。",
+      "public_response_en": "Wuhan public sources disclose fully driverless qualification, operating-area expansion, and app ride-hailing access, but not a machine-readable geofence.",
+      "consumer_summary_zh": "能不能叫到车，就是 L4 服务边界最直观的表现。",
+      "consumer_summary_en": "Whether the app can dispatch a ride is the most visible expression of an L4 service boundary.",
+      "developer_note_zh": "L4 ODC 与服务运营边界高度重合，应把许可、App 规则和定位共同建模。",
+      "developer_note_en": "For L4, ODC strongly overlaps service boundary; permit, app rules, and positioning should be modeled together.",
       "evidence_refs": [
         {
           "type": "government_notice",
           "confidence": "high",
-          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202504/t20250422_2570742.html",
-          "title": "武汉 3000 平方公里城市实验室公开报道",
-          "section": "示范运营区域",
-          "extracted_date": "2026-05-03"
+          "url": "https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+          "title": "武汉市人民政府 · 萝卜快跑跑向武汉大街小巷",
+          "section": "全无人示范运营资格、运营区域、时段、机场高速、5G 云舱中心",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "operating_rule",
+          "confidence": "medium",
+          "url": "https://www.apollogo.com/ch/",
+          "title": "萝卜快跑 Apollo Go 官方门户",
+          "section": "运营城市、叫车入口和服务规则入口",
+          "extracted_date": "2026-05-13"
         },
         {
           "type": "operating_rule",
           "confidence": "high",
-          "url": "https://www.apollogo.com/ch/",
-          "title": "萝卜快跑 Apollo Go 官方门户",
-          "section": "运营区域与实时叫车规则",
-          "extracted_date": "2026-05-03"
+          "url": "https://apps.apple.com/cn/app/%E8%90%9D%E5%8D%9C%E5%BF%AB%E8%B7%91-%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%87%BA%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0/id1512367546",
+          "title": "萝卜快跑 App Store 官方应用说明",
+          "section": "运营范围、运营时段以约车产品界面为准；极端恶劣天气临时停运",
+          "extracted_date": "2026-05-13"
         }
       ]
     },
     {
-      "id": "extreme-weather-service-suspension",
-      "title_zh": "极端天气 + 服务暂停",
-      "title_en": "Extreme weather + service suspension",
-      "related_element_ids": [
-        "odd.weather.atmospheric.special",
-        "odd.weather.atmospheric.rain",
-        "odd.weather.particles.fog",
-        "odd.weather.lighting.headlight"
-      ],
-      "relation_to_odc": "outside_odc",
-      "evidence_level": "operating_rule",
       "trigger_condition_candidate": true,
-      "affected_capability": [
-        "operations",
-        "perception",
-        "remote_assistance"
-      ],
-      "expected_response": "service_suspension",
-      "condition_zh": "冰雹等极端天气不是单项天气要素，而是运营、感知和远程安全策略共同作用的停运条件。",
-      "condition_en": "Extreme weather such as hail is not a single weather element; it is an operations, perception, and remote-safety suspension condition.",
-      "public_response_zh": "Apollo Go App 规则公开表述极端天气不允许提供服务；统一降雨量或能见度阈值未公开。",
-      "public_response_en": "Apollo Go app rules state that extreme weather is not serviceable; unified rainfall or visibility thresholds are not publicly disclosed.",
-      "consumer_summary_zh": "L4 服务的边界往往表现为“能不能叫到车”，而不是车内接管提示。",
-      "consumer_summary_en": "For L4 services, the boundary often appears as whether a ride can be requested, not as an in-vehicle takeover prompt.",
-      "developer_note_zh": "可作为运营规则驱动的触发条件候选，而非车辆单车能力阈值。",
-      "developer_note_en": "A trigger-condition candidate driven by operating rules rather than a vehicle-only capability threshold.",
-      "evidence_refs": [
-        {
-          "type": "operating_rule",
-          "confidence": "high",
-          "url": "https://www.apollogo.com/ch/",
-          "title": "萝卜快跑 Apollo Go 官方门户",
-          "section": "运营区域与实时叫车规则",
-          "extracted_date": "2026-05-03"
-        }
-      ]
-    },
-    {
-      "id": "temporary-control-remote-safety-operator",
-      "title_zh": "临时交通管制 / 施工 + 远程安全员",
-      "title_en": "Temporary traffic control / construction + remote safety operator",
+      "id": "night-operation-lighting-traffic-density",
+      "title_zh": "夜间全无人运营 + 路灯 / 信号灯 + 晚高峰交通",
+      "title_en": "Fully driverless night operation + street lighting / signals + evening traffic",
       "related_element_ids": [
-        "odd.infrastructure.temporary.construction",
-        "odd.infrastructure.temporary.traffic_control",
-        "personnel.driver.takeover.attention"
+        "odd.weather.lighting.streetlight",
+        "odd.infrastructure.traffic_control.signal",
+        "odd.targets.motor_vehicle",
+        "vehicle.motion.speed.operating"
       ],
       "relation_to_odc": "boundary",
       "evidence_level": "government_rule",
-      "trigger_condition_candidate": true,
       "affected_capability": [
+        "perception",
+        "prediction",
         "planning",
-        "remote_assistance",
         "operations"
       ],
-      "expected_response": "remote_assistance",
-      "condition_zh": "临时交通管制、施工和异常道路状态会把 L4 服务从自动运行推向远程协助或暂停运营。",
-      "condition_en": "Temporary traffic control, construction, and abnormal road states can move an L4 service from automated operation to remote assistance or service suspension.",
-      "public_response_zh": "武汉管理规则要求安全员能够现场或云端接管，公开资料未披露每类触发阈值。",
-      "public_response_en": "Wuhan rules require a safety operator capable of on-site or cloud takeover, but public sources do not disclose per-condition thresholds.",
-      "consumer_summary_zh": "临时管制和施工不是简单“道路设施”问题，而是远程安全员和运营调度共同介入的边界组合。",
-      "consumer_summary_en": "Temporary control and construction are not merely infrastructure elements; they involve remote safety operators and dispatch operations.",
-      "developer_note_zh": "连接 ODC、远程运营和 SOTIF 触发条件的关键组合。",
-      "developer_note_en": "A key combination connecting ODC, remote operations, and SOTIF trigger conditions.",
+      "expected_response": "not_disclosed",
+      "condition_zh": "夜间全无人运营不是单一光照要素；它叠加了路灯、信号灯识别、晚高峰车流和站点停靠。",
+      "condition_en": "Fully driverless night operation is not a single lighting element; it combines street lighting, signal recognition, evening traffic, and pickup / drop-off behavior.",
+      "public_response_zh": "武汉经开区资料披露夜间运营延长至 23:00，并描述晚高峰、十字路口和红绿灯识别体验；具体照度阈值未公开。",
+      "public_response_en": "Wuhan sources disclose night operation to 23:00 and describe evening traffic, intersections, and signal recognition; concrete illuminance thresholds are not public.",
+      "consumer_summary_zh": "夜间可运营不代表所有低照度、眩光或无路灯道路都在边界内。",
+      "consumer_summary_en": "Night operation does not mean all low-light, glare, or unlit roads are inside the boundary.",
+      "developer_note_zh": "适合与自然驾驶夜间流量和照度分布联动。",
+      "developer_note_en": "Suitable for linking with naturalistic nighttime traffic and illumination distributions.",
       "evidence_refs": [
         {
           "type": "government_notice",
           "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202212/t20221227_2120468.html",
+          "title": "武汉经开区 · 全国首个夜间全无人驾驶运营区域",
+          "section": "全无人商业化牌照、夜间运营、感知配置、102 个场景考试",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "airport-highway-approved-route",
+      "title_zh": "机场路线 / 高速行驶 + 批准路线",
+      "title_en": "Airport route / highway driving + approved route",
+      "related_element_ids": [
+        "odd.road.type.highway.expressway",
+        "odd.road.type.area",
+        "vehicle.motion.speed.operating",
+        "odd.digital.position.gnss"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "localization",
+        "planning",
+        "operations"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "机场接送和高速路线能力需要同时满足批准路线、道路限速、定位和运营调度条件。",
+      "condition_en": "Airport pickup / drop-off and highway-route capability require approved route, speed limit, localization, and operations-dispatch conditions together.",
+      "public_response_zh": "武汉市政府报道提到天河机场路线和高速行驶，但没有公开道路级 ODC、速度策略或降级阈值。",
+      "public_response_en": "Wuhan government reporting mentions the Tianhe Airport route and highway-speed capability, but does not disclose road-level ODC, speed strategy, or fallback thresholds.",
+      "consumer_summary_zh": "机场路线是批准运营路线，不应外推成所有高速均可运营。",
+      "consumer_summary_en": "An airport route is an approved operating route and should not be generalized to all highways.",
+      "developer_note_zh": "应在样例中标成路线级边界，而不是泛化成高速公路全允许。",
+      "developer_note_en": "Should be recorded as route-level boundary, not generalized highway permission.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+          "title": "武汉市人民政府 · 萝卜快跑跑向武汉大街小巷",
+          "section": "全无人示范运营资格、运营区域、时段、机场高速、5G 云舱中心",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "cross-river-bridge-route-expansion",
+      "title_zh": "跨江桥梁 + 城市跨区贯通 + 示范区许可",
+      "title_en": "Cross-river bridge + cross-district operation + demonstration-zone permit",
+      "related_element_ids": [
+        "odd.infrastructure.special.bridge",
+        "odd.road.type.area",
+        "odd.digital.position.gnss",
+        "odd.targets.motor_vehicle"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "localization",
+        "planning",
+        "operations"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "跨江商业化服务涉及桥梁设施、跨区运营许可、定位连续性和城市道路交通状态的组合。",
+      "condition_en": "Commercial cross-river service combines bridge infrastructure, cross-district permits, localization continuity, and urban traffic state.",
+      "public_response_zh": "武汉英文政府网站披露 Robotaxi 跨越两座长江大桥、实现跨江商业化无人驾驶出行服务。",
+      "public_response_en": "The Wuhan government English site discloses Robotaxi service crossing two Yangtze River bridges as commercial autonomous ride-hailing.",
+      "consumer_summary_zh": "跨江运营是地理围栏扩展，不是所有桥梁场景都自动覆盖。",
+      "consumer_summary_en": "Cross-river operation is a geofence expansion, not automatic coverage of all bridge scenarios.",
+      "developer_note_zh": "桥梁、定位连续性和运营许可应组合建模。",
+      "developer_note_en": "Bridge infrastructure, localization continuity, and operating permit should be modeled together.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://english.wuhan.gov.cn/H_1/NWP/202402/t20240228_2365030.shtml",
+          "title": "Wuhan Government · driverless taxi service across Yangtze River",
+          "section": "跨江商业化无人驾驶出行服务与示范区运营数据",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "narrow-school-mixed-traffic",
+      "title_zh": "狭窄城市道路 / 学校周边 + 人车混行",
+      "title_en": "Narrow urban streets / school area + mixed traffic",
+      "related_element_ids": [
+        "odd.road.type.urban_road.branch",
+        "odd.road.lane.width",
+        "odd.targets.pedestrian",
+        "odd.targets.non_motor_vehicle",
+        "odd.targets.motor_vehicle"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "perception",
+        "prediction",
+        "planning"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "狭窄道路、学校周边、拥挤交通和行人非机动车混行共同决定城市毛细道路边界。",
+      "condition_en": "Narrow roads, school areas, congested traffic, pedestrians, and non-motorized vehicles jointly define the boundary for urban local streets.",
+      "public_response_zh": "武汉市政府报道提到经开区基本全域通行，甚至覆盖神龙小学周边、创业路等道路狭窄交通拥挤区域；具体目标物阈值未公开。",
+      "public_response_en": "Wuhan government reporting mentions coverage of narrow and congested areas such as around Shenlong Primary School and Chuangye Road; concrete target thresholds are not public.",
+      "consumer_summary_zh": "L4 服务能进入小街小巷，但公开资料没有说明每类混行边界。",
+      "consumer_summary_en": "The L4 service can enter local streets, but public sources do not specify each mixed-traffic boundary.",
+      "developer_note_zh": "这是最需要 DRIVEResearch 暴露分布支持的城市混合交通组合。",
+      "developer_note_en": "A city mixed-traffic combination that particularly needs DRIVEResearch exposure distributions.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+          "title": "武汉市人民政府 · 萝卜快跑跑向武汉大街小巷",
+          "section": "全无人示范运营资格、运营区域、时段、机场高速、5G 云舱中心",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "construction-detour-pedestrian-exam",
+      "title_zh": "施工绕行 + 行人违章通行 + 场景考试",
+      "title_en": "Construction detour + pedestrian violation + scenario exam",
+      "related_element_ids": [
+        "odd.infrastructure.temporary.construction",
+        "odd.targets.pedestrian",
+        "odd.infrastructure.temporary.traffic_control",
+        "odd.road.lane.marking.quality"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "perception",
+        "prediction",
+        "planning"
+      ],
+      "expected_response": "not_disclosed",
+      "condition_zh": "施工绕行和行人违章通行属于典型组合场景：临时道路拓扑变化与动态目标违规同时出现。",
+      "condition_en": "Construction detours and pedestrian violations form a typical combined scene: temporary road topology changes plus non-compliant dynamic targets.",
+      "public_response_zh": "武汉经开区报道提到上路许可需经历包括行人违章通行、施工路段绕行等 102 个场景考试，但未公开完整考试参数。",
+      "public_response_en": "Wuhan reporting states vehicles must pass 102 scenarios including pedestrian violations and construction detours, but the full scenario parameters are not public.",
+      "consumer_summary_zh": "通过场景考试说明有验证入口，但不是公开 ODC 阈值。",
+      "consumer_summary_en": "Passing scenario exams indicates a validation entry point, not a public ODC threshold.",
+      "developer_note_zh": "这类组合最适合作为 OpenODC 与 SOTIF 触发条件的桥接样例。",
+      "developer_note_en": "A strong bridge between OpenODC and SOTIF trigger-condition candidates.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202212/t20221227_2120468.html",
+          "title": "武汉经开区 · 全国首个夜间全无人驾驶运营区域",
+          "section": "全无人商业化牌照、夜间运营、感知配置、102 个场景考试",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "remote-5g-cloud-cabin-fallback",
+      "title_zh": "全无人车辆 + 5G 云舱 / 远程安全冗余",
+      "title_en": "Uncrewed vehicle + 5G cloud cabin / remote safety redundancy",
+      "related_element_ids": [
+        "odd.digital.wireless.v2n",
+        "odd.digital.wireless.v2i",
+        "personnel.driver.takeover.attention",
+        "vehicle.ads_state"
+      ],
+      "relation_to_odc": "boundary",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "remote_assistance",
+        "operations",
+        "hmi"
+      ],
+      "expected_response": "remote_assistance",
+      "condition_zh": "车内无安全员后，远程监控、通信链路、云舱响应和最小风险策略共同构成 L4 运行边界。",
+      "condition_en": "Once there is no in-vehicle safety driver, remote monitoring, communication link, cloud-cabin response, and minimal-risk strategy jointly define the L4 boundary.",
+      "public_response_zh": "武汉市政府报道披露萝卜快跑在经开区有 5G 云舱中心；管理办法要求远程监控、最小风险运行模式和安全员通知。",
+      "public_response_en": "Wuhan government reporting discloses a 5G cloud-cabin center; local rules require remote monitoring, minimal-risk operation, and safety-operator notification.",
+      "consumer_summary_zh": "L4 的“无人”并不等于无人监管，远程运营链路是边界的一部分。",
+      "consumer_summary_en": "L4 “driverless” does not mean unmonitored; remote-operations links are part of the boundary.",
+      "developer_note_zh": "与 ROAM 的远程运营异常数据库天然互补。",
+      "developer_note_en": "Naturally complementary to ROAM’s remote-operations anomaly database.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+          "title": "武汉市人民政府 · 萝卜快跑跑向武汉大街小巷",
+          "section": "全无人示范运营资格、运营区域、时段、机场高速、5G 云舱中心",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "government_notice",
+          "confidence": "medium",
           "url": "https://www.whkfq.gov.cn/xxgk/zc/gfxwj/202409/t20240920_2457091.html",
-          "title": "武汉经开区智能网联汽车道路测试与示范应用管理办法",
-          "section": "示范应用与安全员 / 运行管理要求",
-          "extracted_date": "2026-05-03"
+          "title": "武汉经开区自动驾驶装备商业化试点管理办法",
+          "section": "远程监控、安全员、最小风险状态、数据接入和临时管控要求",
+          "extracted_date": "2026-05-13",
+          "notes": "This local rule targets autonomous driving equipment; it is used only as a public operating-control analogue, not as an Apollo Go passenger-vehicle manual."
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "pickup-station-app-door-unlock",
+      "title_zh": "推荐上车点 + App 派单 + 手机尾号开锁",
+      "title_en": "Recommended pickup point + app dispatch + phone-suffix unlock",
+      "related_element_ids": [
+        "odd.road.type.area",
+        "odd.digital.position.gnss",
+        "odd.targets.pedestrian",
+        "personnel.passenger.other"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "operating_rule",
+      "affected_capability": [
+        "operations",
+        "hmi",
+        "localization"
+      ],
+      "expected_response": "service_suspension",
+      "condition_zh": "L4 Robotaxi 的消费者边界包括推荐上车点、车辆停靠、乘客身份确认和 App 可派单状态。",
+      "condition_en": "The consumer-facing boundary of an L4 robotaxi includes recommended pickup points, vehicle stopping, passenger identity confirmation, and app dispatch availability.",
+      "public_response_zh": "武汉公开报道描述推荐上车点、App 呼叫和输入手机尾号开锁流程。",
+      "public_response_en": "Wuhan reporting describes recommended pickup points, app ride request, and phone-suffix unlock flow.",
+      "consumer_summary_zh": "对乘客来说，ODC 的一部分体现为“在哪里能安全上车”。",
+      "consumer_summary_en": "For passengers, part of the ODC appears as “where a safe pickup can occur.”",
+      "developer_note_zh": "这说明 L4 ODC 应包含运营交互，不应只写车辆物理能力。",
+      "developer_note_en": "Shows that L4 ODC should include operational interaction, not only vehicle physical capability.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202212/t20221227_2120468.html",
+          "title": "武汉经开区 · 全国首个夜间全无人驾驶运营区域",
+          "section": "全无人商业化牌照、夜间运营、感知配置、102 个场景考试",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "operating_rule",
+          "confidence": "high",
+          "url": "https://apps.apple.com/cn/app/%E8%90%9D%E5%8D%9C%E5%BF%AB%E8%B7%91-%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%87%BA%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0/id1512367546",
+          "title": "萝卜快跑 App Store 官方应用说明",
+          "section": "运营范围、运营时段以约车产品界面为准；极端恶劣天气临时停运",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "service-time-expansion-city-scale",
+      "title_zh": "运营时段扩展 + 城市规模服务区",
+      "title_en": "Operating-hour expansion + city-scale service area",
+      "related_element_ids": [
+        "odd.road.type.area",
+        "odd.weather.lighting.streetlight",
+        "odd.digital.wireless.v2n",
+        "vehicle.ads_state"
+      ],
+      "relation_to_odc": "inside_odc",
+      "evidence_level": "government_rule",
+      "affected_capability": [
+        "operations"
+      ],
+      "expected_response": "service_suspension",
+      "condition_zh": "运营时段从日间扩展到夜间，再到 6:00 至 2:00，说明 L4 ODC 具有运营阶段性，而不是一次性静态清单。",
+      "condition_en": "Operating hours expanding from daytime to nighttime and then to 6:00–2:00 shows L4 ODC is operationally staged, not a static one-time table.",
+      "public_response_zh": "武汉市政府报道披露 300 台规模、运营时间扩展和江北核心区域贯通运营。",
+      "public_response_en": "Wuhan government reporting discloses a 300-vehicle scale, expanded operating hours, and cross-area operation in core northern districts.",
+      "consumer_summary_zh": "Robotaxi 样例应记录“何时能运营”，而不只是“在哪里能运营”。",
+      "consumer_summary_en": "A robotaxi sample should record “when it operates,” not only “where it operates.”",
+      "developer_note_zh": "建议未来把 L4 样例的生效日期和运营阶段作为一等字段。",
+      "developer_note_en": "Future L4 records should treat effective date and operating phase as first-class fields.",
+      "evidence_refs": [
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+          "title": "武汉市人民政府 · 萝卜快跑跑向武汉大街小巷",
+          "section": "全无人示范运营资格、运营区域、时段、机场高速、5G 云舱中心",
+          "extracted_date": "2026-05-13"
+        },
+        {
+          "type": "government_notice",
+          "confidence": "high",
+          "url": "https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202212/t20221227_2120468.html",
+          "title": "武汉经开区 · 全国首个夜间全无人驾驶运营区域",
+          "section": "全无人商业化牌照、夜间运营、感知配置、102 个场景考试",
+          "extracted_date": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "trigger_condition_candidate": true,
+      "id": "extreme-weather-service-suspension",
+      "title_zh": "极端恶劣天气 + App 临时停运",
+      "title_en": "Extreme adverse weather + app-level temporary suspension",
+      "related_element_ids": [
+        "odd.weather.atmospheric.special",
+        "odd.weather.atmospheric.rain",
+        "odd.weather.atmospheric.snow.snowfall",
+        "odd.weather.particles.fog",
+        "odd.digital.wireless.v2n"
+      ],
+      "relation_to_odc": "outside_odc",
+      "evidence_level": "operating_rule",
+      "affected_capability": [
+        "operations",
+        "perception"
+      ],
+      "expected_response": "service_suspension",
+      "condition_zh": "极端恶劣天气下，L4 服务边界通常以 App 临时停运、无法派单或运营区域收缩的方式体现。",
+      "condition_en": "In extreme adverse weather, an L4 service boundary often appears through app-level temporary suspension, no dispatch, or reduced service area.",
+      "public_response_zh": "萝卜快跑官方应用说明提示极端恶劣天气将临时停运，运营范围与时段以约车产品界面为准。",
+      "public_response_en": "The official Apollo Go app listing states extreme adverse weather may cause temporary service suspension and that service area / time follow the ride-hailing product interface.",
+      "consumer_summary_zh": "L4 退出未必是车内接管提示，也可能是服务端不派单。",
+      "consumer_summary_en": "For L4, exit may appear as no dispatch at the service layer, not an in-vehicle takeover prompt.",
+      "developer_note_zh": "这是 L4 与 L2/L3 ODC 表达差异的典型样例。",
+      "developer_note_en": "A typical example of how L4 ODC expression differs from L2/L3.",
+      "evidence_refs": [
+        {
+          "type": "operating_rule",
+          "confidence": "high",
+          "url": "https://apps.apple.com/cn/app/%E8%90%9D%E5%8D%9C%E5%BF%AB%E8%B7%91-%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%87%BA%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0/id1512367546",
+          "title": "萝卜快跑 App Store 官方应用说明",
+          "section": "运营范围、运营时段以约车产品界面为准；极端恶劣天气临时停运",
+          "extracted_date": "2026-05-13"
         }
       ]
     }
@@ -1540,13 +1839,15 @@
     "review_status": "community_reviewed",
     "sources": [
       "萝卜快跑 Apollo Go 官方门户: https://www.apollogo.com/ch/",
-      "武汉经开区 · 自动驾驶装备商业化试点管理办法发布说明: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202409/t20240924_2458453.html",
+      "萝卜快跑 App Store 官方应用说明: https://apps.apple.com/cn/app/%E8%90%9D%E5%8D%9C%E5%BF%AB%E8%B7%91-%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%87%BA%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0/id1512367546",
+      "武汉市人民政府 · “萝卜快跑”跑向武汉大街小巷: https://www.wuhan.gov.cn/sy/whyw/202312/t20231226_2329031.shtml",
+      "武汉经开区 · 夜间全无人驾驶运营区域: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202212/t20221227_2120468.html",
+      "Wuhan Government · driverless taxi service across Yangtze River: https://english.wuhan.gov.cn/H_1/NWP/202402/t20240228_2365030.shtml",
       "武汉经开区 · 智能网联汽车道路测试与示范应用管理办法（2024-09）: https://www.whkfq.gov.cn/xxgk/zc/gfxwj/202409/t20240920_2457091.html",
-      "武汉经开区 · 交通部智能交通先导应用试点: https://www.whkfq.gov.cn/gzfw/jt/202404/t20240424_2392967.html",
       "武汉经开区 · 3000 平方公里城市实验室报道: https://www.whkfq.gov.cn/xwzx/yw/kfqyw/qnxw/202504/t20250422_2570742.html",
       "Baidu Apollo RT6 官方发布稿（PR Newswire 镜像）: https://www.prnewswire.com/news-releases/baidu-unveils-next-gen-autonomous-vehicle-ready-to-provide-driverless-robotaxi-half-of-taxi-fares-301590644.html"
     ],
-    "notes": "OpenODC 社区已按 2026-05-03 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。",
-    "evidence_as_of": "2026-05-03"
+    "notes": "OpenODC 社区已按 2026-05-13 可访问的武汉经开区政府文件、武汉智能交通试点公告、Apollo Go 官方入口与 RT6 官方发布稿复核。本条为武汉示范运营样例；Robotaxi 没有车主手册，权威证据优先级为政府运营规则、示范应用管理文件、官方运营规则和 App 实时电子围栏。公开网页不能支撑统一运行速度上限、具体雨量/能见度停运阈值或完整乘客年龄规则，因此这些项目保留为公开资料未明确或中置信运营规则线索。",
+    "evidence_as_of": "2026-05-13"
   }
 }

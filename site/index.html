@@ -51,11 +51,11 @@
               <span class="evidence-label">官方/手册/政府高置信项</span>
             </a>
             <a href="/tools.html" class="evidence-stat">
-              <span class="evidence-num">0</span>
-              <span class="evidence-label">厂家确认版本</span>
+              <span class="evidence-num">60</span>
+              <span class="evidence-label">细粒度边界组合</span>
             </a>
           </div>
-          <p class="panel-note">当前 6 个样例均为社区基于公开资料提取，不代表厂家官方 ODC 声明。</p>
+          <p class="panel-note">当前 6 个样例均为社区基于公开资料提取，不代表厂家官方 ODC 声明；暂无厂家确认版本。</p>
         </div>
       </div>
     </section>
@@ -70,8 +70,8 @@
           <a class="section-link" href="/gallery.html">进入样例库 →</a>
         </div>
         <div class="sample-strip">
-          <a class="sample-tile" href="/view.html?id=tesla-fsd-us-current"><span>L2</span><strong>Tesla FSD Supervised · 美国</strong><small>v14.2+ 官方说明 + 2026.8 手册</small></a>
-          <a class="sample-tile" href="/view.html?id=tesla-assisted-driving-china-current"><span>L2</span><strong>Tesla 辅助驾驶 · 中国</strong><small>中国区 2026.8 车主手册</small></a>
+          <a class="sample-tile" href="/view.html?id=tesla-fsd-us-current"><span>L2</span><strong>Tesla FSD Supervised · 美国</strong><small>v14.2+ 官方说明 + 2026.14 手册</small></a>
+          <a class="sample-tile" href="/view.html?id=tesla-assisted-driving-china-current"><span>L2</span><strong>Tesla 辅助驾驶 · 中国</strong><small>中国区 2026.14 车主手册</small></a>
           <a class="sample-tile" href="/view.html?id=huawei-ads4-aito-m9"><span>L2</span><strong>问界 M9 · ADS 4</strong><small>2026-05 公开资料核验</small></a>
           <a class="sample-tile" href="/view.html?id=xpeng-xngp-p7plus-2026"><span>L2</span><strong>小鹏 P7+ · XNGP</strong><small>官方产品页 + 配置表</small></a>
           <a class="sample-tile" href="/view.html?id=baidu-apollogo-wuhan"><span>L4</span><strong>萝卜快跑 · 武汉</strong><small>武汉政府运营规则</small></a>
@@ -132,11 +132,28 @@
     </section>
 
     <section class="section section-alt section-tight">
-      <div class="container stack-row">
-        <div>
+      <div class="container stack-panel">
+        <div class="stack-head">
           <p class="eyebrow">OPEN AD SAFETY STACK</p>
           <h2 class="section-title">与 ROAM 和 DRIVEResearch 形成闭环</h2>
-          <p class="lead">ROAM 看事故与异常，OpenODC 看设计运行边界，DRIVEResearch 看真实交通分布。三者放在一起，才能把“设计边界、实际暴露、失效结果”连起来。</p>
+          <p class="lead">边界组合不是为了把 OpenODC 做成复杂的 SOTIF 平台，而是给三个项目提供共同接口：OpenODC 提出公开资料可支撑的组合边界，DRIVEResearch 估计这些组合在真实道路中出现的频次和参数分布，ROAM 记录越界、异常或运营干预后的结果。</p>
+        </div>
+        <div class="stack-card-grid">
+          <article class="stack-card">
+            <span>设计边界</span>
+            <h3>OpenODC</h3>
+            <p>把手册、功能页、运营规则中的单项 ODC 要素和组合边界整理成可追溯清单。</p>
+          </article>
+          <article class="stack-card">
+            <span>实际暴露</span>
+            <h3>DRIVEResearch</h3>
+            <p>用自然驾驶数据回答这些边界组合在中国道路中有多常见、参数分布如何。</p>
+          </article>
+          <article class="stack-card">
+            <span>异常结果</span>
+            <h3>ROAM</h3>
+            <p>用 Robotaxi 远程运营异常与事故记录检验哪些组合更容易触发接管、降级或运营干预。</p>
+          </article>
         </div>
         <div class="stack-links">
           <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">ROAM 网站 →</a>
@@ -151,7 +168,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
+        <p><strong>OpenODC v0.4.3</strong> · Apache 2.0 (代码) · CC BY 4.0 (数据)</p>
         <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
       </div>
       <div class="footer-links">

@@ -51,11 +51,11 @@
               <span class="evidence-label">official / manual / government-backed items</span>
             </a>
             <a href="/en/tools.html" class="evidence-stat">
-              <span class="evidence-num">0</span>
-              <span class="evidence-label">vendor-confirmed records</span>
+              <span class="evidence-num">60</span>
+              <span class="evidence-label">granular boundary combinations</span>
             </a>
           </div>
-          <p class="panel-note">All current samples are community extractions from public sources, not vendor-confirmed ODC declarations.</p>
+          <p class="panel-note">All current samples are community extractions from public sources, not vendor-confirmed ODC declarations; there are no vendor-confirmed records yet.</p>
         </div>
       </div>
     </section>
@@ -70,8 +70,8 @@
           <a class="section-link" href="/en/gallery.html">Open Gallery →</a>
         </div>
         <div class="sample-strip">
-          <a class="sample-tile" href="/en/view.html?id=tesla-fsd-us-current"><span>L2</span><strong>Tesla FSD Supervised · US</strong><small>v14.2+ official note + 2026.8 manual</small></a>
-          <a class="sample-tile" href="/en/view.html?id=tesla-assisted-driving-china-current"><span>L2</span><strong>Tesla Assisted Driving · China</strong><small>China 2026.8 owner manual</small></a>
+          <a class="sample-tile" href="/en/view.html?id=tesla-fsd-us-current"><span>L2</span><strong>Tesla FSD Supervised · US</strong><small>v14.2+ official note + 2026.14 manual</small></a>
+          <a class="sample-tile" href="/en/view.html?id=tesla-assisted-driving-china-current"><span>L2</span><strong>Tesla Assisted Driving · China</strong><small>China 2026.14 owner manual</small></a>
           <a class="sample-tile" href="/en/view.html?id=huawei-ads4-aito-m9"><span>L2</span><strong>AITO M9 · ADS 4</strong><small>Public evidence verified in 2026-05</small></a>
           <a class="sample-tile" href="/en/view.html?id=xpeng-xngp-p7plus-2026"><span>L2</span><strong>XPeng P7+ · XNGP</strong><small>Official product page + configuration table</small></a>
           <a class="sample-tile" href="/en/view.html?id=baidu-apollogo-wuhan"><span>L4</span><strong>Apollo Go · Wuhan</strong><small>Wuhan government operating rules</small></a>
@@ -132,11 +132,28 @@
     </section>
 
     <section class="section section-alt section-tight">
-      <div class="container stack-row">
-        <div>
+      <div class="container stack-panel">
+        <div class="stack-head">
           <p class="eyebrow">OPEN AD SAFETY STACK</p>
           <h2 class="section-title">Connected with ROAM and DRIVEResearch</h2>
-          <p class="lead">ROAM tracks incidents and anomalies. OpenODC tracks declared operating boundaries. DRIVEResearch tracks real traffic exposure. Together they connect design intent, real exposure, and failure outcomes.</p>
+          <p class="lead">Boundary combinations are not meant to turn OpenODC into a full SOTIF platform. They provide the shared interface: OpenODC proposes public-source-supported combined boundaries, DRIVEResearch estimates how often those combinations appear in real traffic and with what parameter ranges, and ROAM records what happens when boundaries are exceeded or operational interventions occur.</p>
+        </div>
+        <div class="stack-card-grid">
+          <article class="stack-card">
+            <span>Design boundary</span>
+            <h3>OpenODC</h3>
+            <p>Turns manuals, feature pages, and operating rules into traceable single-element ODC entries and combined-boundary candidates.</p>
+          </article>
+          <article class="stack-card">
+            <span>Real exposure</span>
+            <h3>DRIVEResearch</h3>
+            <p>Uses naturalistic driving data to estimate how frequent these combinations are and how their parameters are distributed on real roads.</p>
+          </article>
+          <article class="stack-card">
+            <span>Anomaly outcome</span>
+            <h3>ROAM</h3>
+            <p>Uses robotaxi remote-operation anomalies and incident records to see which combinations lead to takeover, degradation, or intervention.</p>
+          </article>
         </div>
         <div class="stack-links">
           <a href="https://autozyx.github.io/ROAM/" target="_blank" rel="noopener">ROAM website →</a>
@@ -151,7 +168,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-meta">
-        <p><strong>OpenODC v0.4.2</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p><strong>OpenODC v0.4.3</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
         <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
       </div>
       <div class="footer-links">

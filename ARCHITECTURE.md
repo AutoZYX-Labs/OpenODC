@@ -145,6 +145,16 @@ Boundary combinations are intentionally non-exhaustive. They are used to:
 
 They must not be presented as vendor safety conclusions unless the document itself is `vendor_confirmed`.
 
+This layer also creates the natural interface to two related projects:
+
+| Layer | Project | What it contributes |
+|---|---|---|
+| Declared boundary | OpenODC | Public-source-supported single elements and combined-boundary candidates |
+| Exposure distribution | DRIVEResearch | Naturalistic frequency, parameter distributions, and human-driving baselines for those combinations |
+| Outcome / anomaly | ROAM | Remote-operation anomalies, incidents, interventions, and boundary-exceedance evidence |
+
+OpenODC should stay deliberately narrow: it publishes auditable boundary evidence and combination candidates. DRIVEResearch can answer whether those combinations are common enough to matter. ROAM can answer whether they appear in real operational anomalies. Together they are stronger than an ODC table alone, while keeping each project maintainable.
+
 ## 6. Provenance and trust levels
 
 Each element entry can carry a `source` block:
@@ -228,4 +238,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-13 (v0.4.2 / boundary combinations and trigger-condition candidates).*
+*Last updated 2026-05-13 (v0.4.3 / boundary-combination expansion and trigger-condition candidates).*
