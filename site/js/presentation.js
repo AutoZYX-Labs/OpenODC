@@ -24,11 +24,14 @@ const customTextStorageKey = `${deckId}:custom-text`
 const customMediaStorageKey = `${deckId}:custom-media`
 const themeStorageKey = `${deckId}:theme`
 const isEnglish = document.documentElement.lang === 'en'
+const fullscreenRevealMargin = 84
 let index = initialIndex()
 let editMode = false
 let edits = loadEdits()
 let customTexts = loadCustomPayload(customTextStorageKey)
 let customMedia = loadCustomPayload(customMediaStorageKey)
+let fullscreenChromeTimer = null
+let lastFullscreenPointerY = null
 
 applySavedEdits()
 renderCustomAddons()
@@ -46,6 +49,13 @@ resetBtn?.addEventListener('click', resetEdits)
 notesBtn?.addEventListener('click', toggleNotes)
 exportBtn?.addEventListener('click', exportPptx)
 fullscreenBtn?.addEventListener('click', toggleFullscreen)
+app?.addEventListener('pointermove', handleFullscreenPointer)
+app?.addEventListener('pointerleave', () => {
+  lastFullscreenPointerY = null
+  scheduleFullscreenChromeHide(350)
+})
+app?.addEventListener('touchstart', revealFullscreenChrome)
+document.addEventListener('fullscreenchange', syncFullscreenState)
 
 document.addEventListener('keydown', event => {
   const target = event.target
@@ -157,6 +167,58 @@ async function toggleFullscreen() {
   } catch (error) {
     console.warn('Fullscreen unavailable', error)
   }
+}
+
+function syncFullscreenState() {
+  const isFullscreen = document.fullscreenElement === app
+  app?.classList.toggle('is-fullscreen', isFullscreen)
+  document.body.classList.toggle('deck-fullscreen-active', isFullscreen)
+  if (fullscreenBtn) fullscreenBtn.textContent = isFullscreen
+    ? (isEnglish ? 'Exit Full Screen' : '退出全屏')
+    : (isEnglish ? 'Full Screen' : '全屏')
+
+  clearTimeout(fullscreenChromeTimer)
+  if (isFullscreen) {
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
+    revealFullscreenChrome()
+  } else {
+    app?.classList.remove('fullscreen-reveal-top', 'fullscreen-reveal-bottom')
+  }
+}
+
+function handleFullscreenPointer(event) {
+  if (document.fullscreenElement !== app) return
+  lastFullscreenPointerY = event.clientY
+  const nearTop = event.clientY <= fullscreenRevealMargin
+  const nearBottom = event.clientY >= window.innerHeight - fullscreenRevealMargin
+
+  app.classList.toggle('fullscreen-reveal-top', nearTop)
+  app.classList.toggle('fullscreen-reveal-bottom', nearBottom)
+
+  if (nearTop || nearBottom) {
+    scheduleFullscreenChromeHide(2200)
+  } else {
+    scheduleFullscreenChromeHide(550)
+  }
+}
+
+function revealFullscreenChrome() {
+  if (document.fullscreenElement !== app) return
+  app.classList.add('fullscreen-reveal-top', 'fullscreen-reveal-bottom')
+  scheduleFullscreenChromeHide(1800)
+}
+
+function scheduleFullscreenChromeHide(delay = 900) {
+  clearTimeout(fullscreenChromeTimer)
+  fullscreenChromeTimer = setTimeout(() => {
+    if (document.fullscreenElement !== app) return
+    const nearTop = typeof lastFullscreenPointerY === 'number' && lastFullscreenPointerY <= fullscreenRevealMargin
+    const nearBottom = typeof lastFullscreenPointerY === 'number' && lastFullscreenPointerY >= window.innerHeight - fullscreenRevealMargin
+    if (nearTop || nearBottom) return
+    const active = document.activeElement
+    if (active && app.contains(active) && active.closest('.deck-topbar, .deck-bottom-bar')) return
+    app.classList.remove('fullscreen-reveal-top', 'fullscreen-reveal-bottom')
+  }, delay)
 }
 
 function loadEdits() {

@@ -2779,8 +2779,83 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   background-size: 44px 44px, auto;
 }
 .deck-app:fullscreen {
-  overflow: auto;
-  padding: 1rem 1.4rem 1.4rem;
+  overflow: hidden;
+  padding: 0;
+  background: var(--slide-bg, #fffdf8);
+}
+.deck-app.is-fullscreen {
+  min-height: 100vh;
+}
+.deck-app.is-fullscreen .deck-layout,
+.deck-app.is-fullscreen.notes-open .deck-layout {
+  max-width: none;
+  height: 100vh;
+  margin: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.deck-app.is-fullscreen .deck-stage {
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.deck-app.is-fullscreen .deck-notes-panel {
+  display: none;
+}
+.deck-app.is-fullscreen .deck-topbar,
+.deck-app.is-fullscreen .deck-bottom-bar {
+  position: fixed;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.deck-app.is-fullscreen .deck-topbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0.7rem 1rem;
+  background: color-mix(in srgb, var(--bg), transparent 8%);
+  border-bottom: 1px solid color-mix(in srgb, var(--line), transparent 25%);
+  box-shadow: 0 12px 34px rgba(27, 23, 74, 0.1);
+  transform: translateY(calc(-100% - 8px));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.deck-app.is-fullscreen .deck-bottom-bar {
+  left: 50%;
+  bottom: 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--line), transparent 18%);
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: color-mix(in srgb, var(--bg), transparent 8%);
+  box-shadow: 0 -12px 34px rgba(27, 23, 74, 0.1);
+  transform: translate(-50%, calc(100% + 8px));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.deck-app.is-fullscreen.fullscreen-reveal-top .deck-topbar,
+.deck-app.is-fullscreen .deck-topbar:hover,
+.deck-app.is-fullscreen .deck-topbar:focus-within {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.deck-app.is-fullscreen.fullscreen-reveal-bottom .deck-bottom-bar,
+.deck-app.is-fullscreen .deck-bottom-bar:hover,
+.deck-app.is-fullscreen .deck-bottom-bar:focus-within {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 .deck-topbar {
   max-width: var(--max);
@@ -2881,8 +2956,9 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   box-shadow: 0 28px 80px rgba(42, 37, 32, 0.14);
 }
 .deck-app:fullscreen .deck-stage {
-  height: calc(100vh - 160px);
+  height: 100vh;
   max-height: none;
+  min-height: 0;
 }
 .deck-stage[data-theme="paper"] {
   --slide-bg: #fffdf8;
