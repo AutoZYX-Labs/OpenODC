@@ -20,11 +20,11 @@
     <nav class="nav"></nav>
   </header>
 
-  <main class="deck-app" data-deck-id="openodc-odc-story-en">
+  <main class="deck-app" data-deck-id="openodc-formal-v1-en">
     <div class="deck-topbar">
       <div class="deck-topbar-title">
         <a href="/en/">OpenODC</a>
-        <span>20-Minute Project Brief</span>
+        <span>20-Minute Formal Brief</span>
       </div>
       <div class="deck-controls" aria-label="Presentation controls">
         <label class="deck-select-label" for="deck-theme">Theme</label>
@@ -35,413 +35,547 @@
           <option value="night">Night</option>
         </select>
         <button type="button" class="deck-control" id="deck-edit">Edit</button>
+        <button type="button" class="deck-control" id="deck-add-text">Add Text</button>
+        <button type="button" class="deck-control" id="deck-add-media">Add Media</button>
+        <input type="file" id="deck-media-input" accept="image/*,video/*" hidden />
         <button type="button" class="deck-control" id="deck-reset" hidden>Reset</button>
         <button type="button" class="deck-control" id="deck-notes">Notes</button>
+        <button type="button" class="deck-control" id="deck-export">Export PPTX</button>
         <button type="button" class="deck-control deck-control-primary" id="deck-fullscreen">Full Screen</button>
       </div>
     </div>
 
     <div class="deck-layout">
       <section class="deck-stage" id="deck-stage" data-theme="paper" aria-live="polite">
-        <article class="deck-slide is-active" data-slide data-timing="1:00">
-          <div class="slide-grid slide-grid-hero">
-            <div>
-              <p class="slide-kicker" data-edit-key="s1-kicker">GB/T 45312-2025 · Evidence-first registry</p>
-              <h1 class="slide-title slide-title-xl" data-edit-key="s1-title">OpenODC</h1>
-              <p class="slide-subtitle" data-edit-key="s1-subtitle">Turning ODC from standard text into public evidence</p>
-              <p class="slide-text" data-edit-key="s1-text">One story: what ODC is, why the national standard matters, why the industry needs OpenODC, and how people can contribute.</p>
-              <div class="speaker-card" aria-label="Speaker">
-                <span>Speaker</span>
-                <strong data-edit-key="s1-speaker">Yuxin Zhang</strong>
-                <p data-edit-key="s1-affiliation-a">Automated Driving Safety Joint Lab</p>
-                <p data-edit-key="s1-affiliation-b">State Key Laboratory of Automotive Chassis Integration and Bionics, Jilin University</p>
+        <article class="deck-slide is-active" data-slide data-slide-key="cover" data-timing="1:00">
+          <div class="slide-standard slide-cover">
+            <header class="slide-header slide-header-cover">
+              <p class="slide-kicker" data-edit-key="s01-kicker">GB/T 45312-2025 · Evidence-first ODC platform</p>
+              <h1 class="slide-title slide-title-xl" data-edit-key="s01-title">OpenODC</h1>
+              <p class="slide-subtitle" data-edit-key="s01-subtitle">Turning automated-driving operating boundaries into verifiable, comparable, co-maintained public data</p>
+            </header>
+            <div class="slide-body two-col cover-body">
+              <div class="cover-copy">
+                <div class="speaker-card" aria-label="Speaker">
+                  <span>Speaker</span>
+                  <strong data-edit-key="s01-speaker">Yuxin Zhang</strong>
+                  <p data-edit-key="s01-affiliation-a">Automated Driving Safety Joint Lab</p>
+                  <p data-edit-key="s01-affiliation-b">State Key Laboratory of Automotive Chassis Integration and Bionics, Jilin University</p>
+                </div>
+                <div class="mini-claim-grid">
+                  <section><strong>Standard-aligned</strong><span>144 GB/T ODC elements</span></section>
+                  <section><strong>Evidence-first</strong><span>346 element-level references</span></section>
+                  <section><strong>Combination-aware</strong><span>60 granular boundary combinations</span></section>
+                </div>
+              </div>
+              <div class="cover-identity-panel">
+                <figure class="slide-image-frame">
+                  <img src="/assets/presentation/openodc-home.png" alt="OpenODC homepage screenshot" />
+                </figure>
+                <div class="cover-logo-strip" aria-label="Lab logos">
+                  <img src="/assets/presentation/ad-safety-joint-lab-logo.png" alt="Automated Driving Safety Joint Lab" />
+                  <img src="/assets/presentation/state-key-lab-logo.png" alt="State Key Laboratory of Automotive Chassis Integration and Bionics" />
+                </div>
               </div>
             </div>
-            <div class="cover-identity-panel">
+          </div>
+          <div class="deck-notes-source">
+            <p>Open with the central issue: operating boundaries must be specific, evidenced, and comparable.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda" data-timing="0:50">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s02-kicker">Agenda</p>
+              <h2 class="slide-title" data-edit-key="s02-title">From ODC concepts and the national standard to OpenODC</h2>
+            </header>
+            <div class="slide-body agenda-body">
+              <div class="agenda-grid agenda-grid-formal" aria-label="Presentation agenda">
+                <section><span>01</span><strong data-edit-key="s02-a">What ODC is</strong><p>Clarify the boundary problem that operational design conditions solve.</p></section>
+                <section><span>02</span><strong data-edit-key="s02-b">Why the standard matters</strong><p>GB/T 45312-2025 gives the industry a shared element system.</p></section>
+                <section><span>03</span><strong data-edit-key="s02-c">Why a public platform is needed</strong><p>Public evidence remains fragmented, uneven, and hard to compare.</p></section>
+                <section><span>04</span><strong data-edit-key="s02-d">How OpenODC organizes data</strong><p>Schema, provenance, views, and boundary combinations.</p></section>
+                <section><span>05</span><strong data-edit-key="s02-e">How to contribute</strong><p>Samples, review, vendor confirmation, and tooling.</p></section>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Use a formal agenda for a conference setting.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="what-is-odc" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s03-kicker">01 · What ODC Is</p>
+              <h2 class="slide-title" data-edit-key="s03-title">ODC answers where the system was designed to operate</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div>
+                <p class="slide-lead" data-edit-key="s03-lead">Operational design conditions cannot be reduced to “highway supported” or “city supported”. They require road, traffic, weather, object, digital-information, human, and vehicle states to be specified.</p>
+                <ul class="dense-list">
+                  <li data-edit-key="s03-a">Where can the feature be activated?</li>
+                  <li data-edit-key="s03-b">What happens in work zones, flooding, weak lane markings, or poor visibility?</li>
+                  <li data-edit-key="s03-c">Does the boundary come from a manual, an official page, an operating rule, or inference?</li>
+                </ul>
+              </div>
               <figure class="slide-image-frame">
-                <img src="/assets/presentation/openodc-home.png" alt="OpenODC homepage screenshot" />
+                <img src="/assets/presentation/odc-boundary-list.png" alt="ODC boundary list illustration" />
               </figure>
-              <div class="cover-logo-strip" aria-label="Lab logos">
-                <img src="/assets/presentation/ad-safety-joint-lab-logo.png" alt="Automated Driving Safety Joint Lab" />
-                <img src="/assets/presentation/state-key-lab-logo.png" alt="State Key Laboratory of Automotive Chassis Integration and Bionics" />
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Define ODC as an engineering boundary object, not as a marketing claim.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="odc-vs-level" data-timing="1:00">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s04-kicker">Concept Separation</p>
+              <h2 class="slide-title" data-edit-key="s04-title">Automation level describes responsibility; ODC describes operating boundaries</h2>
+            </header>
+            <div class="slide-body">
+              <table class="presentation-table">
+                <thead><tr><th>Object</th><th>Main question</th><th>Relation to ODC</th></tr></thead>
+                <tbody>
+                  <tr><td>L2 assistance</td><td>The driver remains responsible for supervision and takeover.</td><td>ODC describes use conditions, not permission to stop supervising.</td></tr>
+                  <tr><td>L3 automation</td><td>The system performs the DDT within limited conditions.</td><td>ODC must be tied to exit, takeover, and fallback behavior.</td></tr>
+                  <tr><td>L4 driverless operation</td><td>The system operates within a domain or operating rule set.</td><td>Geofence, weather, road, and permits become core boundaries.</td></tr>
+                </tbody>
+              </table>
+              <p class="slide-callout" data-edit-key="s04-callout">OpenODC does not rank capability. It asks how clearly public sources describe the boundary.</p>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Prevent the AD leaderboard misunderstanding.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="standard-background" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s05-kicker">02 · National-Standard Context</p>
+              <h2 class="slide-title" data-edit-key="s05-title">GB/T 45312-2025 gives ODC a shared language</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div>
+                <p class="slide-lead" data-edit-key="s05-lead">The standard decomposes automated-driving operational design conditions into structured elements and asks for permitted / not-permitted states, element associations, and exit behavior.</p>
+                <div class="clause-grid">
+                  <section><strong>§5.4.a</strong><span>ODC elements</span></section>
+                  <section><strong>§5.4.b</strong><span>Permitted / not permitted</span></section>
+                  <section><strong>§5.4.c</strong><span>Element associations</span></section>
+                  <section><strong>§5.5</strong><span>Exit behavior outside allowed conditions</span></section>
+                </div>
+              </div>
+              <div class="stat-strip stat-strip-vertical">
+                <section><strong>7</strong><span>ODC categories</span></section>
+                <section><strong>144</strong><span>standard elements</span></section>
+                <section><strong>2025</strong><span>publication year</span></section>
               </div>
             </div>
           </div>
           <div class="deck-notes-source">
-            <p>Open with the core idea, not the web features: OpenODC turns scattered operating-boundary statements into evidence that can be verified, compared, and improved together.</p>
+            <p>The standard gives OEMs, researchers, test bodies, and regulators a common object of discussion.</p>
           </div>
         </article>
 
-        <article class="deck-slide" data-slide data-timing="0:55">
-          <div class="slide-grid slide-grid-balanced agenda-slide">
-            <div>
-              <p class="slide-kicker" data-edit-key="agenda-kicker">Agenda</p>
-              <h2 class="slide-title" data-edit-key="agenda-title">Tell OpenODC as one story</h2>
-              <p class="slide-text" data-edit-key="agenda-text">Define ODC first, explain the national standard, surface the public-data gap, then introduce OpenODC’s method, framework, and contribution path.</p>
-            </div>
-            <div class="agenda-grid" aria-label="Presentation agenda">
-              <section>
-                <span>01</span>
-                <strong data-edit-key="agenda-1">What ODC is</strong>
-                <p>A boundary list, not a capability ranking.</p>
-              </section>
-              <section>
-                <span>02</span>
-                <strong data-edit-key="agenda-2">The national-standard context</strong>
-                <p>GB/T 45312-2025 gives the industry a common language.</p>
-              </section>
-              <section>
-                <span>03</span>
-                <strong data-edit-key="agenda-3">Why a public platform is missing</strong>
-                <p>The standard exists, but public evidence remains fragmented.</p>
-              </section>
-              <section>
-                <span>04</span>
-                <strong data-edit-key="agenda-4">OpenODC’s method and framework</strong>
-                <p>Standard alignment, provenance, combinations, and tools.</p>
-              </section>
-              <section>
-                <span>05</span>
-                <strong data-edit-key="agenda-5">Summary and contribution</strong>
-                <p>Move from a prototype toward public infrastructure.</p>
-              </section>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>This is the contract for the talk. Every slide should support one of these five story beats.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:20">
-          <div class="slide-grid">
-            <div>
-              <p class="slide-kicker" data-edit-key="s2-kicker">01 · What ODC is</p>
-              <h2 class="slide-title" data-edit-key="s2-title">ODC answers one boundary question</h2>
-              <p class="slide-subtitle" data-edit-key="s2-subtitle">Under what conditions was this feature designed to operate?</p>
-              <div class="question-stack">
-                <p data-edit-key="s2-q1">Which roads, speeds, weather, and traffic environments are in scope?</p>
-                <p data-edit-key="s2-q2">In work zones, flooding, or weak lane markings, should the system suppress activation or exit?</p>
-                <p data-edit-key="s2-q3">Does that boundary come from a manual, an official source, or a third-party inference?</p>
+        <article class="deck-slide" data-slide data-slide-key="standard-taxonomy" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s06-kicker">Standard Taxonomy</p>
+              <h2 class="slide-title" data-edit-key="s06-title">ODC is a 7-category, 144-element system</h2>
+            </header>
+            <div class="slide-body">
+              <div class="taxonomy-map taxonomy-map-wide">
+                <span>Road</span>
+                <span>Infrastructure</span>
+                <span>Objects</span>
+                <span>Weather</span>
+                <span>Digital information</span>
+                <span>Personnel state</span>
+                <span>Vehicle state</span>
+              </div>
+              <div class="explain-grid">
+                <section><strong>Structured</strong><p>Turns “highway”, “city”, “parking”, and “robotaxi” into authorable fields.</p></section>
+                <section><strong>Traceable</strong><p>Each item should point back to a source, version, and evidence date.</p></section>
+                <section><strong>Comparable</strong><p>Different systems can be aligned on the same element coordinates.</p></section>
               </div>
             </div>
-            <figure class="slide-image-frame">
-              <img src="/assets/presentation/odc-boundary-list.png" alt="ODC boundary list illustration" />
-            </figure>
           </div>
           <div class="deck-notes-source">
-            <p>Capability and boundary transparency are different things. ODC is about the latter.</p>
+            <p>Make the standard visible as an actual taxonomy, not only a citation.</p>
           </div>
         </article>
 
-        <article class="deck-slide" data-slide data-timing="1:20">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s3-kicker">Boundary list</p>
-              <h2 class="slide-title" data-edit-key="s3-title">ODC turns real scenes into authorable conditions</h2>
-              <p class="slide-text" data-edit-key="s3-text">The standard’s ODC elements cover road, infrastructure, objects, weather, digital information, personnel state, and vehicle state. “Supports highway driving” is not enough.</p>
-            </div>
-            <div class="taxonomy-map">
-              <span>Road</span>
-              <span>Infrastructure</span>
-              <span>Objects</span>
-              <span>Weather</span>
-              <span>Digital info</span>
-              <span>Personnel</span>
-              <span>Vehicle state</span>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>Make ODC concrete: it is a structured set of conditions that can be authored, validated, and compared.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:20">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s4-kicker">Do not confuse them</p>
-              <h2 class="slide-title" data-edit-key="s4-title">Automation level is not ODC</h2>
-              <p class="slide-text" data-edit-key="s4-text">L2, L3, and L4 primarily describe responsibility and DDT allocation. ODC describes operating conditions. Two L2 systems can have very different boundaries across markets, models, and software versions.</p>
-            </div>
-            <div class="level-ladder" aria-label="Automation levels and operating boundaries">
-              <div><span>L2</span><strong>Driver remains responsible</strong><small>ODC describes feature-use conditions, not permission to stop supervising.</small></div>
-              <div><span>L3</span><strong>System takes DDT within limits</strong><small>ODC must be tied to exit and takeover conditions.</small></div>
-              <div><span>L4</span><strong>Driverless within a domain</strong><small>Geofence, weather, and operating rules become core boundaries.</small></div>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>Prevent the “AD leaderboard” misunderstanding. OpenODC compares boundary clarity, not capability level.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:30">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s5-kicker">02 · National-standard context</p>
-              <h2 class="slide-title" data-edit-key="s5-title">GB/T 45312-2025 gives a common language</h2>
-              <p class="slide-text" data-edit-key="s5-text">The standard decomposes automated-driving operational design conditions into structured elements and requires permitted / not-permitted states, associations, and exit behavior.</p>
-            </div>
-            <div class="metric-row">
-              <span><strong>7</strong>categories</span>
-              <span><strong>144</strong>standard elements</span>
-              <span><strong>§5.4</strong>permitted / not permitted / association</span>
-              <span><strong>§5.5</strong>exit behavior</span>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>The standard matters because it gives OEMs, testing bodies, regulators, and researchers a shared object of discussion.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:20">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s7-kicker">But</p>
-              <h2 class="slide-title" data-edit-key="s7-title">A standard is not a public platform</h2>
-              <p class="slide-text" data-edit-key="s7-text">GB/T 45312-2025 provides the syntax, but it does not automatically produce an industry database. Manuals, official pages, operating rules, and tests are still scattered and hard to compare.</p>
-            </div>
-            <div class="not-ranking">
-              <p>OEM wording differs</p>
-              <p>Evidence granularity differs</p>
-              <p>Third-party review is difficult</p>
-              <p>Consumers cannot see a unified boundary</p>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>This is the natural entry point for OpenODC: the industry needs an application layer between the standard and public evidence.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:40">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s8-kicker">03 · Industry gap</p>
-              <h2 class="slide-title" data-edit-key="s8-title">What is missing is a public ODC data layer</h2>
-              <p class="slide-text" data-edit-key="s8-text">That layer should connect standard elements, public-source extraction, provenance, version status, and comparison tools, so boundaries become queryable data instead of scattered manual prose.</p>
-            </div>
-            <div class="pipeline-visual">
-              <div>GB/T 45312-2025</div>
-              <div>Public-source extraction</div>
-              <div>Evidence and confidence labels</div>
-              <div>Browse, compare, contribute</div>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>OpenODC enters as the public data layer from the standard to practical use.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:30">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s9-kicker">OpenODC positioning</p>
-              <h2 class="slide-title" data-edit-key="s9-title">It measures how clearly public boundaries are evidenced</h2>
-              <p class="slide-text" data-edit-key="s9-text">OpenODC is not a safety certification and not an AD leaderboard. Unless a record is marked vendor_confirmed, it is a community extraction from public sources.</p>
-            </div>
-            <div class="not-ranking">
-              <p>No capability ranking</p>
-              <p>No replacement for OEM ODC systems</p>
-              <p>No replacement for ISO 21448 / ISO 26262 safety cases</p>
-              <p>No packaging inference as official disclosure</p>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>This slide protects the project from the most likely public misreadings.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:20">
-          <div class="slide-grid">
-            <div>
-              <p class="slide-kicker" data-edit-key="s10-kicker">04 · Method</p>
-              <h2 class="slide-title" data-edit-key="s10-title">Four method rules behind OpenODC</h2>
-              <p class="slide-text" data-edit-key="s10-text">The reusable asset is not a nice page. It is a method for standard alignment, provenance, semantics, and versioned boundary data.</p>
-            </div>
-            <div class="feature-triplet feature-quad">
-              <section><span>01</span><h3 data-edit-key="s10-a">Standard-first</h3><p>JSON Schema is the contract; pages are derivatives.</p></section>
-              <section><span>02</span><h3 data-edit-key="s10-b">Provenance-first</h3><p>30 sourced entries are better than 80 unsourced entries.</p></section>
-              <section><span>03</span><h3 data-edit-key="s10-c">Semantics-first</h3><p>L2/L3/L4 can share elements, but their meanings differ.</p></section>
-              <section><span>04</span><h3 data-edit-key="s10-d">Combinations second</h3><p>The element table is the base; combined scenes are trigger candidates.</p></section>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>This is the conceptual core of the talk.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="2:00">
-          <div class="slide-grid">
-            <div>
-              <p class="slide-kicker" data-edit-key="s11-kicker">Framework</p>
-              <h2 class="slide-title" data-edit-key="s11-title">One ODC document supports multiple views</h2>
-              <p class="slide-text" data-edit-key="s11-text">Each sample is built around one ODCDocument: identity, elements[], associations[], boundary_combinations[], and metadata.</p>
-              <div class="metric-row">
-                <span><strong>6</strong>public samples</span>
-                <span><strong>144</strong>standard elements</span>
-                <span><strong>60</strong>boundary combinations</span>
-                <span><strong>5</strong>core views</span>
+        <article class="deck-slide" data-slide data-slide-key="standard-to-data" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s07-kicker">From Standard to Data</p>
+              <h2 class="slide-title" data-edit-key="s07-title">OpenODC maps GB/T requirements into an ODCDocument</h2>
+            </header>
+            <div class="slide-body two-col">
+              <table class="presentation-table compact-table">
+                <thead><tr><th>Standard requirement</th><th>OpenODC field</th></tr></thead>
+                <tbody>
+                  <tr><td>ODC elements</td><td><code>elements[]</code></td></tr>
+                  <tr><td>Permitted / not permitted</td><td><code>requirement</code>, <code>parameters</code></td></tr>
+                  <tr><td>Element associations</td><td><code>associations[]</code></td></tr>
+                  <tr><td>Exit behavior</td><td><code>exit_behavior</code></td></tr>
+                  <tr><td>Public-source evidence</td><td><code>source</code>, <code>evidence_refs[]</code></td></tr>
+                  <tr><td>Boundary combinations</td><td><code>boundary_combinations[]</code></td></tr>
+                </tbody>
+              </table>
+              <div class="schema-card">
+                <strong>ODCDocument</strong>
+                <span>identity</span>
+                <span>elements[]</span>
+                <span>associations[]</span>
+                <span>boundary_combinations[]</span>
+                <span>metadata</span>
               </div>
             </div>
-            <figure class="slide-image-frame">
-              <img src="/assets/presentation/openodc-flow.png" alt="OpenODC workflow illustration" />
-            </figure>
           </div>
           <div class="deck-notes-source">
-            <p>Gallery, detail, Compare, Matrix, Editor, and Workbench are not separate ideas. They are views over the same data contract.</p>
+            <p>The reusable asset is the data contract; the pages are views over it.</p>
           </div>
         </article>
 
-        <article class="deck-slide" data-slide data-timing="1:40">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s12-kicker">Why it is not just a table</p>
-              <h2 class="slide-title" data-edit-key="s12-title">Single-element permission does not mean combined-scene availability</h2>
-              <p class="slide-text" data-edit-key="s12-text">An ODC table decomposes high-dimensional real scenes into single elements. Risk often appears when weather, lane markings, roads, objects, speed, and HMI stack together.</p>
-            </div>
-            <div class="combination-formula">
-              <div>Rain / fog / glare</div>
-              <div>Worn lane markings</div>
-              <div>Work-zone rerouting</div>
-              <div>Driver distraction</div>
-              <strong>This is not four independent cells. It is one combined-boundary problem.</strong>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>Place boundary combinations after the methodology: first the table, then the limitation, then the second layer.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="2:00">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s13-kicker">Boundary combinations</p>
-              <h2 class="slide-title" data-edit-key="s13-title">A second layer, not a safety conclusion</h2>
-              <p class="slide-text" data-edit-key="s13-text">`boundary_combinations[]` records a small set of public-source-supported combinations: related elements, ODC relation, expected response, and evidence level.</p>
-            </div>
-            <div class="boundary-cards">
-              <section><span>01</span><strong>related_element_ids</strong><p>Which ODC elements appear together.</p></section>
-              <section><span>02</span><strong>relation_to_odc</strong><p>inside / outside / boundary / unknown.</p></section>
-              <section><span>03</span><strong>expected_response</strong><p>Suppress activation, trigger exit, takeover, or not disclosed.</p></section>
-              <section><span>04</span><strong>evidence_level</strong><p>Official, manual, operating rule, or public gap.</p></section>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>Stress that this second layer is deliberately lightweight. It structures public evidence without pretending to be a full SOTIF analysis.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:30">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s14-kicker">Interface</p>
-              <h2 class="slide-title" data-edit-key="s14-title">From ODC to SOTIF trigger candidates</h2>
-              <p class="slide-text" data-edit-key="s14-text">OpenODC does not build a safety case. It organizes public boundary evidence into traceable trigger-condition candidates so data and anomaly projects can continue the analysis.</p>
-            </div>
-            <div class="trigger-map">
-              <div><strong>OpenODC</strong><span>Declared boundaries and combination candidates</span></div>
-              <div><strong>DRIVEResearch</strong><span>Real-road exposure frequency and parameter distribution</span></div>
-              <div><strong>ROAM</strong><span>Boundary exceedance, anomaly, and intervention outcome</span></div>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>OpenODC handles declared boundaries; DRIVEResearch handles exposure; ROAM handles outcomes.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:30">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s15-kicker">Evidence governance</p>
-              <h2 class="slide-title" data-edit-key="s15-title">Evidence matters more than completeness</h2>
-              <p class="slide-text" data-edit-key="s15-text">OpenODC does not try to fill every blank. Each item and combination must state whether it comes from a manual, official source, curation, inference, or a public-source gap.</p>
-            </div>
-            <div class="evidence-stack">
-              <span class="manual">Manual-backed</span>
-              <span class="official">Official statement</span>
-              <span class="curated">Community curated</span>
-              <span class="inferred">Inferred</span>
-              <span class="gap">Public-source gap</span>
-              <span class="structural">Structural category</span>
-            </div>
-          </div>
-          <div class="deck-notes-source">
-            <p>Coverage is not vendor disclosure rate. Gaps must remain visible.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:10">
-          <div class="slide-grid">
-            <div>
-              <p class="slide-kicker" data-edit-key="s16-kicker">05 · Summary</p>
-              <h2 class="slide-title" data-edit-key="s16-title">OpenODC in one sentence</h2>
-              <p class="slide-text" data-edit-key="s16-text">OpenODC organizes GB/T 45312-2025 ODC elements, public-source evidence, and combined-boundary candidates into a verifiable, comparable, and co-maintained open data platform.</p>
-            </div>
-            <blockquote class="closing-quote" data-edit-key="s16-quote">ODC names the boundary. The standard aligns the boundary. OpenODC makes the boundary publicly verifiable.</blockquote>
-          </div>
-          <div class="deck-notes-source">
-            <p>Do not introduce a new topic here. Use one sentence to close the concept-standard-platform arc.</p>
-          </div>
-        </article>
-
-        <article class="deck-slide" data-slide data-timing="1:10">
-          <div class="slide-grid slide-grid-balanced">
-            <div>
-              <p class="slide-kicker" data-edit-key="s17-kicker">Contribution path</p>
-              <h2 class="slide-title" data-edit-key="s17-title">How to contribute</h2>
-              <ul class="action-list">
-                <li data-edit-key="s17-a">Submit a public-source-verifiable ODC sample</li>
-                <li data-edit-key="s17-b">Add a boundary combination or trigger-condition candidate</li>
-                <li data-edit-key="s17-c">Provide vendor confirmation or institutional review</li>
-                <li data-edit-key="s17-d">Help with standards mapping, data maintenance, or tooling</li>
-              </ul>
-              <div class="slide-cta-row">
-                <a class="slide-link" href="/en/join.html" target="_blank" rel="noopener">Join →</a>
-                <a class="slide-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+        <article class="deck-slide" data-slide data-slide-key="industry-gap" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s08-kicker">03 · Industry Gap</p>
+              <h2 class="slide-title" data-edit-key="s08-title">A standard does not automatically create a public ODC platform</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div class="source-stack">
+                <section><strong>Owner manuals</strong><span>Boundaries appear across warnings, limits, and notices.</span></section>
+                <section><strong>Official pages</strong><span>Feature claims are visible, but parameters and version boundaries are often incomplete.</span></section>
+                <section><strong>Operating rules</strong><span>L4 robotaxi domains depend on permits, areas, time windows, and policies.</span></section>
+                <section><strong>Third-party tests</strong><span>Useful observations, but must remain separate from official evidence.</span></section>
+              </div>
+              <div class="gap-panel">
+                <h3>What the missing public layer causes</h3>
+                <ul class="dense-list">
+                  <li>Consumers cannot understand real system boundaries.</li>
+                  <li>Researchers cannot build comparable samples easily.</li>
+                  <li>Test bodies cannot reuse evidence and version records.</li>
+                  <li>Standard language does not flow into tooling.</li>
+                </ul>
               </div>
             </div>
-            <div class="workbench-flow">
-              <div>Public source</div>
-              <div>ODC draft</div>
-              <div>Community / institutional review</div>
-              <div>Vendor-confirmed version</div>
-            </div>
           </div>
           <div class="deck-notes-source">
-            <p>Move the audience from understanding into action: samples, boundary combinations, review, tools, and long-term maintenance.</p>
+            <p>The standard gives syntax. Public evidence still needs curation, verification, and maintenance.</p>
           </div>
         </article>
 
-        <article class="deck-slide" data-slide data-timing="0:45">
-          <div class="thanks-layout">
-            <div class="thanks-main">
-              <p class="slide-kicker" data-edit-key="thanks-kicker">Thank you</p>
-              <h2 class="slide-title slide-title-xl" data-edit-key="thanks-title">Thank You</h2>
-              <p class="slide-subtitle" data-edit-key="thanks-subtitle">Turning automated-driving boundaries from scattered prose into public evidence.</p>
-              <div class="thanks-logo-row" aria-label="Lab logos">
-                <img src="/assets/presentation/ad-safety-joint-lab-logo.png" alt="Automated Driving Safety Joint Lab" />
-                <img src="/assets/presentation/state-key-lab-logo.png" alt="State Key Laboratory of Automotive Chassis Integration and Bionics" />
+        <article class="deck-slide" data-slide data-slide-key="positioning" data-timing="1:00">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s09-kicker">OpenODC Positioning</p>
+              <h2 class="slide-title" data-edit-key="s09-title">It measures how clearly public boundaries are evidenced</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div>
+                <p class="slide-lead" data-edit-key="s09-lead">OpenODC is an open ODC data platform. Unless a record is marked <code>vendor_confirmed</code>, it is a community extraction from public sources.</p>
+                <div class="status-card">
+                  <strong>Current default status</strong>
+                  <span>community_reviewed</span>
+                  <p>Reviewed against public sources, but not equivalent to OEM confirmation.</p>
+                </div>
               </div>
-            </div>
-            <div class="contact-board" aria-label="Contact information">
-              <section>
-                <span>Homepage</span>
-                <a href="https://autozyx.com" target="_blank" rel="noopener">autozyx.com</a>
-              </section>
-              <section>
-                <span>Lab</span>
-                <a href="https://lab.autozyx.com/" target="_blank" rel="noopener">lab.autozyx.com</a>
-              </section>
-              <section>
-                <span>OpenODC</span>
-                <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">github.com/AutoZYX-Labs/OpenODC</a>
-              </section>
-              <section>
-                <span>WeChat public account</span>
-                <strong>张玉新-AutoZyx</strong>
-              </section>
+              <div class="not-ranking">
+                <p>No capability ranking</p>
+                <p>No replacement for OEM ODC systems</p>
+                <p>No replacement for ISO 21448 / ISO 26262 safety cases</p>
+                <p>No packaging inference as official disclosure</p>
+              </div>
             </div>
           </div>
           <div class="deck-notes-source">
-            <p>This slide only closes and gives contact points. It should not repeat the contribution slide.</p>
+            <p>This slide states the project’s credibility boundary.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="project-state" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s10-kicker">Current State</p>
+              <h2 class="slide-title" data-edit-key="s10-title">OpenODC connects the standard, samples, evidence, and tools in one site</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div class="stat-strip stat-strip-grid">
+                <section><strong>6</strong><span>high-confidence public samples</span></section>
+                <section><strong>144</strong><span>GB/T ODC elements</span></section>
+                <section><strong>346</strong><span>element-level references</span></section>
+                <section><strong>97</strong><span>official / manual / government-backed items</span></section>
+                <section><strong>60</strong><span>granular boundary combinations</span></section>
+                <section><strong>5</strong><span>core user views</span></section>
+              </div>
+              <figure class="slide-image-frame">
+                <img src="/assets/presentation/openodc-home.png" alt="OpenODC homepage metrics" />
+              </figure>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Move from concept to concrete project assets.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="gallery" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s11-kicker">Sample Library</p>
+              <h2 class="slide-title" data-edit-key="s11-title">One ODC framework can host L2 through L4 public samples</h2>
+            </header>
+            <div class="slide-body two-col">
+              <figure class="slide-image-frame">
+                <img src="/assets/presentation/openodc-gallery.png" alt="OpenODC sample gallery screenshot" />
+              </figure>
+              <div class="sample-list">
+                <section><span>L2</span><strong>Tesla FSD (Supervised), US</strong></section>
+                <section><span>L2</span><strong>Tesla assisted driving, China</strong></section>
+                <section><span>L2</span><strong>AITO M9 · Huawei ADS 4</strong></section>
+                <section><span>L2</span><strong>XPENG XNGP · P7+ 2026</strong></section>
+                <section><span>L4</span><strong>Baidu Apollo Go Wuhan robotaxi</strong></section>
+                <section><span>L4</span><strong>Pony.ai Gen-7 robotaxi</strong></section>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Show that the platform already carries concrete samples across ADAS and robotaxi domains.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="sample-detail" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s12-kicker">How to Read a Sample</p>
+              <h2 class="slide-title" data-edit-key="s12-title">Each sample exposes boundary, provenance, confidence, and gaps</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div class="evidence-stack evidence-stack-wide">
+                <span class="manual">Manual-backed</span>
+                <span class="official">Official statement</span>
+                <span class="curated">Community curated</span>
+                <span class="inferred">Inferred</span>
+                <span class="gap">Public-source gap</span>
+                <span class="structural">Structural category</span>
+              </div>
+              <table class="presentation-table compact-table">
+                <thead><tr><th>Field</th><th>Purpose</th></tr></thead>
+                <tbody>
+                  <tr><td><code>requirement</code></td><td>Permitted, not permitted, structural, or unknown.</td></tr>
+                  <tr><td><code>source.type</code></td><td>Separates official, manual, test, curation, and inference.</td></tr>
+                  <tr><td><code>confidence</code></td><td>Marks high, medium, or low confidence.</td></tr>
+                  <tr><td><code>evidence_refs[]</code></td><td>Stores URL, page, section, or excerpt references.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Coverage is not vendor disclosure rate. Public gaps remain visible.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="compare-matrix" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s13-kicker">Comparison</p>
+              <h2 class="slide-title" data-edit-key="s13-title">The 144-element table makes different systems comparable</h2>
+            </header>
+            <div class="slide-body">
+              <table class="presentation-table matrix-table">
+                <thead>
+                  <tr><th>ODC element</th><th>Tesla FSD US</th><th>Huawei ADS 4</th><th>XPENG XNGP</th><th>Baidu Apollo</th><th>Pony.ai robotaxi</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Road type</td><td>Public coverage</td><td>Public coverage</td><td>Public coverage</td><td>Operational domain</td><td>Operational domain</td></tr>
+                  <tr><td>Weather</td><td>Manual limits</td><td>Partial official evidence</td><td>Partial public evidence</td><td>Operating-rule linked</td><td>Operating-rule linked</td></tr>
+                  <tr><td>Weak lane markings</td><td>Manual limit</td><td>Limited public evidence</td><td>Limited public evidence</td><td>Public gap</td><td>Public gap</td></tr>
+                  <tr><td>Exit / takeover</td><td>Driver supervision</td><td>Driver supervision</td><td>Driver supervision</td><td>Safety operator / remote support</td><td>Safety operator / remote support</td></tr>
+                </tbody>
+              </table>
+              <p class="slide-callout" data-edit-key="s13-callout">The comparison is about public boundary clarity, not which system is more capable.</p>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>The matrix value is visible even without opening the website.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="workbench" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s14-kicker">Vendor Intake Workbench</p>
+              <h2 class="slide-title" data-edit-key="s14-title">OpenODC supports a path from public sources to review packages</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div class="process-flow">
+                <section><strong>1</strong><span>Paste public or sanitized source text</span></section>
+                <section><strong>2</strong><span>Map it into a 144-element ODC draft</span></section>
+                <section><strong>3</strong><span>Mark provenance, gaps, and confidence</span></section>
+                <section><strong>4</strong><span>Export CSV / Markdown review packages</span></section>
+              </div>
+              <figure class="slide-image-frame">
+                <img src="/assets/presentation/openodc-flow.png" alt="OpenODC workflow illustration" />
+              </figure>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>The site is not only for display; it also models the contribution workflow.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="method" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s15-kicker">04 · Method</p>
+              <h2 class="slide-title" data-edit-key="s15-title">OpenODC’s value is data governance, not page count</h2>
+            </header>
+            <div class="slide-body">
+              <div class="feature-triplet feature-quad">
+                <section><span>01</span><h3 data-edit-key="s15-a">Standard-first</h3><p>JSON Schema is the contract; web pages, matrices, and exports are derived views.</p></section>
+                <section><span>02</span><h3 data-edit-key="s15-b">Provenance-first</h3><p>30 sourced entries are better than 80 unsourced entries.</p></section>
+                <section><span>03</span><h3 data-edit-key="s15-c">Semantics-first</h3><p>L2, L3, and L4 can share elements, but their meanings differ.</p></section>
+                <section><span>04</span><h3 data-edit-key="s15-d">Version-first</h3><p>Software version, market region, and evidence date must be preserved.</p></section>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>These principles are the reusable part of the project.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="combination-why" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s16-kicker">Boundary Combinations</p>
+              <h2 class="slide-title" data-edit-key="s16-title">Single-element permission does not prove combined-scene availability</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div>
+                <p class="slide-lead" data-edit-key="s16-lead">ODC tables decompose real roads into individual elements, but risk often appears when multiple boundary conditions stack together.</p>
+                <div class="combination-formula">
+                  <div>Rain / fog / glare</div>
+                  <div>Worn lane markings</div>
+                  <div>Work-zone rerouting</div>
+                  <div>Driver distraction</div>
+                  <strong>This is not four independent cells. It is one combined-boundary problem.</strong>
+                </div>
+              </div>
+              <div class="gap-panel">
+                <h3>Why add a second layer</h3>
+                <ul class="dense-list">
+                  <li>Users experience combined conditions, not single table cells.</li>
+                  <li>Engineering review needs activation, exit, and takeover boundaries.</li>
+                  <li>SOTIF analysis needs trigger-condition candidates.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>This is where OpenODC goes beyond a plain ODC table.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="combination-fields" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s17-kicker">boundary_combinations[]</p>
+              <h2 class="slide-title" data-edit-key="s17-title">Boundary combinations are a second public-evidence layer, not safety conclusions</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div class="boundary-cards">
+                <section><span>01</span><strong>related_element_ids</strong><p>Which ODC elements appear together.</p></section>
+                <section><span>02</span><strong>relation_to_odc</strong><p>inside / outside / boundary / unknown.</p></section>
+                <section><span>03</span><strong>expected_response</strong><p>Suppress activation, trigger exit, takeover, or not disclosed.</p></section>
+                <section><span>04</span><strong>evidence_level</strong><p>Official, manual, operating rule, or public gap.</p></section>
+              </div>
+              <div class="status-card status-card-warning">
+                <strong>Important boundary</strong>
+                <p data-edit-key="s17-warning">OpenODC records only public-source-supported typical combinations. It supports user explanation, engineering review, and research modeling, but does not replace OEM SOTIF analysis.</p>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Keep the scope precise: structured public evidence, not certification.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="sotif-link" data-timing="1:05">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s18-kicker">From ODC to Trigger Candidates</p>
+              <h2 class="slide-title" data-edit-key="s18-title">OpenODC can feed SOTIF and real-road data analysis</h2>
+            </header>
+            <div class="slide-body">
+              <div class="trigger-map trigger-map-horizontal">
+                <div><strong>OpenODC</strong><span>Declared boundaries, provenance, and combination candidates</span></div>
+                <div><strong>DRIVEResearch</strong><span>Real-road exposure frequency, parameter distribution, and scenarios</span></div>
+                <div><strong>ROAM</strong><span>Boundary exceedance, anomalies, interventions, and outcomes</span></div>
+              </div>
+              <p class="slide-callout" data-edit-key="s18-callout">OpenODC says how the boundary is declared; DRIVEResearch says how often those conditions appear; ROAM says how exceedance and anomalies behave.</p>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Place OpenODC inside the wider AD safety tooling stack.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="summary-contribute" data-timing="1:10">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s19-kicker">05 · Summary and Contribution</p>
+              <h2 class="slide-title" data-edit-key="s19-title">OpenODC moves ODC from terminology toward public infrastructure</h2>
+            </header>
+            <div class="slide-body two-col">
+              <div>
+                <blockquote class="closing-quote" data-edit-key="s19-quote">ODC names the boundary. The standard aligns the boundary. OpenODC makes the boundary publicly verifiable.</blockquote>
+                <div class="slide-cta-row">
+                  <a class="slide-link" href="/en/join.html" target="_blank" rel="noopener">Join →</a>
+                  <a class="slide-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
+                </div>
+              </div>
+              <div class="contrib-grid">
+                <section><strong>Submit samples</strong><span>Add a public-source-verifiable ODC sample.</span></section>
+                <section><strong>Add combinations</strong><span>Turn typical boundary conditions into trigger candidates.</span></section>
+                <section><strong>Review with institutions</strong><span>Improve standards mapping, data quality, and terminology.</span></section>
+                <section><strong>Confirm as vendors</strong><span>Move community_reviewed records toward vendor_confirmed.</span></section>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Keep the contribution path as a single slide.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="thanks" data-timing="0:45">
+          <div class="slide-standard">
+            <header class="slide-header">
+              <p class="slide-kicker" data-edit-key="s20-kicker">Thank You</p>
+              <h2 class="slide-title slide-title-xl" data-edit-key="s20-title">Thank You</h2>
+            </header>
+            <div class="slide-body thanks-layout">
+              <div class="thanks-main">
+                <p class="slide-subtitle" data-edit-key="s20-subtitle">Turning automated-driving boundaries from scattered prose into public evidence.</p>
+                <div class="thanks-logo-row" aria-label="Lab logos">
+                  <img src="/assets/presentation/ad-safety-joint-lab-logo.png" alt="Automated Driving Safety Joint Lab" />
+                  <img src="/assets/presentation/state-key-lab-logo.png" alt="State Key Laboratory of Automotive Chassis Integration and Bionics" />
+                </div>
+              </div>
+              <div class="contact-board" aria-label="Contact information">
+                <section><span>Homepage</span><a href="https://autozyx.com" target="_blank" rel="noopener">autozyx.com</a></section>
+                <section><span>Lab</span><a href="https://lab.autozyx.com/" target="_blank" rel="noopener">lab.autozyx.com</a></section>
+                <section><span>OpenODC</span><a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">github.com/AutoZYX-Labs/OpenODC</a></section>
+                <section><span>WeChat public account</span><strong>张玉新-AutoZyx</strong></section>
+              </div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Close with contact points only.</p>
           </div>
         </article>
 
@@ -459,11 +593,12 @@
 
     <div class="deck-bottom-bar">
       <button type="button" class="deck-nav-btn" id="deck-prev">Previous</button>
-      <div class="deck-counter" id="deck-counter">1 / 18</div>
+      <div class="deck-counter" id="deck-counter">1 / 20</div>
       <button type="button" class="deck-nav-btn" id="deck-next">Next</button>
     </div>
   </main>
 
+  <script src="/js/vendor/pptxgen.bundle.js" defer></script>
   <script type="module" src="/js/presentation.js"></script>
   <script type="module" src="/js/nav-render.js"></script>
 </body>
