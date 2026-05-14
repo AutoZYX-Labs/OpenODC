@@ -3095,6 +3095,9 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .feature-triplet {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.feature-quad {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .feature-triplet h3 {
   margin: 0 0 0.5rem;
   color: var(--slide-ink);
@@ -3106,6 +3109,85 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   color: var(--slide-soft);
   font-size: 0.86rem;
   line-height: 1.55;
+}
+.combination-formula,
+.boundary-cards,
+.boundary-demo,
+.trigger-map {
+  display: grid;
+  gap: 0.75rem;
+}
+.combination-formula {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.combination-formula > div,
+.boundary-cards section,
+.boundary-demo section,
+.trigger-map > div {
+  border: 1px solid color-mix(in srgb, var(--slide-muted), transparent 56%);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--slide-bg), #fff 42%);
+  color: var(--slide-ink);
+  padding: 0.95rem 1rem;
+}
+.deck-stage[data-theme="night"] .combination-formula > div,
+.deck-stage[data-theme="night"] .boundary-cards section,
+.deck-stage[data-theme="night"] .boundary-demo section,
+.deck-stage[data-theme="night"] .trigger-map > div {
+  background: rgba(255, 255, 255, 0.07);
+}
+.combination-formula strong {
+  grid-column: span 2;
+  display: block;
+  padding: 1.05rem 1.1rem;
+  border-left: 5px solid var(--slide-accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--slide-accent), transparent 86%);
+  color: var(--slide-ink);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+.boundary-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.boundary-cards span {
+  display: inline-block;
+  color: var(--slide-accent);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.boundary-cards strong,
+.boundary-demo strong,
+.trigger-map strong {
+  display: block;
+  color: var(--slide-ink);
+  line-height: 1.35;
+}
+.boundary-cards p,
+.boundary-demo span,
+.trigger-map span {
+  display: block;
+  margin: 0.3rem 0 0;
+  color: var(--slide-soft);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.boundary-demo section {
+  border-left: 5px solid var(--slide-accent-2);
+}
+.trigger-map > div {
+  position: relative;
+}
+.trigger-map > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  bottom: -0.7rem;
+  width: 2px;
+  height: 0.65rem;
+  background: var(--slide-accent);
 }
 .pipeline-visual > div,
 .workbench-flow > div {
@@ -3311,10 +3393,16 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
     font-size: 1.3rem;
   }
   .feature-triplet,
+  .feature-quad,
+  .combination-formula,
+  .boundary-cards,
   .metric-row,
   .evidence-stack,
   .compare-visual {
     grid-template-columns: 1fr;
+  }
+  .combination-formula strong {
+    grid-column: auto;
   }
   .compare-arrow {
     text-align: center;

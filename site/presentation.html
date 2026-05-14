@@ -144,26 +144,84 @@
           <div class="slide-grid slide-grid-balanced">
             <div>
               <p class="slide-kicker" data-edit-key="s6-kicker">项目定位</p>
-              <h2 class="slide-title" data-edit-key="s6-title">OpenODC 做三件事</h2>
-              <p class="slide-text" data-edit-key="s6-text">它不是认证，也不是排行榜。它是一个开放格式、一套公开样例库和一组查阅编辑工具。</p>
+              <h2 class="slide-title" data-edit-key="s6-title">OpenODC 做四件事</h2>
+              <p class="slide-text" data-edit-key="s6-text">它不是认证，也不是排行榜。它是开放格式、公开样例、组合边界和网页工具的最小闭环。</p>
             </div>
-            <div class="feature-triplet">
+            <div class="feature-triplet feature-quad">
               <section><span>01</span><h3 data-edit-key="s6-a">统一格式</h3><p>用同一套国标要素表达运行边界。</p></section>
               <section><span>02</span><h3 data-edit-key="s6-b">公开样例</h3><p>基于公开资料反推，并标注来源置信度。</p></section>
-              <section><span>03</span><h3 data-edit-key="s6-c">网页工具</h3><p>查阅、对比、矩阵、编辑、厂家资料工作台。</p></section>
+              <section><span>03</span><h3 data-edit-key="s6-c">组合边界</h3><p>把多要素叠加写成触发条件候选。</p></section>
+              <section><span>04</span><h3 data-edit-key="s6-d">网页工具</h3><p>查阅、对比、矩阵、编辑、厂家资料工作台。</p></section>
             </div>
           </div>
           <div class="deck-notes-source">
-            <p>这一页给出一句话定位。之后进入现场 demo，听众会知道每个页面对应哪类能力。</p>
+            <p>这里修正一个关键误解：OpenODC 不只是把标准做成表格。真正有工程价值的是在表格上再加一层轻量组合边界。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-timing="1:20">
+          <div class="slide-grid slide-grid-balanced">
+            <div>
+              <p class="slide-kicker" data-edit-key="s7-kicker">单项表格的局限</p>
+              <h2 class="slide-title" data-edit-key="s7-title">单项允许，不等于组合可用</h2>
+              <p class="slide-text" data-edit-key="s7-text">ODC 表格把真实场景拆成道路、天气、标线、目标物、速度和人员状态。但风险往往来自这些要素同时出现。</p>
+            </div>
+            <div class="combination-formula">
+              <div>雨 / 雾 / 逆光</div>
+              <div>车道线磨损</div>
+              <div>施工改道</div>
+              <div>驾驶员分心</div>
+              <strong>这不是四个独立格子，而是一个触发条件候选。</strong>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>这是 OpenODC 的精髓之一。标准表格解决可比性，但真实安全问题不是单项要素线性相加。这里要把“组合边界”的必要性讲透。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-timing="1:40">
+          <div class="slide-grid slide-grid-balanced">
+            <div>
+              <p class="slide-kicker" data-edit-key="s8-kicker">Boundary combinations</p>
+              <h2 class="slide-title" data-edit-key="s8-title">OpenODC 增加了第二层边界</h2>
+              <p class="slide-text" data-edit-key="s8-text">`boundary_combinations[]` 只记录公开资料可支撑的少量高价值组合。面向消费者，它说明“什么时候更该谨慎”；面向工程师，它是触发条件候选。</p>
+            </div>
+            <div class="boundary-cards">
+              <section><span>01</span><strong>组合条件</strong><p>哪些 ODC 要素同时出现。</p></section>
+              <section><span>02</span><strong>关系判断</strong><p>inside / outside / boundary / unknown。</p></section>
+              <section><span>03</span><strong>系统响应</strong><p>抑制激活、触发退出、接管提醒或未披露。</p></section>
+              <section><span>04</span><strong>证据等级</strong><p>官方、手册、运营规则、社区整理或公开缺口。</p></section>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>强调它是轻量第二层，不是完整 SOTIF 数据库。OpenODC 只收公开证据能支撑的组合，避免过度推断。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-timing="1:30">
+          <div class="slide-grid slide-grid-balanced">
+            <div>
+              <p class="slide-kicker" data-edit-key="s9-kicker">触发条件候选</p>
+              <h2 class="slide-title" data-edit-key="s9-title">从 ODC 到 SOTIF 的接口</h2>
+              <p class="slide-text" data-edit-key="s9-text">组合边界不是安全结论，而是把公开 ODC 声明转成可讨论、可验证、可分配给测试和数据团队的触发条件候选。</p>
+            </div>
+            <div class="trigger-map">
+              <div><strong>OpenODC</strong><span>声明边界</span></div>
+              <div><strong>DRIVEResearch</strong><span>真实暴露频次和参数分布</span></div>
+              <div><strong>ROAM</strong><span>越界、异常和运营干预结果</span></div>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>这页把 OpenODC 放进你的整体方法论里：它不是 SOTIF 平台，但它给 SOTIF 分析提供可追溯的入口。</p>
           </div>
         </article>
 
         <article class="deck-slide" data-slide data-timing="1:20">
           <div class="slide-grid">
             <div>
-              <p class="slide-kicker" data-edit-key="s7-kicker">一份数据，多种入口</p>
-              <h2 class="slide-title" data-edit-key="s7-title">核心不是页面，而是同一份 JSON</h2>
-              <p class="slide-text" data-edit-key="s7-text">Gallery、详情、Compare、Matrix、Editor、Workbench 都围绕同一套 ODC 数据模型展开。</p>
+              <p class="slide-kicker" data-edit-key="s10-kicker">一份数据，多种入口</p>
+              <h2 class="slide-title" data-edit-key="s10-title">核心不是页面，而是同一份 JSON</h2>
+              <p class="slide-text" data-edit-key="s10-text">Gallery、详情、Compare、Matrix、Editor、Workbench 都围绕同一套 ODC 数据模型展开，包括单项要素和组合边界。</p>
             </div>
             <figure class="slide-image-frame">
               <img src="/assets/presentation/openodc-flow.png" alt="OpenODC 工作流示意图" />
@@ -177,9 +235,9 @@
         <article class="deck-slide" data-slide data-timing="2:00">
           <div class="slide-grid">
             <div>
-              <p class="slide-kicker" data-edit-key="s8-kicker">现场 Demo 1</p>
-              <h2 class="slide-title" data-edit-key="s8-title">先打开样例库</h2>
-              <p class="slide-text" data-edit-key="s8-text">当前样例覆盖 L2 辅助驾驶和 L4 Robotaxi。每条记录都区分官方/手册、社区整理、推定和公开资料缺口。</p>
+              <p class="slide-kicker" data-edit-key="s11-kicker">现场 Demo 1</p>
+              <h2 class="slide-title" data-edit-key="s11-title">先打开样例库</h2>
+              <p class="slide-text" data-edit-key="s11-text">当前样例覆盖 L2 辅助驾驶和 L4 Robotaxi。每条记录都区分官方/手册、社区整理、推定和公开资料缺口。</p>
               <div class="metric-row">
                 <span><strong>6</strong>样例</span>
                 <span><strong>346</strong>逐项引用</span>
@@ -197,12 +255,31 @@
           </div>
         </article>
 
+        <article class="deck-slide" data-slide data-timing="1:40">
+          <div class="slide-grid slide-grid-balanced">
+            <div>
+              <p class="slide-kicker" data-edit-key="s12-kicker">现场 Demo 2</p>
+              <h2 class="slide-title" data-edit-key="s12-title">打开详情页，看组合边界</h2>
+              <p class="slide-text" data-edit-key="s12-text">每个样例都有 10 条边界组合。这里最能体现 OpenODC 与普通 ODC 表格的差异：它不只问“某项是否允许”，还问“几个条件叠加后系统应如何响应”。</p>
+              <a class="slide-link" href="/view.html?id=huawei-ads4-aito-m9" target="_blank" rel="noopener">打开华为 ADS 4 样例 →</a>
+            </div>
+            <div class="boundary-demo">
+              <section><strong>雨雾 + 积水 + 标线退化</strong><span>感知退化触发条件候选</span></section>
+              <section><strong>车位到车位 + 地库窄通道 + 行人儿童</strong><span>低速自动驾驶核心组合边界</span></section>
+              <section><strong>脱手检测 + 用户分心 + 接管提醒</strong><span>人机共驾边界</span></section>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>现场演示时直接进入详情页，滚到边界组合区域。这比只展示 Gallery 更能解释 OpenODC 的独特性。</p>
+          </div>
+        </article>
+
         <article class="deck-slide" data-slide data-timing="2:00">
           <div class="slide-grid slide-grid-balanced">
             <div>
-              <p class="slide-kicker" data-edit-key="s9-kicker">现场 Demo 2</p>
-              <h2 class="slide-title" data-edit-key="s9-title">再看横向对比</h2>
-              <p class="slide-text" data-edit-key="s9-text">同品牌、不同市场、不同功能包，公开边界可能差异很大。Compare 的价值是把差异放到同一张表里。</p>
+              <p class="slide-kicker" data-edit-key="s13-kicker">现场 Demo 3</p>
+              <h2 class="slide-title" data-edit-key="s13-title">再看横向对比</h2>
+              <p class="slide-text" data-edit-key="s13-text">同品牌、不同市场、不同功能包，公开边界可能差异很大。Compare 的价值是把差异放到同一张表里。</p>
               <a class="slide-link" href="/compare.html" target="_blank" rel="noopener">打开 Compare →</a>
             </div>
             <div class="compare-visual">
@@ -227,9 +304,9 @@
         <article class="deck-slide" data-slide data-timing="1:30">
           <div class="slide-grid slide-grid-balanced">
             <div>
-              <p class="slide-kicker" data-edit-key="s10-kicker">证据治理</p>
-              <h2 class="slide-title" data-edit-key="s10-title">证据比完整更重要</h2>
-              <p class="slide-text" data-edit-key="s10-text">ODC 表不是越满越好。真正有价值的是每一项都说明来自哪里，哪些是公开证据，哪些是推定，哪些没有公开说明。</p>
+              <p class="slide-kicker" data-edit-key="s14-kicker">证据治理</p>
+              <h2 class="slide-title" data-edit-key="s14-title">证据比完整更重要</h2>
+              <p class="slide-text" data-edit-key="s14-text">ODC 表不是越满越好。真正有价值的是每一项和每个组合都说明来自哪里，哪些是公开证据，哪些是推定，哪些没有公开说明。</p>
             </div>
             <div class="evidence-stack">
               <span class="manual">手册明确</span>
@@ -248,9 +325,9 @@
         <article class="deck-slide" data-slide data-timing="1:30">
           <div class="slide-grid slide-grid-balanced">
             <div>
-              <p class="slide-kicker" data-edit-key="s11-kicker">厂家直填</p>
-              <h2 class="slide-title" data-edit-key="s11-title">公开样例之外，还需要厂家版本</h2>
-              <p class="slide-text" data-edit-key="s11-text">Workbench 的目标是让 OEM 或 Tier 1 在内部维护 ODC，SOP 或 OTA 时形成可审阅、可发布、可追溯的版本。</p>
+              <p class="slide-kicker" data-edit-key="s15-kicker">厂家直填</p>
+              <h2 class="slide-title" data-edit-key="s15-title">公开样例之外，还需要厂家版本</h2>
+              <p class="slide-text" data-edit-key="s15-text">Workbench 的目标是让 OEM 或 Tier 1 在内部维护 ODC 和组合触发条件，SOP 或 OTA 时形成可审阅、可发布、可追溯的版本。</p>
               <a class="slide-link" href="/workbench.html" target="_blank" rel="noopener">打开 Workbench →</a>
             </div>
             <div class="workbench-flow">
@@ -268,9 +345,9 @@
         <article class="deck-slide" data-slide data-timing="1:10">
           <div class="slide-grid slide-grid-balanced">
             <div>
-              <p class="slide-kicker" data-edit-key="s12-kicker">边界声明</p>
-              <h2 class="slide-title" data-edit-key="s12-title">OpenODC 不是智驾排行榜</h2>
-              <p class="slide-text" data-edit-key="s12-text">它只回答一个更基础的问题：公开资料把一个功能的运行边界讲清楚了多少。</p>
+              <p class="slide-kicker" data-edit-key="s16-kicker">边界声明</p>
+              <h2 class="slide-title" data-edit-key="s16-title">OpenODC 不是智驾排行榜</h2>
+              <p class="slide-text" data-edit-key="s16-text">它只回答一个更基础的问题：公开资料把一个功能的运行边界和组合触发条件讲清楚了多少。</p>
             </div>
             <div class="not-ranking">
               <p>不做能力排名</p>
@@ -287,9 +364,9 @@
         <article class="deck-slide" data-slide data-timing="1:30">
           <div class="slide-grid">
             <div>
-              <p class="slide-kicker" data-edit-key="s13-kicker">AD 安全开源工具栈</p>
-              <h2 class="slide-title" data-edit-key="s13-title">边界、暴露、结果形成闭环</h2>
-              <p class="slide-text" data-edit-key="s13-text">OpenODC 回答“声明能干什么”，DRIVEResearch 回答“真实道路覆盖什么”，ROAM 回答“出了什么问题”。</p>
+              <p class="slide-kicker" data-edit-key="s17-kicker">AD 安全开源工具栈</p>
+              <h2 class="slide-title" data-edit-key="s17-title">边界、暴露、结果形成闭环</h2>
+              <p class="slide-text" data-edit-key="s17-text">OpenODC 回答“声明的边界是什么”，DRIVEResearch 回答“这些组合在真实道路中多常见”，ROAM 回答“出了什么问题”。</p>
             </div>
             <figure class="slide-image-frame">
               <img src="/assets/presentation/openodc-loop.png" alt="OpenODC 维护闭环示意图" />
@@ -303,20 +380,20 @@
         <article class="deck-slide" data-slide data-timing="1:10">
           <div class="slide-grid slide-grid-balanced">
             <div>
-              <p class="slide-kicker" data-edit-key="s14-kicker">下一步</p>
-              <h2 class="slide-title" data-edit-key="s14-title">怎么参与</h2>
+              <p class="slide-kicker" data-edit-key="s18-kicker">下一步</p>
+              <h2 class="slide-title" data-edit-key="s18-title">怎么参与</h2>
               <ul class="action-list">
-                <li data-edit-key="s14-a">提交一个公开资料可核验的 ODC 样例</li>
-                <li data-edit-key="s14-b">修正一个来源、术语或证据等级</li>
-                <li data-edit-key="s14-c">提供厂家确认版本或机构审阅意见</li>
-                <li data-edit-key="s14-d">参与长期维护和工具开发</li>
+                <li data-edit-key="s18-a">提交一个公开资料可核验的 ODC 样例</li>
+                <li data-edit-key="s18-b">补充一条组合边界或触发条件候选</li>
+                <li data-edit-key="s18-c">提供厂家确认版本或机构审阅意见</li>
+                <li data-edit-key="s18-d">参与长期维护和工具开发</li>
               </ul>
               <div class="slide-cta-row">
                 <a class="slide-link" href="/join.html" target="_blank" rel="noopener">共建入口 →</a>
                 <a class="slide-link" href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub →</a>
               </div>
             </div>
-            <blockquote class="closing-quote" data-edit-key="s14-quote">标准解决“怎么定义”，开源平台解决“怎么持续被看见、被比较、被修正”。</blockquote>
+            <blockquote class="closing-quote" data-edit-key="s18-quote">单项 ODC 让边界可比，组合边界让安全问题真正可讨论。</blockquote>
           </div>
           <div class="deck-notes-source">
             <p>收尾只留一个行动方向：不是掌声，而是样例、审阅、厂家确认和长期维护。</p>
@@ -337,7 +414,7 @@
 
     <div class="deck-bottom-bar">
       <button type="button" class="deck-nav-btn" id="deck-prev">上一页</button>
-      <div class="deck-counter" id="deck-counter">1 / 14</div>
+      <div class="deck-counter" id="deck-counter">1 / 18</div>
       <button type="button" class="deck-nav-btn" id="deck-next">下一页</button>
     </div>
   </main>
