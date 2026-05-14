@@ -4,6 +4,7 @@
 
 const bilingualPages = new Set([
   'index.html',
+  'presentation.html',
   'gallery.html',
   'methodology.html',
   'tools.html',
@@ -21,6 +22,7 @@ function navHtml(lang, langHref) {
       <a class="brand" href="/en/"><span class="brand-mark">OpenODC</span></a>
       <div class="nav-links">
         <a href="/en/">Home</a>
+        <a href="/en/presentation.html">Brief</a>
         <a href="/en/gallery.html">Gallery</a>
         <a href="/en/methodology.html">Method</a>
         <a href="/en/tools.html">Tools</a>
@@ -36,6 +38,7 @@ function navHtml(lang, langHref) {
     <a class="brand" href="/"><span class="brand-mark">OpenODC</span></a>
     <div class="nav-links">
       <a href="/">首页</a>
+      <a href="/presentation.html">速览</a>
       <a href="/gallery.html">样例库</a>
       <a href="/methodology.html">方法</a>
       <a href="/tools.html">工具台</a>
