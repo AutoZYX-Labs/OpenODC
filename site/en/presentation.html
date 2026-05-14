@@ -30,6 +30,7 @@
         <label class="deck-select-label" for="deck-theme">Theme</label>
         <select id="deck-theme" class="deck-select">
           <option value="paper">Paper</option>
+          <option value="white">White</option>
           <option value="road">Road</option>
           <option value="matrix">Matrix</option>
           <option value="night">Night</option>
@@ -79,7 +80,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s02-kicker">Agenda</p>
-              <h2 class="slide-title" data-edit-key="s02-title">From ODC concepts and the national standard to OpenODC</h2>
+              <h2 class="slide-title" data-edit-key="s02-title">Outline and Technical Route</h2>
             </header>
             <div class="slide-body agenda-body">
               <div class="agenda-grid agenda-grid-formal" aria-label="Presentation agenda">
@@ -100,7 +101,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s03-kicker">01 · What ODC Is</p>
-              <h2 class="slide-title" data-edit-key="s03-title">ODC answers where the system was designed to operate</h2>
+              <h2 class="slide-title" data-edit-key="s03-title">Engineering Definition of Operational Design Conditions</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -110,6 +111,11 @@
                   <li data-edit-key="s03-b">What happens in work zones, flooding, weak lane markings, or poor visibility?</li>
                   <li data-edit-key="s03-c">Does the boundary come from a manual, an official page, an operating rule, or inference?</li>
                 </ul>
+                <div class="technical-notes" aria-label="ODC data points">
+                  <span><strong>Object</strong>ADS feature, operating service, or market version</span>
+                  <span><strong>Unit</strong>ODC element, parameter range, and combination</span>
+                  <span><strong>Evidence</strong>Source type, version, and verification date</span>
+                </div>
               </div>
               <figure class="slide-image-frame">
                 <img src="/assets/presentation/odc-boundary-list.png" alt="ODC boundary list illustration" />
@@ -125,7 +131,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s04-kicker">Concept Separation</p>
-              <h2 class="slide-title" data-edit-key="s04-title">Automation level describes responsibility; ODC describes operating boundaries</h2>
+              <h2 class="slide-title" data-edit-key="s04-title">Semantic Separation Between Automation Level and ODC</h2>
             </header>
             <div class="slide-body">
               <table class="presentation-table">
@@ -148,7 +154,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s05-kicker">02 · National-Standard Context</p>
-              <h2 class="slide-title" data-edit-key="s05-title">GB/T 45312-2025 gives ODC a shared language</h2>
+              <h2 class="slide-title" data-edit-key="s05-title">GB/T 45312-2025 as the ODC Expression Framework</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -158,6 +164,11 @@
                   <section><strong>§5.4.b</strong><span>Permitted / not permitted</span></section>
                   <section><strong>§5.4.c</strong><span>Element associations</span></section>
                   <section><strong>§5.5</strong><span>Exit behavior outside allowed conditions</span></section>
+                </div>
+                <div class="technical-notes" aria-label="Standard-to-data conversion">
+                  <span><strong>Input</strong>GB/T 45312 element list and clause requirements</span>
+                  <span><strong>Transform</strong>Allowed states, associations, and exit behavior</span>
+                  <span><strong>Output</strong>Reviewable, comparable, exportable ODCDocument</span>
                 </div>
               </div>
               <div class="stat-strip stat-strip-vertical">
@@ -176,7 +187,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s06-kicker">Standard Taxonomy</p>
-              <h2 class="slide-title" data-edit-key="s06-title">ODC is a 7-category, 144-element system</h2>
+              <h2 class="slide-title" data-edit-key="s06-title">ODC Taxonomy: Seven Categories and 144 Elements</h2>
             </header>
             <div class="slide-body">
               <div class="taxonomy-map taxonomy-map-wide">
@@ -204,7 +215,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s07-kicker">From Standard to Data</p>
-              <h2 class="slide-title" data-edit-key="s07-title">OpenODC maps GB/T requirements into an ODCDocument</h2>
+              <h2 class="slide-title" data-edit-key="s07-title">ODCDocument: Data Mapping from Standard Clauses</h2>
             </header>
             <div class="slide-body two-col">
               <table class="presentation-table compact-table">
@@ -224,6 +235,8 @@
                 <span>elements[]</span>
                 <span>associations[]</span>
                 <span>boundary_combinations[]</span>
+                <span>review_status</span>
+                <span>evidence_as_of</span>
                 <span>metadata</span>
               </div>
             </div>
@@ -237,9 +250,9 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s08-kicker">03 · Industry Gap</p>
-              <h2 class="slide-title" data-edit-key="s08-title">A standard does not automatically create a public ODC platform</h2>
+              <h2 class="slide-title" data-edit-key="s08-title">The Missing Public ODC Data Layer</h2>
             </header>
-            <div class="slide-body two-col">
+            <div class="slide-body two-col dense-body">
               <div class="source-stack">
                 <section><strong>Owner manuals</strong><span>Boundaries appear across warnings, limits, and notices.</span></section>
                 <section><strong>Official pages</strong><span>Feature claims are visible, but parameters and version boundaries are often incomplete.</span></section>
@@ -255,6 +268,11 @@
                   <li>Standard language does not flow into tooling.</li>
                 </ul>
               </div>
+              <div class="technical-notes span-full" aria-label="Public ODC data-layer capabilities">
+                <span><strong>Shared schema</strong>Samples, matrices, and exports use the same field semantics.</span>
+                <span><strong>Evidence versioning</strong>Source, evidence date, market region, and software version remain explicit.</span>
+                <span><strong>Review workflow</strong>Separate community_reviewed, vendor_confirmed, and public-source gaps.</span>
+              </div>
             </div>
           </div>
           <div class="deck-notes-source">
@@ -266,7 +284,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s09-kicker">OpenODC Positioning</p>
-              <h2 class="slide-title" data-edit-key="s09-title">It measures how clearly public boundaries are evidenced</h2>
+              <h2 class="slide-title" data-edit-key="s09-title">Evidence-Oriented Positioning of OpenODC</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -294,7 +312,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s10-kicker">Current State</p>
-              <h2 class="slide-title" data-edit-key="s10-title">OpenODC connects the standard, samples, evidence, and tools in one site</h2>
+              <h2 class="slide-title" data-edit-key="s10-title">Current OpenODC Data Assets and Site Views</h2>
             </header>
             <div class="slide-body two-col">
               <div class="stat-strip stat-strip-grid">
@@ -306,7 +324,7 @@
                 <section><strong>5</strong><span>core user views</span></section>
               </div>
               <figure class="slide-image-frame">
-                <img src="/assets/presentation/openodc-home.png" alt="OpenODC homepage metrics" />
+                <img src="/assets/presentation/openodc-home-en.png" alt="OpenODC homepage metrics" />
               </figure>
             </div>
           </div>
@@ -319,11 +337,11 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s11-kicker">Sample Library</p>
-              <h2 class="slide-title" data-edit-key="s11-title">One ODC framework can host L2 through L4 public samples</h2>
+              <h2 class="slide-title" data-edit-key="s11-title">Unified Modeling Across Automation Levels</h2>
             </header>
             <div class="slide-body two-col">
               <figure class="slide-image-frame">
-                <img src="/assets/presentation/openodc-gallery.png" alt="OpenODC sample gallery screenshot" />
+                <img src="/assets/presentation/openodc-gallery-en.png" alt="OpenODC sample gallery screenshot" />
               </figure>
               <div class="sample-list">
                 <section><span>L2</span><strong>Tesla FSD (Supervised), US</strong></section>
@@ -344,7 +362,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s12-kicker">How to Read a Sample</p>
-              <h2 class="slide-title" data-edit-key="s12-title">Each sample exposes boundary, provenance, confidence, and gaps</h2>
+              <h2 class="slide-title" data-edit-key="s12-title">Sample-Level Evidence, Confidence, and Public Gaps</h2>
             </header>
             <div class="slide-body two-col">
               <div class="evidence-stack evidence-stack-wide">
@@ -362,6 +380,7 @@
                   <tr><td><code>source.type</code></td><td>Separates official, manual, test, curation, and inference.</td></tr>
                   <tr><td><code>confidence</code></td><td>Marks high, medium, or low confidence.</td></tr>
                   <tr><td><code>evidence_refs[]</code></td><td>Stores URL, page, section, or excerpt references.</td></tr>
+                  <tr><td><code>boundary_combinations[]</code></td><td>Captures typical boundaries where multiple elements co-occur.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -375,7 +394,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s13-kicker">Comparison</p>
-              <h2 class="slide-title" data-edit-key="s13-title">The 144-element table makes different systems comparable</h2>
+              <h2 class="slide-title" data-edit-key="s13-title">Cross-System Comparison with the 144-Element Matrix</h2>
             </header>
             <div class="slide-body">
               <table class="presentation-table matrix-table">
@@ -401,7 +420,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s14-kicker">Vendor Intake Workbench</p>
-              <h2 class="slide-title" data-edit-key="s14-title">OpenODC supports a path from public sources to review packages</h2>
+              <h2 class="slide-title" data-edit-key="s14-title">From Public Sources to Review Packages</h2>
             </header>
             <div class="slide-body two-col">
               <div class="process-flow">
@@ -411,7 +430,7 @@
                 <section><strong>4</strong><span>Export CSV / Markdown review packages</span></section>
               </div>
               <figure class="slide-image-frame">
-                <img src="/assets/presentation/openodc-flow.png" alt="OpenODC workflow illustration" />
+                <img src="/assets/presentation/openodc-flow-en.png" alt="OpenODC workflow illustration" />
               </figure>
             </div>
           </div>
@@ -424,7 +443,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s15-kicker">04 · Method</p>
-              <h2 class="slide-title" data-edit-key="s15-title">OpenODC’s value is data governance, not page count</h2>
+              <h2 class="slide-title" data-edit-key="s15-title">Data Governance Principles of OpenODC</h2>
             </header>
             <div class="slide-body">
               <div class="feature-triplet feature-quad">
@@ -432,6 +451,11 @@
                 <section><span>02</span><h3 data-edit-key="s15-b">Provenance-first</h3><p>30 sourced entries are better than 80 unsourced entries.</p></section>
                 <section><span>03</span><h3 data-edit-key="s15-c">Semantics-first</h3><p>L2, L3, and L4 can share elements, but their meanings differ.</p></section>
                 <section><span>04</span><h3 data-edit-key="s15-d">Version-first</h3><p>Software version, market region, and evidence date must be preserved.</p></section>
+              </div>
+              <div class="technical-notes" aria-label="Data quality gates">
+                <span><strong>Schema validation</strong>Fields, enum values, evidence links, and combinations must be machine-checkable.</span>
+                <span><strong>Evidence audit</strong>Official, manual, government, test, and inferred sources must not be mixed.</span>
+                <span><strong>Version tracking</strong>The same model or service can have separate records by market and version.</span>
               </div>
             </div>
           </div>
@@ -444,7 +468,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s16-kicker">Boundary Combinations</p>
-              <h2 class="slide-title" data-edit-key="s16-title">Single-element permission does not prove combined-scene availability</h2>
+              <h2 class="slide-title" data-edit-key="s16-title">Boundary Combinations: From Element Lists to Coupled Scenarios</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -476,7 +500,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s17-kicker">boundary_combinations[]</p>
-              <h2 class="slide-title" data-edit-key="s17-title">Boundary combinations are a second public-evidence layer, not safety conclusions</h2>
+              <h2 class="slide-title" data-edit-key="s17-title">Field Semantics of boundary_combinations[]</h2>
             </header>
             <div class="slide-body two-col">
               <div class="boundary-cards">

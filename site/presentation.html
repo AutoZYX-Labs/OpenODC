@@ -30,6 +30,7 @@
         <label class="deck-select-label" for="deck-theme">背景</label>
         <select id="deck-theme" class="deck-select">
           <option value="paper">纸面</option>
+          <option value="white">白色</option>
           <option value="road">道路</option>
           <option value="matrix">矩阵</option>
           <option value="night">深色</option>
@@ -79,7 +80,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s02-kicker">汇报提纲</p>
-              <h2 class="slide-title" data-edit-key="s02-title">从 ODC 概念、国标背景到 OpenODC 平台</h2>
+              <h2 class="slide-title" data-edit-key="s02-title">汇报结构与技术路线</h2>
             </header>
             <div class="slide-body agenda-body">
               <div class="agenda-grid agenda-grid-formal" aria-label="演示目录">
@@ -100,7 +101,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s03-kicker">01 · ODC 是什么</p>
-              <h2 class="slide-title" data-edit-key="s03-title">ODC 回答的是“系统被设计为在什么条件下运行”</h2>
+              <h2 class="slide-title" data-edit-key="s03-title">运行设计条件（ODC）的工程定义</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -110,6 +111,11 @@
                   <li data-edit-key="s03-b">遇到施工、积水、弱车道线时，应继续、抑制激活还是退出？</li>
                   <li data-edit-key="s03-c">这些边界来自车主手册、官方说明、运营规则，还是第三方推定？</li>
                 </ul>
+                <div class="technical-notes" aria-label="ODC 数据化要点">
+                  <span><strong>对象</strong>ADS 功能、运营服务或具体市场版本</span>
+                  <span><strong>单位</strong>ODC 元素、参数范围和组合条件</span>
+                  <span><strong>证据</strong>来源类型、版本信息与核验日期</span>
+                </div>
               </div>
               <figure class="slide-image-frame">
                 <img src="/assets/presentation/odc-boundary-list.png" alt="ODC 边界清单示意图" />
@@ -125,7 +131,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s04-kicker">概念区分</p>
-              <h2 class="slide-title" data-edit-key="s04-title">自动化等级说明责任分配，ODC 说明运行边界</h2>
+              <h2 class="slide-title" data-edit-key="s04-title">自动化等级与运行边界的语义区分</h2>
             </header>
             <div class="slide-body">
               <table class="presentation-table">
@@ -150,7 +156,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s05-kicker">02 · 国标背景</p>
-              <h2 class="slide-title" data-edit-key="s05-title">GB/T 45312—2025 为 ODC 表达提供共同语言</h2>
+              <h2 class="slide-title" data-edit-key="s05-title">GB/T 45312—2025 的 ODC 表达框架</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -160,6 +166,11 @@
                   <section><strong>§5.4.b</strong><span>允许 / 不允许条件</span></section>
                   <section><strong>§5.4.c</strong><span>元素关联关系</span></section>
                   <section><strong>§5.5</strong><span>不允许条件下的退出行为</span></section>
+                </div>
+                <div class="technical-notes" aria-label="标准到数据的转换">
+                  <span><strong>输入</strong>GB/T 45312 要素清单与条款要求</span>
+                  <span><strong>转换</strong>允许 / 不允许、关联关系与退出行为</span>
+                  <span><strong>输出</strong>可审阅、可比较、可导出的 ODCDocument</span>
                 </div>
               </div>
               <div class="stat-strip stat-strip-vertical">
@@ -178,7 +189,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s06-kicker">国标要素体系</p>
-              <h2 class="slide-title" data-edit-key="s06-title">ODC 不是单一场景标签，而是 7 类 144 项元素</h2>
+              <h2 class="slide-title" data-edit-key="s06-title">ODC 要素体系：7 类与 144 项标准元素</h2>
             </header>
             <div class="slide-body">
               <div class="taxonomy-map taxonomy-map-wide">
@@ -206,7 +217,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s07-kicker">从标准到数据</p>
-              <h2 class="slide-title" data-edit-key="s07-title">OpenODC 把国标要求映射为 ODCDocument 数据结构</h2>
+              <h2 class="slide-title" data-edit-key="s07-title">ODCDocument：国标条款的数据化映射</h2>
             </header>
             <div class="slide-body two-col">
               <table class="presentation-table compact-table">
@@ -226,6 +237,8 @@
                 <span>elements[]</span>
                 <span>associations[]</span>
                 <span>boundary_combinations[]</span>
+                <span>review_status</span>
+                <span>evidence_as_of</span>
                 <span>metadata</span>
               </div>
             </div>
@@ -239,9 +252,9 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s08-kicker">03 · 行业缺口</p>
-              <h2 class="slide-title" data-edit-key="s08-title">有了标准，并不等于行业已经有公共 ODC 平台</h2>
+              <h2 class="slide-title" data-edit-key="s08-title">公共 ODC 数据层的行业缺口</h2>
             </header>
-            <div class="slide-body two-col">
+            <div class="slide-body two-col dense-body">
               <div class="source-stack">
                 <section><strong>车主手册</strong><span>边界表述分散在注意事项、限制条件和警告中。</span></section>
                 <section><strong>官方网页</strong><span>常以功能卖点呈现，参数和版本边界不总是完整。</span></section>
@@ -257,6 +270,11 @@
                   <li>标准条文难以进入实际工具链。</li>
                 </ul>
               </div>
+              <div class="technical-notes span-full" aria-label="公共 ODC 数据层能力">
+                <span><strong>统一数据契约</strong>样例、矩阵、导出文件共享同一套字段语义。</span>
+                <span><strong>证据版本管理</strong>保留公开来源、核验日期、市场区域和软件版本。</span>
+                <span><strong>社区审阅流程</strong>区分 community_reviewed、vendor_confirmed 与公开缺口。</span>
+              </div>
             </div>
           </div>
           <div class="deck-notes-source">
@@ -268,7 +286,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s09-kicker">OpenODC 的定位</p>
-              <h2 class="slide-title" data-edit-key="s09-title">它衡量的是公开边界被证据说清楚了多少</h2>
+              <h2 class="slide-title" data-edit-key="s09-title">OpenODC 的证据化定位与适用边界</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -296,7 +314,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s10-kicker">当前状态</p>
-              <h2 class="slide-title" data-edit-key="s10-title">OpenODC 已把国标、样例、证据和工具放到同一页面体系中</h2>
+              <h2 class="slide-title" data-edit-key="s10-title">OpenODC 当前数据资产与页面体系</h2>
             </header>
             <div class="slide-body two-col">
               <div class="stat-strip stat-strip-grid">
@@ -321,7 +339,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s11-kicker">样例库</p>
-              <h2 class="slide-title" data-edit-key="s11-title">同一套 ODC 框架可以承接 L2 到 L4 的公开样例</h2>
+              <h2 class="slide-title" data-edit-key="s11-title">跨自动化等级样例库的统一建模</h2>
             </header>
             <div class="slide-body two-col">
               <figure class="slide-image-frame">
@@ -346,7 +364,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s12-kicker">单个样例如何读</p>
-              <h2 class="slide-title" data-edit-key="s12-title">每个样例都同时展示边界、来源、置信度和公开缺口</h2>
+              <h2 class="slide-title" data-edit-key="s12-title">样例级证据、置信度与公开缺口表达</h2>
             </header>
             <div class="slide-body two-col">
               <div class="evidence-stack evidence-stack-wide">
@@ -364,6 +382,7 @@
                   <tr><td><code>source.type</code></td><td>区分官方、手册、测评、社区整理和推定。</td></tr>
                   <tr><td><code>confidence</code></td><td>标注高、中、低置信度。</td></tr>
                   <tr><td><code>evidence_refs[]</code></td><td>保留 URL、页码、章节或摘录来源。</td></tr>
+                  <tr><td><code>boundary_combinations[]</code></td><td>记录多要素同时出现时的典型边界。</td></tr>
                 </tbody>
               </table>
             </div>
@@ -377,7 +396,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s13-kicker">横向对比</p>
-              <h2 class="slide-title" data-edit-key="s13-title">同一张 144 要素表让不同系统具备可比性</h2>
+              <h2 class="slide-title" data-edit-key="s13-title">基于 144 要素矩阵的横向比较方法</h2>
             </header>
             <div class="slide-body">
               <table class="presentation-table matrix-table">
@@ -403,7 +422,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s14-kicker">厂家资料工作台</p>
-              <h2 class="slide-title" data-edit-key="s14-title">OpenODC 也提供从公开资料到审阅包的填报路径</h2>
+              <h2 class="slide-title" data-edit-key="s14-title">公开资料到审阅包的填报流程</h2>
             </header>
             <div class="slide-body two-col">
               <div class="process-flow">
@@ -426,7 +445,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s15-kicker">04 · 方法论</p>
-              <h2 class="slide-title" data-edit-key="s15-title">OpenODC 的价值不在页面数量，而在数据治理方法</h2>
+              <h2 class="slide-title" data-edit-key="s15-title">OpenODC 数据治理原则</h2>
             </header>
             <div class="slide-body">
               <div class="feature-triplet feature-quad">
@@ -434,6 +453,11 @@
                 <section><span>02</span><h3 data-edit-key="s15-b">证据优先</h3><p>有来源的 30 项，比没有来源的 80 项更有价值。</p></section>
                 <section><span>03</span><h3 data-edit-key="s15-c">语义优先</h3><p>L2、L3、L4 可共用元素表，但责任和边界含义不能混淆。</p></section>
                 <section><span>04</span><h3 data-edit-key="s15-d">版本优先</h3><p>软件版本、市场区域、证据核验日期必须被保留。</p></section>
+              </div>
+              <div class="technical-notes" aria-label="数据质量门槛">
+                <span><strong>Schema 校验</strong>字段、枚举值、证据引用和组合边界必须可机器检查。</span>
+                <span><strong>证据审计</strong>官方、手册、政府、测评、推定来源不能混写。</span>
+                <span><strong>版本追踪</strong>同一车型或服务在不同市场、版本下可形成独立记录。</span>
               </div>
             </div>
           </div>
@@ -446,7 +470,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s16-kicker">组合边界</p>
-              <h2 class="slide-title" data-edit-key="s16-title">单项允许，不等于组合场景一定可用</h2>
+              <h2 class="slide-title" data-edit-key="s16-title">组合边界：从单项 ODC 到场景耦合</h2>
             </header>
             <div class="slide-body two-col">
               <div>
@@ -478,7 +502,7 @@
           <div class="slide-standard">
             <header class="slide-header">
               <p class="slide-kicker" data-edit-key="s17-kicker">boundary_combinations[]</p>
-              <h2 class="slide-title" data-edit-key="s17-title">组合边界是公开证据的第二层，不是厂家安全结论</h2>
+              <h2 class="slide-title" data-edit-key="s17-title">boundary_combinations[] 的字段语义与约束</h2>
             </header>
             <div class="slide-body two-col">
               <div class="boundary-cards">
