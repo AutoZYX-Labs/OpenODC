@@ -3614,7 +3614,8 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   gap: 2.6rem;
 }
 .slide-cover .cover-body-minimal {
-  align-self: start;
+  align-self: end;
+  align-items: end;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.44fr);
   gap: 2.25rem;
 }
@@ -3625,18 +3626,18 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border-left-width: 6px;
 }
 .slide-cover .speaker-card strong {
-  font-size: 2.76rem;
+  font-size: 1.93rem;
   line-height: 1.12;
 }
 .slide-cover .speaker-card p {
   margin-top: 0.28rem;
-  font-size: 1.72rem;
+  font-size: 1.2rem;
   line-height: 1.36;
 }
 .cover-logo-panel {
   justify-items: start;
-  align-content: start;
-  padding-top: 0.55rem;
+  align-content: end;
+  padding-top: 0;
 }
 .cover-logo-panel .cover-logo-strip {
   width: 100%;
@@ -3645,7 +3646,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   padding: 0.2rem 0;
 }
 .cover-logo-panel .cover-logo-strip img {
-  max-height: 58px;
+  max-height: 70px;
 }
 .slide-lead {
   margin: 0;
@@ -3977,7 +3978,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   padding: 0.2rem 0;
 }
 .cover-body-minimal .cover-logo-strip img {
-  max-height: 58px;
+  max-height: 70px;
 }
 .thanks-layout {
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
