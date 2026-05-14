@@ -35,6 +35,10 @@ body {
 .presentation-page {
   --accent: #1b174a;
   --accent-deep: #120f34;
+  --source-sans: 'Source Han Sans SC', 'Source Han Sans CN', 'Noto Sans CJK SC', 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+  --serif: var(--source-sans);
+  --serif-sc: var(--source-sans);
+  --sans: var(--source-sans);
 }
 
 a {
@@ -2758,6 +2762,13 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .presentation-page {
   background: #efeadf;
   overflow-x: hidden;
+  font-family: var(--source-sans);
+}
+.presentation-page code,
+.presentation-page kbd,
+.presentation-page pre,
+.presentation-page samp {
+  font-family: var(--source-sans);
 }
 .deck-app {
   min-height: calc(100vh - 72px);
@@ -3878,7 +3889,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border-radius: 6px;
   background: color-mix(in srgb, var(--slide-accent-2), transparent 90%);
   color: var(--slide-ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--source-sans);
 }
 .status-card span {
   display: inline-flex;
@@ -3887,7 +3898,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border-radius: 999px;
   background: color-mix(in srgb, var(--slide-accent-2), transparent 82%);
   color: var(--slide-ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--source-sans);
   font-size: 0.86rem;
   font-weight: 800;
 }
