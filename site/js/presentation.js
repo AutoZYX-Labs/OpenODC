@@ -468,8 +468,8 @@ async function addPptxSlide(pptx, sourceSlide, slideIndex) {
 
   const kicker = textOf(sourceSlide, '.slide-kicker')
   const title = textOf(sourceSlide, '.slide-title')
-  if (kicker) pptSlide.addText(kicker, { x: 0.55, y: 0.28, w: 12.2, h: 0.24, fontSize: 8, bold: true, color: accent, margin: 0 })
-  pptSlide.addText(title || `Slide ${slideIndex + 1}`, { x: 0.55, y: 0.58, w: 12.1, h: 0.55, fontSize: title.length > 44 ? 20 : 24, bold: true, color: accent, margin: 0, breakLine: false, fit: 'shrink' })
+  if (kicker) pptSlide.addText(kicker, { x: 0.55, y: 0.28, w: 12.2, h: 0.24, fontSize: 8, bold: false, color: accent, margin: 0 })
+  pptSlide.addText(title || `Slide ${slideIndex + 1}`, { x: 0.55, y: 0.58, w: 12.1, h: 0.55, fontSize: title.length > 44 ? 20 : 24, bold: false, color: accent, margin: 0, breakLine: false, fit: 'shrink' })
   pptSlide.addShape(pptx.ShapeType.line, { x: 0.55, y: 1.23, w: 12.2, h: 0, line: { color: line, width: 1.2 } })
 
   const imageData = await firstImageData(sourceSlide)

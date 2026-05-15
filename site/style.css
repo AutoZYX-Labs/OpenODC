@@ -3072,7 +3072,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
 }
 .slide-title {
   margin: 0 0 1rem;
@@ -3081,7 +3081,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   font-size: 3rem;
   line-height: 1.08;
   letter-spacing: 0;
-  font-weight: 900;
+  font-weight: 400;
 }
 .slide-title-xl {
   font-family: var(--serif);
@@ -3816,7 +3816,7 @@ html[lang="en"] .thanks-statement {
   font-size: 2.22rem;
   line-height: 1.12;
   color: var(--slide-accent);
-  font-weight: 900;
+  font-weight: 400;
 }
 .slide-standard .slide-title-xl {
   font-size: 2.22rem;
@@ -3865,14 +3865,14 @@ html[lang="en"] .thanks-statement {
   color: var(--slide-accent);
   font-size: 2.05rem;
   line-height: 1.14;
-  font-weight: 900;
+  font-weight: 400;
 }
 .cover-title-en {
   margin: 0.18rem 0 0;
   color: color-mix(in srgb, var(--slide-accent), #2f6ca0 42%);
   font-size: 1rem;
   line-height: 1.18;
-  font-weight: 800;
+  font-weight: 400;
 }
 html[lang="en"] .cover-title-cn {
   font-size: 1.5rem;
@@ -4069,7 +4069,7 @@ html[lang="en"] .slide-lead {
   color: var(--slide-accent);
   font-size: 2.22rem;
   line-height: 1.12;
-  font-weight: 900;
+  font-weight: 400;
 }
 .agenda-plain h2::after {
   content: "";
@@ -4102,11 +4102,11 @@ html[lang="en"] .slide-lead {
 .agenda-list span {
   color: var(--slide-accent);
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 400;
 }
 .agenda-list strong {
   color: #111;
-  font-weight: 800;
+  font-weight: 400;
 }
 .agenda-list .is-current span,
 .agenda-list .is-current strong {
@@ -4675,7 +4675,7 @@ html[lang="en"] .dense-list li {
   color: var(--slide-accent);
   font-size: 4.1rem;
   line-height: 1.12;
-  font-weight: 900;
+  font-weight: 400;
 }
 html[lang="en"] [data-slide-key="thanks"] .thanks-title {
   max-width: 920px;
