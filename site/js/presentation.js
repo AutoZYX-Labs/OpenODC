@@ -25,6 +25,7 @@ const customMediaStorageKey = `${deckId}:custom-media`
 const themeStorageKey = `${deckId}:theme`
 const isEnglish = document.documentElement.lang === 'en'
 const fullscreenRevealMargin = 84
+const defaultFullscreenSlideSize = { width: 1280, height: 720 }
 let index = initialIndex()
 let editMode = false
 let edits = loadEdits()
@@ -32,6 +33,7 @@ let customTexts = loadCustomPayload(customTextStorageKey)
 let customMedia = loadCustomPayload(customMediaStorageKey)
 let fullscreenChromeTimer = null
 let lastFullscreenPointerY = null
+let fullscreenSlideSize = { ...defaultFullscreenSlideSize }
 
 applySavedEdits()
 renderCustomAddons()
@@ -56,6 +58,7 @@ app?.addEventListener('pointerleave', () => {
 })
 app?.addEventListener('touchstart', revealFullscreenChrome)
 document.addEventListener('fullscreenchange', syncFullscreenState)
+window.addEventListener('resize', updateFullscreenSlideScale)
 
 document.addEventListener('keydown', event => {
   const target = event.target
@@ -162,6 +165,7 @@ async function toggleFullscreen() {
     if (document.fullscreenElement) {
       await document.exitFullscreen()
     } else {
+      captureFullscreenSlideSize()
       await document.querySelector('.deck-app').requestFullscreen()
     }
   } catch (error) {
@@ -180,10 +184,33 @@ function syncFullscreenState() {
   clearTimeout(fullscreenChromeTimer)
   if (isFullscreen) {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
+    updateFullscreenSlideScale()
+    requestAnimationFrame(updateFullscreenSlideScale)
     revealFullscreenChrome()
   } else {
     app?.classList.remove('fullscreen-reveal-top', 'fullscreen-reveal-bottom')
+    app?.style.removeProperty('--fullscreen-slide-scale')
   }
+}
+
+function captureFullscreenSlideSize() {
+  if (!stage || !app) return
+  const rect = stage.getBoundingClientRect()
+  if (rect.width < 320 || rect.height < 240) return
+  fullscreenSlideSize = {
+    width: rect.width,
+    height: rect.height
+  }
+  app.style.setProperty('--fullscreen-slide-width', `${fullscreenSlideSize.width.toFixed(2)}px`)
+  app.style.setProperty('--fullscreen-slide-height', `${fullscreenSlideSize.height.toFixed(2)}px`)
+}
+
+function updateFullscreenSlideScale() {
+  if (!app || document.fullscreenElement !== app) return
+  const width = fullscreenSlideSize.width || defaultFullscreenSlideSize.width
+  const height = fullscreenSlideSize.height || defaultFullscreenSlideSize.height
+  const scale = Math.min(window.innerWidth / width, window.innerHeight / height)
+  app.style.setProperty('--fullscreen-slide-scale', `${Math.max(0.1, scale).toFixed(4)}`)
 }
 
 function handleFullscreenPointer(event) {
