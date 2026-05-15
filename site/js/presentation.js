@@ -34,6 +34,8 @@ let customMedia = loadCustomPayload(customMediaStorageKey)
 let fullscreenChromeTimer = null
 let lastFullscreenPointerY = null
 let fullscreenSlideSize = { ...defaultFullscreenSlideSize }
+let pdfExportCleanupTimer = null
+const defaultDocumentTitle = document.title
 
 applySavedEdits()
 renderCustomAddons()
@@ -49,7 +51,7 @@ addMediaBtn?.addEventListener('click', addCustomMedia)
 mediaInput?.addEventListener('change', handleMediaFile)
 resetBtn?.addEventListener('click', resetEdits)
 notesBtn?.addEventListener('click', toggleNotes)
-exportBtn?.addEventListener('click', exportPptx)
+exportBtn?.addEventListener('click', exportPdf)
 fullscreenBtn?.addEventListener('click', toggleFullscreen)
 app?.addEventListener('pointermove', handleFullscreenPointer)
 app?.addEventListener('pointerleave', () => {
@@ -59,6 +61,7 @@ app?.addEventListener('pointerleave', () => {
 app?.addEventListener('touchstart', revealFullscreenChrome)
 document.addEventListener('fullscreenchange', syncFullscreenState)
 window.addEventListener('resize', updateFullscreenSlideScale)
+window.addEventListener('afterprint', finishPdfExport)
 
 document.addEventListener('keydown', event => {
   const target = event.target
@@ -414,255 +417,32 @@ function escapeHtml(value) {
     .replace(/'/g, '&#039;')
 }
 
-async function exportPptx() {
-  const PptxGen = window.pptxgen || window.PptxGenJS
-  if (!PptxGen) {
-    alert(isEnglish
-      ? 'PPTX export library has not loaded yet. Check the network connection and try again.'
-      : 'PPTX 导出库还没有加载完成。请检查网络连接后再试。')
-    return
+async function exportPdf() {
+  if (exportBtn?.classList.contains('is-busy')) return
+
+  if (document.fullscreenElement) {
+    await document.exitFullscreen()
   }
 
+  document.title = isEnglish ? 'OpenODC-20-minute-brief' : 'OpenODC-20分钟正式演示'
+  document.body.classList.add('deck-printing')
   exportBtn?.classList.add('is-busy')
-  if (exportBtn) exportBtn.textContent = isEnglish ? 'Exporting...' : '导出中...'
+  if (exportBtn) exportBtn.textContent = isEnglish ? 'Preparing PDF...' : '准备 PDF...'
 
-  try {
-    const pptx = new PptxGen()
-    pptx.defineLayout({ name: 'OPENODC_WIDE', width: 13.333, height: 7.5 })
-    pptx.layout = 'OPENODC_WIDE'
-    pptx.author = isEnglish ? 'OpenODC' : 'OpenODC'
-    pptx.company = 'AutoZYX Labs'
-    pptx.subject = isEnglish ? 'OpenODC 20-minute formal brief' : 'OpenODC 20 分钟正式演示'
-    pptx.title = isEnglish ? 'OpenODC 20-Minute Brief' : 'OpenODC 20 分钟演示材料'
-    pptx.theme = {
-      headFontFace: isEnglish ? 'Aptos Display' : 'Microsoft YaHei',
-      bodyFontFace: isEnglish ? 'Aptos' : 'Microsoft YaHei',
-      lang: isEnglish ? 'en-US' : 'zh-CN'
-    }
-
-    for (let i = 0; i < slides.length; i += 1) {
-      await addPptxSlide(pptx, slides[i], i)
-    }
-
-    await pptx.writeFile({
-      fileName: isEnglish ? 'OpenODC-20-minute-brief.pptx' : 'OpenODC-20分钟正式演示.pptx'
-    })
-  } catch (error) {
-    console.error('PPTX export failed', error)
-    alert(isEnglish ? 'PPTX export failed. See the browser console for details.' : 'PPTX 导出失败，请查看浏览器控制台。')
-  } finally {
-    exportBtn?.classList.remove('is-busy')
-    if (exportBtn) exportBtn.textContent = isEnglish ? 'Export PPTX' : '导出 PPTX'
-  }
-}
-
-async function addPptxSlide(pptx, sourceSlide, slideIndex) {
-  const pptSlide = pptx.addSlide()
-  const accent = '17375E'
-  const ink = '111111'
-  const soft = '111111'
-  const line = '8EAADB'
-  pptSlide.background = { color: 'FFFFFF' }
-  pptSlide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: 'FFFFFF' }, line: { color: 'FFFFFF' } })
-  pptSlide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.18, h: 7.5, fill: { color: accent }, line: { color: accent } })
-
-  const kicker = textOf(sourceSlide, '.slide-kicker')
-  const title = textOf(sourceSlide, '.slide-title')
-  if (kicker) pptSlide.addText(kicker, { x: 0.55, y: 0.28, w: 12.2, h: 0.24, fontSize: 8, bold: false, color: accent, margin: 0 })
-  pptSlide.addText(title || `Slide ${slideIndex + 1}`, { x: 0.55, y: 0.58, w: 12.1, h: 0.55, fontSize: title.length > 44 ? 20 : 24, bold: false, color: accent, margin: 0, breakLine: false, fit: 'shrink' })
-  pptSlide.addShape(pptx.ShapeType.line, { x: 0.55, y: 1.23, w: 12.2, h: 0, line: { color: line, width: 1.2 } })
-
-  if (sourceSlide.dataset.slideKey === 'sotif-link' && sourceSlide.querySelector('.project-card')) {
-    await addProjectEcosystemPptx(pptx, pptSlide, sourceSlide, { accent, ink, soft })
-    const note = textOf(sourceSlide, '.deck-notes-source')
-    if (note) pptSlide.addNotes(note)
-    pptSlide.addText(`${slideIndex + 1} / ${slides.length}`, { x: 11.5, y: 7.05, w: 1.2, h: 0.22, fontSize: 8, color: soft, align: 'right', margin: 0 })
-    return
-  }
-
-  const imageData = await firstImageData(sourceSlide)
-  const lines = collectSlideLines(sourceSlide)
-  const hasImage = Boolean(imageData)
-  const textX = 0.65
-  const textW = hasImage ? 6.05 : 12
-  let y = 1.52
-
-  lines.slice(0, hasImage ? 10 : 16).forEach((line, lineIndex) => {
-    const isLead = lineIndex === 0
-    pptSlide.addText(line, {
-      x: textX,
-      y,
-      w: textW,
-      h: isLead ? 0.55 : 0.38,
-      fontSize: isLead ? 13 : 10.5,
-      bold: isLead,
-      color: isLead ? ink : soft,
-      margin: 0.03,
-      fit: 'shrink',
-      breakLine: false
-    })
-    y += isLead ? 0.62 : 0.43
-  })
-
-  if (imageData) {
-    pptSlide.addImage({ data: imageData, x: 7.1, y: 1.55, w: 5.55, h: 4.35, sizing: { type: 'contain', x: 7.1, y: 1.55, w: 5.55, h: 4.35 } })
-  }
-
-  const note = textOf(sourceSlide, '.deck-notes-source')
-  if (note) pptSlide.addNotes(note)
-  pptSlide.addText(`${slideIndex + 1} / ${slides.length}`, { x: 11.5, y: 7.05, w: 1.2, h: 0.22, fontSize: 8, color: soft, align: 'right', margin: 0 })
-}
-
-function collectSlideLines(sourceSlide) {
-  const title = textOf(sourceSlide, '.slide-title')
-  const seen = new Set([title])
-  const selectors = [
-    '.slide-subtitle',
-    '.slide-lead',
-    '.slide-text',
-    '.speaker-card',
-    '.mini-claim-grid section',
-    '.agenda-grid section',
-    '.dense-list li',
-    '.presentation-table tbody tr',
-    '.clause-grid section',
-    '.taxonomy-map span',
-    '.explain-grid section',
-    '.source-stack section',
-    '.gap-panel',
-    '.not-ranking p',
-    '.status-card',
-    '.stat-strip section',
-    '.sample-list section',
-    '.evidence-stack span',
-    '.schema-card span',
-    '.process-flow section',
-    '.feature-triplet section',
-    '.combination-formula > div',
-    '.combination-formula strong',
-    '.boundary-cards section',
-    '.trigger-map > div',
-    '.project-card',
-    '.project-link-row a',
-    '.slide-callout',
-    '.closing-quote',
-    '.contrib-grid section',
-    '.thanks-speaker',
-    '.thanks-link-row a',
-    '.contact-board section',
-    '.thanks-contact-line',
-    '.custom-text-block'
-  ]
-  const lines = []
-  selectors.forEach(selector => {
-    sourceSlide.querySelectorAll(selector).forEach(node => {
-      const text = normalizeText(node.innerText || node.textContent || '')
-      if (!text || seen.has(text)) return
-      seen.add(text)
-      lines.push(text)
-    })
-  })
-  return lines
-}
-
-function textOf(root, selector) {
-  return normalizeText(root.querySelector(selector)?.innerText || root.querySelector(selector)?.textContent || '')
-}
-
-function normalizeText(value) {
-  return value.replace(/\s+/g, ' ').trim()
-}
-
-async function firstImageData(sourceSlide) {
-  const img = sourceSlide.querySelector('.slide-image-frame img, .thanks-hero-media img, .cover-logo-strip img, .thanks-logo-row img')
-  if (!img?.src) return ''
-  return imageDataFromSrc(img.src)
-}
-
-async function imageDataFromSrc(src) {
-  if (!src) return ''
-  try {
-    const response = await fetch(src)
-    const blob = await response.blob()
-    return await blobToDataUrl(blob)
-  } catch (error) {
-    console.warn('Unable to include image in PPTX export', error)
-    return ''
-  }
-}
-
-async function addProjectEcosystemPptx(pptx, pptSlide, sourceSlide, colors) {
-  const { accent, ink, soft } = colors
-  const cards = Array.from(sourceSlide.querySelectorAll('.project-card'))
-  const cardY = 1.52
-  const cardW = 3.82
-  const cardH = 2.82
-  const cardGap = 0.34
-
-  for (let index = 0; index < cards.length; index += 1) {
-    const card = cards[index]
-    const x = 0.65 + index * (cardW + cardGap)
-    pptSlide.addShape(pptx.ShapeType.rect, {
-      x,
-      y: cardY,
-      w: cardW,
-      h: cardH,
-      rectRadius: 0.06,
-      fill: { color: 'FFFFFF' },
-      line: { color: 'B8C5D5', width: 0.8 }
-    })
-
-    const imageData = await imageDataFromSrc(card.querySelector('img')?.src)
-    if (imageData) {
-      pptSlide.addImage({ data: imageData, x: x + 0.1, y: cardY + 0.1, w: cardW - 0.2, h: 1.36, sizing: { type: 'cover', x: x + 0.1, y: cardY + 0.1, w: cardW - 0.2, h: 1.36 } })
-    }
-
-    const name = textOf(card, 'strong')
-    const tag = textOf(card, 'span')
-    const description = textOf(card, 'p')
-    pptSlide.addText(name, { x: x + 0.18, y: cardY + 1.58, w: cardW - 0.36, h: 0.24, fontSize: 11, bold: true, color: accent, margin: 0, fit: 'shrink' })
-    pptSlide.addText(tag, { x: x + 0.18, y: cardY + 1.86, w: cardW - 0.36, h: 0.2, fontSize: 7.5, bold: true, color: 'B30000', margin: 0, fit: 'shrink' })
-    pptSlide.addText(description, { x: x + 0.18, y: cardY + 2.12, w: cardW - 0.36, h: 0.5, fontSize: 7.8, color: ink, margin: 0.02, fit: 'shrink', breakLine: false })
-  }
-
-  const relation = textOf(sourceSlide, '.project-relation-note')
-  if (relation) {
-    pptSlide.addShape(pptx.ShapeType.rect, { x: 0.65, y: 4.58, w: 12.1, h: 0.76, fill: { color: 'EAF1F8' }, line: { color: '8EAADB', width: 0.8 } })
-    pptSlide.addText(relation, { x: 0.82, y: 4.72, w: 11.76, h: 0.46, fontSize: 8.6, color: ink, margin: 0, fit: 'shrink', breakLine: false })
-  }
-
-  const links = Array.from(sourceSlide.querySelectorAll('.project-link-row a'))
-  links.forEach((link, index) => {
-    const x = 0.65 + index * (cardW + cardGap)
-    pptSlide.addShape(pptx.ShapeType.rect, {
-      x,
-      y: 5.62,
-      w: cardW,
-      h: 0.36,
-      rectRadius: 0.04,
-      fill: { color: accent },
-      line: { color: accent, width: 0.6 }
-    })
-    pptSlide.addText(link.textContent.trim(), {
-      x,
-      y: 5.71,
-      w: cardW,
-      h: 0.16,
-      fontSize: 8.5,
-      bold: true,
-      color: 'FFFFFF',
-      align: 'center',
-      margin: 0,
-      hyperlink: { url: link.href }
-    })
+  requestAnimationFrame(() => {
+    window.setTimeout(() => {
+      window.print()
+      clearTimeout(pdfExportCleanupTimer)
+      pdfExportCleanupTimer = window.setTimeout(finishPdfExport, 1500)
+    }, 80)
   })
 }
 
-function blobToDataUrl(blob) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.addEventListener('load', () => resolve(reader.result))
-    reader.addEventListener('error', reject)
-    reader.readAsDataURL(blob)
-  })
+function finishPdfExport() {
+  clearTimeout(pdfExportCleanupTimer)
+  pdfExportCleanupTimer = null
+  document.body.classList.remove('deck-printing')
+  document.title = defaultDocumentTitle
+  exportBtn?.classList.remove('is-busy')
+  if (exportBtn) exportBtn.textContent = isEnglish ? 'Export PDF' : '导出 PDF'
 }

@@ -5154,3 +5154,117 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
     max-height: 70vh;
   }
 }
+
+@page {
+  size: 13.333in 7.5in;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 13.333in;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  body {
+    overflow: visible !important;
+  }
+
+  .presentation-page,
+  .presentation-page * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .site-header,
+  .deck-topbar,
+  .deck-bottom-bar,
+  .deck-notes-panel,
+  .deck-notes-source,
+  .deck-progress,
+  .autozyx-brand {
+    display: none !important;
+  }
+
+  .deck-app,
+  .deck-layout,
+  .deck-stage {
+    display: block !important;
+    width: 13.333in !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .deck-slide,
+  .deck-slide.is-active {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 13.333in !important;
+    height: 7.5in !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    break-after: page;
+    page-break-after: always;
+    box-shadow: none !important;
+  }
+
+  .deck-slide:last-of-type {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .slide-standard {
+    height: 100% !important;
+  }
+
+  .slide-cover,
+  .template-cover {
+    display: grid !important;
+  }
+
+  .template-cover {
+    grid-template-rows: minmax(250px, 0.56fr) minmax(260px, 0.44fr) !important;
+    gap: 0 !important;
+  }
+
+  .slide-body,
+  .slide-body.two-col,
+  .slide-body.cover-body,
+  .thanks-layout {
+    align-items: start !important;
+  }
+
+  .thanks-bottom {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.5fr) !important;
+    gap: 2rem !important;
+  }
+
+  [data-slide-key="thanks"] .thanks-template .thanks-logo-row {
+    justify-self: end !important;
+    max-width: 390px !important;
+  }
+
+  [data-slide-key="thanks"] .thanks-template .thanks-logo-row img {
+    object-position: right center !important;
+  }
+
+  .custom-media-frame video,
+  .cover-media-frame video {
+    object-fit: cover;
+  }
+}
