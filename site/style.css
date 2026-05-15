@@ -5225,13 +5225,26 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
     padding: 1.62rem 2.35rem 1.9rem !important;
     overflow: hidden !important;
     transform: none !important;
+    background: #fff !important;
     break-after: page;
     page-break-after: always;
     box-shadow: none !important;
   }
 
+  .deck-slide *,
+  .deck-slide *::before,
+  .deck-slide *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   .deck-slide:not([data-slide-key="cover"]):not([data-slide-key="thanks"]) {
     padding-bottom: 3.35rem !important;
+  }
+
+  .deck-slide:not([data-slide-key="cover"]):not([data-slide-key="thanks"])::after {
+    bottom: 0 !important;
+    box-shadow: none !important;
   }
 
   [data-slide-key="thanks"] {
@@ -5422,6 +5435,18 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
   [data-slide-key="gallery"] .slide-body,
   [data-slide-key="workbench"] .slide-body {
     align-items: stretch !important;
+  }
+
+  .slide-image-frame,
+  .project-card figure,
+  .thanks-hero-media {
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .slide-image-frame img {
+    box-shadow: none !important;
   }
 
   .thanks-bottom {
