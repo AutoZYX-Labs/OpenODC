@@ -537,7 +537,9 @@ function collectSlideLines(sourceSlide) {
     '.slide-callout',
     '.closing-quote',
     '.contrib-grid section',
+    '.thanks-speaker',
     '.contact-board section',
+    '.thanks-contact-line',
     '.custom-text-block'
   ]
   const lines = []
@@ -561,7 +563,7 @@ function normalizeText(value) {
 }
 
 async function firstImageData(sourceSlide) {
-  const img = sourceSlide.querySelector('.slide-image-frame img, .cover-logo-strip img, .thanks-logo-row img')
+  const img = sourceSlide.querySelector('.slide-image-frame img, .thanks-hero-media img, .cover-logo-strip img, .thanks-logo-row img')
   if (!img?.src) return ''
   try {
     const response = await fetch(img.src)
