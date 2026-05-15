@@ -598,13 +598,39 @@
               <p class="slide-kicker" data-edit-key="s18-kicker">从 ODC 到触发条件候选</p>
               <h2 class="slide-title" data-edit-key="s18-title">OpenODC 可以作为 SOTIF 和道路数据分析的入口</h2>
             </header>
-            <div class="slide-body">
-              <div class="trigger-map trigger-map-horizontal">
-                <div><strong>OpenODC</strong><span>公开声明边界、证据来源、组合边界候选</span></div>
-                <div><strong>DRIVEResearch</strong><span>真实道路暴露频次、参数分布和典型场景</span></div>
-                <div><strong>ROAM</strong><span>越界、异常、运营干预和结果证据</span></div>
+            <div class="slide-body project-ecosystem">
+              <div class="project-card-grid" aria-label="自动驾驶安全工具栈项目关系">
+                <article class="project-card">
+                  <figure><img src="/assets/presentation/project-openodc.png" alt="OpenODC 项目主页截图" loading="lazy" /></figure>
+                  <div class="project-card-body">
+                    <strong>OpenODC</strong>
+                    <span>设计边界端</span>
+                    <p>把公开资料中的 ODC 声明、证据来源和组合边界转成可审阅的数据结构。</p>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <figure><img src="/assets/presentation/project-driveresearch.png" alt="DRIVEResearch 项目主页截图" loading="lazy" /></figure>
+                  <div class="project-card-body">
+                    <strong>DRIVEResearch</strong>
+                    <span>真实暴露端</span>
+                    <p>用航测自然驾驶数据刻画边界条件在真实道路中的出现频次、参数分布和典型场景。</p>
+                  </div>
+                </article>
+                <article class="project-card">
+                  <figure><img src="/assets/presentation/project-roam.png" alt="ROAM 项目主页截图" loading="lazy" /></figure>
+                  <div class="project-card-body">
+                    <strong>ROAM</strong>
+                    <span>异常结果端</span>
+                    <p>记录 L4 Robotaxi 运营异常、越界表现、远程干预和结果证据，反向提示高价值边界组合。</p>
+                  </div>
+                </article>
               </div>
-              <p class="slide-callout" data-edit-key="s18-callout">三者的关系是：OpenODC 说明“边界如何声明”，DRIVEResearch 说明“边界条件出现多频繁”，ROAM 说明“越界和异常如何表现”。</p>
+              <p class="slide-callout project-relation-note" data-edit-key="s18-callout">三者合起来形成“声明边界—真实暴露—异常结果”的闭环：OpenODC 说明系统边界如何被声明，DRIVEResearch 说明这些边界条件在真实交通中多常见，ROAM 说明接近或越过边界之后会出现什么运营后果。</p>
+              <div class="project-link-row" aria-label="项目链接">
+                <a href="https://openodc.autozyx.com/" target="_blank" rel="noopener">OpenODC</a>
+                <a href="https://driveresearch.tech/" target="_blank" rel="noopener">DRIVEResearch</a>
+                <a href="https://roam.autozyx.com/" target="_blank" rel="noopener">ROAM</a>
+              </div>
             </div>
           </div>
           <div class="deck-notes-source">

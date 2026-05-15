@@ -472,6 +472,14 @@ async function addPptxSlide(pptx, sourceSlide, slideIndex) {
   pptSlide.addText(title || `Slide ${slideIndex + 1}`, { x: 0.55, y: 0.58, w: 12.1, h: 0.55, fontSize: title.length > 44 ? 20 : 24, bold: false, color: accent, margin: 0, breakLine: false, fit: 'shrink' })
   pptSlide.addShape(pptx.ShapeType.line, { x: 0.55, y: 1.23, w: 12.2, h: 0, line: { color: line, width: 1.2 } })
 
+  if (sourceSlide.dataset.slideKey === 'sotif-link' && sourceSlide.querySelector('.project-card')) {
+    await addProjectEcosystemPptx(pptx, pptSlide, sourceSlide, { accent, ink, soft })
+    const note = textOf(sourceSlide, '.deck-notes-source')
+    if (note) pptSlide.addNotes(note)
+    pptSlide.addText(`${slideIndex + 1} / ${slides.length}`, { x: 11.5, y: 7.05, w: 1.2, h: 0.22, fontSize: 8, color: soft, align: 'right', margin: 0 })
+    return
+  }
+
   const imageData = await firstImageData(sourceSlide)
   const lines = collectSlideLines(sourceSlide)
   const hasImage = Boolean(imageData)
@@ -534,6 +542,8 @@ function collectSlideLines(sourceSlide) {
     '.combination-formula strong',
     '.boundary-cards section',
     '.trigger-map > div',
+    '.project-card',
+    '.project-link-row a',
     '.slide-callout',
     '.closing-quote',
     '.contrib-grid section',
@@ -566,14 +576,86 @@ function normalizeText(value) {
 async function firstImageData(sourceSlide) {
   const img = sourceSlide.querySelector('.slide-image-frame img, .thanks-hero-media img, .cover-logo-strip img, .thanks-logo-row img')
   if (!img?.src) return ''
+  return imageDataFromSrc(img.src)
+}
+
+async function imageDataFromSrc(src) {
+  if (!src) return ''
   try {
-    const response = await fetch(img.src)
+    const response = await fetch(src)
     const blob = await response.blob()
     return await blobToDataUrl(blob)
   } catch (error) {
     console.warn('Unable to include image in PPTX export', error)
     return ''
   }
+}
+
+async function addProjectEcosystemPptx(pptx, pptSlide, sourceSlide, colors) {
+  const { accent, ink, soft } = colors
+  const cards = Array.from(sourceSlide.querySelectorAll('.project-card'))
+  const cardY = 1.52
+  const cardW = 3.82
+  const cardH = 2.82
+  const cardGap = 0.34
+
+  for (let index = 0; index < cards.length; index += 1) {
+    const card = cards[index]
+    const x = 0.65 + index * (cardW + cardGap)
+    pptSlide.addShape(pptx.ShapeType.rect, {
+      x,
+      y: cardY,
+      w: cardW,
+      h: cardH,
+      rectRadius: 0.06,
+      fill: { color: 'FFFFFF' },
+      line: { color: 'B8C5D5', width: 0.8 }
+    })
+
+    const imageData = await imageDataFromSrc(card.querySelector('img')?.src)
+    if (imageData) {
+      pptSlide.addImage({ data: imageData, x: x + 0.1, y: cardY + 0.1, w: cardW - 0.2, h: 1.36, sizing: { type: 'cover', x: x + 0.1, y: cardY + 0.1, w: cardW - 0.2, h: 1.36 } })
+    }
+
+    const name = textOf(card, 'strong')
+    const tag = textOf(card, 'span')
+    const description = textOf(card, 'p')
+    pptSlide.addText(name, { x: x + 0.18, y: cardY + 1.58, w: cardW - 0.36, h: 0.24, fontSize: 11, bold: true, color: accent, margin: 0, fit: 'shrink' })
+    pptSlide.addText(tag, { x: x + 0.18, y: cardY + 1.86, w: cardW - 0.36, h: 0.2, fontSize: 7.5, bold: true, color: 'B30000', margin: 0, fit: 'shrink' })
+    pptSlide.addText(description, { x: x + 0.18, y: cardY + 2.12, w: cardW - 0.36, h: 0.5, fontSize: 7.8, color: ink, margin: 0.02, fit: 'shrink', breakLine: false })
+  }
+
+  const relation = textOf(sourceSlide, '.project-relation-note')
+  if (relation) {
+    pptSlide.addShape(pptx.ShapeType.rect, { x: 0.65, y: 4.58, w: 12.1, h: 0.76, fill: { color: 'EAF1F8' }, line: { color: '8EAADB', width: 0.8 } })
+    pptSlide.addText(relation, { x: 0.82, y: 4.72, w: 11.76, h: 0.46, fontSize: 8.6, color: ink, margin: 0, fit: 'shrink', breakLine: false })
+  }
+
+  const links = Array.from(sourceSlide.querySelectorAll('.project-link-row a'))
+  links.forEach((link, index) => {
+    const x = 0.65 + index * (cardW + cardGap)
+    pptSlide.addShape(pptx.ShapeType.rect, {
+      x,
+      y: 5.62,
+      w: cardW,
+      h: 0.36,
+      rectRadius: 0.04,
+      fill: { color: accent },
+      line: { color: accent, width: 0.6 }
+    })
+    pptSlide.addText(link.textContent.trim(), {
+      x,
+      y: 5.71,
+      w: cardW,
+      h: 0.16,
+      fontSize: 8.5,
+      bold: true,
+      color: 'FFFFFF',
+      align: 'center',
+      margin: 0,
+      hyperlink: { url: link.href }
+    })
+  })
 }
 
 function blobToDataUrl(blob) {
