@@ -538,6 +538,7 @@ function collectSlideLines(sourceSlide) {
     '.closing-quote',
     '.contrib-grid section',
     '.thanks-speaker',
+    '.thanks-link-row a',
     '.contact-board section',
     '.thanks-contact-line',
     '.custom-text-block'
