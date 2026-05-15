@@ -4091,12 +4091,12 @@ html[lang="en"] .agenda-plain h2 {
 .agenda-list {
   display: grid;
   gap: 0.82rem;
-  margin: 1.42rem 0 0;
+  margin: 5.06rem 0 0;
   padding: 0;
   list-style: none;
 }
 html[lang="en"] .agenda-list {
-  margin-top: 1.42rem;
+  margin-top: 5.06rem;
 }
 .agenda-list li {
   display: grid;
