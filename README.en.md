@@ -29,6 +29,7 @@ OpenODC delivers:
 - A **matrix view** that aligns 144 GB/T elements across multiple systems
 - Two **views** of the same data: developer / consumer
 - A lightweight **boundary-combination** layer that marks public-source multi-element boundaries as trigger-condition candidates
+- A methodology interface that positions explainable online OOD detectors such as DINO-R as runtime evidence candidates, not main ODC-table fields
 - A **Vendor Intake Workbench** that turns manuals, configuration tables, operating rules, or sanitized excerpts into a 144-element ODC draft table
 
 ## Why this exists
@@ -42,6 +43,8 @@ OpenODC provides a unified, machine-readable public format and a sample library 
 Important semantic boundary: L2 records describe feature availability conditions while the driver remains responsible for the dynamic driving task. L3/L4 records are the cases where an ADS may take responsibility inside an ODD. See the [Methodology](https://openodc.autozyx.com/en/methodology.html) page.
 
 OpenODC also makes one limitation explicit: an ODC table is element-based, and single-element permission does not mean a combined scene is within the real system boundary. Real-road risk often appears when weather, road geometry, lane markings, objects, speed, and human-machine interaction combine. OpenODC therefore adds `boundary_combinations[]`: a small, public-source-supported layer for typical combined boundaries. It helps consumers, supports engineering review, and connects to SOTIF trigger-condition candidates without pretending to replace a vendor safety analysis.
+
+ODC is still a static declaration. Explainable online OOD detectors such as DINO-R can help identify whether runtime visual inputs depart from the training or validation distribution, but they should not be written into the main ODC table or treated as official vendor thresholds. OpenODC positions them as runtime-monitor candidates: useful for explaining boundary combinations, discovering SOTIF trigger-condition candidates, and connecting ROAM anomaly records with DRIVEResearch exposure analysis.
 
 ## Current status
 
@@ -108,6 +111,7 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 | §5.4.c Element associations | `associations[]` field |
 | §5.5 Exit behavior for not-permitted elements | `exit_behavior` field |
 | Boundary combinations / trigger-condition candidates | `boundary_combinations[]` field |
+| OOD online monitor candidates | `docs/ood-online-monitoring.en.md` (outside the required core schema for now) |
 | Public sample library | `data/examples/*.json` (community-extracted samples with per-element public-source coverage and gaps) |
 | L2 / L3 / L4 semantics | `site/en/methodology.html` |
 | Tables 5–14 quantitative scales | `schema/enums/quantitative_scales.json` |
@@ -152,6 +156,7 @@ for automated driving systems. https://openodc.autozyx.com
 
 - [ROAM](https://autozyx.github.io/ROAM/) — L4 Robotaxi Operations Anomaly Management
 - [DRIVEResearch](https://www.driveresearch.tech/) — Aerial naturalistic driving dataset
+- [DINO-R project page](https://robosafe-lab.github.io/dino-r.page/) — an explainable online OOD detection research prototype
 
 Together they form an open AD safety toolkit, with different responsibilities:
 
@@ -160,8 +165,9 @@ Together they form an open AD safety toolkit, with different responsibilities:
 | OpenODC | Declared operating boundaries and public evidence | Connects single ODC elements into traceable combined-boundary candidates |
 | DRIVEResearch | Real traffic exposure distribution | Estimates occurrence frequency, parameter ranges, and human-driving baselines for these combinations |
 | ROAM | Robotaxi remote-operation anomalies and incidents | Records what happens near or beyond boundaries, helping prioritize high-value combinations |
+| DINO-R-like monitors | Runtime visual OOD detection | Provide anomaly scores, heatmaps, and object-level explanation signals for selected combined boundaries |
 
-Boundary combinations are the minimum shared interface among the three projects. OpenODC does not perform a full SOTIF safety case, but it can structure public combined-boundary evidence so exposure data and anomaly records can continue the analysis.
+Boundary combinations are the minimum shared interface among these projects. OpenODC does not perform a full SOTIF safety case and it does not run online perception models. It structures public combined-boundary evidence so exposure data, anomaly records, and runtime-monitoring research can continue the analysis.
 
 ## Contact
 
