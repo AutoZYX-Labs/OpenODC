@@ -3560,6 +3560,25 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border-left-color: #b30000;
   background: color-mix(in srgb, #b30000, transparent 91%);
 }
+[data-slide-key="summary-contribute"] .slide-body.two-col {
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  align-content: stretch;
+}
+.summary-tagline {
+  align-self: end;
+  max-width: 850px;
+  margin: 0;
+  color: var(--slide-accent);
+  font-size: 1.78rem;
+  font-weight: 600;
+  line-height: 1.24;
+}
+html[lang="en"] .summary-tagline {
+  max-width: 930px;
+  font-size: 1.45rem;
+  line-height: 1.28;
+}
 .thanks-layout {
   position: relative;
   z-index: 1;
