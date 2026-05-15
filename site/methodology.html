@@ -115,27 +115,6 @@
           </table>
         </div>
 
-        <h2 class="section-title">与在线 OOD 检测器的关系</h2>
-        <p class="lead">DINO-R 这类可解释 OOD 在线检测器适合放在 OpenODC 旁边，而不是写进 ODC 主表。OpenODC 声明静态边界和公开证据；在线 OOD 检测器观察运行时视觉输入是否偏离训练或验证分布。它们可以帮助解释某些边界组合为什么值得关注，但不能直接成为厂家官方 ODC 阈值。</p>
-
-        <div class="table-wrap">
-          <table class="mapping-table">
-            <thead>
-              <tr><th>DINO-R 类输出</th><th>OpenODC 中的合理用途</th><th>边界</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>图像级 OOD 风险分数</td><td>作为某些边界组合的运行时监测候选信号</td><td>不是官方 ODC 阈值</td></tr>
-              <tr><td>空间异常热力图</td><td>解释异常区域是否集中在目标物、施工区、车道边界或视觉走廊</td><td>不是系统退出结论</td></tr>
-              <tr><td>对象级异常解释</td><td>辅助挖掘小目标、异形目标、临时设施等触发条件候选</td><td>需要目标城市和车型域校准</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <ul class="status-list">
-          <li class="done">OpenODC 方法说明：<a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/docs/ood-online-monitoring.md" target="_blank" rel="noopener">OOD 在线监测器与 OpenODC</a></li>
-          <li class="done">DINO-R 项目页：<a href="https://robosafe-lab.github.io/dino-r.page/" target="_blank" rel="noopener">Object-Aware and Explainable Out-of-Distribution Detection for Autonomous Vehicles</a></li>
-        </ul>
-
         <h2 class="section-title">证据等级</h2>
         <div class="table-wrap">
           <table class="mapping-table">

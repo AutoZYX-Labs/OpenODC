@@ -155,53 +155,6 @@ This layer also creates the natural interface to two related projects:
 
 OpenODC should stay deliberately narrow: it publishes auditable boundary evidence and combination candidates. DRIVEResearch can answer whether those combinations are common enough to matter. ROAM can answer whether they appear in real operational anomalies. Together they are stronger than an ODC table alone, while keeping each project maintainable.
 
-## 5.2 Runtime OOD monitor candidates
-
-OpenODC is not a runtime monitoring system, but runtime monitor research can connect naturally to boundary combinations. DINO-R, for example, is an object-aware and explainable OOD detection prototype for autonomous-driving imagery. Its public project page and anonymous code describe a frozen DINOv3 backbone, a lightweight reconstructor, token-level reconstruction error, pseudo-object grouping, object-aware risk weighting, an image-level OOD score, and a spatial anomaly map.
-
-This belongs beside OpenODC, not inside the main ODC table:
-
-- `elements[]` remains the public ODC declaration.
-- `boundary_combinations[]` remains the public-source-supported combined-boundary layer.
-- Runtime OOD monitors can be linked as optional evidence candidates for selected elements or combinations.
-
-The reason is semantic: an OOD score is not an official ODC threshold, and an anomaly heatmap is not a vendor-confirmed operating boundary. It can, however, help explain why a combination such as night + rain + worn lane markings + small object deserves review.
-
-Future schema work can add an optional extension outside the required core contract:
-
-```json
-{
-  "monitor_id": "dino-r-like-visual-ood",
-  "monitor_type": "visual_ood_online_detector",
-  "source_url": "https://robosafe-lab.github.io/dino-r.page/",
-  "observes_element_ids": [
-    "odd.targets.traffic_participant.vru",
-    "odd.road.infrastructure.lane_marking",
-    "odd.road.work_zone"
-  ],
-  "linked_boundary_combination_ids": [
-    "night-rain-small-object",
-    "construction-temporary-lane-low-marking"
-  ],
-  "runtime_signal": {
-    "name": "object-aware OOD risk score",
-    "explanation": "image-level score with spatial anomaly map"
-  },
-  "validation_domain": [
-    "Cityscapes-S",
-    "nuScenes-S",
-    "nuScenes-B"
-  ],
-  "limitations": [
-    "research prototype",
-    "not a vendor ODC declaration",
-    "thresholds require target-domain calibration"
-  ]
-}
-```
-
-This keeps the platform lightweight: OpenODC publishes declared boundaries and public evidence; runtime monitors provide observation signals that may prioritize combinations for testing, SOTIF review, or ROAM-style anomaly analysis.
-
 ## 6. Provenance and trust levels
 
 Each element entry can carry a `source` block:
@@ -274,7 +227,7 @@ OpenODC is **not** trying to be:
 - A simulation platform (we describe ODCs; tools like SimOne / 51Sim / CARLA consume them)
 - An OEM's internal ADS specification system (we are a publishing format)
 - A safety case framework (ISO 21448 / ISO 26262 sit above us)
-- A real-time monitoring system (we declare design conditions; runtime monitors may be linked as evidence candidates, but they run outside OpenODC)
+- A real-time monitoring system (we declare design conditions; we do not measure runtime conditions)
 - A complete trigger-condition database (we only publish public-source-supported boundary-combination candidates)
 
 ## 10. Versioning
@@ -285,4 +238,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-15 (v0.4.3 / runtime OOD monitor integration note).*
+*Last updated 2026-05-13 (v0.4.3 / boundary-combination expansion and trigger-condition candidates).*

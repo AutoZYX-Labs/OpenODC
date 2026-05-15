@@ -29,7 +29,6 @@ OpenODC 提供：
 - 一个横向矩阵视图，把 144 个国标要素逐项对齐到不同系统
 - 同一份数据的两种视图：开发者 / 消费者
 - 一层轻量“边界组合”，把公开资料中已经能识别的多要素组合边界标为触发条件候选
-- 一层方法论接口，把 DINO-R 这类可解释 OOD 在线监测器定位为运行时证据候选，而不是 ODC 主表字段
 - 厂家资料工作台，用于从手册、配置表、运营规则或脱敏摘录生成 144 要素 ODC 草案表
 
 ## 为什么要有这个
@@ -43,8 +42,6 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 重要语义边界：L2 样例描述功能适用条件，驾驶员仍需持续负责动态驾驶任务；L3/L4 样例才涉及 ADS 在 ODD 内承担动态驾驶任务。详见网站的 [方法与标准](https://openodc.autozyx.com/methodology.html) 页面。
 
 同时，ODC 表格本身有局限：单项要素允许不等于组合场景可用。真实道路风险往往来自天气、道路、标线、目标物、速度、人机交互等多个要素同时出现。OpenODC 因此新增 `boundary_combinations[]`，只记录少量公开资料可支撑的典型组合边界，用于提示消费者、支持工程审阅和衔接 SOTIF 触发条件候选，而不试图替代厂家完整安全分析。
-
-进一步地，ODC 仍然是静态声明。DINO-R 这类可解释 OOD 在线检测器可以帮助识别运行时视觉输入是否偏离训练或验证分布，但它不应被写入 ODC 主表，也不能直接变成厂家官方阈值。OpenODC 将其定位为运行时监测候选：用于解释边界组合、辅助发现 SOTIF 触发条件、连接 ROAM 异常记录和 DRIVEResearch 暴露评估。
 
 ## 当前状态
 
@@ -126,7 +123,6 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 | §5.4.c 元素关联关系 | `associations[]` 字段 |
 | §5.5 不允许的退出行为 | `exit_behavior` 字段 |
 | 边界组合 / 触发条件候选 | `boundary_combinations[]` 字段 |
-| OOD 在线监测候选 | `docs/ood-online-monitoring.md`（暂不进入核心 Schema） |
 | 公开样例库 | `data/examples/*.json`（社区提取样例，逐项显示公开资料覆盖与缺口） |
 | L2 / L3 / L4 语义边界 | `site/methodology.html` |
 | 量化分级表 5–14 | `schema/enums/quantitative_scales.json` |
@@ -173,18 +169,16 @@ for automated driving systems. https://openodc.autozyx.com
 
 - [ROAM](https://autozyx.github.io/ROAM/) — L4 Robotaxi 远程运营事故数据库
 - [DRIVEResearch](https://www.driveresearch.tech/) — 航测自然驾驶数据集
-- [DINO-R 项目页](https://robosafe-lab.github.io/dino-r.page/) — 可解释 OOD 在线检测研究原型
 
-这些项目构成 AD 安全开源工具栈，但分工不同：
+三者构成 AD 安全开源工具栈，但分工不同：
 
 | 项目 | 关注对象 | 与边界组合的关系 |
 |---|---|---|
 | OpenODC | 设计运行边界与公开证据 | 把单项 ODC 要素连接成可引用的组合边界候选 |
 | DRIVEResearch | 真实道路暴露分布 | 估计这些组合在自然交通中的出现频次、参数范围和人类驾驶基准 |
 | ROAM | Robotaxi 远程运营异常与事故 | 记录越界、接近边界或运营干预后的结果，反向提示高价值组合 |
-| DINO-R 类监测器 | 运行时视觉分布外检测 | 为部分组合边界提供异常分数、热力图和对象级解释线索 |
 
-边界组合是这些项目共享的最小接口。OpenODC 不做完整 SOTIF 安全论证，也不运行在线感知模型；它把公开资料中的组合边界整理出来，让数据项目、异常项目和运行时监测研究继续往下接。
+边界组合是三者共享的最小接口。OpenODC 不做完整 SOTIF 安全论证，但它可以把公开资料中的组合边界整理出来，让数据项目和异常项目继续往下接。
 
 ## 联系
 

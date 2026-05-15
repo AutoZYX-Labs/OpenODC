@@ -115,27 +115,6 @@
           </table>
         </div>
 
-        <h2 class="section-title">Relationship with Online OOD Detectors</h2>
-        <p class="lead">Explainable online OOD detectors such as DINO-R belong beside OpenODC, not inside the main ODC table. OpenODC declares static boundaries and public evidence. Online OOD detectors observe whether runtime visual inputs depart from the training or validation distribution. They can help explain why some boundary combinations deserve attention, but they must not become official vendor ODC thresholds.</p>
-
-        <div class="table-wrap">
-          <table class="mapping-table">
-            <thead>
-              <tr><th>DINO-R-like Output</th><th>Reasonable Use in OpenODC</th><th>Boundary</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Image-level OOD risk score</td><td>A runtime-monitor candidate signal for selected boundary combinations</td><td>Not an official ODC threshold</td></tr>
-              <tr><td>Spatial anomaly heatmap</td><td>Explains whether anomalies concentrate around objects, work zones, road edges, or the driving corridor</td><td>Not an ADS exit conclusion</td></tr>
-              <tr><td>Object-level anomaly explanation</td><td>Helps mine trigger-condition candidates such as small objects, unusual objects, and temporary facilities</td><td>Requires target-domain calibration by city and system</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <ul class="status-list">
-          <li class="done">OpenODC note: <a href="https://github.com/AutoZYX-Labs/OpenODC/blob/main/docs/ood-online-monitoring.en.md" target="_blank" rel="noopener">OOD Online Monitoring and OpenODC</a></li>
-          <li class="done">DINO-R project page: <a href="https://robosafe-lab.github.io/dino-r.page/" target="_blank" rel="noopener">Object-Aware and Explainable Out-of-Distribution Detection for Autonomous Vehicles</a></li>
-        </ul>
-
         <h2 class="section-title">Evidence Levels</h2>
         <div class="table-wrap">
           <table class="mapping-table">
