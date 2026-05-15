@@ -22,7 +22,7 @@ const deckId = app?.dataset.deckId || 'openodc-deck'
 const editStorageKey = `${deckId}:edits`
 const customTextStorageKey = `${deckId}:custom-text`
 const customMediaStorageKey = `${deckId}:custom-media`
-const themeStorageKey = `${deckId}:theme`
+const themeStorageKey = `${deckId}:theme:formal-template`
 const isEnglish = document.documentElement.lang === 'en'
 const fullscreenRevealMargin = 84
 const defaultFullscreenSlideSize = { width: 1280, height: 720 }
@@ -37,7 +37,7 @@ let fullscreenSlideSize = { ...defaultFullscreenSlideSize }
 
 applySavedEdits()
 renderCustomAddons()
-applyTheme(localStorage.getItem(themeStorageKey) || 'paper')
+applyTheme(localStorage.getItem(themeStorageKey) || stage?.dataset.theme || 'paper')
 render()
 
 prevBtn?.addEventListener('click', () => go(index - 1))

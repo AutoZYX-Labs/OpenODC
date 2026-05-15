@@ -47,23 +47,24 @@
     </div>
 
     <div class="deck-layout">
-      <section class="deck-stage" id="deck-stage" data-theme="paper" aria-live="polite">
+      <section class="deck-stage" id="deck-stage" data-theme="white" aria-live="polite">
         <article class="deck-slide is-active" data-slide data-slide-key="cover" data-timing="1:00">
-          <div class="slide-standard slide-cover">
-            <header class="slide-header slide-header-cover">
-              <p class="slide-kicker" data-edit-key="s01-kicker">GB/T 45312—2025 · 公开证据化 ODC 平台</p>
-              <h1 class="slide-title slide-title-xl" data-edit-key="s01-title">OpenODC</h1>
-              <p class="slide-subtitle" data-edit-key="s01-subtitle">把自动驾驶运行边界变成可核验、可比较、可共建的公共数据</p>
-            </header>
-            <div class="slide-body two-col cover-body cover-body-minimal">
-              <div class="cover-copy">
+          <div class="slide-standard slide-cover template-cover">
+            <figure class="cover-media-frame">
+              <img src="/assets/presentation/openodc-cover-media.svg" alt="OpenODC 道路运行边界示意图" />
+            </figure>
+            <div class="cover-title-panel">
+              <div class="cover-title-block">
+                <h1 class="cover-title-cn" data-edit-key="s01-title">OpenODC：自动驾驶运行边界公共证据平台</h1>
+                <p class="cover-title-en" data-edit-key="s01-subtitle">OPENODC: A PUBLIC EVIDENCE PLATFORM FOR AUTOMATED DRIVING ODC</p>
+              </div>
+              <div class="cover-meta-row">
                 <div class="speaker-card" aria-label="个人介绍">
                   <strong data-edit-key="s01-speaker">张玉新</strong>
                   <p data-edit-key="s01-affiliation-a">自动驾驶安全联合实验室</p>
                   <p data-edit-key="s01-affiliation-b">吉林大学汽车底盘集成与仿生全国重点实验室</p>
+                  <span class="cover-date" data-edit-key="s01-date">2026年5月</span>
                 </div>
-              </div>
-              <div class="cover-identity-panel cover-logo-panel">
                 <div class="cover-logo-strip" aria-label="实验室标识">
                   <img src="/assets/presentation/ad-safety-joint-lab-logo-transparent.png" alt="自动驾驶安全联合实验室" />
                   <img src="/assets/presentation/state-key-lab-logo-transparent.png" alt="汽车底盘集成与仿生全国重点实验室" />
@@ -77,23 +78,38 @@
         </article>
 
         <article class="deck-slide" data-slide data-slide-key="agenda" data-timing="0:50">
-          <div class="slide-standard">
-            <header class="slide-header">
-              <p class="slide-kicker" data-edit-key="s02-kicker">汇报提纲</p>
-              <h2 class="slide-title" data-edit-key="s02-title">汇报结构与技术路线</h2>
-            </header>
-            <div class="slide-body agenda-body">
-              <div class="agenda-grid agenda-grid-formal" aria-label="演示目录">
-                <section><span>01</span><strong data-edit-key="s02-a">ODC 是什么</strong><p>先明确运行设计条件解决的边界问题。</p></section>
-                <section><span>02</span><strong data-edit-key="s02-b">国标为什么重要</strong><p>GB/T 45312—2025 为行业提供统一元素体系。</p></section>
-                <section><span>03</span><strong data-edit-key="s02-c">为什么需要公共平台</strong><p>公开资料仍然分散、粒度不一、难以横向比较。</p></section>
-                <section><span>04</span><strong data-edit-key="s02-d">OpenODC 如何组织数据</strong><p>用 Schema、证据、视图、组合边界构成平台框架。</p></section>
-                <section><span>05</span><strong data-edit-key="s02-e">如何共建</strong><p>把样例、审阅、厂家确认和工具开发组织起来。</p></section>
-              </div>
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="演示目录">
+              <h2 data-edit-key="s02-title">目录</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong data-edit-key="s02-a">ODC 是什么</strong></li>
+                <li><span>02</span><strong data-edit-key="s02-b">GB/T 45312—2025 国标背景</strong></li>
+                <li><span>03</span><strong data-edit-key="s02-c">公共 ODC 数据层的行业缺口</strong></li>
+                <li><span>04</span><strong data-edit-key="s02-d">OpenODC 方法论与平台框架</strong></li>
+                <li><span>05</span><strong data-edit-key="s02-e">总结与共建</strong></li>
+              </ol>
             </div>
           </div>
           <div class="deck-notes-source">
             <p>目录页面向会议场景，只呈现正常的专业汇报结构。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-odc" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="当前章节">
+              <h2>目录</h2>
+              <ol class="agenda-list">
+                <li class="is-current"><span>01</span><strong>ODC 是什么</strong></li>
+                <li><span>02</span><strong>GB/T 45312—2025 国标背景</strong></li>
+                <li><span>03</span><strong>公共 ODC 数据层的行业缺口</strong></li>
+                <li><span>04</span><strong>OpenODC 方法论与平台框架</strong></li>
+                <li><span>05</span><strong>总结与共建</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>进入第一部分，先把 ODC 从缩写拉回工程边界问题。</p>
           </div>
         </article>
 
@@ -149,6 +165,24 @@
           </div>
           <div class="deck-notes-source">
             <p>这页防止听众把 OpenODC 误解为排行榜。等级和边界是两个维度。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-standard" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="当前章节">
+              <h2>目录</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>ODC 是什么</strong></li>
+                <li class="is-current"><span>02</span><strong>GB/T 45312—2025 国标背景</strong></li>
+                <li><span>03</span><strong>公共 ODC 数据层的行业缺口</strong></li>
+                <li><span>04</span><strong>OpenODC 方法论与平台框架</strong></li>
+                <li><span>05</span><strong>总结与共建</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>进入第二部分，说明国标如何把 ODC 变成可对齐的元素体系。</p>
           </div>
         </article>
 
@@ -248,6 +282,24 @@
           </div>
         </article>
 
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-gap" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="当前章节">
+              <h2>目录</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>ODC 是什么</strong></li>
+                <li><span>02</span><strong>GB/T 45312—2025 国标背景</strong></li>
+                <li class="is-current"><span>03</span><strong>公共 ODC 数据层的行业缺口</strong></li>
+                <li><span>04</span><strong>OpenODC 方法论与平台框架</strong></li>
+                <li><span>05</span><strong>总结与共建</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>进入第三部分，从标准转向行业公共数据层缺口。</p>
+          </div>
+        </article>
+
         <article class="deck-slide" data-slide data-slide-key="industry-gap" data-timing="1:05">
           <div class="slide-standard">
             <header class="slide-header">
@@ -307,6 +359,24 @@
           </div>
           <div class="deck-notes-source">
             <p>正式场合必须讲清定位和边界，项目可信度来自克制。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-openodc" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="当前章节">
+              <h2>目录</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>ODC 是什么</strong></li>
+                <li><span>02</span><strong>GB/T 45312—2025 国标背景</strong></li>
+                <li><span>03</span><strong>公共 ODC 数据层的行业缺口</strong></li>
+                <li class="is-current"><span>04</span><strong>OpenODC 方法论与平台框架</strong></li>
+                <li><span>05</span><strong>总结与共建</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>进入第四部分，介绍 OpenODC 当前资产、方法论和组合边界设计。</p>
           </div>
         </article>
 
@@ -539,6 +609,24 @@
           </div>
           <div class="deck-notes-source">
             <p>这页把 OpenODC 放到更大的自动驾驶安全工具栈中，说明它为什么有复利价值。</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-contribute" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="当前章节">
+              <h2>目录</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>ODC 是什么</strong></li>
+                <li><span>02</span><strong>GB/T 45312—2025 国标背景</strong></li>
+                <li><span>03</span><strong>公共 ODC 数据层的行业缺口</strong></li>
+                <li><span>04</span><strong>OpenODC 方法论与平台框架</strong></li>
+                <li class="is-current"><span>05</span><strong>总结与共建</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>进入第五部分，收束到共建入口和行动建议。</p>
           </div>
         </article>
 

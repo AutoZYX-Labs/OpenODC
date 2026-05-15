@@ -47,23 +47,24 @@
     </div>
 
     <div class="deck-layout">
-      <section class="deck-stage" id="deck-stage" data-theme="paper" aria-live="polite">
+      <section class="deck-stage" id="deck-stage" data-theme="white" aria-live="polite">
         <article class="deck-slide is-active" data-slide data-slide-key="cover" data-timing="1:00">
-          <div class="slide-standard slide-cover">
-            <header class="slide-header slide-header-cover">
-              <p class="slide-kicker" data-edit-key="s01-kicker">GB/T 45312-2025 · Evidence-first ODC platform</p>
-              <h1 class="slide-title slide-title-xl" data-edit-key="s01-title">OpenODC</h1>
-              <p class="slide-subtitle" data-edit-key="s01-subtitle">Turning automated-driving operating boundaries into verifiable, comparable, co-maintained public data</p>
-            </header>
-            <div class="slide-body two-col cover-body cover-body-minimal">
-              <div class="cover-copy">
+          <div class="slide-standard slide-cover template-cover">
+            <figure class="cover-media-frame">
+              <img src="/assets/presentation/openodc-cover-media.svg" alt="OpenODC road boundary illustration" />
+            </figure>
+            <div class="cover-title-panel">
+              <div class="cover-title-block">
+                <h1 class="cover-title-cn" data-edit-key="s01-title">OpenODC: Public Evidence Platform for Automated-Driving Boundaries</h1>
+                <p class="cover-title-en" data-edit-key="s01-subtitle">OPENODC: A PUBLIC EVIDENCE PLATFORM FOR AUTOMATED DRIVING ODC</p>
+              </div>
+              <div class="cover-meta-row">
                 <div class="speaker-card" aria-label="Profile">
                   <strong data-edit-key="s01-speaker">Yuxin Zhang</strong>
                   <p data-edit-key="s01-affiliation-a">Automated Driving Safety Joint Lab</p>
                   <p data-edit-key="s01-affiliation-b">State Key Laboratory of Automotive Chassis Integration and Bionics, Jilin University</p>
+                  <span class="cover-date" data-edit-key="s01-date">May 2026</span>
                 </div>
-              </div>
-              <div class="cover-identity-panel cover-logo-panel">
                 <div class="cover-logo-strip" aria-label="Lab logos">
                   <img src="/assets/presentation/ad-safety-joint-lab-logo-transparent.png" alt="Automated Driving Safety Joint Lab" />
                   <img src="/assets/presentation/state-key-lab-logo-transparent.png" alt="State Key Laboratory of Automotive Chassis Integration and Bionics" />
@@ -77,23 +78,38 @@
         </article>
 
         <article class="deck-slide" data-slide data-slide-key="agenda" data-timing="0:50">
-          <div class="slide-standard">
-            <header class="slide-header">
-              <p class="slide-kicker" data-edit-key="s02-kicker">Agenda</p>
-              <h2 class="slide-title" data-edit-key="s02-title">Outline and Technical Route</h2>
-            </header>
-            <div class="slide-body agenda-body">
-              <div class="agenda-grid agenda-grid-formal" aria-label="Presentation agenda">
-                <section><span>01</span><strong data-edit-key="s02-a">What ODC is</strong><p>Clarify the boundary problem that operational design conditions solve.</p></section>
-                <section><span>02</span><strong data-edit-key="s02-b">Why the standard matters</strong><p>GB/T 45312-2025 gives the industry a shared element system.</p></section>
-                <section><span>03</span><strong data-edit-key="s02-c">Why a public platform is needed</strong><p>Public evidence remains fragmented, uneven, and hard to compare.</p></section>
-                <section><span>04</span><strong data-edit-key="s02-d">How OpenODC organizes data</strong><p>Schema, provenance, views, and boundary combinations.</p></section>
-                <section><span>05</span><strong data-edit-key="s02-e">How to contribute</strong><p>Samples, review, vendor confirmation, and tooling.</p></section>
-              </div>
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Presentation agenda">
+              <h2 data-edit-key="s02-title">Agenda</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong data-edit-key="s02-a">What ODC Is</strong></li>
+                <li><span>02</span><strong data-edit-key="s02-b">GB/T 45312-2025 Standard Context</strong></li>
+                <li><span>03</span><strong data-edit-key="s02-c">The Missing Public ODC Data Layer</strong></li>
+                <li><span>04</span><strong data-edit-key="s02-d">OpenODC Methodology and Platform Framework</strong></li>
+                <li><span>05</span><strong data-edit-key="s02-e">Summary and Contribution</strong></li>
+              </ol>
             </div>
           </div>
           <div class="deck-notes-source">
             <p>Use a formal agenda for a conference setting.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-odc" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Current section">
+              <h2>Agenda</h2>
+              <ol class="agenda-list">
+                <li class="is-current"><span>01</span><strong>What ODC Is</strong></li>
+                <li><span>02</span><strong>GB/T 45312-2025 Standard Context</strong></li>
+                <li><span>03</span><strong>The Missing Public ODC Data Layer</strong></li>
+                <li><span>04</span><strong>OpenODC Methodology and Platform Framework</strong></li>
+                <li><span>05</span><strong>Summary and Contribution</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Enter the first section by grounding ODC in engineering boundary questions.</p>
           </div>
         </article>
 
@@ -147,6 +163,24 @@
           </div>
           <div class="deck-notes-source">
             <p>Prevent the AD leaderboard misunderstanding.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-standard" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Current section">
+              <h2>Agenda</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>What ODC Is</strong></li>
+                <li class="is-current"><span>02</span><strong>GB/T 45312-2025 Standard Context</strong></li>
+                <li><span>03</span><strong>The Missing Public ODC Data Layer</strong></li>
+                <li><span>04</span><strong>OpenODC Methodology and Platform Framework</strong></li>
+                <li><span>05</span><strong>Summary and Contribution</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Enter the second section by explaining how the standard aligns ODC elements.</p>
           </div>
         </article>
 
@@ -246,6 +280,24 @@
           </div>
         </article>
 
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-gap" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Current section">
+              <h2>Agenda</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>What ODC Is</strong></li>
+                <li><span>02</span><strong>GB/T 45312-2025 Standard Context</strong></li>
+                <li class="is-current"><span>03</span><strong>The Missing Public ODC Data Layer</strong></li>
+                <li><span>04</span><strong>OpenODC Methodology and Platform Framework</strong></li>
+                <li><span>05</span><strong>Summary and Contribution</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Enter the third section by moving from standard syntax to public-data gaps.</p>
+          </div>
+        </article>
+
         <article class="deck-slide" data-slide data-slide-key="industry-gap" data-timing="1:05">
           <div class="slide-standard">
             <header class="slide-header">
@@ -305,6 +357,24 @@
           </div>
           <div class="deck-notes-source">
             <p>This slide states the project’s credibility boundary.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-openodc" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Current section">
+              <h2>Agenda</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>What ODC Is</strong></li>
+                <li><span>02</span><strong>GB/T 45312-2025 Standard Context</strong></li>
+                <li><span>03</span><strong>The Missing Public ODC Data Layer</strong></li>
+                <li class="is-current"><span>04</span><strong>OpenODC Methodology and Platform Framework</strong></li>
+                <li><span>05</span><strong>Summary and Contribution</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Enter the fourth section by introducing OpenODC assets, methodology, and combination boundaries.</p>
           </div>
         </article>
 
@@ -537,6 +607,24 @@
           </div>
           <div class="deck-notes-source">
             <p>Place OpenODC inside the wider AD safety tooling stack.</p>
+          </div>
+        </article>
+
+        <article class="deck-slide" data-slide data-slide-key="agenda-focus-contribute" data-timing="0:20">
+          <div class="slide-standard slide-agenda">
+            <div class="agenda-plain" aria-label="Current section">
+              <h2>Agenda</h2>
+              <ol class="agenda-list">
+                <li><span>01</span><strong>What ODC Is</strong></li>
+                <li><span>02</span><strong>GB/T 45312-2025 Standard Context</strong></li>
+                <li><span>03</span><strong>The Missing Public ODC Data Layer</strong></li>
+                <li><span>04</span><strong>OpenODC Methodology and Platform Framework</strong></li>
+                <li class="is-current"><span>05</span><strong>Summary and Contribution</strong></li>
+              </ol>
+            </div>
+          </div>
+          <div class="deck-notes-source">
+            <p>Enter the final section by closing with the contribution path.</p>
           </div>
         </article>
 
