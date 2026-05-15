@@ -4760,7 +4760,7 @@ html[lang="en"] .project-relation-note {
 }
 [data-slide-key="thanks"] .thanks-template .thanks-main {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto auto;
+  grid-template-rows: minmax(0, 1fr) auto auto;
   height: 100%;
   gap: 0.54rem;
   align-content: stretch;
@@ -4800,15 +4800,20 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
   line-height: 1.36;
 }
 .thanks-contact-line {
-  margin: 0.08rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin: 0;
   color: #111;
   font-size: 0.84rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1;
+  white-space: nowrap;
 }
 .thanks-link-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;
   gap: 0.58rem;
   margin-top: 0.18rem;
 }
@@ -4838,6 +4843,8 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
   gap: 0.58rem;
   padding: 0;
   align-content: end;
+  margin-bottom: 0;
+  transform: translateY(0.18rem);
 }
 [data-slide-key="thanks"] .thanks-template .thanks-logo-row img {
   width: 100%;
