@@ -186,30 +186,40 @@ function syncFullscreenState() {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
     updateFullscreenSlideScale()
     requestAnimationFrame(updateFullscreenSlideScale)
-    revealFullscreenChrome()
   } else {
     app?.classList.remove('fullscreen-reveal-top', 'fullscreen-reveal-bottom')
     app?.style.removeProperty('--fullscreen-slide-scale')
+    app?.style.removeProperty('--fullscreen-slide-width')
+    app?.style.removeProperty('--fullscreen-slide-height')
   }
 }
 
 function captureFullscreenSlideSize() {
-  if (!stage || !app) return
-  const rect = stage.getBoundingClientRect()
-  if (rect.width < 320 || rect.height < 240) return
-  fullscreenSlideSize = {
-    width: rect.width,
-    height: rect.height
-  }
+  if (!app) return
+  fullscreenSlideSize = { ...defaultFullscreenSlideSize }
   app.style.setProperty('--fullscreen-slide-width', `${fullscreenSlideSize.width.toFixed(2)}px`)
   app.style.setProperty('--fullscreen-slide-height', `${fullscreenSlideSize.height.toFixed(2)}px`)
 }
 
 function updateFullscreenSlideScale() {
   if (!app || document.fullscreenElement !== app) return
-  const width = fullscreenSlideSize.width || defaultFullscreenSlideSize.width
-  const height = fullscreenSlideSize.height || defaultFullscreenSlideSize.height
-  const scale = Math.min(window.innerWidth / width, window.innerHeight / height)
+  const defaultAspect = defaultFullscreenSlideSize.width / defaultFullscreenSlideSize.height
+  const viewportAspect = window.innerWidth / window.innerHeight
+  let width = defaultFullscreenSlideSize.width
+  let height = defaultFullscreenSlideSize.height
+  let scale = 1
+
+  if (viewportAspect < defaultAspect) {
+    height = width / viewportAspect
+    scale = window.innerWidth / width
+  } else {
+    width = height * viewportAspect
+    scale = window.innerHeight / height
+  }
+
+  fullscreenSlideSize = { width, height }
+  app.style.setProperty('--fullscreen-slide-width', `${width.toFixed(2)}px`)
+  app.style.setProperty('--fullscreen-slide-height', `${height.toFixed(2)}px`)
   app.style.setProperty('--fullscreen-slide-scale', `${Math.max(0.1, scale).toFixed(4)}`)
 }
 

@@ -2784,7 +2784,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .deck-app:fullscreen {
   overflow: hidden;
   padding: 0;
-  background: var(--slide-bg, #fffdf8);
+  background: #0d1117;
 }
 .deck-app.is-fullscreen {
   min-height: 100vh;
@@ -2804,7 +2804,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  background: var(--slide-bg);
+  background: #0d1117;
 }
 .deck-app.is-fullscreen .deck-notes-panel {
   display: none;
@@ -3658,13 +3658,13 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   padding-bottom: 3.35rem;
 }
 .deck-slide:not([data-slide-key="cover"]):not([data-slide-key="thanks"])::after {
-  content: "Automated Vehicles Safety | Yuxin Zhang";
+  content: "automated driving safety | Yuxin Zhang";
   position: absolute;
   z-index: 4;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 2.36rem;
+  bottom: -1px;
+  height: calc(2.36rem + 1px);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -3751,7 +3751,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .cover-title-panel {
   display: grid;
   gap: 0.78rem;
-  padding: 1.15rem 1.75rem 1.05rem;
+  padding: 1.15rem 2.35rem 1.05rem;
   background: #fff;
   box-shadow: 0 -18px 42px rgba(27, 23, 74, 0.08);
 }
@@ -3778,7 +3778,7 @@ html[lang="en"] .cover-title-en {
 }
 html[lang="en"] .cover-title-panel {
   gap: 0.52rem;
-  padding: 0.95rem 1.55rem 0.72rem;
+  padding: 0.95rem 2.35rem 0.72rem;
 }
 .cover-meta-row {
   display: grid;
@@ -3807,6 +3807,8 @@ html[lang="en"] .cover-title-panel {
   color: #9a9a9a;
   font-size: 0.82rem;
   font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .template-cover .cover-logo-strip {
   justify-self: end;
@@ -3889,6 +3891,13 @@ html[lang="en"] .cover-date {
   padding: 0.1rem 0 0.1rem 1.2rem;
   border-left-width: 6px;
 }
+.template-cover .speaker-card {
+  margin-top: 0;
+  max-width: none;
+  padding: 0;
+  border-left: 0;
+  align-self: end;
+}
 .slide-cover .speaker-card strong {
   font-size: 1.93rem;
   line-height: 1.12;
@@ -3946,7 +3955,7 @@ html[lang="en"] .slide-lead {
   justify-content: flex-start;
 }
 .agenda-plain {
-  padding: 2.95rem 0 0 0.6rem;
+  padding: 1.98rem 0 0;
 }
 .agenda-plain h2 {
   margin: 0;
@@ -3960,7 +3969,7 @@ html[lang="en"] .slide-lead {
   display: block;
   width: 6.8rem;
   height: 0.24rem;
-  margin-top: 0.46rem;
+  margin-top: 0.56rem;
   border: 1px solid #4f81bd;
   background: linear-gradient(90deg, #b5c6e0 0%, #8eaadb 58%, #4f81bd 100%);
   box-sizing: border-box;
@@ -3992,6 +4001,28 @@ html[lang="en"] .slide-lead {
 .agenda-list .is-current span,
 .agenda-list .is-current strong {
   color: #b30000;
+}
+.highlight-blue,
+.card-highlight-blue strong,
+.card-highlight-blue span {
+  color: var(--slide-accent);
+}
+.highlight-red,
+.card-highlight-red strong,
+.card-highlight-red span {
+  color: #b30000;
+}
+.card-highlight-blue,
+.card-highlight-red {
+  border-left-width: 5px;
+}
+.card-highlight-blue {
+  border-left-color: var(--slide-accent);
+  background: color-mix(in srgb, var(--slide-accent), transparent 90%);
+}
+.card-highlight-red {
+  border-left-color: #b30000;
+  background: color-mix(in srgb, #b30000, transparent 91%);
 }
 .dense-list {
   margin: 1rem 0 0;
@@ -4141,7 +4172,7 @@ html[lang="en"] .dense-list li {
 .schema-card strong,
 .gap-panel h3 {
   display: block;
-  color: var(--slide-ink);
+  color: var(--slide-accent);
   font-family: var(--serif-sc);
   font-size: 1.06rem;
   line-height: 1.35;
@@ -4326,13 +4357,13 @@ html[lang="en"] .dense-list li {
   font-size: 0.8rem;
 }
 [data-slide-key="standard-background"] .technical-notes span {
-  min-height: 62px;
-  padding: 0.5rem 0.6rem;
-  font-size: 0.72rem;
-  line-height: 1.28;
+  min-height: 54px;
+  padding: 0.42rem 0.54rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
 }
 [data-slide-key="standard-background"] .technical-notes strong {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 }
 .status-card span {
   display: inline-flex;
@@ -4346,8 +4377,12 @@ html[lang="en"] .dense-list li {
   font-weight: 800;
 }
 .status-card-warning {
-  border-left: 5px solid var(--slide-accent);
+  border-left: 5px solid #b30000;
   align-self: center;
+}
+.status-card-warning strong,
+.status-card-warning span {
+  color: #b30000;
 }
 .gap-panel h3 {
   margin: 0 0 0.75rem;
