@@ -3652,6 +3652,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 
 /* Formal PPT-style deck layout */
 .deck-slide {
+  --slide-underline-top: 4.72rem;
   padding: 1.62rem 2.35rem 1.9rem;
 }
 .deck-slide:not([data-slide-key="cover"]):not([data-slide-key="thanks"]) {
@@ -3668,10 +3669,11 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0.18rem 2.28rem 0 2.28rem;
+  padding: 0 2.28rem;
   background: var(--slide-accent);
   color: #fff;
   font-size: 0.88rem;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: 0.02em;
   box-shadow: 0 -8px 16px rgba(23, 55, 94, 0.18);
@@ -3689,16 +3691,21 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   min-width: 0;
 }
 .slide-header {
+  position: relative;
   flex: 0 0 auto;
-  padding: 0 0 0.7rem;
+  min-height: calc(var(--slide-underline-top) + 0.62rem);
+  padding: 0;
   border-bottom: 0;
 }
 .slide-header::after {
   content: "";
   display: block;
+  position: absolute;
+  left: 0;
+  top: var(--slide-underline-top);
   width: 6.8rem;
   height: 0.24rem;
-  margin-top: 0.56rem;
+  margin-top: 0;
   border: 1px solid #4f81bd;
   background: linear-gradient(90deg, #b5c6e0 0%, #8eaadb 58%, #4f81bd 100%);
   box-sizing: border-box;
@@ -3955,9 +3962,11 @@ html[lang="en"] .slide-lead {
   justify-content: flex-start;
 }
 .agenda-plain {
+  position: relative;
   padding: 1.98rem 0 0;
 }
 .agenda-plain h2 {
+  position: static;
   margin: 0;
   color: var(--slide-accent);
   font-size: 2.25rem;
@@ -3967,9 +3976,12 @@ html[lang="en"] .slide-lead {
 .agenda-plain h2::after {
   content: "";
   display: block;
+  position: absolute;
+  left: 0;
+  top: var(--slide-underline-top);
   width: 6.8rem;
   height: 0.24rem;
-  margin-top: 0.56rem;
+  margin-top: 0;
   border: 1px solid #4f81bd;
   background: linear-gradient(90deg, #b5c6e0 0%, #8eaadb 58%, #4f81bd 100%);
   box-sizing: border-box;
@@ -4123,6 +4135,10 @@ html[lang="en"] .dense-list li {
   color: var(--slide-ink);
   font-weight: 700;
   line-height: 1.55;
+}
+.slide-callout.callout-red {
+  border-left-color: #b30000;
+  background: color-mix(in srgb, #b30000, transparent 91%);
 }
 .mini-claim-grid,
 .explain-grid,
