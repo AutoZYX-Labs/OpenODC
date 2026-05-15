@@ -3658,7 +3658,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   padding-bottom: 3.35rem;
 }
 .deck-slide:not([data-slide-key="cover"]):not([data-slide-key="thanks"])::after {
-  content: "automated driving safety | Yuxin Zhang";
+  content: "Automated Driving Safety | Yuxin Zhang";
   position: absolute;
   z-index: 4;
   left: 0;
@@ -3976,22 +3976,22 @@ html[lang="en"] .slide-lead {
 }
 .agenda-list {
   display: grid;
-  gap: 0.75rem;
-  margin: 1.3rem 0 0;
+  gap: 0.82rem;
+  margin: 1.42rem 0 0;
   padding: 0;
   list-style: none;
 }
 .agenda-list li {
   display: grid;
-  grid-template-columns: 3.4rem minmax(0, 1fr);
+  grid-template-columns: 3.75rem minmax(0, 1fr);
   align-items: baseline;
   color: #111;
-  font-size: 1.12rem;
-  line-height: 1.42;
+  font-size: 1.34rem;
+  line-height: 1.36;
 }
 .agenda-list span {
   color: var(--slide-accent);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 900;
 }
 .agenda-list strong {
