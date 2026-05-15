@@ -3296,6 +3296,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 }
 .taxonomy-map {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
 }
 .taxonomy-map span,
 .evidence-stack span,
@@ -3335,6 +3336,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .trigger-map {
   display: grid;
   gap: 0.75rem;
+  align-items: start;
 }
 .agenda-grid,
 .contact-board {
@@ -3393,7 +3395,7 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   border-radius: 8px;
   background: color-mix(in srgb, var(--slide-bg), #fff 42%);
   color: var(--slide-ink);
-  padding: 0.95rem 1rem;
+  padding: 0.72rem 0.88rem;
 }
 .deck-stage[data-theme="night"] .combination-formula > div,
 .deck-stage[data-theme="night"] .boundary-cards section,
@@ -3423,9 +3425,9 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   display: inline-block;
   color: var(--slide-accent);
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.18rem;
 }
 .boundary-cards strong,
 .boundary-demo strong,
@@ -3438,10 +3440,10 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .boundary-demo span,
 .trigger-map span {
   display: block;
-  margin: 0.3rem 0 0;
+  margin: 0.22rem 0 0;
   color: var(--slide-soft);
   font-size: 0.86rem;
-  line-height: 1.5;
+  line-height: 1.42;
 }
 .boundary-demo section {
   border-left: 5px solid var(--slide-accent-2);
@@ -3568,19 +3570,46 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
   align-items: start;
 }
 [data-slide-key="thanks"] .thanks-layout {
-  gap: 2.15rem;
-  padding-top: 0.1rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.64fr);
+  gap: 1.9rem;
+  padding-top: 0;
+  align-items: stretch;
+}
+[data-slide-key="thanks"] .slide-body {
+  align-content: stretch;
+  align-items: stretch;
 }
 .thanks-main {
   display: grid;
   gap: 1rem;
 }
 [data-slide-key="thanks"] .thanks-main {
-  gap: 0.84rem;
-  align-content: start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .thanks-main .slide-subtitle {
   max-width: 760px;
+}
+.thanks-statement {
+  margin: 0;
+  max-width: 860px;
+  color: #111;
+  font-size: 1.92rem;
+  line-height: 1.24;
+}
+html[lang="en"] .thanks-statement {
+  max-width: 790px;
+  font-size: 1.72rem;
+  line-height: 1.28;
+}
+.thanks-identity {
+  margin-top: auto;
+  align-self: stretch;
+  display: grid;
+  gap: 1.05rem;
+  padding-bottom: 0.1rem;
 }
 .thanks-speaker {
   display: grid;
@@ -3620,6 +3649,8 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 }
 [data-slide-key="thanks"] .contact-board {
   gap: 0.55rem;
+  align-self: start;
+  align-content: start;
 }
 [data-slide-key="thanks"] .contact-board section {
   padding: 0.68rem 0.78rem;
@@ -3915,12 +3946,12 @@ html[lang="en"] .cover-date {
   min-height: 0;
   display: grid;
   gap: 1.25rem;
-  align-content: stretch;
-  align-items: stretch;
+  align-content: start;
+  align-items: start;
 }
 .slide-body.two-col {
   grid-template-columns: minmax(0, 1fr) minmax(340px, 0.95fr);
-  align-items: stretch;
+  align-items: start;
 }
 .span-full {
   grid-column: 1 / -1;
@@ -4189,7 +4220,7 @@ html[lang="en"] .dense-list li {
   background: color-mix(in srgb, #b30000, transparent 91%);
 }
 .slide-body > .slide-callout {
-  margin-top: auto;
+  margin-top: 1rem;
 }
 .mini-claim-grid,
 .explain-grid,
@@ -4197,6 +4228,7 @@ html[lang="en"] .dense-list li {
 .contrib-grid {
   display: grid;
   gap: 0.75rem;
+  align-items: start;
 }
 .mini-claim-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4355,6 +4387,7 @@ html[lang="en"] .dense-list li {
 .stat-strip {
   display: grid;
   gap: 0.7rem;
+  align-items: start;
 }
 .stat-strip-vertical {
   grid-template-columns: 1fr;
@@ -4363,7 +4396,7 @@ html[lang="en"] .dense-list li {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .stat-strip section {
-  padding: 0.9rem 1rem;
+  padding: 0.68rem 0.8rem;
   border: 1px solid color-mix(in srgb, var(--slide-muted), transparent 58%);
   border-radius: 8px;
   background: color-mix(in srgb, var(--slide-bg), #fff 42%);
@@ -4371,11 +4404,14 @@ html[lang="en"] .dense-list li {
   display: grid;
   place-content: center;
 }
+.stat-strip-vertical section {
+  min-height: 78px;
+}
 .stat-strip strong {
   display: block;
   color: var(--slide-accent);
   font-family: var(--serif);
-  font-size: 2.2rem;
+  font-size: 1.82rem;
   line-height: 1;
 }
 .stat-strip span {
@@ -4392,7 +4428,8 @@ html[lang="en"] .dense-list li {
   grid-column: auto;
 }
 .taxonomy-map-wide span {
-  min-height: 70px;
+  min-height: 54px;
+  padding: 0.62rem 0.85rem;
   display: grid;
   place-items: center;
   font-weight: 800;
@@ -4436,7 +4473,7 @@ html[lang="en"] .dense-list li {
 }
 .status-card span {
   display: inline-flex;
-  margin: 0.65rem 0;
+  margin: 0.45rem 0;
   padding: 0.32rem 0.58rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--slide-accent-2), transparent 82%);
@@ -4508,14 +4545,35 @@ html[lang="en"] .dense-list li {
   height: 2px;
 }
 .slide-standard .slide-image-frame {
+  min-height: 0;
+  max-height: 390px;
+  height: auto;
+}
+.slide-standard .slide-image-frame img {
+  height: auto;
+  max-height: 390px;
+  object-fit: contain;
+}
+[data-slide-key="what-is-odc"] .slide-body,
+[data-slide-key="project-state"] .slide-body,
+[data-slide-key="gallery"] .slide-body,
+[data-slide-key="workbench"] .slide-body {
+  align-items: stretch;
+}
+[data-slide-key="what-is-odc"] .slide-image-frame,
+[data-slide-key="project-state"] .slide-image-frame,
+[data-slide-key="gallery"] .slide-image-frame,
+[data-slide-key="workbench"] .slide-image-frame {
   min-height: 410px;
   max-height: none;
   height: 100%;
 }
-.slide-standard .slide-image-frame img {
+[data-slide-key="what-is-odc"] .slide-image-frame img,
+[data-slide-key="project-state"] .slide-image-frame img,
+[data-slide-key="gallery"] .slide-image-frame img,
+[data-slide-key="workbench"] .slide-image-frame img {
   height: 100%;
   max-height: none;
-  object-fit: contain;
 }
 .cover-body .slide-image-frame,
 .cover-body .slide-image-frame img {
