@@ -56,6 +56,7 @@ function mount() {
   const isEn = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/')
   const langHref = alternateLanguageHref(isEn)
   navEl.innerHTML = navHtml(isEn ? 'en' : 'zh', langHref).trim()
+  setupAutoHideHeader(navEl.closest('.site-header'))
 
   document.querySelectorAll('.footer-links a').forEach(a => {
     const text = (a.textContent || '').trim().toLowerCase()
@@ -69,6 +70,51 @@ function mount() {
     const normalizedHref = href.replace(/\/$/, '/index.html')
     if (current === normalizedHref) a.classList.add('active')
   })
+}
+
+function setupAutoHideHeader(header) {
+  if (!header) return
+
+  const threshold = 10
+  const minDelta = 4
+  let lastY = window.scrollY || 0
+  let ticking = false
+
+  function isPinned() {
+    return (
+      window.scrollY <= threshold ||
+      header.matches(':hover') ||
+      header.contains(document.activeElement)
+    )
+  }
+
+  function update() {
+    const y = Math.max(window.scrollY || 0, 0)
+    const delta = y - lastY
+    header.classList.toggle('scrolled', y > threshold)
+
+    if (isPinned()) {
+      header.classList.remove('nav-hidden')
+    } else if (Math.abs(delta) >= minDelta) {
+      header.classList.toggle('nav-hidden', delta > 0 && y > header.offsetHeight + threshold)
+    }
+
+    lastY = y
+    ticking = false
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(update)
+    },
+    { passive: true },
+  )
+  header.addEventListener('mouseenter', () => header.classList.remove('nav-hidden'))
+  header.addEventListener('focusin', () => header.classList.remove('nav-hidden'))
+  update()
 }
 
 function alternateLanguageHref(isEn) {
