@@ -18,7 +18,10 @@ const botSensitiveHosts = new Set([
   'www.apollogo.com',
   'ir.pony.ai',
   'www.tesla.com',
-  'www.tesla.cn'
+  'www.tesla.cn',
+  'flk.npc.gov.cn',
+  'xzfg.moj.gov.cn',
+  'openstd.samr.gov.cn'
 ])
 
 function unique(items) {
@@ -35,6 +38,10 @@ function sourceUrls() {
         urls.push({ file, url: raw.replace(/[),.;]+$/, '') })
       }
     }
+  }
+  const roadRuleProfile = JSON.parse(readFileSync(join(process.cwd(), 'data', 'road-rules', 'obligations.json'), 'utf8'))
+  for (const source of roadRuleProfile.sources || []) {
+    urls.push({ file: 'road-rules/obligations.json', url: source.url })
   }
   return unique(urls)
 }

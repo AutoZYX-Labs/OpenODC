@@ -17,8 +17,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install validator
-        run: npm install --no-save ajv-cli
+      - name: Install validation and browser-test dependencies
+        run: npm ci
+
+      - name: Install Chromium for UI verification
+        run: npx playwright install --with-deps chromium
+
+      - name: Regenerate committed public datasets
+        run: npm run generate
 
       - name: Validate schema files
         run: |
@@ -34,18 +40,37 @@ jobs:
           # Validate enums
           node -e "JSON.parse(require('node:fs').readFileSync('schema/enums/quantitative_scales.json', 'utf8'))"
 
+          # Validate the independent public road-rule schema and dataset
+          node -e "JSON.parse(require('node:fs').readFileSync('schema/road-rules/road-rule-profile.schema.json', 'utf8'))"
+          node -e "JSON.parse(require('node:fs').readFileSync('data/road-rules/obligations.json', 'utf8'))"
+
       - name: Validate every example document against schema
-        run: |
-          shopt -s nullglob
-          fail=0
-          for f in data/examples/*.json; do
-            echo "Validating $f"
-            npx ajv-cli validate --spec=draft2019 --strict=false --validate-formats=false -s schema/odc.schema.json -d "$f" || fail=1
-          done
-          exit $fail
+        run: node tools/validate-json-schemas.mjs
 
       - name: Verify element_id references exist in catalog
         run: node tools/check-references.mjs
+
+      - name: Validate public road-rule profile and compatibility lock
+        run: node tools/check-road-rules.mjs
+
+      - name: Verify JSON, CSV, and Markdown export parity
+        run: node tools/check-road-rule-exports.mjs
+
+      - name: Enforce public/private boundary
+        run: node tools/check-public-boundary.mjs
+
+      - name: Verify desktop and mobile UI flows
+        run: npm run test:ui
+
+      - name: Upload UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: openodc-ui-evidence
+          path: |
+            test-results/evidence
+            test-results/report
+          if-no-files-found: ignore
 
       - name: Report source link health
         run: node tools/check-source-links.mjs

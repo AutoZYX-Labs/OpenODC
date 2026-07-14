@@ -2,7 +2,7 @@
 // Scans data/examples/*.json and produces site/data/manifest.json
 // listing every available ODC document with its display metadata.
 
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, copyFileSync, rmSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, copyFileSync, cpSync, rmSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -12,6 +12,8 @@ const examplesDir = join(repoRoot, 'data', 'examples')
 const outManifestPath = join(repoRoot, 'site', 'data', 'manifest.json')
 const outCatalogPath = join(repoRoot, 'site', 'data', 'catalog.json')
 const siteExamplesDir = join(repoRoot, 'site', 'data', 'examples')
+const roadRulesDir = join(repoRoot, 'data', 'road-rules')
+const siteRoadRulesDir = join(repoRoot, 'site', 'data', 'road-rules')
 
 // 1. Build manifest of example documents
 const files = readdirSync(examplesDir).filter(f => f.endsWith('.json'))
@@ -96,6 +98,13 @@ if (existsSync(siteExamplesDir)) rmSync(siteExamplesDir, { recursive: true })
 mkdirSync(siteExamplesDir, { recursive: true })
 for (const f of files) copyFileSync(join(examplesDir, f), join(siteExamplesDir, f))
 console.log(`Mirrored ${files.length} example files to site/data/examples/`)
+
+// 1c. Mirror the public road-rule dataset for local static previews.
+if (existsSync(siteRoadRulesDir)) rmSync(siteRoadRulesDir, { recursive: true })
+if (existsSync(roadRulesDir)) {
+  cpSync(roadRulesDir, siteRoadRulesDir, { recursive: true })
+  console.log('Mirrored public road-rule data to site/data/road-rules/')
+}
 
 // 2. Build merged catalog: combine all categories/*.json into a single tree-friendly file
 // Order matches the standard's logical structure (§6.2.1 → §6.2.5, §6.3, §6.4)

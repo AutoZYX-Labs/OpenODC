@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Road-Rule Mapping — OpenODC</title>
+  <meta name="description" content="Browse 20 China road-rule obligations with traceability to current public sources, ODC applicability, scenario triggers, and evidence candidates." />
+  <meta property="og:title" content="Road-Rule Mapping — OpenODC" />
+  <meta property="og:description" content="From current public sources to road-rule obligations, ODC applicability, scenario triggers, and evidence candidates." />
+  <meta property="og:image" content="https://openodc.autozyx.com/assets/presentation/project-openodc.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://openodc.autozyx.com/en/road-rules.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="road-rules-page">
+  <header class="site-header"><nav class="nav"></nav></header>
+
+  <main>
+    <section class="page-hero road-rule-hero">
+      <div class="container">
+        <p class="eyebrow">READ-ONLY TOOL</p>
+        <div class="road-rule-hero-grid">
+          <div>
+            <h1 class="page-title">Road-Rule Mapping</h1>
+            <p class="page-subtitle">Connect road-rule obligations from current public sources to ODC applicability, executable scenario triggers, and candidate verification evidence.</p>
+          </div>
+          <p class="road-rule-disclaimer">This tool supports engineering research, requirements traceability, and test design. It is not legal advice, certification, or a compliance determination for any vendor, vehicle, or feature.</p>
+        </div>
+        <ol class="trace-overview" aria-label="Road-rule traceability chain">
+          <li><span>01</span><strong>Public sources</strong><small>Current laws, regulations, and standards</small></li>
+          <li><span>02</span><strong>Obligations</strong><small>Required, prohibited, and applicable behavior</small></li>
+          <li><span>03</span><strong>ODC mapping</strong><small>Roads, facilities, targets, and states</small></li>
+          <li><span>04</span><strong>Scenarios & evidence</strong><small>Triggers, expected responses, and verification</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="filter-bar road-rule-filters" aria-label="Road-rule filters">
+          <div class="filter-group filter-search">
+            <label for="rule-search">Keyword</label>
+            <input id="rule-search" type="search" placeholder="Search obligations, clauses, ODC elements…" autocomplete="off" />
+          </div>
+          <div class="filter-group">
+            <label for="rule-category">Category</label>
+            <select id="rule-category"><option value="">All categories</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="rule-source">Public source</label>
+            <select id="rule-source"><option value="">All sources</option></select>
+          </div>
+          <button class="btn-link rule-reset" id="rule-reset" type="button">Clear filters</button>
+          <div class="filter-meta" id="rule-count" aria-live="polite">Loading…</div>
+        </div>
+
+        <div id="active-rule-filter" class="active-rule-filter" hidden></div>
+
+        <div class="rule-result-toolbar">
+          <p id="rule-result-summary">Reading public road-rule data…</p>
+          <details class="export-menu">
+            <summary>Export results</summary>
+            <div class="export-menu-panel">
+              <button type="button" data-export="json">JSON</button>
+              <button type="button" data-export="csv">CSV</button>
+              <button type="button" data-export="markdown">Markdown</button>
+            </div>
+          </details>
+        </div>
+
+        <div id="rule-list" class="obligation-list" aria-live="polite">
+          <p class="loading">Loading road-rule mapping…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.5.0</strong> · Apache 2.0 (code) · CC BY 4.0 (data)</p>
+        <p>Maintainer: <a href="https://autozyx.com" target="_blank" rel="noopener">Zhang Yuxin</a> · Jilin University</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/road-rules.html">中文</a>
+        <a href="/en/methodology.html">Method</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/rules.js"></script>
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>

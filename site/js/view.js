@@ -14,6 +14,7 @@ const containerEl = document.getElementById('view-container')
 let currentDoc = null
 let currentIndex = null
 let currentCatalog = null
+let currentRoadRules = null
 let currentView = getQueryParam('view') || 'dev'
 
 const copy = {
@@ -75,7 +76,12 @@ const copy = {
     missingId: '缺少 ?id 参数。',
     backGallery: '返回样例库',
     sampleNotFound: id => `未找到样例：${id}`,
-    loadFailed: msg => `加载失败：${msg}`
+    loadFailed: msg => `加载失败：${msg}`,
+    relatedRulesTitle: '相关道路规则主题',
+    relatedRulesIntro: '依据本样例的组合边界和证据要素，定位可能相关的道路规则义务、ODC 条件与场景触发点。',
+    relatedRulesNotice: '此处只表示 ODC 要素与道路规则主题的语义关联，不表示该产品满足或违反相关规则。',
+    relatedRulesLink: '查看规则追溯',
+    relatedRulesEmpty: '当前样例没有可追溯的道路规则主题。'
   },
   en: {
     element: 'Element (section)',
@@ -135,7 +141,12 @@ const copy = {
     missingId: 'Missing ?id parameter.',
     backGallery: 'Back to gallery',
     sampleNotFound: id => `Sample not found: ${id}`,
-    loadFailed: msg => `Load failed: ${msg}`
+    loadFailed: msg => `Load failed: ${msg}`,
+    relatedRulesTitle: 'Related road-rule topics',
+    relatedRulesIntro: 'Use the sample’s boundary combinations and evidence-backed elements to locate potentially relevant obligations, ODC conditions, and scenario triggers.',
+    relatedRulesNotice: 'This is a semantic association between ODC elements and road-rule topics. It does not mean the product satisfies or violates a rule.',
+    relatedRulesLink: 'Open rule trace',
+    relatedRulesEmpty: 'No traceable road-rule topic is available for this sample.'
   }
 }
 
@@ -212,6 +223,7 @@ function renderDev() {
   }
 
   wrap.appendChild(renderBoundaryCombinations('dev'))
+  wrap.appendChild(renderRelatedRoadRules())
 
   // JSON dump
   const jsonBlock = el('details', { class: 'json-details' })
@@ -265,6 +277,7 @@ function renderConsumer() {
   }
 
   wrap.appendChild(renderBoundaryCombinations('consumer'))
+  wrap.appendChild(renderRelatedRoadRules())
 
   const bucketCopy = consumerBucketCopy(currentDoc)
   wrap.appendChild(renderBucket('green', bucketCopy.greenTitle, buckets.useable, bucketCopy.greenHint))
@@ -646,6 +659,63 @@ function renderBoundaryMetaLine(label, value) {
   ])
 }
 
+function renderRelatedRoadRules() {
+  const section = el('section', { class: 'related-road-rules' })
+  section.appendChild(el('div', { class: 'boundary-head' }, [
+    el('h3', {}, copy[lang].relatedRulesTitle),
+    el('p', {}, copy[lang].relatedRulesIntro)
+  ]))
+  section.appendChild(el('p', { class: 'related-rule-notice' }, copy[lang].relatedRulesNotice))
+  if (!currentRoadRules?.obligations?.length) {
+    section.appendChild(el('p', { class: 'empty-note' }, copy[lang].relatedRulesEmpty))
+    return section
+  }
+
+  const relevantElementIds = new Set(
+    (currentDoc.boundary_combinations || []).flatMap(combo => combo.related_element_ids || [])
+  )
+  if (!relevantElementIds.size) {
+    for (const item of currentDoc.elements || []) {
+      if (item.evidence_refs?.length) relevantElementIds.add(item.element_id)
+    }
+  }
+
+  const matches = currentRoadRules.obligations.map(obligation => {
+    const mapping = obligation.odc_mappings.find(item => relevantElementIds.has(item.element_id))
+    return mapping ? { obligation, mapping } : null
+  }).filter(Boolean)
+
+  if (!matches.length) {
+    section.appendChild(el('p', { class: 'empty-note' }, copy[lang].relatedRulesEmpty))
+    return section
+  }
+
+  const categoryLabels = {
+    zh: {
+      traffic_signal: '交通信号', road_traffic: '道路通行', vehicle_operation: '车辆操作',
+      priority_interaction: '优先权与交互', special_risk: '特殊与风险处置'
+    },
+    en: {
+      traffic_signal: 'Traffic signals', road_traffic: 'Road traffic', vehicle_operation: 'Vehicle operation',
+      priority_interaction: 'Priority & interaction', special_risk: 'Special & risk handling'
+    }
+  }
+  const list = el('div', { class: 'related-rule-list' })
+  for (const { obligation, mapping } of matches) {
+    const title = obligation.title?.[lang] || obligation.title?.zh || obligation.title?.en
+    const meta = currentIndex.get(mapping.element_id)
+    const odcName = meta ? elementName(meta) : mapping.element_id
+    const target = `${lang === 'en' ? '/en' : ''}/road-rules.html?element=${encodeURIComponent(mapping.element_id)}#${obligation.id}`
+    list.appendChild(el('a', { class: 'related-rule-link', href: target }, [
+      el('span', {}, categoryLabels[lang][obligation.category] || obligation.category),
+      el('strong', {}, title),
+      el('small', {}, `${odcName} · ${copy[lang].relatedRulesLink}`)
+    ]))
+  }
+  section.appendChild(list)
+  return section
+}
+
 function renderConsumerItem(it) {
   const li = el('li', { class: 'consumer-item coverage-' + it.coverage })
   const head = el('div', { class: 'item-head' })
@@ -871,9 +941,14 @@ function toMarkdown(doc) {
       containerEl.innerHTML = `<p class="error">${copy[lang].missingId} <a href="${lang === 'en' ? '/en/gallery.html' : '/gallery.html'}">${copy[lang].backGallery}</a></p>`
       return
     }
-    const [catalog, manifest] = await Promise.all([loadCatalog(), loadManifest()])
+    const [catalog, manifest, roadRulesResponse] = await Promise.all([
+      loadCatalog(),
+      loadManifest(),
+      fetch('/data/road-rules/obligations.json')
+    ])
     currentCatalog = catalog
     currentIndex = buildElementIndex(catalog)
+    currentRoadRules = roadRulesResponse.ok ? await roadRulesResponse.json() : null
     const entry = manifest.documents.find(d => d.id === id)
     if (!entry) throw new Error(copy[lang].sampleNotFound(id))
     currentDoc = await loadDocument(entry.file)

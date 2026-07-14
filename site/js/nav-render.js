@@ -8,6 +8,7 @@ const bilingualPages = new Set([
   'gallery.html',
   'methodology.html',
   'tools.html',
+  'road-rules.html',
   'join.html',
   'view.html',
   'compare.html',
@@ -70,6 +71,9 @@ function mount() {
     const normalizedHref = href.replace(/\/$/, '/index.html')
     if (current === normalizedHref) a.classList.add('active')
   })
+  if (current.endsWith('/road-rules.html')) {
+    navEl.querySelector(`a[href="${isEn ? '/en/tools.html' : '/tools.html'}"]`)?.classList.add('active')
+  }
 }
 
 function setupAutoHideHeader(header) {

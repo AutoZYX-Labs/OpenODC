@@ -1,0 +1,17 @@
+{
+  "name": "openodc",
+  "private": true,
+  "version": "0.5.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node tools/build-road-rule-profile.mjs && node tools/build-manifest.mjs",
+    "check:data": "node tools/validate-json-schemas.mjs && node tools/check-references.mjs && node tools/check-road-rules.mjs && node tools/check-road-rule-exports.mjs && node tools/check-public-boundary.mjs",
+    "test:ui": "playwright test",
+    "verify": "npm run generate && npm run check:data && npm run test:ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}
