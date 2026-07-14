@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "catalog_element_count": 144,
+  "catalog_id_set_sha256": "4ad4087faf67283d6b4c8196e49d770b63203b976f282f2d1bcc604b9d1b6410",
+  "sample_count": 6,
+  "sample_id_set_sha256": "9f8a8ad087aabbb5521dacb763386a0d7b6bbfb64e10b83709dfe5d4168eb128",
+  "sample_files_sha256": {
+    "baidu-apollogo-wuhan.json": "7b3b3cc16497f26ba51526e8fae448536000912029abacfa4f9ea36b6ad59d18",
+    "huawei-ads4-aito-m9.json": "af453033aa7ff21aac3156094adf1dee679c0e1a75ea236997317d93fb05b6fa",
+    "pony-ai-gen7-robotaxi.json": "480abe514efffea04e3ff253507caee811515b88f8a8a40a60e223ea2f49ddd1",
+    "tesla-assisted-driving-china-current.json": "314c025f67f6343bbd64452aeb564d887bda38d89714bfe91dc14ef506937b94",
+    "tesla-fsd-us-current.json": "b1010b6ba715b845ad7506265a967394dcb7fb9bc32365fa8f3903977e214668",
+    "xpeng-xngp-p7plus-2026.json": "5bf499a2dfe0c4697e4007e6ef08a0540597774812b1ef7b4e82222e430fcfce"
+  },
+  "note": "Locks catalog IDs, sample IDs, and the exact content of the six v0.1.0 public examples."
+}

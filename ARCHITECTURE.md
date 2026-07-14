@@ -59,7 +59,7 @@ For example, fog/haze/dust/smoke all use the same 4-level visibility scale (Tabl
 
 ### 2.3 The document schema (`schema/odc.schema.json`)
 
-This is a JSON Schema (Draft 2019-09, chosen for current `ajv-cli` compatibility) that defines the shape of an actual ODC document — what an OEM or contributor would author. Conceptually:
+This is a JSON Schema (Draft 2019-09, validated with the maintained Ajv 8 engine) that defines the shape of an actual ODC document — what an OEM or contributor would author. Conceptually:
 
 ```
 ODCDocument
@@ -144,6 +144,30 @@ Boundary combinations are intentionally non-exhaustive. They are used to:
 - expose combination-level public disclosure gaps, such as weather + lane-marking thresholds or remote-assistance intervention thresholds.
 
 They must not be presented as vendor safety conclusions unless the document itself is `vendor_confirmed`.
+
+## 5.2 Road-rule obligations as an independent public domain
+
+Road-rule obligations are not fields inside an `ODCDocument`. They form an independent, non-exhaustive public dataset under `data/road-rules/`, validated by `schema/road-rules/road-rule-profile.schema.json`.
+
+The trace is deliberately directional:
+
+`current public source → public rule and legal subject → engineering interpretation / candidate → ODC applicability → scenario hook → candidate evidence`
+
+This separation protects four boundaries:
+
+- laws and regulations define road-user obligations;
+- the legal subject is stored separately from the engineering translation, and an ADS is never silently promoted into a legal responsibility subject;
+- GB/T 45312-2025 supplies an ODC vocabulary, not a legal permission or certification result;
+- a semantic mapping does not prove that a product satisfies an obligation;
+- the public dataset contains no vendor, model, compliance score, or unpublished-source field.
+
+Every source carries official-record metadata and a reference fingerprint. Every obligation records its legal subject, engineering-derivation type, and manual-review scope. Every mapping references a stable ID from the 144-element catalog. The six sample documents are content-locked by SHA-256, not only by ID. Detail pages derive related road-rule topics at render time from boundary-combination element IDs, while the original sample JSON export remains untouched.
+
+JSON, CSV, and Markdown exports are all derived from the same canonical traceability record. Nested structures are retained as JSON fields in CSV and as machine-readable JSON blocks in Markdown, so export is lossless rather than a summary-only view.
+
+CI verifies schema validity, 20 obligations, 59 clause references, 52 ODC mappings, export parity, public/private boundaries, desktop and mobile layouts, deep links, downloads, and the six sample content hashes before release.
+
+The public model is versioned independently at `0.1.0`; the website release that introduces it is `v0.5.0`.
 
 This layer also creates the natural interface to two related projects:
 
@@ -238,4 +262,4 @@ OpenODC is **not** trying to be:
 
 ---
 
-*Last updated 2026-05-13 (v0.4.3 / boundary-combination expansion and trigger-condition candidates).*
+*Last updated 2026-07-14 (v0.5.0 / public road-rule obligation mapping).*

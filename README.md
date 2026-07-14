@@ -45,7 +45,7 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 
 ## 当前状态
 
-`v0.4.3（边界组合扩展与共建治理原型）`
+`v0.5.0（道路规则义务映射）`
 
 - ✅ 完整转录 GB/T 45312—2025 的 ODC 元素层级（144 个元素 / 7 类）
 - ✅ JSON Schema + TypeScript 类型定义
@@ -57,6 +57,10 @@ OpenODC 提供一个统一的、机器可读的格式和公开样例库，让设
 - ✅ 双视图渲染：开发者视图 / 消费者视图
 - ✅ 横向矩阵：144 个国标要素 × 6 个样例逐项对比
 - ✅ 厂家资料工作台：粘贴手册 / 规则摘录，生成 144 要素 ODC 草案表，并导出 CSV / Markdown 审核包
+- ✅ 道路规则义务映射：20 条非穷尽义务连接现行公开来源、ODC 适用条件、场景触发点与候选证据；法律义务主体与工程解释 / 工程候选明确分层
+- ✅ 可验证导出：JSON / CSV / Markdown 保留同一完整追溯记录，CI 逐字段检查一致性
+- ✅ 兼容锁：144 个目录元素、6 个公开样例 ID 和六份样例完整内容哈希均受 CI 保护
+- ✅ 公私边界门禁：公开仓库自动扫描未公开材料标识、本机路径和常见密钥
 - ✅ 共建入口：面向标准、智驾开发、功能安全、测评、数据工程和开源运营协作者的维护计划
 - ⏳ 后端发布闭环：企业域名验证、角色权限、私有文件解析、管理员审核、API / 门户 / 审核包 / GitHub 多通道发布
 
@@ -77,9 +81,11 @@ OpenODC/
 │   │   ├── odd_digital_info.json     # 数字信息
 │   │   ├── personnel_state.json      # 驾乘人员状态
 │   │   └── vehicle_state.json        # 车辆状态
-│   └── enums/
-│       └── quantitative_scales.json  # 量化分级表（风力/雨量/能见度等）
+│   ├── enums/
+│   │   └── quantitative_scales.json  # 量化分级表（风力/雨量/能见度等）
+│   └── road-rules/                   # 独立道路规则公共 Schema 与类型
 ├── data/
+│   ├── road-rules/                   # 20 条道路规则义务及公开来源
 │   └── examples/
 │       ├── huawei-ads4-aito-m9.json
 │       ├── tesla-fsd-us-current.json
@@ -93,12 +99,12 @@ OpenODC/
 
 ## 快速使用
 
-校验一份 ODC 文档（需先安装 [ajv-cli](https://github.com/ajv-validator/ajv-cli)）：
+安装测试依赖并运行完整校验：
 
 ```bash
-npx ajv-cli validate --spec=draft2019 --strict=false --validate-formats=false -s schema/odc.schema.json -d data/examples/huawei-ads4-aito-m9.json
-node tools/check-references.mjs
-node tools/build-manifest.mjs
+npm install
+npx playwright install chromium
+npm run verify
 node tools/check-source-links.mjs
 ```
 
@@ -126,6 +132,7 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 | 公开样例库 | `data/examples/*.json`（社区提取样例，逐项显示公开资料覆盖与缺口） |
 | L2 / L3 / L4 语义边界 | `site/methodology.html` |
 | 量化分级表 5–14 | `schema/enums/quantitative_scales.json` |
+| 现行公开道路规则来源与 ODC 语义映射 | `data/road-rules/obligations.json`（研究型、非穷尽，不构成合规判定） |
 
 ## 贡献
 

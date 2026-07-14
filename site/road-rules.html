@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>道路规则映射 — OpenODC</title>
+  <meta name="description" content="浏览 20 条中国道路规则义务，并追溯到现行公开来源、ODC 适用条件、场景触发点和候选证据。" />
+  <meta property="og:title" content="道路规则映射 — OpenODC" />
+  <meta property="og:description" content="从现行公开来源到道路规则义务、ODC 适用条件、场景触发点和候选证据。" />
+  <meta property="og:image" content="https://openodc.autozyx.com/assets/presentation/project-openodc.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://openodc.autozyx.com/road-rules.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#c85a3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="road-rules-page">
+  <header class="site-header"><nav class="nav"></nav></header>
+
+  <main>
+    <section class="page-hero road-rule-hero">
+      <div class="container">
+        <p class="eyebrow">READ-ONLY TOOL</p>
+        <div class="road-rule-hero-grid">
+          <div>
+            <h1 class="page-title">道路规则映射</h1>
+            <p class="page-subtitle">把现行公开法规中的道路规则义务，连接到 ODC 适用条件、可执行场景触发点和候选验证证据。</p>
+          </div>
+          <p class="road-rule-disclaimer">本工具用于工程研究、需求追溯和测试设计，不构成法律意见、认证结论，也不评价任何厂商、车型或功能是否合规。</p>
+        </div>
+        <ol class="trace-overview" aria-label="道路规则追溯链">
+          <li><span>01</span><strong>公开来源</strong><small>现行法律、条例与标准</small></li>
+          <li><span>02</span><strong>规则义务</strong><small>应当、不得与适用边界</small></li>
+          <li><span>03</span><strong>ODC 映射</strong><small>道路、设施、目标物与状态</small></li>
+          <li><span>04</span><strong>场景与证据</strong><small>触发条件、期望响应与验证入口</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="filter-bar road-rule-filters" aria-label="道路规则筛选">
+          <div class="filter-group filter-search">
+            <label for="rule-search">关键词</label>
+            <input id="rule-search" type="search" placeholder="搜索义务、条款、ODC 要素…" autocomplete="off" />
+          </div>
+          <div class="filter-group">
+            <label for="rule-category">规则类别</label>
+            <select id="rule-category"><option value="">全部类别</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="rule-source">公开来源</label>
+            <select id="rule-source"><option value="">全部来源</option></select>
+          </div>
+          <button class="btn-link rule-reset" id="rule-reset" type="button">清空筛选</button>
+          <div class="filter-meta" id="rule-count" aria-live="polite">正在加载…</div>
+        </div>
+
+        <div id="active-rule-filter" class="active-rule-filter" hidden></div>
+
+        <div class="rule-result-toolbar">
+          <p id="rule-result-summary">正在读取公开规则数据…</p>
+          <details class="export-menu">
+            <summary>导出当前结果</summary>
+            <div class="export-menu-panel">
+              <button type="button" data-export="json">JSON</button>
+              <button type="button" data-export="csv">CSV</button>
+              <button type="button" data-export="markdown">Markdown</button>
+            </div>
+          </details>
+        </div>
+
+        <div id="rule-list" class="obligation-list" aria-live="polite">
+          <p class="loading">正在加载道路规则映射…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-meta">
+        <p><strong>OpenODC v0.5.0</strong> · Apache 2.0（代码）· CC BY 4.0（数据）</p>
+        <p>维护者：<a href="https://autozyx.com" target="_blank" rel="noopener">张玉新</a> · 吉林大学</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AutoZYX-Labs/OpenODC" target="_blank" rel="noopener">GitHub</a>
+        <a href="/en/road-rules.html">English</a>
+        <a href="/methodology.html">方法</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/rules.js"></script>
+  <script type="module" src="/js/nav-render.js"></script>
+</body>
+</html>

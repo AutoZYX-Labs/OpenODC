@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://openodc.autozyx.com/schema/road-rules/road-rule-profile.schema.json",
+  "title": "OpenODC Road Rule Profile",
+  "description": "A public-source, non-certification trace from road-rule obligations to ODC elements and scenario hooks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile", "sources", "obligations"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^0\\.1\\.0$" },
+    "profile": { "$ref": "#/$defs/profile" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "obligations": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": { "$ref": "#/$defs/obligation" }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "title",
+        "description",
+        "jurisdiction",
+        "source_status",
+        "reviewed_on",
+        "disclaimer"
+      ],
+      "properties": {
+        "id": { "const": "openodc-road-rules-cn" },
+        "version": { "type": "string", "pattern": "^0\\.5\\.0$" },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "description": { "$ref": "#/$defs/localizedText" },
+        "jurisdiction": { "const": "CN" },
+        "source_status": { "const": "current-public-sources" },
+        "reviewed_on": { "type": "string", "format": "date" },
+        "disclaimer": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "title", "authority", "status", "url", "checked_on", "version_evidence"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "type": { "enum": ["law", "administrative_regulation", "national_standard"] },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "authority": { "$ref": "#/$defs/localizedText" },
+        "status": { "const": "current" },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "checked_on": { "type": "string", "format": "date" },
+        "version_evidence": { "$ref": "#/$defs/versionEvidence" }
+      }
+    },
+    "versionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["official_repository", "record_identifier", "fingerprint_scope", "reference_fingerprint_sha256"],
+      "properties": {
+        "official_repository": { "$ref": "#/$defs/localizedText" },
+        "record_identifier": { "type": "string", "minLength": 1 },
+        "fingerprint_scope": { "$ref": "#/$defs/localizedText" },
+        "reference_fingerprint_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "sourceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "clauses", "interpretation"],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "clauses": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "interpretation": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "odcMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["element_id", "relation", "rationale"],
+      "properties": {
+        "element_id": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+        "relation": { "enum": ["direct", "contextual", "supporting"] },
+        "rationale": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "condition", "odc_element_ids"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "condition": { "$ref": "#/$defs/localizedText" },
+        "odc_element_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z0-9_.-]+$" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "scenarioHook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "trigger", "expected_response", "evidence_candidates"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9.-]+$" },
+        "trigger": { "$ref": "#/$defs/localizedText" },
+        "expected_response": { "$ref": "#/$defs/localizedText" },
+        "evidence_candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "requirements_trace",
+              "model_or_code_review",
+              "simulation",
+              "proving_ground",
+              "road_test",
+              "event_log",
+              "human_review"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "normativeSubject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "label", "legal_boundary"],
+      "properties": {
+        "kind": { "enum": ["road_user", "motor_vehicle_driver", "vehicle_owner_or_operator", "traffic_management_body"] },
+        "label": { "$ref": "#/$defs/localizedText" },
+        "legal_boundary": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "engineeringDerivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "statement"],
+      "properties": {
+        "type": { "enum": ["engineering_interpretation", "engineering_candidate"] },
+        "statement": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "manualReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewer_role", "reviewed_on", "scope"],
+      "properties": {
+        "status": { "const": "public_source_and_engineering_mapping_reviewed" },
+        "reviewer_role": { "$ref": "#/$defs/localizedText" },
+        "reviewed_on": { "type": "string", "format": "date" },
+        "scope": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "obligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "category",
+        "title",
+        "normative_rule",
+        "normative_subject",
+        "summary",
+        "derivation",
+        "source_refs",
+        "odc_mappings",
+        "applicability",
+        "scenario_hooks",
+        "review"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^rr\\.[a-z0-9.-]+$" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 20 },
+        "category": { "enum": ["traffic_signal", "road_traffic", "vehicle_operation", "priority_interaction", "special_risk"] },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "normative_rule": { "$ref": "#/$defs/localizedText" },
+        "normative_subject": { "$ref": "#/$defs/normativeSubject" },
+        "summary": { "$ref": "#/$defs/localizedText" },
+        "derivation": { "$ref": "#/$defs/engineeringDerivation" },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/sourceReference" }
+        },
+        "odc_mappings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/odcMapping" }
+        },
+        "applicability": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/applicability" }
+        },
+        "scenario_hooks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/scenarioHook" }
+        },
+        "review": { "$ref": "#/$defs/manualReview" }
+      }
+    }
+  }
+}

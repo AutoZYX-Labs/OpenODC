@@ -45,7 +45,7 @@ OpenODC also makes one limitation explicit: an ODC table is element-based, and s
 
 ## Current status
 
-`v0.4.3 (boundary-combination expansion / open stewardship call)`
+`v0.5.0 (road-rule obligation mapping)`
 
 - ✅ Full transcription of GB/T 45312—2025 ODC element hierarchy (144 elements / 7 categories)
 - ✅ JSON Schema + TypeScript type definitions
@@ -57,6 +57,10 @@ OpenODC also makes one limitation explicit: an ODC table is element-based, and s
 - ✅ Dual renderer: developer view and consumer view
 - ✅ Matrix view: 144 GB/T elements × 6 sample systems
 - ✅ Vendor Intake Workbench: paste manual / rule excerpts, generate a 144-element ODC draft table, and export CSV / Markdown review packages
+- ✅ Road-rule obligation mapping: 20 non-exhaustive obligations traced to current public sources, ODC applicability, scenario triggers, and evidence candidates, with explicit separation between legal subjects and engineering interpretations / candidates
+- ✅ Verifiable export: JSON, CSV, and Markdown preserve the same complete traceability records, checked field-by-field in CI
+- ✅ Compatibility lock: 144 catalog elements, six public sample IDs, and the exact content hashes of all six samples are protected in CI
+- ✅ Public/private boundary gate for unpublished-source labels, local paths, and common secrets
 - ✅ Stewardship page for contributors with standards, ADAS / ADS development, safety, testing, data engineering, or open-source operations experience
 - ⏳ Backend publishing loop: corporate-domain verification, role permissions, private file parsing, administrator review, and portal / API / review-package / GitHub publication channels
 
@@ -70,20 +74,22 @@ OpenODC/
 │   ├── odc.schema.json               # Main JSON Schema
 │   ├── odc.types.ts                  # TypeScript types
 │   ├── categories/                   # ODC element catalog
-│   └── enums/                        # Quantitative scale tables
+│   ├── enums/                        # Quantitative scale tables
+│   └── road-rules/                   # Independent public road-rule schema and types
 ├── data/examples/                    # Reference ODC documents
+├── data/road-rules/                  # 20 obligations and public sources
 ├── site/                             # Static site: Gallery / Editor / Matrix / Workbench
 └── tools/                            # manifest build, coverage fill, reference checks
 ```
 
 ## Quick start
 
-Validate an ODC document:
+Install test dependencies and run the complete verification suite:
 
 ```bash
-npx ajv-cli validate --spec=draft2019 --strict=false --validate-formats=false -s schema/odc.schema.json -d data/examples/huawei-ads4-aito-m9.json
-node tools/check-references.mjs
-node tools/build-manifest.mjs
+npm install
+npx playwright install chromium
+npm run verify
 node tools/check-source-links.mjs
 ```
 
@@ -111,6 +117,7 @@ const doc: ODCDocument = require('./data/examples/huawei-ads4-aito-m9.json')
 | Public sample library | `data/examples/*.json` (community-extracted samples with per-element public-source coverage and gaps) |
 | L2 / L3 / L4 semantics | `site/en/methodology.html` |
 | Tables 5–14 quantitative scales | `schema/enums/quantitative_scales.json` |
+| Current public road-rule sources and ODC semantic mappings | `data/road-rules/obligations.json` (research-oriented, non-exhaustive, not a compliance determination) |
 
 ## Contributing
 
