@@ -14,6 +14,7 @@ const countEl = document.getElementById('matrix-count')
 let catalog, elementIndex
 let docs = []              // [{ manifestEntry, odc, elementMap: Map }]
 let categories = []        // top-level
+let roadRuleCounts = new Map()
 
 const copy = {
   zh: {
@@ -24,6 +25,8 @@ const copy = {
     permitted: '允许',
     noData: '没有数据',
     exitBehavior: '退出行为',
+    roadRules: count => `${count} 条规则 →`,
+    roadRulesTitle: count => `查看与该 ODC 要素关联的 ${count} 条道路规则`,
     count: (rows, records) => `${rows} 个要素 · ${records} 个样例`,
     loadFailed: msg => `加载失败：${msg}`
   },
@@ -35,6 +38,8 @@ const copy = {
     permitted: 'Permitted',
     noData: 'No data',
     exitBehavior: 'Exit behavior',
+    roadRules: count => `${count} rule${count === 1 ? '' : 's'} →`,
+    roadRulesTitle: count => `Open ${count} road rule${count === 1 ? '' : 's'} mapped to this ODC element`,
     count: (rows, records) => `${rows} elements · ${records} samples`,
     loadFailed: msg => `Load failed: ${msg}`
   }
@@ -92,6 +97,27 @@ function allElements() {
     }
   }
   return all
+}
+
+function buildRoadRuleCounts(profile) {
+  const obligationsByElement = new Map()
+  for (const obligation of profile.obligations || []) {
+    for (const mapping of obligation.odc_mappings || []) {
+      if (!obligationsByElement.has(mapping.element_id)) obligationsByElement.set(mapping.element_id, new Set())
+      obligationsByElement.get(mapping.element_id).add(obligation.id)
+    }
+  }
+  return new Map([...obligationsByElement].map(([elementId, obligationIds]) => [elementId, obligationIds.size]))
+}
+
+async function loadRoadRuleCounts() {
+  try {
+    const response = await fetch('/data/road-rules/obligations.json')
+    if (!response.ok) return new Map()
+    return buildRoadRuleCounts(await response.json())
+  } catch {
+    return new Map()
+  }
 }
 
 function isDivergent(elementId) {
@@ -169,6 +195,15 @@ function render() {
       el('code', { class: 'elem-id' }, elem.id),
       el('span', { class: 'elem-sec' }, ' · §' + elem.spec_section)
     ]))
+    const relatedRuleCount = roadRuleCounts.get(elem.id) || 0
+    if (relatedRuleCount > 0) {
+      const rulePath = lang === 'en' ? '/en/road-rules.html' : '/road-rules.html'
+      leftTd.appendChild(el('a', {
+        class: 'matrix-rule-link',
+        href: `${rulePath}?element=${encodeURIComponent(elem.id)}`,
+        title: copy[lang].roadRulesTitle(relatedRuleCount)
+      }, copy[lang].roadRules(relatedRuleCount)))
+    }
     tr.appendChild(leftTd)
     for (const d of docs) {
       const e = d.elementMap.get(elem.id)
@@ -188,9 +223,14 @@ function render() {
 
 ;(async () => {
   try {
-    catalog = await loadCatalog()
+    const [loadedCatalog, manifest, loadedRoadRuleCounts] = await Promise.all([
+      loadCatalog(),
+      loadManifest(),
+      loadRoadRuleCounts()
+    ])
+    catalog = loadedCatalog
     elementIndex = buildElementIndex(catalog)
-    const manifest = await loadManifest()
+    roadRuleCounts = loadedRoadRuleCounts
 
     // Populate category filter
     for (const cat of catalog.categories) {

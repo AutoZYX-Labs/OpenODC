@@ -71,6 +71,18 @@
           </table>
         </div>
 
+        <h2 class="section-title">ODC and Road Rules</h2>
+        <p class="lead">ODC describes the conditions in which a function is designed to operate, but it does not by itself answer how an actor should behave in a specific traffic situation. Road rules add behavioral obligations, prohibitions, legal subjects, and applicability boundaries. The scenario and evidence layer then turns that semantic relation into a reviewable engineering object. OpenODC provides traceability; it does not automatically determine vehicle compliance or accident responsibility.</p>
+
+        <div class="rule-method-bridge" aria-label="Engineering relationship between ODC and road rules">
+          <section><span>01</span><strong>ODC Conditions</strong><p>Describe roads, facilities, environment, traffic actors, and system states: where and when the function operates.</p></section>
+          <div class="rule-method-arrow" aria-hidden="true">→</div>
+          <section><span>02</span><strong>Rule Obligations</strong><p>Record required or prohibited behavior, the legal subject, and applicability from public sources.</p></section>
+          <div class="rule-method-arrow" aria-hidden="true">→</div>
+          <section><span>03</span><strong>Scenarios and Evidence</strong><p>Define triggers, expected responses, and candidate evidence so the engineering interpretation can be reviewed.</p></section>
+        </div>
+        <p class="method-rule-action"><a class="btn btn-ghost" href="/en/road-rules.html">Open Road-Rule Mapping →</a></p>
+
         <h2 class="section-title">Limitations of the ODC Table</h2>
         <p class="lead">An ODC table is a necessary starting point for transparency, but it is not the full safety boundary of a driving system. Roads, weather, lane markings, objects, and speed are single-element projections of a high-dimensional real-world scene. Real-road risk often emerges when several elements appear together, so allowed single-element ranges must not be multiplied into an assumed safe combined boundary.</p>
 

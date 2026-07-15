@@ -26,6 +26,7 @@ function navHtml(lang, langHref) {
         <a href="/en/presentation.html">Brief</a>
         <a href="/en/gallery.html">Gallery</a>
         <a href="/en/methodology.html">Method</a>
+        <a href="/en/road-rules.html">Road Rules</a>
         <a href="/en/tools.html">Tools</a>
         <a href="/en/join.html">Join</a>
         <span class="nav-divider" aria-hidden="true"></span>
@@ -42,6 +43,7 @@ function navHtml(lang, langHref) {
       <a href="/presentation.html">速览</a>
       <a href="/gallery.html">样例库</a>
       <a href="/methodology.html">方法</a>
+      <a href="/road-rules.html">道路规则</a>
       <a href="/tools.html">工具台</a>
       <a href="/join.html">共建</a>
       <span class="nav-divider" aria-hidden="true"></span>
@@ -71,9 +73,6 @@ function mount() {
     const normalizedHref = href.replace(/\/$/, '/index.html')
     if (current === normalizedHref) a.classList.add('active')
   })
-  if (current.endsWith('/road-rules.html')) {
-    navEl.querySelector(`a[href="${isEn ? '/en/tools.html' : '/tools.html'}"]`)?.classList.add('active')
-  }
 }
 
 function setupAutoHideHeader(header) {
