@@ -38,8 +38,8 @@
           <p class="home-tagline">OpenODC 不给智驾能力排名。它只回答一个更基础的问题：公开资料到底把一个功能的 ODC 讲清楚了多少；哪些来自官方手册，哪些仍然只是社区整理、边界组合或公开缺口。</p>
           <div class="hero-actions hero-actions-left">
             <a class="btn btn-primary" href="/gallery.html">浏览样例库 →</a>
+            <a class="btn btn-ghost" href="/road-rules.html">道路规则映射 →</a>
             <a class="btn btn-ghost" href="/methodology.html">查看方法 →</a>
-            <a class="btn btn-ghost" href="/presentation.html">20 分钟速览 →</a>
           </div>
         </div>
         <div class="evidence-panel">
@@ -57,9 +57,9 @@
               <span class="evidence-num">97</span>
               <span class="evidence-label">官方/手册/政府高置信项</span>
             </a>
-            <a href="/tools.html" class="evidence-stat">
-              <span class="evidence-num">60</span>
-              <span class="evidence-label">细粒度边界组合</span>
+            <a href="/road-rules.html" class="evidence-stat">
+              <span class="evidence-num">20</span>
+              <span class="evidence-label">可追溯道路规则义务</span>
             </a>
           </div>
           <p class="panel-note">当前 6 个样例均为社区基于公开资料提取，不代表厂家官方 ODC 声明；暂无厂家确认版本。</p>
@@ -84,6 +84,33 @@
           <a class="sample-tile" href="/view.html?id=baidu-apollogo-wuhan"><span>L4</span><strong>萝卜快跑 · 武汉</strong><small>武汉政府运营规则</small></a>
           <a class="sample-tile" href="/view.html?id=pony-ai-gen7-robotaxi"><span>L4</span><strong>小马智行 Gen-7</strong><small>官方 IR + 前海政府页面</small></a>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-tight home-rule-section">
+      <div class="container">
+        <div class="section-head-row">
+          <div>
+            <p class="eyebrow">ODC × ROAD RULES × EVIDENCE</p>
+            <h2 class="section-title">运行边界如何连接道路规则</h2>
+          </div>
+          <a class="section-link" href="/road-rules.html">进入道路规则映射 →</a>
+        </div>
+        <p class="home-rule-intro">ODC 回答系统设计在什么道路、环境和交通条件下运行；道路规则回答进入具体交通情境后，车辆、驾驶员及其他参与者承担什么行为义务。OpenODC 通过同一组 ODC 要素标识，把二者连接到场景触发点和候选验证证据。</p>
+        <div class="home-rule-layout">
+          <ol class="home-rule-flow" aria-label="ODC 与道路规则的工程链路">
+            <li><span>01</span><strong>ODC 运行边界</strong><small>道路、设施、环境、目标物与系统状态</small></li>
+            <li><span>02</span><strong>道路规则义务</strong><small>公开来源中的应当、不得及适用边界</small></li>
+            <li><span>03</span><strong>场景触发点</strong><small>把语义关系转成可执行的交通情境</small></li>
+            <li><span>04</span><strong>候选验证证据</strong><small>需求、模型、仿真、场地、道路与人工复核</small></li>
+          </ol>
+          <div class="home-rule-metrics" aria-label="道路规则映射当前规模">
+            <a class="home-rule-metric" href="/road-rules.html"><strong>20</strong><span>条双语规则义务</span></a>
+            <a class="home-rule-metric" href="/road-rules.html"><strong>52</strong><span>项 ODC 语义映射</span></a>
+            <a class="home-rule-metric" href="/road-rules.html"><strong>4</strong><span>个现行公开来源</span></a>
+          </div>
+        </div>
+        <p class="home-rule-boundary">这些映射用于工程研究、需求追溯和测试设计，不构成法律意见、认证结论或任何车型的符合性判定。</p>
       </div>
     </section>
 
@@ -115,12 +142,13 @@
           </div>
           <a class="section-link" href="/tools.html">查看全部工具 →</a>
         </div>
-        <div class="tool-entry-grid">
+        <div class="tool-entry-grid home-workflow-grid">
           <a class="tool-entry" href="/gallery.html"><span>01</span><strong>样例库</strong><small>按车型、功能、等级查阅公开 ODC</small></a>
           <a class="tool-entry" href="/compare.html"><span>02</span><strong>横向对比</strong><small>选择 2–4 个样例，快速查看边界差异</small></a>
-          <a class="tool-entry" href="/editor.html"><span>03</span><strong>ODC 编辑器</strong><small>用 144 项国标元素创建可提交的 JSON</small></a>
-          <a class="tool-entry" href="/presentation.html"><span>04</span><strong>20 分钟速览</strong><small>用全屏网页快速讲清 OpenODC</small></a>
+          <a class="tool-entry" href="/road-rules.html"><span>03</span><strong>道路规则映射</strong><small>从 ODC 要素追溯规则义务、场景触发点和证据</small></a>
+          <a class="tool-entry" href="/editor.html"><span>04</span><strong>ODC 编辑器</strong><small>用 144 项国标元素创建可提交的 JSON</small></a>
           <a class="tool-entry" href="/workbench.html"><span>05</span><strong>厂家资料工作台</strong><small>导入手册摘录，生成 ODC 草案表</small></a>
+          <a class="tool-entry" href="/presentation.html"><span>06</span><strong>20 分钟速览</strong><small>用全屏网页快速讲清 OpenODC</small></a>
         </div>
       </div>
     </section>

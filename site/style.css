@@ -1100,6 +1100,168 @@ code {
   letter-spacing: 0.08em;
   font-weight: 600;
 }
+
+/* Homepage bridge from ODC boundaries to road-rule evidence */
+.home-rule-intro {
+  max-width: 1180px;
+  margin: -0.2rem 0 1.5rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.home-rule-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  gap: 1rem;
+  align-items: stretch;
+}
+.home-rule-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.home-rule-flow li {
+  position: relative;
+  min-width: 0;
+  min-height: 146px;
+  padding: 1.05rem 1.05rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg-card);
+}
+.home-rule-flow li:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -0.72rem;
+  z-index: 2;
+  width: 1.4rem;
+  color: var(--accent);
+  background: var(--bg-alt);
+  font-size: 0.9rem;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.home-rule-flow span {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.home-rule-flow strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+  font-family: var(--serif-sc);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+html[lang='en'] .home-rule-flow strong {
+  font-family: var(--serif);
+}
+.home-rule-flow small {
+  display: block;
+  color: var(--ink-mute);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+.home-rule-metrics {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+.home-rule-metric {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg-card);
+  color: inherit;
+}
+.home-rule-metric:hover {
+  border-color: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.home-rule-metric strong {
+  color: var(--accent-deep);
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.home-rule-metric span {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.home-rule-boundary {
+  margin: 1rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--accent-soft);
+  color: var(--ink-mute);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.home-workflow-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Method page: semantic boundary between conditions, obligations, and evidence */
+.rule-method-bridge {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr) auto) minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: stretch;
+  margin: 1.4rem 0 1rem;
+}
+.rule-method-bridge section {
+  min-width: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg-card);
+}
+.rule-method-bridge span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.rule-method-bridge strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-family: var(--serif-sc);
+  font-size: 1rem;
+}
+html[lang='en'] .rule-method-bridge strong {
+  font-family: var(--serif);
+}
+.rule-method-bridge p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.rule-method-arrow {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1rem;
+}
+.method-rule-action {
+  margin: 0 0 3rem;
+}
 .stack-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
@@ -1225,6 +1387,19 @@ code {
 @media (max-width: 1080px) {
   .home-hero-grid {
     grid-template-columns: 1fr;
+  }
+  .home-rule-layout {
+    grid-template-columns: 1fr;
+  }
+  .home-rule-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-rule-flow li:nth-child(2)::after {
+    display: none;
+  }
+  .home-rule-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: none;
   }
   .stack-panel {
     grid-template-columns: 1fr;
@@ -1738,6 +1913,21 @@ code {
   .maintainer-grid,
   .principle-grid {
     grid-template-columns: 1fr;
+  }
+  .home-rule-flow,
+  .home-rule-metrics,
+  .rule-method-bridge {
+    grid-template-columns: 1fr;
+  }
+  .home-rule-flow li {
+    min-height: 0;
+  }
+  .home-rule-flow li::after {
+    display: none;
+  }
+  .rule-method-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
   }
   .stewardship-panel {
     padding: 1.4rem;
@@ -2772,6 +2962,16 @@ details[open] > .group-summary::before { transform: rotate(90deg); }
 .elem-name { font-weight: 500; color: var(--ink); }
 .elem-meta { font-size: 0.7rem; color: var(--ink-mute); margin-top: 0.2rem; }
 .elem-id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+.matrix-rule-link {
+  display: inline-flex;
+  margin-top: 0.42rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.matrix-rule-link:hover { color: var(--accent-deep); }
 .matrix-cell {
   position: relative;
   padding: 0.45rem 0.7rem;
@@ -6157,6 +6357,27 @@ html[lang="en"] [data-slide-key="thanks"] .thanks-template .thanks-statement {
 }
 
 @media (max-width: 720px) {
+  .matrix-filters {
+    align-items: stretch;
+  }
+
+  .matrix-filters label {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .matrix-filters select,
+  .matrix-filters input {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .matrix-count {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .odc-table {
     display: block;
     width: 100%;
